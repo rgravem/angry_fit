@@ -19,10 +19,34 @@ myApp.config(['$routeProvider', function($routeProvider){
         templateUrl: "./views/partials/existingCustomer.html",
         controller: "existingCustomerController"
       }).
-      // when('/homeli',{
-      //   templateUrl: "./views/partials/loggedInPartials/homeLoggedIn.html",
-      //   controller: "homeControllerLoggedIn"
-      // }).
+      when('/selectedCustomer',{
+        templateUrl: "./views/partials/selectedCustomer.html",
+        controller: "selectedCustomerController"
+      }).
+      when('/selectedBike',{
+        templateUrl: "./views/partials/selectedBike.html",
+        controller: "selectedBikeController"
+      }).
+      when('/newCustomer',{
+        templateUrl: "./views/partials/newCustomer.html",
+        controller: "newCustomerController"
+      }).
+      when('/form1',{
+        templateUrl: "./views/partials/form1.html",
+        controller: "form1Controller"
+      }).
+      when('/form2',{
+        templateUrl: "./views/partials/form2.html",
+        controller: "form2Controller"
+      }).
+      when('/form3',{
+        templateUrl: "./views/partials/form3.html",
+        controller: "form3Controller"
+      }).
+      when('/form4',{
+        templateUrl: "./views/partials/form4.html",
+        controller: "form4Controller"
+      }).
       otherwise({
         redirectTo: "/login"
       });

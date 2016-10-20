@@ -1,11 +1,10 @@
 console.log('client.js is sourced, yo!');
 
+//source in angular
 var myApp = angular.module("myApp", ["ngRoute"]);
 
 
 ///////////////////////////Angular Routing///////////////////////////////////////
-//config method doesnt take a name, we are just configuring myApp,
-//It does take in a dependency injection array
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider.
       when('/login',{
@@ -16,10 +15,10 @@ myApp.config(['$routeProvider', function($routeProvider){
         templateUrl: "./views/partials/customerType.html",
         controller: "customerTypeController"
       }).
-      // when('/addItem',{
-      //   templateUrl: "./views/partials/addItem.html",
-      //   controller: "addItemController"
-      // }).
+      when('/existingCustomer',{
+        templateUrl: "./views/partials/existingCustomer.html",
+        controller: "existingCustomerController"
+      }).
       // when('/homeli',{
       //   templateUrl: "./views/partials/loggedInPartials/homeLoggedIn.html",
       //   controller: "homeControllerLoggedIn"

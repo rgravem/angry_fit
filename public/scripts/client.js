@@ -9,13 +9,13 @@ var myApp = angular.module("myApp", ["ngRoute"]);
 myApp.config(['$routeProvider', function($routeProvider){
     $routeProvider.
       when('/login',{
-        templateUrl: "./views/login.html",
+        templateUrl: "./views/partials/login.html",
         controller: "loginController"
       }).
-      // when('/globalStash',{
-      //   templateUrl: "./views/partials/globalStash.html",
-      //   controller: "globalStashController"
-      // }).
+      when('/customerType',{
+        templateUrl: "./views/partials/customerType.html",
+        controller: "customerTypeController"
+      }).
       // when('/addItem',{
       //   templateUrl: "./views/partials/addItem.html",
       //   controller: "addItemController"

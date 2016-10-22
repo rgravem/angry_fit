@@ -1,53 +1,63 @@
 console.log('client.js is sourced, yo!');
 
 //source in angular
-var myApp = angular.module("myApp", ["ngRoute"]);
+var myApp = angular.module("myApp", ['ui.router']);
 
 
-///////////////////////////Angular Routing///////////////////////////////////////
-myApp.config(['$routeProvider', function($routeProvider){
-    $routeProvider.
-      when('/login',{
-        templateUrl: "./views/partials/login.html",
-        controller: "loginController"
-      }).
-      when('/customerType',{
+///////////////////////////UI Routing///////////////////////////////////////
+myApp.config(function($stateProvider,$urlRouterProvider){
+    //set otherwise to login
+    $urlRouterProvider.otherwise('/login');
+    $stateProvider
+      .state('login', {
+        url:'/login',
+        templateUrl: './views/partials/login.html',
+        controller: 'loginController'
+      })
+      .state('customerType',{
+        url:'/customerType',
         templateUrl: "./views/partials/customerType.html",
         controller: "customerTypeController"
-      }).
-      when('/existingCustomer',{
+      })
+      .state('existingCustomer',{
+        url:'/existingCustomer',
         templateUrl: "./views/partials/existingCustomer.html",
         controller: "existingCustomerController"
-      }).
-      when('/selectedCustomer',{
+      })
+      .state('selectedCustomer',{
+        url:'/selectedCustomer',
         templateUrl: "./views/partials/selectedCustomer.html",
         controller: "selectedCustomerController"
-      }).
-      when('/selectedBike',{
+      })
+      .state('selectedBike',{
+        url:'/selectedBike',
         templateUrl: "./views/partials/selectedBike.html",
         controller: "selectedBikeController"
-      }).
-      when('/newCustomer',{
-        templateUrl: "./views/partials/newCustomer.html",
-        controller: "newCustomerController"
-      }).
-      when('/form1',{
-        templateUrl: "./views/partials/form1.html",
+      })
+      .state('selectedBike.form1',{
+        url:"/form1",
+        templateUrl: "./views/partials/selectedBike-form1.html",
         controller: "form1Controller"
-      }).
-      when('/form2',{
-        templateUrl: "./views/partials/form2.html",
+      })
+      .state('selectedBike.form2',{
+        url:'/form2',
+        templateUrl: "./views/partials/selectedBike-form2.html",
         controller: "form2Controller"
-      }).
-      when('/form3',{
-        templateUrl: "./views/partials/form3.html",
+      })
+      .state('selectedBike.form3',{
+        url:'/form3',
+        templateUrl: "./views/partials/selectedBike-form3.html",
         controller: "form3Controller"
-      }).
-      when('/form4',{
-        templateUrl: "./views/partials/form4.html",
+      })
+      .state('selectedBike.form4',{
+        url:'/form4',
+        templateUrl: "./views/partials/selectedBike-form4.html",
         controller: "form4Controller"
-      }).
-      otherwise({
-        redirectTo: "/login"
-      });
-}]);
+      })
+
+    .state('newCustomer',{
+      url:'/newCustomer',
+      templateUrl: "./views/partials/newCustomer.html",
+      controller: "newCustomerController"
+    });
+});

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
   <head>
     <meta charset="utf-8">
     <script src="" charset="utf-8"></script>
     <script src="./vendors/angular.min.js" charset="utf-8"></script>
-    <script src="./vendors/angular-route.min.js" charset="utf-8"></script>
+    <script src="./vendors/angular-ui-router.min.js" charset="utf-8"></script>
     <script src="./scripts/client.js" charset="utf-8"></script>
     <script src="./scripts/controllers/loginController.js" charset="utf-8"></script>
     <script src="./scripts/controllers/customerTypeController.js" charset="utf-8"></script>
@@ -21,24 +21,21 @@
     <title>Angry Fit</title>
   </head>
 
-  <body>
+  <body ng-app="myApp">
     <h1>Angry Fit</h1>
 
     <!--////////// Angular Routes /////////////-->
     <ul>
-      <li><a href="#login">Login</a></li>
-      <li><a href="#customerType">Customer Type</a></li>
-      <li><a href="#existingCustomer">Existing Customer</a></li>
-      <li><a href="#selectedCustomer">Selected Customer</a></li>
-      <li><a href="#selectedBike">Selected Bicycle</a></li>
-      <li><a href="#newCustomer">New Customer</a></li>
-      <li><a href="#form1">Fit Form One</a></li>
-      <li><a href="#form2">FIt Form Two</a></li>
-      <li><a href="#form3">Fit Form Three</a></li>
-      <li><a href="#form4">Fit Form Four</a></li>
+      <li><a ui-sref="login">Login</a></li>
+      <li><a ui-sref="customerType">Customer Type</a></li>
+      <li><a ui-sref="existingCustomer">Existing Customer</a></li>
+      <li><a ui-sref="selectedCustomer">Selected Customer</a></li>
+      <li><a ui-sref="selectedBike">Selected Bicycle</a></li>
+      <li><a ui-sref="newCustomer">New Customer</a></li>
+
     </ul>
 
-    <main ng-view></main>
+    <main ui-view></main>
 
   </body>
 </html>

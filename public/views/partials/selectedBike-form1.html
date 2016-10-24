@@ -1,51 +1,180 @@
+<md-content class="md-padding">
+
 <h2>Consultation Form</h2>
 
-Name: <input type="text" ng-model='name'>
-<p>  {{ name }} </p>
+<md-content>
+<div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm=''>
+      <label>Name</label>
+      <input ng-model="height">
+    </md-input-container>
+  </div>
 
-Phone: <input type="numbers" ng-model='phone'>
-<p>  {{ phone }} </p>
+  <div layout-gt-sm="row">
+      <md-input-container class='md-block' flex-gt-sm=''>
+        <label>Phone</label>
+        <input ng-model="height">
+      </md-input-container>
+    </div>
 
-Email: <input type="text" ng-model='email'>
-<p>  {{ email }} </p>
+    <div layout-gt-sm="row">
+        <md-input-container class='md-block' flex-gt-sm=''>
+          <label>Email</label>
+          <input ng-model="height">
+        </md-input-container>
+      </div>
 
-Address: <input type="text" ng-model='address'>
-<p>  {{ address }} </p>
+      <div layout-gt-sm="row">
+          <md-input-container class='md-block' flex-gt-sm=''>
+            <label>Address</label>
+            <input ng-model="height">
+          </md-input-container>
+        </div>
 
-Do you have any injuries that prevent you from riding any length of time?
-<p><input type="radio" name="button">yes</input></p>
-<p><input type="radio" name="button">no</input></p>
+
+
+
+
+    <md-radio-group ng-model="injuries">
+    <p>Do you have any injuries that prevent you from riding any length of time?</p>
+      <md-radio-button value="yesInjuries">Yes</md-radio-button>
+      <md-radio-button value="noInjuries"  class="md-primary"> No </md-radio-button>
+      <p><textarea rows="4" cols="50"></textarea></p>
+    </md-radio-group>
+
+
+What are some of your complaints with your current fit, if any?
 <p><textarea rows="4" cols="50"></textarea></p>
 
-What are some of your complaints with your current fit if any?
-<p><textarea rows="4" cols="50"></textarea></p>
+<md-radio-group ng-model="injuries">
+<p>Have you had any surgeries? If so, how long ago?</p>
+  <md-radio-button value="yesSurgeries">Yes</md-radio-button>
+  <md-radio-button value="noSurgeries"  class="md-primary"> No </md-radio-button>
+  <p><textarea rows="4" cols="50"></textarea></p>
+</md-radio-group>
 
-Have you had any surgeries? If so, how long ago?
-<p><input type="radio" name="button">yes</input></p>
-<p><input type="radio" name="button">no</input></p>
-<p><textarea rows="4" cols="50"></textarea></p>
+<div layout-gt-sm="row">
+  <md-input-container class='md-block' flex-gt-sm=''>
+    <label>How long is your average ride (in miles)?</label>
+    <input ng-model="angle">
+  </md-input-container>
+</div>
 
-How long is your average ride?
-<p><input type="text" name="button"> Mile(s)</input></p>
+<md-radio-group ng-model="races">
+<p>Do you have any races, tours or over all goals in the near future?</p>
+  <md-radio-button value="yesRaces">Yes</md-radio-button>
+  <md-radio-button value="noRaces"  class="md-primary"> No </md-radio-button>
+  <p><textarea rows="4" cols="50"></textarea></p>
+</md-radio-group>
 
-Do you have any races, tours or over all goals in the near future?
-<p><input type="radio" name="button">yes</input></p>
-<p><input type="radio" name="button">no</input></p>
-<p><textarea rows="4" cols="50"></textarea></p>
+<div layout-gt-sm="row">
+  <md-input-container class='md-block' flex-gt-sm=''>
+    <label>Current bike  brand/model/size</label>
+    <input ng-model="angle">
+  </md-input-container>
+</div>
 
-Current bike brand/model/size:
-<p><textarea rows="4" cols="50"></textarea></p>
+<!-- Current bike brand/model/size:
+<p><textarea rows="4" cols="50"></textarea></p> -->
 
-<h3>Current measurements:</h3>
-<div>Saddle height: <input type="text" ng-model='height'></div>
-<div>Saddle height over bars: <input type="text" ng-model='saddleOverBars'></div>
-<div>Saddle angle: <input type="text" ng-model='angle'></div>
-<div>Saddle setback: <input type="text" ng-model='setback'></div>
-<div>Saddle to handlebar reach: <input type="text" ng-model='handlebarReach'></div>
-<div>Stem length: <input type="text" ng-model='stemLenght'></div>
-<div>Stem angle: <input type="text" ng-model='stemAngle'></div>
-<div>Handle bar width: <input type="text" ng-model='handleBarWidth'></div>
-<div>Handle bar brand/model: <input type="text" ng-model='handleBarBrand'></div>
-<div>Show brand/model/size: <input type="text" ng-model='shoe'></div>
-<div>Bake level position: <input type="text" ng-model='brake'></div>
-<div>Crank length: <input type="text" ng-model='crank'></div>
+
+<h3>Current Measurements</h3>
+
+<div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm=''>
+      <label>Saddle height</label>
+      <input ng-model="height">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm=''>
+      <label>Saddle height over bars</label>
+      <input ng-model="saddleOverBars">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm=''>
+      <label>Saddle angle</label>
+      <input ng-model="angle">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Saddle setback</label>
+      <input ng-model="setback">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Saddle to handlebar reach</label>
+      <input ng-model="handlebarReach">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Stem length</label>
+      <input ng-model="stemLenght">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Stem angle</label>
+      <input ng-model="stemAngle">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Handle bar width</label>
+      <input ng-model="handleBarWidth">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Handle bar brand/model</label>
+      <input ng-model="handleBarBrand">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Shoe brand/model/size</label>
+      <input ng-model="shoe">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Brake level position</label>
+      <input ng-model="brake">
+    </md-input-container>
+  </div>
+
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm>
+      <label>Crank length</label>
+      <input ng-model="crank">
+    </md-input-container>
+  </div>
+</md-content>
+
+
+<p>
+<div id='FormOneNotes'>
+Notes<p><textarea rows="6" cols="100"></textarea></p>
+</div>
+</p>
+
+<div layout="column" layout-align="center">
+<md-button id="forOneSubmit" class="md-raised md-primary" ng-click="formOne()">Submit</md-button>
+</div>
+
+
+</md-content>

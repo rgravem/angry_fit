@@ -15,28 +15,27 @@ app.listen(port, function(){
   console.log('server up on 3000');
 });
 
-
-app.get('/getEmployees', function(req, res){
-  console.log('in getEmployees route');
+////////////////////Get Existing Customers from DB/////////////////////////////
+app.get('/getExistingCustomers', function(req, res){
+  console.log('in getExistingCustomers route');
 
   pg.connect(connectionString, function (err, client, done){
     if(err){
       console.log(err);
     } else{
-      console.log('connected via getEmployees');
-      var employeeResultsArray = [];
-      var queryResults = client.query('SELECT * FROM employees');
+      console.log('connected via getExistingCustomers');
+      var existingCustomersArray = [];
+      var queryResults = client.query('SELECT * FROM customers');
       queryResults.on('row', function(row){
-        employeeResultsArray.push(row);
+        existingCustomersArray.push(row);
       });
       queryResults.on('end', function(){
         done();
-        return res.json(employeeResultsArray);
+        return res.json(existingCustomersArray);
       }); // end queryResults
     } //end else
-  }); //end connect
-}); //end /getEmployees
-
+  }); //end pg.connect
+}); //end getExistingCustomers
 
 
 app.get("/*", function(req,res){

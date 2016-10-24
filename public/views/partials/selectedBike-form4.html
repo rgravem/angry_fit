@@ -1,1 +1,370 @@
 <h2>Form 4</h2>
+<div id="bikeOptions">
+  <div id="bikeType">
+      <!-- Waht Style of Bike? -->
+    <label for='bikeStyle'>What style of bike are you looking for?</label>
+    <input type="text" id="bikeStyle" value="">
+  </div>
+  <div id="bottomBracketDiv">
+    <!-- Type of Bottom Bracket Shell -->
+    <p id="bottomBracketStyle"> Bottom Bracket Shell (choose one)</p>
+
+    <!-- English 68mm  -->
+    <input type="radio" id="english68" value="english68" name="bottomBracketStyle">
+    <label for="english68">English 68mm</label>
+
+    <!-- English 73mm -->
+    <input type="radio" id="english73" value="english73" name="bottomBracketStyle">
+    <label for="english73">English 73mm</label>
+
+    <!-- EBB for Niner insert -->
+    <input type="radio" id="ebbNiner" value="ebbNinerInsert" name="bottomBracketStyle">
+    <label for="ebbNiner">EBB for Niner insert</label>
+
+    <!-- T47 68mm -->
+    <input type="radio" id="t4768" value="t4768" name="bottomBracketStyle">
+    <label for="t4768">T47 68mm</label>
+
+    <!-- T47 73mm -->
+    <input type="radio" id="t4773" value="t4773" name="bottomBracketStyle">
+    <label for="t4773">T47 73mm</label>
+
+    <!-- Other -->
+      <input type="radio" id="bbOther" value="other" name="bottomBracketStyle">
+      <label for="bbOther">Other</label>
+
+    <!--Other Input Field  -->
+    <input type="text input" id="bbOtherIn" value="" placeholder="Please Specify">
+  </div>
+  <div id="brakesDiv">
+    <p id="brakeCompatability"> Brake Compatability (choose one)</p>
+    <!-- ISO Disk Brake-->
+    <input type="radio" id="isoDisk" value="isoDisk" name="brakeStyle">
+    <label for="isoDisk">ISO Disk Brake</label>
+
+    <!-- Flat Mount Disk Brake-->
+    <input type="radio" id="flatMountDisk" value="flatMountDisk" name="brakeStyle">
+    <label for="flatMountDisk">Flat Mount Disk Brake</label>
+
+    <!-- Short Reach Road Caliper-->
+    <input type="radio" id="shortReachRoad" value="shortReachRoad" name="brakeStyle">
+    <label for="shortReachRoad">Short Reach Road Caliper</label>
+
+    <!-- V Brake-->
+    <input type="radio" id="vBrake" value="vBrake" name="brakeStyle">
+    <label for="vBrake">V Brake</label>
+
+    <!-- Cantilever Brake-->
+    <input type="radio" id="cantileverBrake" value="cantileverBrake" name="brakeStyle">
+    <label for="cantileverBrake"> Cantilever Brake</label>
+
+    <!-- Other -->
+      <input type="radio" id="brakeOther" value="other" name="brakeStyle">
+      <label for="other">Other</label>
+
+    <!--Other Input Field  -->
+    <input type="text input" id="brakeOtherIn" value="" placeholder="Please Specify">
+
+    <!--If ISO Disk Brake  -->
+      <p> Where do you prefer the caliper be mounted (If ISO Disk brake)</p>
+      <!-- Maybe add info modal about differences -->
+      <input type="radio" id="chainstay" value="other" name="caliperMount">
+      <label for="chainstay">Chainstay</label>
+      <!-- Maybe add info modal about differences -->
+      <input type="radio" id="seatstay" value="other" name="caliperMount">
+      <label for="seatstay">Seatstay</label>
+  </div>
+  <div id="wheelsDiv">
+    <p> Wheel/Tire Size (choose one)</p>
+
+    <!-- 700x28-35-->
+    <input type="radio" id="700x2328" value="700x23-28" name="wheelStyle">
+    <label for="700x2328"> 700x23-28</label>
+
+    <!-- 700x23-28-->
+    <input type="radio" id="700x2835" value="700x28-35" name="wheelStyle">
+    <label for="700x2835"> 700x28-35</label>
+
+    <!-- 700x32-38-->
+    <input type="radio" id="700x3238" value="700x32-38" name="wheelStyle">
+    <label for="700x3238"> 700x32-38</label>
+
+    <!-- 700x38-45-->
+    <input type="radio" id="700x3845" value="700x38-45" name="wheelStyle">
+    <label for="700x3845"> 700x38-45</label>
+
+    <!-- 29x2-2.35-->
+    <input type="radio" id="29x2235" value="29x2-2.35" name="wheelStyle">
+    <label for="29x2235"> 29x2-2.35</label>
+
+    <!-- 29x3-->
+    <input type="radio" id="29x3" value="29x3" name="wheelStyle">
+    <label for="29x2235"> 29x3(Requires Paragon Yoke)</label>
+
+    <!--650bx35-42-->
+    <input type="radio" id="650bx3542" value="650bx35-42" name="wheelStyle">
+    <label for="650bx3542"> 650bx35-42</label>
+
+    <!--650bx2-2.35-->
+    <input type="radio" id="650bx2235" value="650bx2-2.35" name="wheelStyle">
+    <label for="650bx2235"> 650bx2-2.35</label>
+
+    <!--650bx3-->
+    <input type="radio" id="650bx3" value="650bx3" name="wheelStyle">
+    <label for="650bx3"> 650bx3 (Requires Paragon Yoke)</label>
+
+    <!-- Other -->
+    <input type="radio" id="wheelOther" value="other" name="wheelStyle">
+    <label for="other">Other</label>
+
+    <!--Other Input Field  -->
+    <input type="text input" id="wheelOtherIn" value="" placeholder="Please Specify">
+  </div>
+  <div id="frameOptions">
+    <p> Frame options (choose multiple) </p>
+
+    <!-- 3rd bottle -->
+    <input type="checkbox" id="3rdBottleMount" value="3rdBottleMount">
+    <label for="3rdBottleMount"> 3rd Bottle Mount</label>
+
+    <!-- Rack Mounts -->
+    <input type="checkbox" id="rackMounts" value="rackMounts">
+    <label for="rackMounts"> Rack Mounts</label>
+
+    <!-- Full Coverage Fenders -->
+    <input type="checkbox" id="fullCoverFenders" value="fullCoverFenders">
+    <label for="fullCoverFenders"> Full Coverage Fender Mounts (restrictions appy)</label>
+
+    <!-- Internal Brake Cable-->
+    <input type="checkbox" id="internalBrakeCable" value="internalBrakeCable">
+    <label for="interalBrakeCable"> Internal Brake Cable Routing(restrictions apply)</label>
+
+    <!-- Rocking/Sliding Dropouts-->
+    <input type="checkbox" id="paragonRockingSlidingDropouts" value="paragonRockingSlidingDropouts">
+    <label for="paragonRockingSlidingDropouts"> Paragon Rocking/Sliding Dropouts</label>
+
+    <!-- Dropout Specs -->
+    <input type="text" id="dropoutSpecs" value="" placeholder="Dropout Specifications">
+
+    <!-- Thru-axle -->
+    <input type="checkbox" id="thruAxleDropouts" value="thruAxleDropouts">
+    <label for="thruAxleDropouts"> Thru-axle Rear Dropouts</label>
+
+    <!-- Di2 Routing -->
+    <input type="checkbox" id="di2Routing" value="di2Routing">
+    <label for="di2Routing"> Di2 Routing</label>
+
+    <!-- eTap Routing -->
+    <input type="checkbox" id="eTapRouting" value="eTapRouting">
+    <label for="eTapRouting"> E Tap Routing (no routing)</label>
+
+    <!-- Custom Rear Rack -->
+    <input type="checkbox" id="rearRack" value="rearRack">
+    <label for="rearRack"> Custom Rear Rack (specify style in notes)</label>
+
+    <!-- Frame Pump Peg -->
+    <input type="checkbox" id="framePump" value="FramePump">
+    <label for="framePump"> Frame Pump Peg</label>
+
+    <!-- Special Frame Options  -->
+    <div id="specialFrameOptions">
+      <p>Any other special frame options you would like to see included?</p>
+      <textarea rows="8" cols="40"></textarea>
+    </div>
+
+    <!-- IF Thru Axle dropouts -->
+    <div id="thruAxleSpacing">
+      <p> If you are doing thru-axle rear dropout which spacing would you prefer?(choose one)</p>
+      <!-- 142mm -->
+      <input type="radio" id="142mm" value="142mm" name="dropoutSpacing">
+      <label for="142mm">142mm</label>
+
+      <!-- 148mm Boost -->
+      <input type="radio" id="148mmBoost" value="148mm Boost" name="dropoutSpacing">
+      <label for="148mmBoost">148mm Boost</label>
+
+      <!-- Other -->
+      <input type="radio" id="otherSpacing" value="other" name="dropoutSpacing">
+      <label for="otherSpacing">Other</label>
+      <input type="text" id="otherSpacingIN" value="" name="dropoutSpacing" placeholder="Please Specify">
+
+    </div>
+  </div>
+  <div id="headtubeDiv">
+    <p>What style headtube do you prefer? (choose one)</p>
+
+    <!-- 44mm  -->
+    <input type="radio" id="44mm" value="44mm" name="headtubeStyle">
+    <label for="44mm">44mm (for forks with tapered steer tubes)</label>
+
+    <!-- 1-1/8"  -->
+    <input type="radio" id="118inch" value="118inch" name="headtubeStyle">
+    <label for="118inch">1-1/8 inch</label>
+
+    <!-- 1"  -->
+    <input type="radio" id="1inch" value="1inch" name="headtubeStyle">
+    <label for="1inch">1 inch(this is possible, but we will talk you out of it)</label>
+
+  </div>
+  <div id="forkOptions">
+    <p> What type of fork are you planning on using?</p>
+    <!-- Standard Fork -->
+    <input type="radio" id="standardFork" value="other" name="forkOption">
+    <label for="standardFork"> Standard Fork</label>
+
+    <!-- Custom Fork -->
+    <input type="radio" id="customFork" value="custom" name="forkOption">
+    <label for="customFork"> Custom Fork</label>
+
+    <!-- IF Standard -->
+    <div id="standardForkIn">
+      <label for="brandIn"> Brand</label>
+      <input type="text" id="brandIn" value="">
+      <label for="modelIn"> Model</label>
+      <input type="text" id="modelIn" value="">
+    </div>
+
+    <!-- If Custom  -->
+    <div id="customForkIn">
+      <p> What options would you like for the custom steel fork?</p>
+
+      <!-- Thru Axle -->
+      <input type="checkbox" id="thruAxle" value="thruAxle">
+      <label for="thruAxle"> Thru Axle</label>
+
+      <!-- Front Mid Rack Mounts -->
+      <input type="checkbox" id="frontMidRackMounts" value="frontMidRackMounts">
+      <label for="frontMidRackMounts"> Front Mid Rack Mounts</label>
+
+      <!-- Fender Mounts -->
+      <input type="checkbox" id="fenderMounts" value="fenderMounts">
+      <label for="fenderMounts"> Fender Mounts</label>
+
+      <!-- Internal Routing -->
+      <input type="checkbox" id="internalRouting" value="internalRouting">
+      <label for="internalRouting"> Internal Routing for Hub Dyno Wire </label>
+
+      <!-- Integrated Fork Contact -->
+      <input type="checkbox" id="integratedForkContact" value="integratedForkContact">
+      <label for="integratedForkContact"> Integrated Fork Contact for Schmidt Son Sl Hub </label>
+
+      <!-- Custom Front Rack -->
+      <input type="checkbox" id="frontRack" value="frontRack">
+      <label for="frontRack"> Custom Front Rack(specify style in notes) </label>
+
+    </div>
+  </div>
+  <div id="seatpostStyle">
+      <p> Are you planning on using a dropper seatpost</p>
+      <!-- Seat Dropper Yes -->
+      <input type="radio" id="dropperYes" value="true" name="dropperIn">
+      <label for="dropperYes"> Yes </label>
+
+      <!-- Seat Dropper No -->
+      <input type="radio" id="dropperNo" value="false" name="dropperIn">
+      <label for="dropperNo"> No </label>
+
+      <!-- IF yes -->
+      <div id="seatDropperStyle">
+        <label for="dropperBrand"> Brand </label>
+        <input type="text" id="dropperBrand" value="">
+        <label for="dropperModel"> Model </label>
+        <input type="text" id="dropperModel" value="">
+      </div>
+    </div>
+  <div id="drivetrainType">
+      <p> What Type of Drivetrain will you be using?(choose one)</p>
+
+      <!-- Single Speed  -->
+      <input type="radio" id="singleSpeed" value="singleSpeed" name="drivetrainStyle">
+      <label for="singleSpeed"> Single Speed (please specify chainring tooth count) </label>
+
+      <!-- Internally geared hub -->
+      <input type="radio" id="internallyGearedHub" value="internallyGearedHub" name="drivetrainStyle">
+      <label for="internallyGearedHub"> Internally Geared Hub (please specify) </label>
+
+      <!-- 2 or 3 -->
+      <input type="radio" id="2Or3ByX" value="2Or3ByX" name="drivetrainStyle">
+      <label for="2Or3ByX"> 2 or 3 by "X" </label>
+
+      <!-- 1 -->
+      <input type="radio" id="1ByX" value="1ByX" name="drivetrainStyle">
+      <label for="1ByX"> 1 by "X" (no cable stops for front deraileur) </label>
+      <!-- IF single speed -->
+      <div id="singleSpeedIn">
+        <label for="toothCount"> Chainring Tooth Count</label>
+        <input type="text" id="toothCount" value="">
+      </div>
+        <!-- IF internally Geared -->
+        <div id="internallyGearedIn">
+          <label for="gearSpecs"> Internally Geared Hub Specs</label>
+          <input type="text" id="gearSpecs" value="">
+        </div>
+    </div>
+  <div id="paintOptions">
+    <p>What color would you like your Northern Painted</p>
+    <!-- Color Option 1 -->
+    <input type="radio" id="colorOptionOne" value="colorOptionOne" name="colorOptions">
+    <label for="colorOptionOne"> Option One</label>
+
+    <!-- Color Option 2 -->
+    <input type="radio" id="colorOptionTwo" value="colorOptionTwo" name="colorOptions">
+    <label for="colorOptionTwo"> Option Two </label>
+
+    <!-- Color Option 3 -->
+    <input type="radio" id="colorOptionThree" value="colorOptionThree" name="colorOptions">
+    <label for="colorOptionThree"> Option Three </label>
+
+    <!-- Color Option 4 -->
+    <input type="radio" id="colorOptionFour" value="colorOptionFour" name="colorOptions">
+    <label for="colorOptionFour"> Option Four </label>
+
+    <!-- Color Option 5 -->
+    <input type="radio" id="colorOptionFive" value="colorOptionFive" name="colorOptions">
+    <label for="colorOptionFive"> Option Five </label>
+
+    <!-- Color Option 6 -->
+    <input type="radio" id="colorOptionSix" value="colorOptionSix" name="colorOptions">
+    <label for="colorOptionSix"> Option Six </label>
+
+    <!-- IF six -->
+    <div id="optionSixIn">
+      <label for="custom Color"> Please Specify a Color</label>
+      <input type="text" id="customColor" value="">
+    </div>
+
+    <div id="usingFenders">
+      <p> Are you using full coverage fenders?</p>
+      <!-- Fenders Yes -->
+      <input type="radio" id="fendersYes" value="true" name="fendersIn">
+      <label for="fendersYes"> Yes </label>
+
+      <!-- Fenders No -->
+      <input type="radio" id="fendersNo" value="false" name="fendersIn">
+      <label for="fendersNo"> No </label>
+
+      <!-- IF Yes -->
+      <div id="fendersPaint">
+        <p> Would you like them painted to match?</p>
+          <!-- Fender paint Yes -->
+          <input type="radio" id="fenderPaintYes" value="true" name="fenderPaintIn">
+          <label for="fenderPaintYes"> Yes </label>
+
+          <!-- Fender paint No -->
+          <input type="radio" id="fenderPaintYes" value="false" name="fenderPaintIn">
+          <label for="fenderPaintYes"> No </label>
+      </div>
+
+
+
+    </div>
+
+  </div>
+<div id="paintNotes">
+  <p>Any other notes regarding paint?</p>
+  <textarea rows="8" cols="40"></textarea>
+</div>
+<div id="optionsNotes">
+  <p> Any other notes regarding frame options?</p>
+    <textarea rows="8" cols="40"></textarea>
+</div>

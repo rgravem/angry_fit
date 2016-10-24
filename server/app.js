@@ -15,6 +15,7 @@ app.listen(port, function(){
   console.log('server up on 3000');
 });
 
+
 ////////////////////Get Existing Customers from DB/////////////////////////////
 app.get('/getExistingCustomers', function(req, res){
   console.log('in getExistingCustomers route');
@@ -37,6 +38,50 @@ app.get('/getExistingCustomers', function(req, res){
   }); //end pg.connect
 }); //end getExistingCustomers
 
+
+/////////////////////////////Add New Customer to DB////////////////////////////////
+app.post( '/addNewCustomer', urlencodedParser, function( req, res ){
+  console.log( 'in addNewCustomer' );
+  newCustomerInfo = req.body;
+  console.log('newCustomerInfo Object:', newCustomerInfo);
+
+  var firstName = newCustomerInfo.firstName;
+  var lastName = newCustomerInfo.lastName;
+  var email = newCustomerInfo.email;
+  var phoneNumber = newCustomerInfo.phoneNumber;
+  var streetAddress = newCustomerInfo.streetAddress;
+  var unitNumber = newCustomerInfo.unitNumber;
+  var city = newCustomerInfo.city;
+  var state = newCustomerInfo.state;
+  var zip = newCustomerInfo.zip;
+
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB");
+
+      var newCustomerToSend = [];
+
+      client.query('INSERT INTO customers (firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * From customers');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        newCustomerToSend.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(newCustomerToSend);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+});//end of post
 
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";

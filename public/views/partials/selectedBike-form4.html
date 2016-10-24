@@ -73,60 +73,49 @@
         <md-input-container class="md-block" flex-gt-sm="">
           <!--Other Input Field  -->
           <input type="text input" id="brakeOtherIn" value="" placeholder="Please Specify">
-        </md-input-container>  
+        </md-input-container>
       </div>
 
         <!--If ISO Disk Brake  -->
+        <div layout-gt-sm="row">
           <p> Where do you prefer the caliper be mounted (If ISO Disk brake)</p>
-          <!-- Maybe add info modal about differences -->
-          <input type="radio" id="chainstay" value="other" name="caliperMount">
-          <label for="chainstay">Chainstay</label>
-          <!-- Maybe add info modal about differences -->
-          <input type="radio" id="seatstay" value="other" name="caliperMount">
-          <label for="seatstay">Seatstay</label>
+        </div>
 
-      <div id="wheelsDiv">
+        <md-radio-group>
+          <div layout-gt-sm="row">
+            <!-- Maybe add info modal about differences -->
+            <md-radio-button value="chainstay" name="caliperMount"> Chainstay </md-radio-button>
+            <!-- Maybe add info modal about differences -->
+            <md-radio-button value="seatstay" name="caliperMount"> Seatstay </md-radio-button>
+          </div>
+        </md-radio-group>
+
+
+      <div layout-gt-sm="row">
         <p> Wheel/Tire Size (choose one)</p>
-
+      </div>
+      <md-radio-group>
         <!-- 700x28-35-->
-        <input type="radio" id="700x2328" value="700x23-28" name="wheelStyle">
-        <label for="700x2328"> 700x23-28</label>
-
+        <md-radio-button value="700x23-28" name="wheelStyle"> 700x23-28 </md-radio-button>
         <!-- 700x23-28-->
-        <input type="radio" id="700x2835" value="700x28-35" name="wheelStyle">
-        <label for="700x2835"> 700x28-35</label>
-
+        <md-radio-button value="700x28-35" name="wheelStyle"> 700x28-35 </md-radio-button>
         <!-- 700x32-38-->
-        <input type="radio" id="700x3238" value="700x32-38" name="wheelStyle">
-        <label for="700x3238"> 700x32-38</label>
-
+        <md-radio-button value="700x32-38" name="wheelStyle"> 700x32-38 </md-radio-button>
         <!-- 700x38-45-->
-        <input type="radio" id="700x3845" value="700x38-45" name="wheelStyle">
-        <label for="700x3845"> 700x38-45</label>
-
+        <md-radio-button value="700x38-45" name="wheelStyle"> 700x38-45</md-radio-button>
         <!-- 29x2-2.35-->
-        <input type="radio" id="29x2235" value="29x2-2.35" name="wheelStyle">
-        <label for="29x2235"> 29x2-2.35</label>
-
+        <md-radio-button value="29x2-2.35" name="wheelStyle"> 29x2-2.35 </md-radio-button>
         <!-- 29x3-->
-        <input type="radio" id="29x3" value="29x3" name="wheelStyle">
-        <label for="29x2235"> 29x3(Requires Paragon Yoke)</label>
-
+        <md-radio-button value="29x3" name="wheelStyle"> 29x3(Requires Paragon Yoke)</md-radio-button>
         <!--650bx35-42-->
-        <input type="radio" id="650bx3542" value="650bx35-42" name="wheelStyle">
-        <label for="650bx3542"> 650bx35-42</label>
-
+        <md-radio-button value="650bx35-42" name="wheelStyle"> 650bx35-42</md-radio-button>
         <!--650bx2-2.35-->
-        <input type="radio" id="650bx2235" value="650bx2-2.35" name="wheelStyle">
-        <label for="650bx2235"> 650bx2-2.35</label>
-
+        <md-radio-button value="650bx2-2.35" name="wheelStyle">650bx2-2.35</md-radio-button>
         <!--650bx3-->
-        <input type="radio" id="650bx3" value="650bx3" name="wheelStyle">
-        <label for="650bx3"> 650bx3 (Requires Paragon Yoke)</label>
-
+        <md-radio-button value="650bx3" name="wheelStyle"> 650bx3 (Requires Paragon Yoke)</md-radio-button>
         <!-- Other -->
-        <input type="radio" id="wheelOther" value="other" name="wheelStyle">
-        <label for="other">Other</label>
+        <md-radio-button value="other" name="wheelStyle"> Other</md-radio-button>
+      <md-radio-group>  
 
         <!--Other Input Field  -->
         <input type="text input" id="wheelOtherIn" value="" placeholder="Please Specify">

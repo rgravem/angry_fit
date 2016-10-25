@@ -2,3 +2,8 @@
   height: 150px;
 
 }
+/* Removes weird highligh on radios with ng-click*/
+md-radio-button:focus {
+    outline: none;
+    border: 0;
+ }

@@ -1,5 +1,10 @@
 //////////DB info///////////////
 
+--must create DB under this name in postico before running the code below
+DATABASE NAME: angryFit
+
+--------COPY, PASTE, AND RUN FROM HERE ON DOWN---------
+
 --Employees Table
 CREATE TABLE employees (
 	id SERIAL PRIMARY KEY NOT NULL,

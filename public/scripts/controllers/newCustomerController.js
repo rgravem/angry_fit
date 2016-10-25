@@ -15,15 +15,15 @@ myApp.controller("newCustomerController", ['$scope', '$http', function($scope, $
       zip:$scope.zip
     };
 
+    console.log('newCustomerObject to send to DB:', newCustomerObject);
+
     $http({
       method: 'POST',
       url: '/addNewCustomer',
       data: newCustomerObject
     }).then(function(newCustomerResponse){
-      console.log('success from DB', newCustomerResponse);
+      console.log('success from server', newCustomerResponse);
     });
   };
-
-
 
 }]);//end newCustomerController

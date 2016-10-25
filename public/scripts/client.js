@@ -4,6 +4,7 @@ console.log('client.js is sourced, yo!');
 var myApp = angular.module("myApp", ['ui.router', 'ngMaterial', 'ngMessages', 'firebase']);
 
 
+
 ///////////////////////////UI Routing///////////////////////////////////////
 myApp.config(function($stateProvider,$urlRouterProvider){
     //set otherwise to login

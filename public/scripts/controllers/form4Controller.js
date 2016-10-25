@@ -13,6 +13,12 @@ $scope.updateShowBrakes = function(){
   $scope.showBrakeOther = !$scope.showBrakeOther;
   };
 
+//show brake mount
+$scope.showBrakeMount = false;
+$scope.updateShowBrakeMount = function(){
+    $scope.showBrakeMount= !$scope.showBrakeMount;
+};
+
 // show wheels other
 $scope.showWheelsOther = false;
 $scope.updateShowWheels= function(){
@@ -78,5 +84,23 @@ $scope.showFenderPaint = false;
 $scope.updateShowFenderPaint = function(){
   $scope.showFenderPaint =!$scope.showFenderPaint;
 };
+
+//Submit Form Four
+$scope.submitFormFour = function(){
+  console.log("In Submit Form Four");
+  //brake mounting if
+  if($scope.brakeMount=== undefined){
+    $scope.brakeMount = "N/A";
+  }
+
+  var formFourObject ={
+    date: $scope.dateCreated,
+    bikeStyle: $scope.bikeStyle,
+    bottomBracketShell:$scope.bottomBracketShell,
+    brakeCompatability: $scope.brakeCompatability,
+    brakeMount:$scope.brakeMount
+  };
+  console.log(formFourObject);
+}; //End submitFormFour
 
 }]);//end form4Controller

@@ -7,7 +7,7 @@
       <div layout-gt-xs="row">
         <md-input-container>
             <label>Enter date</label>
-              <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+              <md-datepicker ng-model="dateCreated"></md-datepicker>
         </md-input-container>
       </div>
 
@@ -16,7 +16,7 @@
           <md-input-container class="md-block" flex-gt-sm="">
             <!-- Waht Style of Bike? -->
             <label for='bikeStyle'>What style of bike are you looking for?</label>
-            <input type="text" id="bikeStyle" value="">
+            <input type="text" id="bikeStyle" value="" ng-model="bikeStyle">
           </md-input-container>
         </div>
         <!-- Type of Bottom Bracket Shell -->
@@ -24,65 +24,66 @@
           <p id="bottomBracketStyle"> Bottom Bracket Shell (choose one)</p>
         </div>
           <!-- Bottom Brackets -->
-          <md-radio-group>
+          <md-radio-group ng-model="bottomBracketShell">
             <div layout-gt-sm="row">
               <!-- English 68mm  -->
-              <md-radio-button  value="English68mm" name="bottomBracketStyle"> English 68mm</md-radio-button>
+              <md-radio-button  value="English 68mm" name="bottomBracketStyle"> English 68mm</md-radio-button>
               <!-- English 73mm -->
-              <md-radio-button value="English73mm" name="bottomBracketStyle"> English 73mm</md-radio-button>
+              <md-radio-button value="English 73mm" name="bottomBracketStyle"> English 73mm</md-radio-button>
               <!-- EBB for Niner insert -->
-              <md-radio-button  value="ebbNinerInsert" name="bottomBracketStyle"> EBB for Niner insert </md-radio-button>
+              <md-radio-button  value="EBB for Niner Insert" name="bottomBracketStyle"> EBB for Niner insert </md-radio-button>
             </div>
             <div layout-gt-sm="row">
               <!-- T47 68mm -->
-              <md-radio-button  value="t4768" name="bottomBracketStyle">T47 68mm</md-radio-button>
+              <md-radio-button  value="T47 68mm" name="bottomBracketStyle">T47 68mm</md-radio-button>
               <!-- T47 73mm -->
-              <md-radio-button value="t4773" name="bottomBracketStyle"> T47 73mm </md-radio-button>
+              <md-radio-button value="T47 73mm" name="bottomBracketStyle"> T47 73mm </md-radio-button>
               <!-- Other -->
-              <md-radio-button value="bbother" name="bottomBracketStyle" ng-click="updateShowBottomBracket()"> Other </md-radio-button>
+              <md-radio-button value="" name="bottomBracketStyle" ng-click="updateShowBottomBracket()"> Other </md-radio-button>
             </div>
           </md-radio-group>
           <div layout-gt-sm="row" ng-show="showBottomBracketOther">
             <!-- IF Other-  Input Field  -->
             <md-input-container class="md-block" flex-gt-sm="">
-              <input type="text" id="bbOtherIn" value="" placeholder="Bottom Bracket Specifications">
+              <input type="text" id="bbOtherIn" value="" placeholder="Bottom Bracket Specifications" ng-model="bottomBracketShell">
             </md-input-container>
           </div>
 
         <div layout-gt-sm="row">
           <p id="brakeCompatability"> Brake Compatability (choose one)</p>
         </div>
-        <md-radio-group>
+        <md-radio-group ng-model="brakeCompatability">
           <div layout-gt-sm="row">
             <!-- ISO Disk Brake-->
-            <md-radio-button value="isoDisk" name="brakeStyle">ISO Disk Brake</md-radio-button>
+            <md-radio-button value="ISO Disk Brake" name="brakeStyle" ng-click="updateShowBrakeMount()">ISO Disk Brake</md-radio-button>
             <!-- Flat Mount Disk Brake-->
-            <md-radio-button value="flatMountDisk" name="brakeStyle"> Flat Mount Disk Brake </md-radio-button>
+            <md-radio-button value="Flat Mount Disk Brake" name="brakeStyle"> Flat Mount Disk Brake </md-radio-button>
             <!-- Short Reach Road Caliper-->
-            <md-radio-button value="shortReachRoad" name="brakeStyle"> Short Reach Road Caliper</md-radio-button>
+            <md-radio-button value="Short Reach Road Caliper" name="brakeStyle"> Short Reach Road Caliper</md-radio-button>
           </div>
           <div layout-gt-sm="row">
             <!-- V Brake-->
-            <md-radio-button value="vBrake" name="brakeStyle"> V Brake </md-radio-button>
+            <md-radio-button value="V Brake" name="brakeStyle"> V Brake </md-radio-button>
             <!-- Cantilever Brake-->
-            <md-radio-button value="cantileverBrake" name="brakeStyle"> Cantilever Brake </md-radio-button>
+            <md-radio-button value="Cantilever Brake" name="brakeStyle"> Cantilever Brake </md-radio-button>
             <!-- Other -->
-            <md-radio-button value="other" name="brakeStyle" ng-click="updateShowBrakes()"> Other </md-radio-button>
+            <md-radio-button value="" name="brakeStyle" ng-click="updateShowBrakes()"> Other </md-radio-button>
           </div>
         </md-radio-group>
         <div layout-gt-sm="row" ng-show="showBrakeOther">
           <md-input-container class="md-block" flex-gt-sm="">
             <!--Other Input Field  -->
-            <input type="text input" id="brakeOtherIn" value="" placeholder="Brake Specifications">
+            <input type="text input" id="brakeOtherIn" value="" placeholder="Brake Specifications" ng-model="brakeCompatability">
           </md-input-container>
         </div>
 
           <!--If ISO Disk Brake  -->
+        <div ng-show="showBrakeMount">
           <div layout-gt-sm="row">
             <p> Where do you prefer the caliper be mounted (If ISO Disk brake)</p>
           </div>
 
-          <md-radio-group>
+          <md-radio-group ng-model="brakeMount">
             <div layout-gt-sm="row">
               <!-- Maybe add info modal about differences -->
               <md-radio-button value="chainstay" name="caliperMount"> Chainstay </md-radio-button>
@@ -90,6 +91,7 @@
               <md-radio-button value="seatstay" name="caliperMount"> Seatstay </md-radio-button>
             </div>
           </md-radio-group>
+        </div>  
 
 
         <div layout-gt-sm="row">
@@ -412,5 +414,6 @@
       </div>
       </div>
     </div>
+    <md-button class="md-raised md-primary" ng-click="submitFormFour()">Submit</md-button>
   </form>
 </md-content>

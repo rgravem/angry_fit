@@ -1,16 +1,23 @@
 <md-content class="md-padding">
 
-<h2>Consultation Form</h2>
-
-<md-content>
-<div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm=''>
-      <label>Name</label>
-      <input ng-model="height">
+  <div layout-gt-xs="row">
+    <md-input-container>
+        <label>Enter date</label>
+          <md-datepicker ng-model="formOneDate"></md-datepicker>
     </md-input-container>
   </div>
 
-  <div layout-gt-sm="row">
+  <h2>Consultation Form</h2>
+
+  <md-content>
+    <div layout-gt-sm="row">
+      <md-input-container class='md-block' flex-gt-sm=''>
+        <label>Name</label>
+        <input ng-model="height">
+      </md-input-container>
+    </div>
+
+    <div layout-gt-sm="row">
       <md-input-container class='md-block' flex-gt-sm=''>
         <label>Phone</label>
         <input ng-model="height">
@@ -18,69 +25,60 @@
     </div>
 
     <div layout-gt-sm="row">
-        <md-input-container class='md-block' flex-gt-sm=''>
-          <label>Email</label>
-          <input ng-model="height">
-        </md-input-container>
-      </div>
+      <md-input-container class='md-block' flex-gt-sm=''>
+        <label>Email</label>
+        <input ng-model="height">
+      </md-input-container>
+    </div>
 
-      <div layout-gt-sm="row">
-          <md-input-container class='md-block' flex-gt-sm=''>
-            <label>Address</label>
-            <input ng-model="height">
-          </md-input-container>
-        </div>
+    <div layout-gt-sm="row">
+      <md-input-container class='md-block' flex-gt-sm=''>
+        <label>Address</label>
+        <input ng-model="height">
+      </md-input-container>
+    </div>
 
-
-
-
-
-    <md-radio-group ng-model="injuries">
-    <p>Do you have any injuries that prevent you from riding any length of time?</p>
+  <md-radio-group ng-model="injuries">
+      <p>Do you have any injuries that prevent you from riding any length of time?</p>
       <md-radio-button value="yesInjuries">Yes</md-radio-button>
       <md-radio-button value="noInjuries"  class="md-primary"> No </md-radio-button>
       <p><textarea rows="4" cols="50"></textarea></p>
-    </md-radio-group>
+  </md-radio-group>
 
-
-What are some of your complaints with your current fit, if any?
-<p><textarea rows="4" cols="50"></textarea></p>
-
-<md-radio-group ng-model="surgeries">
-<p>Have you had any surgeries? If so, how long ago?</p>
-  <md-radio-button value="yesSurgeries">Yes</md-radio-button>
-  <md-radio-button value="noSurgeries"  class="md-primary"> No </md-radio-button>
+  What are some of your complaints with your current fit, if any?
   <p><textarea rows="4" cols="50"></textarea></p>
-</md-radio-group>
 
-<div layout-gt-sm="row">
-  <md-input-container class='md-block' flex-gt-sm=''>
-    <label>How long is your average ride (in miles)?</label>
-    <input ng-model="angle">
-  </md-input-container>
-</div>
+  <md-radio-group ng-model="surgeries">
+    <p>Have you had any surgeries? If so, how long ago?</p>
+    <md-radio-button value="yesSurgeries">Yes</md-radio-button>
+    <md-radio-button value="noSurgeries"  class="md-primary"> No </md-radio-button>
+    <p><textarea rows="4" cols="50"></textarea></p>
+  </md-radio-group>
 
-<md-radio-group ng-model="races">
-<p>Do you have any races, tours or over all goals in the near future?</p>
-  <md-radio-button value="yesRaces">Yes</md-radio-button>
-  <md-radio-button value="noRaces"  class="md-primary"> No </md-radio-button>
-  <p><textarea rows="4" cols="50"></textarea></p>
-</md-radio-group>
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm=''>
+      <label>How long is your average ride (in miles)?</label>
+      <input ng-model="angle">
+    </md-input-container>
+  </div>
 
-<div layout-gt-sm="row">
-  <md-input-container class='md-block' flex-gt-sm=''>
-    <label>Current bike  brand/model/size</label>
-    <input ng-model="angle">
-  </md-input-container>
-</div>
+  <md-radio-group ng-model="races">
+    <p>Do you have any races, tours or over all goals in the near future?</p>
+    <md-radio-button value="yesRaces">Yes</md-radio-button>
+    <md-radio-button value="noRaces"  class="md-primary"> No </md-radio-button>
+    <p><textarea rows="4" cols="50"></textarea></p>
+  </md-radio-group>
 
-<!-- Current bike brand/model/size:
-<p><textarea rows="4" cols="50"></textarea></p> -->
+  <div layout-gt-sm="row">
+    <md-input-container class='md-block' flex-gt-sm=''>
+      <label>Current bike  brand/model/size</label>
+      <input ng-model="angle">
+    </md-input-container>
+  </div>
 
+  <h3>Current Measurements</h3>
 
-<h3>Current Measurements</h3>
-
-<div layout-gt-sm="row">
+  <div layout-gt-sm="row">
     <md-input-container class='md-block' flex-gt-sm=''>
       <label>Saddle height</label>
       <input ng-model="height">
@@ -163,18 +161,14 @@ What are some of your complaints with your current fit, if any?
       <input ng-model="crank">
     </md-input-container>
   </div>
-</md-content>
+  </md-content>
 
+    <div id='FormOneNotes'>
+      Notes<p><textarea rows="6" cols="100"></textarea></p>
+    </div>
 
-<p>
-<div id='FormOneNotes'>
-Notes<p><textarea rows="6" cols="100"></textarea></p>
-</div>
-</p>
-
-<div layout="column" layout-align="center">
-<md-button id="forOneSubmit" class="md-raised md-primary" ng-click="formOne()">Submit</md-button>
-</div>
-
+  <div layout="column" layout-align="center">
+    <md-button id="forOneSubmit" class="md-raised md-primary" ng-click="formOne()">Submit</md-button>
+  </div>
 
 </md-content>

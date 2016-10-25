@@ -44,7 +44,7 @@
         <div layout-gt-sm="row">
           <!-- IF Other-  Input Field  -->
           <md-input-container class="md-block" flex-gt-sm="">
-            <input type="text" id="bbOtherIn" value="" placeholder="Please Specify">
+            <input type="text" id="bbOtherIn" value="" placeholder="Bottom Bracket Specifications">
           </md-input-container>
         </div>
 
@@ -72,7 +72,7 @@
       <div layout-gt-sm="row">
         <md-input-container class="md-block" flex-gt-sm="">
           <!--Other Input Field  -->
-          <input type="text input" id="brakeOtherIn" value="" placeholder="Please Specify">
+          <input type="text input" id="brakeOtherIn" value="" placeholder="Brake Specifications">
         </md-input-container>
       </div>
 
@@ -95,101 +95,119 @@
         <p> Wheel/Tire Size (choose one)</p>
       </div>
       <md-radio-group>
-        <!-- 700x28-35-->
-        <md-radio-button value="700x23-28" name="wheelStyle"> 700x23-28 </md-radio-button>
-        <!-- 700x23-28-->
-        <md-radio-button value="700x28-35" name="wheelStyle"> 700x28-35 </md-radio-button>
-        <!-- 700x32-38-->
-        <md-radio-button value="700x32-38" name="wheelStyle"> 700x32-38 </md-radio-button>
-        <!-- 700x38-45-->
-        <md-radio-button value="700x38-45" name="wheelStyle"> 700x38-45</md-radio-button>
-        <!-- 29x2-2.35-->
-        <md-radio-button value="29x2-2.35" name="wheelStyle"> 29x2-2.35 </md-radio-button>
-        <!-- 29x3-->
-        <md-radio-button value="29x3" name="wheelStyle"> 29x3(Requires Paragon Yoke)</md-radio-button>
-        <!--650bx35-42-->
-        <md-radio-button value="650bx35-42" name="wheelStyle"> 650bx35-42</md-radio-button>
-        <!--650bx2-2.35-->
-        <md-radio-button value="650bx2-2.35" name="wheelStyle">650bx2-2.35</md-radio-button>
-        <!--650bx3-->
-        <md-radio-button value="650bx3" name="wheelStyle"> 650bx3 (Requires Paragon Yoke)</md-radio-button>
-        <!-- Other -->
-        <md-radio-button value="other" name="wheelStyle"> Other</md-radio-button>
-      <md-radio-group>  
-
-        <!--Other Input Field  -->
-        <input type="text input" id="wheelOtherIn" value="" placeholder="Please Specify">
-      </div>
-      <div id="frameOptions">
-        <p> Frame options (choose multiple) </p>
-
-        <!-- 3rd bottle -->
-        <input type="checkbox" id="3rdBottleMount" value="3rdBottleMount">
-        <label for="3rdBottleMount"> 3rd Bottle Mount</label>
-
-        <!-- Rack Mounts -->
-        <input type="checkbox" id="rackMounts" value="rackMounts">
-        <label for="rackMounts"> Rack Mounts</label>
-
-        <!-- Full Coverage Fenders -->
-        <input type="checkbox" id="fullCoverFenders" value="fullCoverFenders">
-        <label for="fullCoverFenders"> Full Coverage Fender Mounts (restrictions appy)</label>
-
-        <!-- Internal Brake Cable-->
-        <input type="checkbox" id="internalBrakeCable" value="internalBrakeCable">
-        <label for="interalBrakeCable"> Internal Brake Cable Routing(restrictions apply)</label>
-
-        <!-- Rocking/Sliding Dropouts-->
-        <input type="checkbox" id="paragonRockingSlidingDropouts" value="paragonRockingSlidingDropouts">
-        <label for="paragonRockingSlidingDropouts"> Paragon Rocking/Sliding Dropouts</label>
-
-        <!-- Dropout Specs -->
-        <input type="text" id="dropoutSpecs" value="" placeholder="Dropout Specifications">
-
-        <!-- Thru-axle -->
-        <input type="checkbox" id="thruAxleDropouts" value="thruAxleDropouts">
-        <label for="thruAxleDropouts"> Thru-axle Rear Dropouts</label>
-
-        <!-- Di2 Routing -->
-        <input type="checkbox" id="di2Routing" value="di2Routing">
-        <label for="di2Routing"> Di2 Routing</label>
-
-        <!-- eTap Routing -->
-        <input type="checkbox" id="eTapRouting" value="eTapRouting">
-        <label for="eTapRouting"> E Tap Routing (no routing)</label>
-
-        <!-- Custom Rear Rack -->
-        <input type="checkbox" id="rearRack" value="rearRack">
-        <label for="rearRack"> Custom Rear Rack (specify style in notes)</label>
-
-        <!-- Frame Pump Peg -->
-        <input type="checkbox" id="framePump" value="FramePump">
-        <label for="framePump"> Frame Pump Peg</label>
-
-        <!-- Special Frame Options  -->
-        <div id="specialFrameOptions">
-          <p>Any other special frame options you would like to see included?</p>
-          <textarea rows="8" cols="40"></textarea>
+        <div layout-gt-sm="row">
+          <!-- 700x28-35-->
+          <md-radio-button value="700x23-28" name="wheelStyle"> 700x23-28 </md-radio-button>
+          <!-- 700x23-28-->
+          <md-radio-button value="700x28-35" name="wheelStyle"> 700x28-35 </md-radio-button>
         </div>
-
-        <!-- IF Thru Axle dropouts -->
-        <div id="thruAxleSpacing">
-          <p> If you are doing thru-axle rear dropout which spacing would you prefer?(choose one)</p>
-          <!-- 142mm -->
-          <input type="radio" id="142mm" value="142mm" name="dropoutSpacing">
-          <label for="142mm">142mm</label>
-
-          <!-- 148mm Boost -->
-          <input type="radio" id="148mmBoost" value="148mm Boost" name="dropoutSpacing">
-          <label for="148mmBoost">148mm Boost</label>
-
+        <div layout-gt-sm="row">
+          <!-- 700x32-38-->
+          <md-radio-button value="700x32-38" name="wheelStyle"> 700x32-38 </md-radio-button>
+          <!-- 700x38-45-->
+          <md-radio-button value="700x38-45" name="wheelStyle"> 700x38-45</md-radio-button>
+        </div>
+        <div layout-gt-sm="row">
+          <!-- 29x2-2.35-->
+          <md-radio-button value="29x2-2.35" name="wheelStyle"> 29x2-2.35 </md-radio-button>
+          <!-- 29x3-->
+          <md-radio-button value="29x3" name="wheelStyle"> 29x3(Requires Paragon Yoke)</md-radio-button>
+        </div>
+        <div layout-gt-sm="row">
+          <!--650bx35-42-->
+          <md-radio-button value="650bx35-42" name="wheelStyle"> 650bx35-42</md-radio-button>
+          <!--650bx2-2.35-->
+          <md-radio-button value="650bx2-2.35" name="wheelStyle">650bx2-2.35</md-radio-button>
+        </div>
+        <div layout-gt-sm="row">
+          <!--650bx3-->
+          <md-radio-button value="650bx3" name="wheelStyle"> 650bx3 (Requires Paragon Yoke)</md-radio-button>
           <!-- Other -->
-          <input type="radio" id="otherSpacing" value="other" name="dropoutSpacing">
-          <label for="otherSpacing">Other</label>
-          <input type="text" id="otherSpacingIN" value="" name="dropoutSpacing" placeholder="Please Specify">
+          <md-radio-button value="other" name="wheelStyle"> Other</md-radio-button>
+        </div>
+      <md-radio-group>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
+        <!--Other Input Field  -->
+          <input type="text input" id="wheelOtherIn" value="" placeholder="Wheel Specifications">
+        </md-input-container>
+      </div>
+    </div>
 
+    <div id="frameOptions">
+      <div layout-gt-sm="row">
+        <p> Frame options (choose multiple) </p>
+      </div>
+      <div layout-gt-sm="row">
+        <!-- 3rd bottle -->
+        <md-checkbox value="3rdBottleMount"> 3rd Bottle Mount</md-checkbox>
+        <!-- Rack Mounts -->
+        <md-checkbox value="rackMounts"> Rack Mounts</md-checkbox>
+      </div>
+      <div layout-gt-sm="row">
+        <!-- Full Coverage Fenders -->
+        <md-checkbox value="fullCoverFenders">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
+        <!-- Internal Brake Cable-->
+        <md-checkbox value="internalBrakeCable"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
+      </div>
+      <div layout-gt-sm="row">
+        <!-- Rocking/Sliding Dropouts-->
+        <md-checkbox value="paragonRockingSlidingDropouts"> Paragon Rocking/Sliding Dropouts</md-checkbox>
+        <!-- Thru-axle -->
+        <md-checkbox value="thruAxleDropouts"> Thru-axle Rear Dropouts</md-checkbox>
+      </div>
+      <div layout-gt-sm="row">
+        <!-- Di2 Routing -->
+        <md-checkbox value="di2Routing"> Di2 Routing</md-checkbox>
+        <!-- eTap Routing -->
+        <md-checkbox value="eTapRouting">E Tap Routing (no routing)</md-checkbox>
+      </div>
+      <div layout-gt-sm="row">
+        <!-- Custom Rear Rack -->
+        <md-checkbox value="rearRack"> Custom Rear Rack (specify style in notes)</md-checkbox>
+        <!-- Frame Pump Peg -->
+        <md-checkbox value="FramePump">Frame Pump Peg</md-checkbox>
+      </div>
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
+        <!-- Dropout Specs -->
+         <input type="text" id="dropoutSpecs" value="" placeholder="Dropout Specifications">
+        </md-input-container>
+      </div>
+
+      <!-- IF Thru Axle dropouts -->
+      <div id="thruAxleSpacing">
+        <div layout-gt-sm="row">
+          <p> If you are doing thru-axle rear dropout which spacing would you prefer?(choose one)</p>
+        </div>
+        <md-radio-group>
+          <div layout-gt-sm="row">
+            <!-- 142mm -->
+            <md-radio-button value="142mm" name="dropoutSpacing">142mm</md-radio-button>
+
+            <!-- 148mm Boost -->
+            <md-radio-button value="148mm Boost" name="dropoutSpacing">148mm Boost</md-radio-button>
+            <!-- Other -->
+            <md-radio-button value="other" name="dropoutSpacing">Other</md-radio-button>
+          </div>
+        </md-radio-group>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="">
+            <input type="text" value="" name="dropoutSpacing" placeholder="Dropout Spacing Specifictaions">
+          </md-input-container>
         </div>
       </div>
+
+      <!-- Special Frame Options  -->
+      <div id="specialFrameOptions">
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="">
+            <textarea rows="3" placeholder="Any other special frame options you would like to see included?"></textarea>
+          </md-input-container>
+        </div>
+      </div>
+    </div>
+    
       <div id="headtubeDiv">
         <p>What style headtube do you prefer? (choose one)</p>
 

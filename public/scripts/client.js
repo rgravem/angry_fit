@@ -1,7 +1,8 @@
 console.log('client.js is sourced, yo!');
 
 //source in angular
-var myApp = angular.module("myApp", ['ui.router', 'ngMaterial', 'ngMessages',]);
+var myApp = angular.module("myApp", ['ui.router', 'ngMaterial', 'ngMessages', 'firebase']);
+
 
 
 ///////////////////////////UI Routing///////////////////////////////////////

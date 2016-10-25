@@ -37,10 +37,8 @@ CREATE TABLE bikes (
 --form one (consulation) table
 CREATE TABLE consultation (
 	id SERIAL PRIMARY KEY NOT NULL,
-	name VARCHAR (50),
-	phone VARCHAR(10),
-	email VARCHAR (70),
-	address VARCHAR (70),
+	customerID INT REFERENCES customers(id),
+	employeeID INT REFERENCES employees(id),
 	injuries VARCHAR (400),
 	complaints VARCHAR (400),
 	surgeries VARCHAR (400),

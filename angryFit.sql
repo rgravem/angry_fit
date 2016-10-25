@@ -55,4 +55,4 @@ CREATE TABLE consultation (
 	shoeBrandModelSize VARCHAR (50),
 	brakeLevelPosistion VARCHAR (50),
 	crankLength VARCHAR (50)
-)
+);

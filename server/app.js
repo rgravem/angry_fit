@@ -42,7 +42,6 @@ app.get("/privateData", function(req, res){
 
 });
 
-
 ////////////////////Get Existing Customers from DB/////////////////////////////
 app.get('/getExistingCustomers', function(req, res){
   console.log('in getExistingCustomers route');

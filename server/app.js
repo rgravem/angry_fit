@@ -263,6 +263,12 @@ app.post('/addFrameGeometry', function(req, res){
     });// end pg connect
 });
 
+app.post('/addFrameDetails', function (req, res){
+  console.log("This is what the server got:", req.body);
+  res.sendStatus(200);
+  
+});
+
 
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){

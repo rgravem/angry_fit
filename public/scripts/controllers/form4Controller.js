@@ -126,6 +126,14 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     };
 
     console.log(formFourObject);
+
+    $http({
+      method: 'POST',
+      url: '/addFrameDetails',
+      data: formFourObject
+    }).then(function(form4Response){
+      console.log('success from server', form4Response);
+    });
   }; //End submitFormFour
 
   var createFrameOptions = function(){

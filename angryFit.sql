@@ -63,6 +63,8 @@ CREATE TABLE consultation (
 --  create for table 3
 CREATE TABLE form3custom_frame_geometry (
 	id SERIAL PRIMARY KEY NOT NULL,
+	customerID INT REFERENCES customers(id),
+	employeeID INT REFERENCES employees(id),
 	date VARCHAR(50),
 	inseam VARCHAR(50),
 	torso VARCHAR(50),

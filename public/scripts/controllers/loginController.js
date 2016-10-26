@@ -1,4 +1,4 @@
-myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$firebaseAuth', function($scope, $http, $firebaseArray, $firebaseAuth){
+myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$firebaseAuth', '$location', function($scope, $http, $firebaseArray, $firebaseAuth, $location){
   console.log('In loginController');
   var auth = $firebaseAuth();
 
@@ -28,6 +28,7 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
           }
         }).then(function(response){
           $scope.secretData = response.data;
+          $location.path('/customerType');
         });
       });
     }else{

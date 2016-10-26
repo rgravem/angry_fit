@@ -4,7 +4,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
 $scope.submitFrameGeometry = function(){
   console.log('complete clicked');
   var objectToSend = {
-    date: $scope.frameGeometryFormDate,
+    date: $scope.frameGeometryFormDate.toString().substring(0,15),
     inseam: $scope.inseam,
   	torso: $scope.torso,
   	arm: $scope.arm,

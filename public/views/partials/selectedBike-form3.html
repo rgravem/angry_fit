@@ -1,7 +1,13 @@
 <md-content class="md-padding">
-<h3>Custom/New Bike Fitting</h3>
+<h3>Custom Frame Geometry</h3>
 <form name='fitFormThree'
 <h3>Body Measurements</h3>
+<div layout-gt-xs="row">
+  <md-input-container>
+      <label>Enter date</label>
+        <md-datepicker ng-model="frameGeometryFormDate"></md-datepicker>
+  </md-input-container>
+</div>
 <div layout-gt-sm="row">
   <md-input-container class="md-block" flex-gt-sm="">
     <label>Inseam</label>
@@ -47,14 +53,20 @@
 </div>
 <div layout-gt-sm="row">
   <md-input-container class="md-block" flex-gt-sm="">
+    <label>D: Seat tube angle</label>
+        <input ng-model="seatTubeAngle">
+  </md-input-container>
+</div>
+<div layout-gt-sm="row">
+  <md-input-container class="md-block" flex-gt-sm="">
     <label>E: Headtube length</label>
-        <input ng-model="headtubeLength">
+        <input ng-model="headTubeLength">
   </md-input-container>
 </div>
 <div layout-gt-sm="row">
   <md-input-container class="md-block" flex-gt-sm="">
     <label>F: Headtube angle</label>
-        <input ng-model="headtubeAngle">
+        <input ng-model="headTubeAngle">
   </md-input-container>
 </div>
 <div layout-gt-sm="row">
@@ -105,5 +117,8 @@
         <input ng-model="forkOffset">
   </md-input-container>
 </div>
+<div layout="column" layout-align="center">
+<md-button id='frameGeometrySubmit' class="md-raised md-primary" ng-click="submitFrameGeometry()">Completed</md-button>
+<div>
 </form>
 </md-content>

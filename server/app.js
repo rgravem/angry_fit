@@ -157,6 +157,58 @@ app.post( '/editExistingCustomer', function( req, res ){
   });// end pg connect
 }); //end of editing current customer
 
+/////////////////////////////Add Form 2: New Fit to DB////////////////////////////////
+app.post( '/addForm2NewFit', function( req, res ){
+  // console.log( 'in addForm2NewFit', req.body );
+  newForm2Object = req.body;
+  console.log('newForm2Object Object:', newForm2Object);
+
+  var saddleHeight = newForm2Object.saddleHeight;
+  var saddleHeightOverBars = newForm2Object.saddleHeightOverBars;
+  var saddleToHandlebarReach = newForm2Object.saddleToHandlebarReach;
+  var saddleAngle = newForm2Object.saddleAngle;
+  var saddleForeAft = newForm2Object.saddleForeAft;
+  var saddleBrandAndWidth = newForm2Object.saddleBrandAndWidth;
+  var handleBarBrandAndModel = newForm2Object.handleBarBrandAndModel;
+  var stemLength =newForm2Object.stemLength;
+  var stemAngle =newForm2Object.stemAngle;
+  var handleBarWidth = newForm2Object.handleBarWidth;
+  var pedalBrandAndModel = newForm2Object.pedalBrandAndModel;
+  var showBrandModelSize = newForm2Object.showBrandModelSize;
+  var brakeLevelPosition = newForm2Object.brakeLevelPosition;
+  var crankLength = newForm2Object.crankLength;
+  var standover = newForm2Object.standover;
+  var stack = newForm2Object.stack;
+
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB");
+
+      var form2ToSend = [];
+
+      client.query('INSERT INTO form2NewFit (saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);', [saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, pedalBrandAndModel, stemLength, stemAngle, handleBarWidth, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * From form2NewFit');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        form2ToSend.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(form2ToSend);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+});//end of post
+
+
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";

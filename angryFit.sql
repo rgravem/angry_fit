@@ -59,3 +59,27 @@ CREATE TABLE consultation (
 	brakeLevelPosistion VARCHAR (50),
 	crankLength VARCHAR (50)
 );
+
+--create for table 2
+CREATE TABLE form2NewFit (
+	id SERIAL PRIMARY KEY NOT NULL,
+	form2Date VARCHAR (50),
+	customerID INT REFERENCES customers(id),
+	employeeID INT REFERENCES employees(id),
+	saddleHeight VARCHAR (50),
+	saddleHeightOverBars VARCHAR (50),
+	saddleToHandlebarReach VARCHAR (50),
+	saddleAngle VARCHAR (50),
+	saddleForeAft VARCHAR (50),
+	saddleBrandAndWidth VARCHAR (50),
+	stemLength VARCHAR (50),
+	stemAngle VARCHAR (50),
+	handleBarWidth VARCHAR (50),
+	handleBarBrandAndModel VARCHAR (50),
+	pedalBrandAndModel VARCHAR (50),
+	showBrandModelSize VARCHAR (50),
+	brakeLevelPosition VARCHAR (50),
+	crankLength VARCHAR (50),
+	standover VARCHAR (50),
+	stack VARCHAR (50)
+);

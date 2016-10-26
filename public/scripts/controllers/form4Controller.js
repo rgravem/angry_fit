@@ -85,6 +85,7 @@ $scope.updateShowFenderPaint = function(){
   $scope.showFenderPaint =!$scope.showFenderPaint;
 };
 
+
 //Submit Form Four
 $scope.submitFormFour = function(){
   console.log("In Submit Form Four");
@@ -93,12 +94,24 @@ $scope.submitFormFour = function(){
     $scope.brakeMount = "N/A";
   }
 
+
   var formFourObject ={
     date: $scope.dateCreated,
     bikeStyle: $scope.bikeStyle,
     bottomBracketShell:$scope.bottomBracketShell,
     brakeCompatability: $scope.brakeCompatability,
-    brakeMount:$scope.brakeMount
+    brakeMount:$scope.brakeMount,
+    wheelSize: $scope.wheelSize,
+    specialFrameOptions: $scope.specialFrameOptions,
+    headTubeSize: $scope.headtube,
+    forkType: $scope.forkBrand + " " + $scope.forkModel,
+    seatDropper: $scope.seatDropperBrand + " " + $scope.seatDropperModel,
+    drivetrain:  $scope.drivetrain,
+    paintColor: $scope.paintColor,
+    fullCoverageFenders: $scope.fullCoverageFenders,
+    fendersPainted: $scope.fendersPainted,
+    frameNotes: $scope.frameNotes,
+    paintNotes: $scope.paintNotes
   };
   console.log(formFourObject);
 }; //End submitFormFour

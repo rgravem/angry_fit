@@ -42,7 +42,6 @@ app.get("/privateData", function(req, res){
 
 });
 
-
 ////////////////////Get Existing Customers from DB/////////////////////////////
 app.get('/getExistingCustomers', function(req, res){
   console.log('in getExistingCustomers route');
@@ -67,8 +66,8 @@ app.get('/getExistingCustomers', function(req, res){
 
 
 /////////////////////////////Add New Customer to DB////////////////////////////////
-app.post( '/addNewCustomer', urlencodedParser, function( req, res ){
-  console.log( 'in addNewCustomer' );
+app.post( '/addNewCustomer', function( req, res ){
+  console.log( 'in addNewCustomer', req.body );
   newCustomerInfo = req.body;
   console.log('newCustomerInfo Object:', newCustomerInfo);
 
@@ -111,7 +110,7 @@ app.post( '/addNewCustomer', urlencodedParser, function( req, res ){
 });//end of post
 
 /////////////////////////Edit Existing Customer in DB///////////////////////////
-app.post( '/editExistingCustomer', urlencodedParser, function( req, res ){
+app.post( '/editExistingCustomer', function( req, res ){
   console.log( 'in editExistingCustomer' );
   editCustomerInfo = req.body;
   console.log('editCustomerInfo:', editCustomerInfo);
@@ -137,8 +136,8 @@ app.post( '/editExistingCustomer', urlencodedParser, function( req, res ){
       //array to hold results
       var editCustomerInfoToSend = [];
       //send update to DB
-      // client.query('UPDATE customers (firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip]);
 
+      //query uses the customer id number in the DB to determine which customer info should be edited
       client.query('UPDATE customers SET firstName = ($1), lastName = ($2), email = ($3), phoneNumber = ($4), streetAddress = ($5), unitNumber = ($6), city = ($7), state = ($8), zip = ($9) WHERE id = ($10)', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, id]);
 
       //Query the DB
@@ -156,8 +155,7 @@ app.post( '/editExistingCustomer', urlencodedParser, function( req, res ){
       });//end of end
     }// end of else
   });// end pg connect
-
-});
+}); //end of editing current customer
 
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){

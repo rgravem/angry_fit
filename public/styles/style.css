@@ -14,3 +14,9 @@
 .exisitingUserGrid md-grid-tile {
   transition: all 400ms ease-out 50ms;
 }
+
+/* Removes weird highligh on radios with ng-click*/
+md-radio-button:focus {
+    outline: none;
+    border: 0;
+ }

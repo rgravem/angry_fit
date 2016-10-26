@@ -35,27 +35,28 @@ CREATE TABLE bikes (
 );
 
 --form one (consulation) table
-CREATE TABLE consultation (
+CREATE TABLE exsistingFit (
 	id SERIAL PRIMARY KEY NOT NULL,
 	customerID INT REFERENCES customers(id),
 	employeeID INT REFERENCES employees(id),
+	formOneDate VARCHAR (20),
 	injuries VARCHAR (400),
 	complaints VARCHAR (400),
 	surgeries VARCHAR (400),
-	averageRide VARCHAR (50),
-	goals VARCHAR (400),
-	currentBikeInformation VARCHAR (200),
+	averageRideLength VARCHAR (50),
+	upcomingRaces VARCHAR (400),
+	currentBikeBrand VARCHAR (200),
 	saddleHeight VARCHAR (50),
 	saddleHeightOverBars VARCHAR (50),
 	saddleAngle VARCHAR (50),
 	saddleSetback VARCHAR (50),
-	saddleToHandlebarReach VARCHAR (50),
+	saddleHandlebarReach VARCHAR (50),
 	stemLength VARCHAR (50),
 	stemAngle VARCHAR (50),
 	handleBarWidth VARCHAR (50),
-	handleBarBrandModel VARCHAR (50),
+	handleBarBrand VARCHAR (50),
 	pedalBrandModel VARCHAR (50),
-	shoeBrandModelSize VARCHAR (50),
-	brakeLevelPosistion VARCHAR (50),
+	shoeBrand VARCHAR (50),
+	brakeLevel VARCHAR (50),
 	crankLength VARCHAR (50)
-);
+)

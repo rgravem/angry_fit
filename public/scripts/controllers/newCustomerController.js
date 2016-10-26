@@ -1,7 +1,6 @@
 myApp.controller("newCustomerController", ['$scope', '$http', function($scope, $http){
   console.log('In newCustomerController');
 
-
   $scope.addNewCustomer = function () {
     var newCustomerObject = {
       firstName: $scope.firstName,

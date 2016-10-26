@@ -109,3 +109,27 @@ CREATE TABLE form3custom_frame_geometry (
 	mechanicalTrail VARCHAR(50),
 	forkOffset VARCHAR(50)
 );
+-- create form 4 table
+CREATE TABLE form4_custom_frame_details(
+	id SERIAL PRIMARY KEY NOT NULL,
+	customerID INT REFERENCES customers(id),
+	employeeID INT REFERENCES employees(id),
+	date VARCHAR(50),
+	bikeStyle VARCHAR(50),
+	bottomBracketShell VARCHAR(50),
+	brakeCompatability VARCHAR(50),
+	brakeMount VARCHAR(50),
+	wheelSize VARCHAR(50),
+	specialFrameOptions VARCHAR(400),
+	headTubeSize VARCHAR(50),
+	forkType TEXT[],
+	seatDropper VARCHAR(50),
+	drivetrain VARCHAR(50),
+	paintColor VARCHAR(50),
+	fullCoverageFenders VARCHAR(50),
+	fendersPainted VARCHAR(50),
+	frameNotes VARCHAR(400),
+	frameOptions TEXT[],
+	paintNotes VARCHAR(400)
+	);
+	

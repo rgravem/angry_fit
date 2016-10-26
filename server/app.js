@@ -263,10 +263,55 @@ app.post('/addFrameGeometry', function(req, res){
     });// end pg connect
 });
 
+// Form 4 post route
 app.post('/addFrameDetails', function (req, res){
   console.log("This is what the server got:", req.body);
-  res.sendStatus(200);
-  
+
+  var date = req.body.date;
+  var bikeStyle = req.body.bikeStyle;
+  var bottomBracketShell = req.body.bottomBracketShell;
+  var brakeCompatability= req.body.brakeCompatability;
+  var brakeMount = req.body.brakeMount;
+  var wheelSize = req.body.wheelSize;
+  var specialFrameOptions = req.body.specialFrameOptions;
+  var headTubeSize = req.body.headTubeSize;
+  var forkType = req.body.forkType;
+  var seatDropper = req.body.seatDropper;
+  var drivetrain = req.body.drivetrain;
+  var paintColor = req.body.paintColor;
+  var fullCoverageFenders = req.body.fullCoverageFenders;
+  var fendersPainted = req.body.fendersPainted;
+  var frameNotes = req.body.frameNotes;
+  var frameOptions= req.body.frameOptions;
+  var paintNotes = req.body.paintNotes;
+
+  pg.connect(connectionString, function(err, client, done){
+  //check for error
+  if(err){
+    console.log(err);
+  }//end error check
+  else{
+    console.log("connected to DB");
+    //array to hold results
+    var frameDetails = [];
+    //send update to DB
+    //query uses the customer id number in the DB to determine which customer info should be edited
+    client.query('INSERT INTO form4_custom_frame_details (date, bikeStyle, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [date, bikeStyle, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted,frameNotes, frameOptions, paintNotes]);
+    //Query the DB
+    var queryResults = client.query('SELECT * FROM form4_custom_frame_details ORDER BY id DESC LIMIT 1;');
+    //run for each row in the query
+    queryResults.on("row", function(row){
+      frameDetails.push(row);
+    }); //end of row
+    queryResults.on('end', function(){
+      //we're done
+      done();
+      //return result as JSON version of array
+      return res.json(frameDetails);
+
+    });//end of end
+  }// end of else
+});// end pg connect
 });
 
 

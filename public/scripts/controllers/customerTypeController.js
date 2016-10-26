@@ -13,10 +13,5 @@ $scope.existingCustomer = function(){
   $location.path('/existingCustomer');
 };
 
-$scope.logOut = function(){
-  auth.$signOut().then(function(){
-    console.log('Logging the user out!');
-  });
-};
 
 }]);//end customerTypeController

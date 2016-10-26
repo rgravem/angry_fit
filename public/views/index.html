@@ -31,8 +31,21 @@
   </head>
 
   <body ng-app="myApp">
-    <h1>Angry Fit</h1>
 
+    <md-toolbar ng-controller="navController">
+      <div class="md-toolbar-tools">
+        <md-button class="md-raised" ng-click="startOver()" aria-label="changeCustomer">
+          Start Over
+        </md-button>
+        <h2>
+
+        </h2>
+        <span flex=""></span>
+        <md-button class="md-raised" ng-click="logOut()" aria-label="logOut">
+          Log Out
+        </md-button>
+      </div>
+    </md-toolbar>
     <!--////////// Angular Routes /////////////-->
     <ul>
       <li><a ui-sref="login">Login</a></li>

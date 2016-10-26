@@ -1,5 +1,7 @@
-myApp.controller("customerTypeController", ['$scope', '$location', '$http', function($scope, $location, $http){
+myApp.controller("customerTypeController", ['$scope', '$location', '$http', '$firebaseAuth', '$firebaseArray', function($scope, $location, $http, $firebaseAuth, $firebaseArray){
   console.log('In customerTypeController');
+
+var auth = $firebaseAuth();
 
 $scope.newCustomer = function(){
   console.log('new customer hit');
@@ -10,5 +12,6 @@ $scope.existingCustomer = function(){
   console.log('exisiting customer clicked');
   $location.path('/existingCustomer');
 };
+
 
 }]);//end customerTypeController

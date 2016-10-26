@@ -62,3 +62,19 @@ myApp.config(function($stateProvider,$urlRouterProvider){
       controller: "newCustomerController"
     });
 });
+
+myApp.controller("navController", ['$scope', '$http', '$firebaseArray', '$firebaseAuth', '$location', function($scope, $http, $firebaseArray, $firebaseAuth, $location){
+  console.log('In navController');
+  var auth = $firebaseAuth();
+
+  $scope.logOut = function(){
+    auth.$signOut().then(function(){
+      console.log('Logging the user out!');
+      $location.path('/login');
+    });
+  };
+
+  $scope.startOver = function(){
+    $location.path('/customerType');
+  };
+  }]);

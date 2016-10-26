@@ -265,6 +265,83 @@ app.post('/addFrameGeometry', function(req, res){
 
 
 //////////////////////////////generic app.get///////////////////////////////////
+
+
+
+
+
+
+/////////////////////////////Add form 1 to DB////////////////////////////////
+app.post( '/addFormOne', function( req, res ){
+  console.log( 'in addFormOne', req.body );
+  formOneInfo = req.body;
+  console.log('formOneInfo Object:', formOneInfo);
+
+  var formOneDate = formOneInfo.formOneDate;
+  var customerID = formOneInfo.customerID;
+  var employeeID = formOneInfo.employeeID;
+  var injuries = formOneInfo.injuries;
+  var complaints = formOneInfo.complaints;
+  var surgeries = formOneInfo.surgeries;
+  var averageRideLength = formOneInfo.averageRideLength;
+  var upcomingRaces = formOneInfo.upcomingRaces;
+  var currentBikeBrand = formOneInfo.currentBikeBrand;
+  var saddleHeight = formOneInfo.saddleHeight;
+  var saddleHeightOverBars = formOneInfo.saddleHeightOverBars;
+  var saddleAngle = formOneInfo.saddleAngle;
+  var saddleSetback = formOneInfo.saddleSetback;
+  var SaddlehandlebarReach = formOneInfo.SaddlehandlebarReach;
+  var stemLength = formOneInfo.stemLength;
+  var stemAngle = formOneInfo.stemAngle;
+  var handlebarWidth = formOneInfo.handlebarWidth;
+  var handlebarBrand = formOneInfo.handlebarBrand;
+  var pedalBrandModel = formOneInfo.pedalBrandModel;
+  var shoeBrand = formOneInfo.shoeBrand;
+  var brakeLevel = formOneInfo.brakeLevel;
+  var crankLength = formOneInfo.crankLength;
+  var notes = formOneInfo.notes;
+
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB");
+
+      var newFormOneToSend = [];
+
+      client.query('INSERT INTO exsistingfit (formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23);', [formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * From exsistingfit');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        newFormOneToSend.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(newFormOneToSend);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+});//end of post
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";
     res.sendFile(path.join(__dirname, "../public/", file));

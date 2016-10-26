@@ -52,7 +52,7 @@ app.get('/getExistingCustomers', function(req, res){
     } else{
       console.log('connected via getExistingCustomers');
       var existingCustomersArray = [];
-      var queryResults = client.query('SELECT * FROM customers');
+      var queryResults = client.query('select * FROM customers ORDER BY upper(lastName);');
       queryResults.on('row', function(row){
         existingCustomersArray.push(row);
       });

@@ -38,17 +38,4 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     });
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }]);//end form1Controller

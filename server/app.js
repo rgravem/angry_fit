@@ -162,7 +162,7 @@ app.post( '/addForm2NewFit', function( req, res ){
   // console.log( 'in addForm2NewFit', req.body );
   newForm2Object = req.body;
   console.log('newForm2Object Object:', newForm2Object);
-
+  var form2Date = newForm2Object.form2Date;
   var saddleHeight = newForm2Object.saddleHeight;
   var saddleHeightOverBars = newForm2Object.saddleHeightOverBars;
   var saddleToHandlebarReach = newForm2Object.saddleToHandlebarReach;
@@ -189,7 +189,7 @@ app.post( '/addForm2NewFit', function( req, res ){
 
       var form2ToSend = [];
 
-      client.query('INSERT INTO form2NewFit (saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);', [saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, pedalBrandAndModel, stemLength, stemAngle, handleBarWidth, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack]);
+      client.query('INSERT INTO form2NewFit (form2Date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [form2Date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, pedalBrandAndModel, stemLength, stemAngle, handleBarWidth, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack]);
 
       //Query the DB
       var queryResults = client.query('SELECT * From form2NewFit');

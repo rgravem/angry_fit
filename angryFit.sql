@@ -59,3 +59,27 @@ CREATE TABLE consultation (
 	brakeLevelPosistion VARCHAR (50),
 	crankLength VARCHAR (50)
 );
+
+--  create for table 3
+CREATE TABLE form3custom_frame_geometry (
+	id SERIAL PRIMARY KEY NOT NULL,
+	date VARCHAR(50),
+	inseam VARCHAR(50),
+	torso VARCHAR(50),
+	arm VARCHAR(50),
+	footLength VARCHAR(50),
+	effectiveTopTube VARCHAR(50),
+	standover VARCHAR(50),
+	seatTubeLength VARCHAR(50),
+	seatTubeAngle VARCHAR(50),
+	headTubeLength VARCHAR(50),
+	headTubeAngle VARCHAR(50),
+	stack VARCHAR(50),
+	reach VARCHAR(50),
+	wheelBase VARCHAR(50),
+	chainstayLength VARCHAR(50),
+	bbDrop VARCHAR(50),
+	axleToCrown VARCHAR(50),
+	mechanicalTrail VARCHAR(50),
+	forkOffset VARCHAR(50)
+);

@@ -143,38 +143,38 @@
         </div>
         <div layout-gt-sm="row">
           <!-- 3rd bottle -->
-          <md-checkbox value="3rdBottleMount"> 3rd Bottle Mount</md-checkbox>
+          <md-checkbox value="3rdBottleMount" ng-model="thirdBottle"> 3rd Bottle Mount</md-checkbox>
           <!-- Rack Mounts -->
-          <md-checkbox value="rackMounts"> Rack Mounts</md-checkbox>
+          <md-checkbox value="rackMounts" ng-model="rackMounts"> Rack Mounts</md-checkbox>
         </div>
         <div layout-gt-sm="row">
           <!-- Full Coverage Fenders -->
-          <md-checkbox value="fullCoverFenders">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
+          <md-checkbox value="fullCoverFenders" ng-model="fullCoverageFenders">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
           <!-- Internal Brake Cable-->
-          <md-checkbox value="internalBrakeCable"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
+          <md-checkbox value="internalBrakeCable" ng-model="internalBrakeCable"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
         </div>
         <div layout-gt-sm="row">
           <!-- Rocking/Sliding Dropouts-->
-          <md-checkbox value="paragonRockingSlidingDropouts" ng-click="updateShowDropoutSpecs()"> Paragon Rocking/Sliding Dropouts</md-checkbox>
+          <md-checkbox value="paragonRockingSlidingDropouts" ng-click="updateShowDropoutSpecs()" ng-model="rockingSlidingDropouts"> Paragon Rocking/Sliding Dropouts</md-checkbox>
           <!-- Thru-axle -->
-          <md-checkbox value="thruAxleDropouts" ng-click="updateShowThruAxle()"> Thru-axle Rear Dropouts</md-checkbox>
+          <md-checkbox value="thruAxleDropouts" ng-click="updateShowThruAxle()" ng-model="thruAxleRear"> Thru-axle Rear Dropouts</md-checkbox>
         </div>
         <div layout-gt-sm="row">
           <!-- Di2 Routing -->
-          <md-checkbox value="di2Routing"> Di2 Routing</md-checkbox>
+          <md-checkbox value="di2Routing" ng-model="di2Routing"> Di2 Routing</md-checkbox>
           <!-- eTap Routing -->
-          <md-checkbox value="eTapRouting">E Tap Routing (no routing)</md-checkbox>
+          <md-checkbox value="eTapRouting" ng-model="eTapRouting">E Tap Routing (no routing)</md-checkbox>
         </div>
         <div layout-gt-sm="row">
           <!-- Custom Rear Rack -->
-          <md-checkbox value="rearRack"> Custom Rear Rack (specify style in notes)</md-checkbox>
+          <md-checkbox value="rearRack" ng-model="customRearRack"> Custom Rear Rack (specify style in notes)</md-checkbox>
           <!-- Frame Pump Peg -->
-          <md-checkbox value="FramePump">Frame Pump Peg</md-checkbox>
+          <md-checkbox value="FramePump" ng-model="framePump">Frame Pump Peg</md-checkbox>
         </div>
         <!-- Dropout Specs -->
         <div layout-gt-sm="row" ng-show="showDropoutSpecs">
           <md-input-container class="md-block" flex-gt-sm="">
-           <input type="text" id="dropoutSpecs" value="" placeholder="Paragon Rocking/Sliding Dropout Specs">
+           <input type="text" id="dropoutSpecs" value="" placeholder="Paragon Rocking/Sliding Dropout Specs" ng-model="dropoutSpecsIn">
           </md-input-container>
         </div>
 
@@ -183,7 +183,7 @@
           <div layout-gt-sm="row">
             <p> If you are doing thru-axle rear dropout which spacing would you prefer?(choose one)</p>
           </div>
-          <md-radio-group>
+          <md-radio-group ng-model="dropoutSpacingIn">
             <div layout-gt-sm="row">
               <!-- 142mm -->
               <md-radio-button value="142mm" name="dropoutSpacing">142mm</md-radio-button>
@@ -191,12 +191,12 @@
               <!-- 148mm Boost -->
               <md-radio-button value="148mm Boost" name="dropoutSpacing">148mm Boost</md-radio-button>
               <!-- Other -->
-              <md-radio-button value="other" name="dropoutSpacing" ng-click="updateCustomDropoutSpacing()">Other</md-radio-button>
+              <md-radio-button value="" name="dropoutSpacing" ng-click="updateCustomDropoutSpacing()">Other</md-radio-button>
             </div>
           </md-radio-group>
           <div layout-gt-sm="row" ng-show="customDropoutSpacing">
             <md-input-container class="md-block" flex-gt-sm="">
-              <input type="text" value="" name="dropoutSpacing" placeholder="Custom Dropout Spacing Specifictaions">
+              <input type="text" value="" name="dropoutSpacing" placeholder="Custom Dropout Spacing Specifictaions" ng-model="dropoutSpacingIn">
             </md-input-container>
           </div>
         </div>
@@ -231,10 +231,10 @@
           <div layout-gt-sm="row">
             <p> What type of fork are you planning on using? </p>
           </div>
-          <md-radio-group>
+          <md-radio-group ng-model="customOrStandardFork">
             <div layout-gt-sm="row">
               <!-- Standard Fork -->
-              <md-radio-button value="other" name="forkOption" ng-click="updateShowStandardFork()">Standard Fork </md-radio-button>
+              <md-radio-button value="standard" name="forkOption" ng-click="updateShowStandardFork()"> Standard Fork </md-radio-button>
               <!-- Custom Fork -->
               <md-radio-button value="custom" name="forkOption" ng-click="updateShowCustomFork()"> Custom Fork </md-radio-button>
             </div>
@@ -259,21 +259,21 @@
             </div>
             <div layout-gt-sm="row">
               <!-- Thru Axle -->
-              <md-checkbox value="thruAxle"> Thru Axle </md-checkbox>
+              <md-checkbox value="thruAxle" ng-model="thruAxle"> Thru Axle </md-checkbox>
               <!-- Front Mid Rack Mounts -->
-              <md-checkbox value="frontMidRackMounts">Front Mid Rack Mounts</md-checkbox>
+              <md-checkbox value="frontMidRackMounts" ng-model="frontRackMounts">Front Mid Rack Mounts</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Fender Mounts -->
-              <md-checkbox value="fenderMounts"> Fender Mounts</md-checkbox>
+              <md-checkbox value="fenderMounts" ng-model="fenderMounts"> Fender Mounts</md-checkbox>
               <!-- Internal Routing -->
-              <md-checkbox value="internalRouting"> Internal Routing for Hub Dyno Wire </md-checkbox>
+              <md-checkbox value="internalRouting" ng-model="internalRouting"> Internal Routing for Hub Dyno Wire </md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Integrated Fork Contact -->
-              <md-checkbox value="integratedForkContact"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
+              <md-checkbox value="integratedForkContact" ng-model="integratedForkContact"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
               <!-- Custom Front Rack -->
-              <md-checkbox  value="frontRack">Custom Front Rack(specify style in frame options notes) </md-checkbox>
+              <md-checkbox  value="frontRack" ng-model="customFrontRack">Custom Front Rack(specify style in frame options notes) </md-checkbox>
             </div>
           </div>
         </div>

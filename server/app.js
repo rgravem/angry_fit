@@ -313,7 +313,7 @@ app.post( '/addFormOne', function( req, res ){
       client.query('INSERT INTO exsistingfit (formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23);', [formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * From exsistingfit');
+      var queryResults = client.query('SELECT * FROM exsistingfit ORDER BY id DESC LIMIT 1');
       //run for each row in the query
       queryResults.on("row", function(row){
         newFormOneToSend.push(row);
@@ -328,19 +328,6 @@ app.post( '/addFormOne', function( req, res ){
     }// end of else
   });// end pg connect
 });//end of post
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";

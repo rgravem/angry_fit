@@ -315,13 +315,6 @@ app.post('/addFrameDetails', function (req, res){
 });
 
 
-//////////////////////////////generic app.get///////////////////////////////////
-
-
-
-
-
-
 /////////////////////////////Add form 1 to DB////////////////////////////////
 app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
@@ -380,6 +373,7 @@ app.post( '/addFormOne', function( req, res ){
   });// end pg connect
 });//end of post
 
+//////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";
     res.sendFile(path.join(__dirname, "../public/", file));

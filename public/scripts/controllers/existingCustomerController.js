@@ -1,8 +1,13 @@
-myApp.controller("existingCustomerController", ['$scope', '$http', function($scope, $http){
+myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArray', '$firebaseAuth', function($scope, $http, $firebaseArray, $firebaseAuth){
   console.log('In existingCustomerController');
 
   var existingCustomers = ['Justin'];
 
+  // var auth = $firebaseAuth();
+
+  // $scope.existingCustomers = ['Jazzy', 'Brent', 'Justin', 'Ross'];
+  // $scope.cardClicked = function(user){
+  //   console.log('card clicked', user);
 
   $scope.getExistingCustomers = function () {
     console.log('in getExistingCustomers');

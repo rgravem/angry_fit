@@ -1,4 +1,4 @@
-myApp.controller("newCustomerController", ['$scope', '$http', function($scope, $http){
+myApp.controller("newCustomerController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In newCustomerController');
 
   $scope.addNewCustomer = function () {
@@ -22,6 +22,7 @@ myApp.controller("newCustomerController", ['$scope', '$http', function($scope, $
       data: newCustomerObject
     }).then(function(newCustomerResponse){
       console.log('success from server', newCustomerResponse);
+      $location.path('/selectedCustomer');
     });
   };
 

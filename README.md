@@ -1,3 +1,3 @@
 # Angry Fit
 
-Full stack internal application to manage customer information and help with day to day fit process.
+Full stack application to manage customer information and help with day to day fit process.

@@ -1,186 +1,191 @@
+<h2 class="existingFitFormHeading">Consultation Form</h2>
 <md-content class="md-padding">
+  <div layout-gt-sm="row" >
+    <form name="fitFormOne" layout-gt-sm="column" flex="50">
+        <div id="formOneInputs" class="formOneInputs" flex="100">
+          <div layout-gt-xs="row">
+            <md-input-container>
+                <label>Enter date</label>
+                  <md-datepicker ng-model="formOneDate"></md-datepicker>
+            </md-input-container>
+          </div>
 
-  <div layout-gt-xs="row">
-    <md-input-container>
-        <label>Enter date</label>
-          <md-datepicker ng-model="formOneDate"></md-datepicker>
-    </md-input-container>
-  </div>
+          <!--- - - - - - - - -  - -  - - - -   - - These will autopopulate --->
 
-  <h2>Consultation</h2>
+            <div layout-gt-sm="row">
+              <md-input-container class='md-block' flex-gt-sm=''>
+                <label>Name</label>
+                <input ng-model="name">
+              </md-input-container>
+            </div>
 
-  <!--- - - - - - - - -  - -  - - - -   - - These will autopopulate --->
+            <div layout-gt-sm="row">
+              <md-input-container class='md-block' flex-gt-sm=''>
+                <label>Phone</label>
+                <input ng-model="phone">
+              </md-input-container>
+            </div>
 
-  <md-content>
-    <div layout-gt-sm="row">
-      <md-input-container class='md-block' flex-gt-sm=''>
-        <label>Name</label>
-        <input ng-model="name">
-      </md-input-container>
+            <div layout-gt-sm="row">
+              <md-input-container class='md-block' flex-gt-sm=''>
+                <label>Email</label>
+                <input ng-model="email">
+              </md-input-container>
+            </div>
+
+            <div layout-gt-sm="row">
+              <md-input-container class='md-block' flex-gt-sm=''>
+                <label>Address</label>
+                <input ng-model="address">
+              </md-input-container>
+            </div>
+
+            <!--- - - - - - - - -  - -  - - - -   - - Above will autopopulate --->
+
+          <md-radio-group ng-model="injuries">
+              <p>Do you have any injuries that prevent you from riding any length of time?</p>
+              <md-radio-button value="yesInjuries">Yes</md-radio-button>
+              <md-radio-button value="noInjuries"  class="md-primary"> No </md-radio-button>
+              <p><textarea rows="4" cols="50"></textarea></p>
+          </md-radio-group>
+
+          What are some of your complaints with your current fit, if any?
+          <p><textarea rows="4" cols="50" ng-model='complaints'></textarea></p>
+
+          <md-radio-group ng-model="surgeries">
+            <p>Have you had any surgeries? If so, how long ago?</p>
+            <md-radio-button value="yesSurgeries">Yes</md-radio-button>
+            <md-radio-button value="noSurgeries"  class="md-primary"> No </md-radio-button>
+            <p><textarea rows="4" cols="50"></textarea></p>
+          </md-radio-group>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>How long is your average ride (in miles)?</label>
+              <input ng-model="averageRideLength">
+            </md-input-container>
+          </div>
+
+          <md-radio-group ng-model="upcomingRaces">
+            <p>Do you have any races, tours or over all goals in the near future?</p>
+            <md-radio-button value="yesRaces">Yes</md-radio-button>
+            <md-radio-button value="noRaces"  class="md-primary"> No </md-radio-button>
+            <p><textarea rows="4" cols="50"></textarea></p>
+          </md-radio-group>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>Current bike brand/model/size</label>
+              <input ng-model="currentBikeBrand">
+            </md-input-container>
+          </div>
+
+          <h3>Current Measurements</h3>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>Saddle height</label>
+              <input ng-model="saddleHeight">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>Saddle height over bars</label>
+              <input ng-model="saddleHeightOverBars">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>Saddle angle</label>
+              <input ng-model="saddleAngle">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Saddle setback</label>
+              <input ng-model="saddleSetback">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Saddle to handlebar reach</label>
+              <input ng-model="SaddlehandlebarReach">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Stem length</label>
+              <input ng-model="stemLength">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Stem angle</label>
+              <input ng-model="stemAngle">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Handle bar width</label>
+              <input ng-model="handlebarWidth">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Handle bar brand/model</label>
+              <input ng-model="handlebarBrand">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Pedal brand/model</label>
+              <input ng-model="pedalBrandModel">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Shoe brand/model/size</label>
+              <input ng-model="shoeBrand">
+            </md-input-container>
+          </div>
+
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Brake level position</label>
+              <input ng-model="brakeLevel">
+            </md-input-container>
+          </div>
+
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm>
+              <label>Crank length</label>
+              <input ng-model="crankLength">
+            </md-input-container>
+          </div>
+        </div>
+    </form>
+    <div layout-gt-sm="column" flex="50">
+      <div id='FormOneNotes' class="formOneNotes" flex="100">
+        <md-input-container class="md-block" flex-gt-sm="">
+          Notes<textarea rows="1"ng-model='notes'></textarea></p>
+        </md-input-container>
+      </div>
     </div>
-
-    <div layout-gt-sm="row">
-      <md-input-container class='md-block' flex-gt-sm=''>
-        <label>Phone</label>
-        <input ng-model="phone">
-      </md-input-container>
-    </div>
-
-    <div layout-gt-sm="row">
-      <md-input-container class='md-block' flex-gt-sm=''>
-        <label>Email</label>
-        <input ng-model="email">
-      </md-input-container>
-    </div>
-
-    <div layout-gt-sm="row">
-      <md-input-container class='md-block' flex-gt-sm=''>
-        <label>Address</label>
-        <input ng-model="address">
-      </md-input-container>
-    </div>
-
-    <!--- - - - - - - - -  - -  - - - -   - - Above will autopopulate --->
-
-  <md-radio-group ng-model="injuries">
-      <p>Do you have any injuries that prevent you from riding any length of time?</p>
-      <md-radio-button value="yesInjuries">Yes</md-radio-button>
-      <md-radio-button value="noInjuries"  class="md-primary"> No </md-radio-button>
-      <p><textarea rows="4" cols="50"></textarea></p>
-  </md-radio-group>
-
-  What are some of your complaints with your current fit, if any?
-  <p><textarea rows="4" cols="50" ng-model='complaints'></textarea></p>
-
-  <md-radio-group ng-model="surgeries">
-    <p>Have you had any surgeries? If so, how long ago?</p>
-    <md-radio-button value="yesSurgeries">Yes</md-radio-button>
-    <md-radio-button value="noSurgeries"  class="md-primary"> No </md-radio-button>
-    <p><textarea rows="4" cols="50"></textarea></p>
-  </md-radio-group>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm=''>
-      <label>How long is your average ride (in miles)?</label>
-      <input ng-model="averageRideLength">
-    </md-input-container>
   </div>
 
-  <md-radio-group ng-model="upcomingRaces">
-    <p>Do you have any races, tours or over all goals in the near future?</p>
-    <md-radio-button value="yesRaces">Yes</md-radio-button>
-    <md-radio-button value="noRaces"  class="md-primary"> No </md-radio-button>
-    <p><textarea rows="4" cols="50"></textarea></p>
-  </md-radio-group>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm=''>
-      <label>Current bike brand/model/size</label>
-      <input ng-model="currentBikeBrand">
-    </md-input-container>
-  </div>
-
-  <h3>Current Measurements</h3>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm=''>
-      <label>Saddle height</label>
-      <input ng-model="saddleHeight">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm=''>
-      <label>Saddle height over bars</label>
-      <input ng-model="saddleHeightOverBars">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm=''>
-      <label>Saddle angle</label>
-      <input ng-model="saddleAngle">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Saddle setback</label>
-      <input ng-model="saddleSetback">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Saddle to handlebar reach</label>
-      <input ng-model="SaddlehandlebarReach">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Stem length</label>
-      <input ng-model="stemLength">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Stem angle</label>
-      <input ng-model="stemAngle">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Handle bar width</label>
-      <input ng-model="handlebarWidth">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Handle bar brand/model</label>
-      <input ng-model="handlebarBrand">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Pedal brand/model</label>
-      <input ng-model="pedalBrandModel">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Shoe brand/model/size</label>
-      <input ng-model="shoeBrand">
-    </md-input-container>
-  </div>
-
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Brake level position</label>
-      <input ng-model="brakeLevel">
-    </md-input-container>
-  </div>
-
-  <div layout-gt-sm="row">
-    <md-input-container class='md-block' flex-gt-sm>
-      <label>Crank length</label>
-      <input ng-model="crankLength">
-    </md-input-container>
-  </div>
-  </md-content>
-
-    <div id='FormOneNotes'>
-      Notes<textarea rows="6" cols="100" ng-model='notes'></textarea></p>
-    </div>
-
-  <div layout="column" layout-align="center">
-    <md-button id="formOneSubmit" class="md-raised md-primary" ng-click="addFormOne()">Submit</md-button>
+  <div layout="row" layout-align="center" flex="100">
+    <md-button id="formOneSubmit" class="md-raised md-primary formOneSubmit" ng-click="addFormOne()">Submit</md-button>
   </div>
 
 </md-content>

@@ -21,17 +21,17 @@ md-radio-button:focus {
     border: 0;
  }
 
-.newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading{
+.newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading{
   text-align:center;
 }
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
 }
-.formOneInputs, .formTwoInputs, .formThreeInputs{
+.formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
   height: 400px;
 }
-.formOneSubmit, .formTwoSubmit, .formThreeSubmit{
+.formOneSubmit, .formTwoSubmit, .formThreeSubmit, .formFourSubmit{
   width: 60%;
 }

@@ -1,43 +1,47 @@
 <md-content class="md-padding">
-  <h2>Add new customer</h2>
+  <h2 class="newCustomerHeading">Add new customer</h2>
 
-  <form class="" action="" method="post">
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="Name" ng-model="firstName">
-    </md-input-container>
+  <form class="newCustomerForm" action="" method="post" layout-gt-sm="column" flex="50" max-height="100%">
 
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="Last Name" ng-model="lastName">
-    </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder=" First Name" ng-model="firstName">
+      </md-input-container>
 
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="Email Address" ng-model="email">
-    </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Last Name" ng-model="lastName">
+      </md-input-container>
 
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="Phone Number" ng-model="phoneNumber">
-    </md-input-container>
+    <div layout-gt-sm ="row">
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Email Address" ng-model="email">
+      </md-input-container>
 
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="Street Address" ng-model="streetAddress">
-    </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Phone Number" ng-model="phoneNumber">
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Street Address" ng-model="streetAddress">
+      </md-input-container>
 
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="Unit Number" ng-model="unitNumber">
-    </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Unit Number" ng-model="unitNumber">
+      </md-input-container>
+    </div>
+    <div layout-gt-sm ="row">
+      <md-input-container class="md-block" flex-gt-sm="60">
+        <input type="text" placeholder="City" ng-model="city">
+      </md-input-container>
 
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="City" ng-model="city">
-    </md-input-container>
+      <md-input-container class="md-block" layout-gt-sm="20">
+        <input type="text" placeholder="State" ng-model="state">
+      </md-input-container>
 
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="State" ng-model="state">
-    </md-input-container>
-
-    <md-input-container class="md-block" flex-gt-sm="">
-      <input type="text" placeholder="Zip" ng-model="zip">
-    </md-input-container>
-
+      <md-input-container class="md-block" layout-gt-sm="20">
+        <input type="text" placeholder="Zip" ng-model="zip">
+      </md-input-container>
+    </div>
     <!-- <md-input-container flex-gt-sm=""> -->
       <md-button class="md-raised md-primary" placeholder="Submit" ng-click="addNewCustomer()">Submit</md-button>
     <!-- </md-input-container> -->

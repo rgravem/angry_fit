@@ -52,7 +52,7 @@ app.get('/getExistingCustomers', function(req, res){
     } else{
       console.log('connected via getExistingCustomers');
       var existingCustomersArray = [];
-      var queryResults = client.query('SELECT * FROM customers');
+      var queryResults = client.query('select * FROM customers ORDER BY lower(lastName);');
       queryResults.on('row', function(row){
         existingCustomersArray.push(row);
       });
@@ -315,13 +315,6 @@ app.post('/addFrameDetails', function (req, res){
 });
 
 
-//////////////////////////////generic app.get///////////////////////////////////
-
-
-
-
-
-
 /////////////////////////////Add form 1 to DB////////////////////////////////
 app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
@@ -364,7 +357,7 @@ app.post( '/addFormOne', function( req, res ){
       client.query('INSERT INTO exsistingfit (formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23);', [formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * From exsistingfit');
+      var queryResults = client.query('SELECT * FROM exsistingfit ORDER BY id DESC LIMIT 1');
       //run for each row in the query
       queryResults.on("row", function(row){
         newFormOneToSend.push(row);
@@ -380,19 +373,7 @@ app.post( '/addFormOne', function( req, res ){
   });// end pg connect
 });//end of post
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";
     res.sendFile(path.join(__dirname, "../public/", file));

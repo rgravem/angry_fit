@@ -6,8 +6,9 @@ myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArr
   // var auth = $firebaseAuth();
 
   // $scope.existingCustomers = ['Jazzy', 'Brent', 'Justin', 'Ross'];
-  // $scope.cardClicked = function(user){
-  //   console.log('card clicked', user);
+  $scope.cardClicked = function(user){
+    console.log('card clicked', user);
+  };
 
   $scope.getExistingCustomers = function () {
     console.log('in getExistingCustomers');

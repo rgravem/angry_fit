@@ -37,5 +37,4 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
       console.log('success from server', formOneObject);
     });
   };
-
 }]);//end form1Controller

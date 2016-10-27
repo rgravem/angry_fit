@@ -21,10 +21,17 @@ md-radio-button:focus {
     border: 0;
  }
 
-.newCustomerHeading{
+.newCustomerHeading, .consulationFormHeading{
   text-align:center;
 }
 .newCustomerForm{
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
+}
+.formOneInputs{
+  overflow-y: scroll;
+  height: 400px;
+}
+.formOneSubmit{
+  width: 60%;
 }

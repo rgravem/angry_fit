@@ -87,7 +87,7 @@
               </md-input-container>
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Shoe brand/model/size</label>
-              <input ng-model="showBrandModelSize" ng-disabled="submittedTwo">
+              <input ng-model="shoeBrandModelSize" ng-disabled="submittedTwo">
         </div>
 
         <div layout-gt-sm="row">
@@ -133,6 +133,6 @@
   <div layout="row" layout-align="center" flex="100">
     <md-button class="md-raised md-primary formTwoSubmit" placeholder="Submit" ng-click="addForm2NewFit()" ng-show="showHideSubmitFormTwo">Submit</md-button>
     <md-button class="md-raised md-primary formUpdate" ng-click="updateFormTwo()" ng-hide="showHideSubmitFormTwo"> Update </md-button>
-    <md-button class="md-raised md-primary formPdf" ng-hide="showHideSubmitFormTwo"> PDF</md-button>
+    <md-button class="md-raised md-primary formPdf"  ng-click="downloadFormTwoPdf()" ng-hide="showHideSubmitFormTwo"> PDF</md-button>
   </div>
 </md-content>

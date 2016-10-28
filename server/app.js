@@ -39,7 +39,6 @@ app.get("/privateData", function(req, res){
     // If the id_token isn't right, you end up in this callback function
     res.send("No secret data for you!");
   });
-
 });
 
 ////////////////////Get Existing Customers from DB/////////////////////////////
@@ -63,7 +62,6 @@ app.get('/getExistingCustomers', function(req, res){
     } //end else
   }); //end pg.connect
 }); //end getExistingCustomers
-
 
 /////////////////////////////Add New Customer to DB////////////////////////////////
 app.post( '/addNewCustomer', function( req, res ){
@@ -103,7 +101,6 @@ app.post( '/addNewCustomer', function( req, res ){
         done();
         //return result as JSON version of array
         return res.json(newCustomerToSend);
-
       });//end of end
     }// end of else
   });// end pg connect
@@ -157,165 +154,31 @@ app.post( '/editExistingCustomer', function( req, res ){
   });// end pg connect
 }); //end of editing current customer
 
-
-/////////////////////////////Add Form 2: New Fit to DB////////////////////////////////
-app.post( '/addForm2NewFit', function( req, res ){
-  // console.log( 'in addForm2NewFit', req.body );
-  newForm2Object = req.body;
-  console.log('newForm2Object Object:', newForm2Object);
-  var form2Date = newForm2Object.form2Date;
-  var saddleHeight = newForm2Object.saddleHeight;
-  var saddleHeightOverBars = newForm2Object.saddleHeightOverBars;
-  var saddleToHandlebarReach = newForm2Object.saddleToHandlebarReach;
-  var saddleAngle = newForm2Object.saddleAngle;
-  var saddleForeAft = newForm2Object.saddleForeAft;
-  var saddleBrandAndWidth = newForm2Object.saddleBrandAndWidth;
-  var handleBarBrandAndModel = newForm2Object.handleBarBrandAndModel;
-  var stemLength =newForm2Object.stemLength;
-  var stemAngle =newForm2Object.stemAngle;
-  var handleBarWidth = newForm2Object.handleBarWidth;
-  var pedalBrandAndModel = newForm2Object.pedalBrandAndModel;
-  var showBrandModelSize = newForm2Object.showBrandModelSize;
-  var brakeLevelPosition = newForm2Object.brakeLevelPosition;
-  var crankLength = newForm2Object.crankLength;
-  var standover = newForm2Object.standover;
-  var stack = newForm2Object.stack;
-
+app.get('/customer', function(req, res){
+  console.log('q is:', req.query.q);
+  var searchIn = req.query.q;
+  console.log('query:', searchIn);
   pg.connect(connectionString, function(err, client, done){
     if(err){
-      console.log(err);
-    }//end error check
-    else{
-      console.log("connected to DB");
-
-      var form2ToSend = [];
-
-      client.query('INSERT INTO form2NewFit (form2Date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [form2Date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, pedalBrandAndModel, stemLength, stemAngle, handleBarWidth, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack]);
-
-      //Query the DB
-      var queryResults = client.query('SELECT * From form2NewFit');
-      //run for each row in the query
-      queryResults.on("row", function(row){
-        form2ToSend.push(row);
-      }); //end of row
+      console.log('error getting search');
+      res.sendStatus(500);
+    }else{
+      console.log('connected via search');
+      var searchCustomersArray = [];
+      var queryResults = client.query('SELECT * FROM customers WHERE UPPER(lastname) LIKE UPPER('+"'%"+searchIn+"%'"+')');
+      queryResults.on('row', function(row){
+        searchCustomersArray.push(row);
+      });
       queryResults.on('end', function(){
-        //we're done
         done();
-        //return result as JSON version of array
-        return res.json(form2ToSend);
-
-      });//end of end
-    }// end of else
-  });// end pg connect
-});//end of post
+        return res.json(searchCustomersArray);
+      }); // end queryResults
+    } //end else
+  }); //end pg.connect
+}); // end search
 
 
-app.post('/addFrameGeometry', function(req, res){
-  console.log('req.body:', req.body);
-
-  var date = req.body.date;
-  var inseam = req.body.inseam;
-  var torso = req.body.torso;
-  var arm = req.body.arm;
-  var footLength = req.body.footLength;
-  var effectiveTopTube = req.body.effectiveTopTube;
-  var standover = req.body.standover;
-  var seatTubeLength = req.body.seatTubeLength;
-  var seatTubeAngle = req.body.seatTubeAngle;
-  var headTubeLength = req.body.seatTubeLength;
-  var headTubeAngle = req.body.headTubeAngle;
-  var stack = req.body.stack;
-  var reach = req.body.reach;
-  var wheelBase = req.body.wheelBase;
-  var chainstayLength = req.body.chainstayLength;
-  var bbDrop = req.body.bbDrop;
-  var axleToCrown = req.body.axleToCrown;
-  var mechanicalTrail = req.body.mechanicalTrail;
-  var forkOffset = req.body.forkOffset;
-
-      pg.connect(connectionString, function(err, client, done){
-      //check for error
-      if(err){
-        console.log(err);
-      }//end error check
-      else{
-        console.log("connected to DB");
-        //array to hold results
-        var frameGeomoetry = [];
-        //send update to DB
-
-        //query uses the customer id number in the DB to determine which customer info should be edited
-        client.query('INSERT INTO form3custom_frame_geometry (date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail, forkOffset) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19);', [date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail, forkOffset]);
-        //Query the DB
-        var queryResults = client.query('SELECT * FROM form3custom_frame_geometry ORDER BY id DESC LIMIT 1;');
-        //run for each row in the query
-        queryResults.on("row", function(row){
-          frameGeomoetry.push(row);
-        }); //end of row
-        queryResults.on('end', function(){
-          //we're done
-          done();
-          //return result as JSON version of array
-          return res.json(frameGeomoetry);
-
-        });//end of end
-      }// end of else
-    });// end pg connect
-});
-
-// Form 4 post route
-app.post('/addFrameDetails', function (req, res){
-  console.log("This is what the server got:", req.body);
-
-  var date = req.body.date;
-  var bikeStyle = req.body.bikeStyle;
-  var bottomBracketShell = req.body.bottomBracketShell;
-  var brakeCompatability= req.body.brakeCompatability;
-  var brakeMount = req.body.brakeMount;
-  var wheelSize = req.body.wheelSize;
-  var specialFrameOptions = req.body.specialFrameOptions;
-  var headTubeSize = req.body.headTubeSize;
-  var forkType = req.body.forkType;
-  var seatDropper = req.body.seatDropper;
-  var drivetrain = req.body.drivetrain;
-  var paintColor = req.body.paintColor;
-  var fullCoverageFenders = req.body.fullCoverageFenders;
-  var fendersPainted = req.body.fendersPainted;
-  var frameNotes = req.body.frameNotes;
-  var frameOptions= req.body.frameOptions;
-  var paintNotes = req.body.paintNotes;
-
-  pg.connect(connectionString, function(err, client, done){
-  //check for error
-  if(err){
-    console.log(err);
-  }//end error check
-  else{
-    console.log("connected to DB");
-    //array to hold results
-    var frameDetails = [];
-    //send update to DB
-    //query uses the customer id number in the DB to determine which customer info should be edited
-    client.query('INSERT INTO form4_custom_frame_details (date, bikeStyle, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [date, bikeStyle, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted,frameNotes, frameOptions, paintNotes]);
-    //Query the DB
-    var queryResults = client.query('SELECT * FROM form4_custom_frame_details ORDER BY id DESC LIMIT 1;');
-    //run for each row in the query
-    queryResults.on("row", function(row){
-      frameDetails.push(row);
-    }); //end of row
-    queryResults.on('end', function(){
-      //we're done
-      done();
-      //return result as JSON version of array
-      return res.json(frameDetails);
-
-    });//end of end
-  }// end of else
-});// end pg connect
-});
-
-
-/////////////////////////////Add form 1 to DB////////////////////////////////
+/////////////////////////////Add  form1_existingFitto DB////////////////////////////////
 app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
   formOneInfo = req.body;
@@ -354,10 +217,10 @@ app.post( '/addFormOne', function( req, res ){
 
       var newFormOneToSend = [];
 
-      client.query('INSERT INTO exsistingfit (formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23);', [formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
+      client.query('INSERT INTO form1_existingFit (formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23);', [formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * FROM exsistingfit ORDER BY id DESC LIMIT 1');
+      var queryResults = client.query('SELECT * FROM form1_existingFit ORDER BY id DESC LIMIT 1');
       //run for each row in the query
       queryResults.on("row", function(row){
         newFormOneToSend.push(row);
@@ -373,28 +236,161 @@ app.post( '/addFormOne', function( req, res ){
   });// end pg connect
 });//end of post
 
-app.get('/customer', function(req, res){
-  console.log('q is:', req.query.q);
-  var searchIn = req.query.q;
-  console.log('query:', searchIn);
+/////////////////////////////Add Form 2: New Fit to DB////////////////////////////////
+app.post( '/addForm2NewFit', function( req, res ){
+  // console.log( 'in addForm2NewFit', req.body );
+  newForm2Object = req.body;
+  console.log('newForm2Object Object:', newForm2Object);
+  var form2Date = newForm2Object.form2Date;
+  var saddleHeight = newForm2Object.saddleHeight;
+  var saddleHeightOverBars = newForm2Object.saddleHeightOverBars;
+  var saddleToHandlebarReach = newForm2Object.saddleToHandlebarReach;
+  var saddleAngle = newForm2Object.saddleAngle;
+  var saddleForeAft = newForm2Object.saddleForeAft;
+  var saddleBrandAndWidth = newForm2Object.saddleBrandAndWidth;
+  var handleBarBrandAndModel = newForm2Object.handleBarBrandAndModel;
+  var stemLength =newForm2Object.stemLength;
+  var stemAngle =newForm2Object.stemAngle;
+  var handleBarWidth = newForm2Object.handleBarWidth;
+  var pedalBrandAndModel = newForm2Object.pedalBrandAndModel;
+  var showBrandModelSize = newForm2Object.showBrandModelSize;
+  var brakeLevelPosition = newForm2Object.brakeLevelPosition;
+  var crankLength = newForm2Object.crankLength;
+  var standover = newForm2Object.standover;
+  var stack = newForm2Object.stack;
+
   pg.connect(connectionString, function(err, client, done){
     if(err){
-      console.log('error getting search');
-      res.sendStatus(500);
-    }else{
-      console.log('connected via search');
-      var searchCustomersArray = [];
-      var queryResults = client.query('SELECT * FROM customers WHERE UPPER(lastname) LIKE UPPER('+"'%"+searchIn+"%'"+')');
-      queryResults.on('row', function(row){
-        searchCustomersArray.push(row);
-      });
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB");
+
+      var form2ToSend = [];
+
+      client.query('INSERT INTO  form2_newFit (form2Date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [form2Date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, pedalBrandAndModel, stemLength, stemAngle, handleBarWidth, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * From  form2_newFit');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        form2ToSend.push(row);
+      }); //end of row
       queryResults.on('end', function(){
+        //we're done
         done();
-        return res.json(searchCustomersArray);
-      }); // end queryResults
-    } //end else
-  }); //end pg.connect
-}); // end search
+        //return result as JSON version of array
+        return res.json(form2ToSend);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+});//end of post
+
+///////////////////////////////// form3_customFrameGeometry//////////////
+app.post('/addFrameGeometry', function(req, res){
+  console.log('req.body:', req.body);
+
+  var date = req.body.date;
+  var inseam = req.body.inseam;
+  var torso = req.body.torso;
+  var arm = req.body.arm;
+  var footLength = req.body.footLength;
+  var effectiveTopTube = req.body.effectiveTopTube;
+  var standover = req.body.standover;
+  var seatTubeLength = req.body.seatTubeLength;
+  var seatTubeAngle = req.body.seatTubeAngle;
+  var headTubeLength = req.body.seatTubeLength;
+  var headTubeAngle = req.body.headTubeAngle;
+  var stack = req.body.stack;
+  var reach = req.body.reach;
+  var wheelBase = req.body.wheelBase;
+  var chainstayLength = req.body.chainstayLength;
+  var bbDrop = req.body.bbDrop;
+  var axleToCrown = req.body.axleToCrown;
+  var mechanicalTrail = req.body.mechanicalTrail;
+  var forkOffset = req.body.forkOffset;
+
+      pg.connect(connectionString, function(err, client, done){
+      //check for error
+      if(err){
+        console.log(err);
+      }//end error check
+      else{
+        console.log("connected to DB");
+        //array to hold results
+        var frameGeomoetry = [];
+        //send update to DB
+
+        //query uses the customer id number in the DB to determine which customer info should be edited
+        client.query('INSERT INTO form3_customFrameGeometry (date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail, forkOffset) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19);', [date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail, forkOffset]);
+        //Query the DB
+        var queryResults = client.query('SELECT * FROM form3_customFrameGeometry ORDER BY id DESC LIMIT 1;');
+        //run for each row in the query
+        queryResults.on("row", function(row){
+          frameGeomoetry.push(row);
+        }); //end of row
+        queryResults.on('end', function(){
+          //we're done
+          done();
+          //return result as JSON version of array
+          return res.json(frameGeomoetry);
+
+        });//end of end
+      }// end of else
+    });// end pg connect
+});
+
+/////////////////////////////////////  form4_customFrameDetails post route/////////////////////
+app.post('/addFrameDetails', function (req, res){
+  console.log("This is what the server got:", req.body);
+
+  var date = req.body.date;
+  var bikeStyle = req.body.bikeStyle;
+  var bottomBracketShell = req.body.bottomBracketShell;
+  var brakeCompatability= req.body.brakeCompatability;
+  var brakeMount = req.body.brakeMount;
+  var wheelSize = req.body.wheelSize;
+  var specialFrameOptions = req.body.specialFrameOptions;
+  var headTubeSize = req.body.headTubeSize;
+  var forkType = req.body.forkType;
+  var seatDropper = req.body.seatDropper;
+  var drivetrain = req.body.drivetrain;
+  var paintColor = req.body.paintColor;
+  var fullCoverageFenders = req.body.fullCoverageFenders;
+  var fendersPainted = req.body.fendersPainted;
+  var frameNotes = req.body.frameNotes;
+  var frameOptions= req.body.frameOptions;
+  var paintNotes = req.body.paintNotes;
+
+  pg.connect(connectionString, function(err, client, done){
+  //check for error
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+    console.log("connected to DB");
+    //array to hold results
+    var frameDetails = [];
+    //send update to DB
+    //query uses the customer id number in the DB to determine which customer info should be edited
+    client.query('INSERT INTO  form4_customFrameDetails (date, bikeStyle, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [date, bikeStyle, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted,frameNotes, frameOptions, paintNotes]);
+    //Query the DB
+    var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY id DESC LIMIT 1;');
+    //run for each row in the query
+    queryResults.on("row", function(row){
+      frameDetails.push(row);
+    }); //end of row
+    queryResults.on('end', function(){
+      //we're done
+      done();
+      //return result as JSON version of array
+      return res.json(frameDetails);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+});
 
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){

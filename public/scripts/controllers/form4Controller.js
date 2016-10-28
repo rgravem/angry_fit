@@ -1,6 +1,6 @@
 myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   console.log('In form4Controller');
-
+  $scope.showHideSubmitFormFour = true;
   // show bottom bracket other
   $scope.showBottomBracketOther = false;
   $scope.updateShowBottomBracket= function(){
@@ -126,7 +126,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     };
 
     console.log(formFourObject);
-
+    $scope.showHideSubmitFormFour = false;
     $http({
       method: 'POST',
       url: '/addFrameDetails',

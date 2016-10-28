@@ -31,12 +31,12 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     console.log('formOneObject to send to DB:', formOneObject);
     $scope.showHideSubmitFormOne = false;
 
-    // $http({
-    //   method: 'POST',
-    //   url: '/addFormOne',
-    //   data: formOneObject
-    // }).then(function(formOneObject){
-    //   console.log('success from server', formOneObject);
-    // });
+    $http({
+      method: 'POST',
+      url: '/addFormOne',
+      data: formOneObject
+    }).then(function(formOneObject){
+      console.log('success from server', formOneObject);
+    });
   };
 }]);//end form1Controller

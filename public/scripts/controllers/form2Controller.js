@@ -9,7 +9,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {
-      form2Date: $scope.form2Date.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       saddleHeight: $scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
       saddleToHandlebarReach:$scope.saddleToHandlebarReach,
@@ -25,8 +25,8 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       brakeLevelPosition:$scope.brakeLevelPosition,
       crankLength:$scope.crankLength,
       standover:$scope.standover,
-      stack:$scope.stack
-      //Add notes here
+      stack:$scope.stack,
+      notes: $scope.notes
     };
 
     console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);

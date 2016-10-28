@@ -4,7 +4,6 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', function($sco
   $scope.newBikeStart = function(){
     console.log('newbike');
      $scope.newBikeButton = !$scope.newBikeButton;
-
   };
   // $scope.clearsess = function(){
   //   console.log('clear clicked');
@@ -15,6 +14,15 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', function($sco
   $scope.otherSelected = function(){
     $scope.otherType = !$scope.otherType;
   };
+
+  $scope.customerInfo = function(){
+    var obj = JSON.parse(sessionStorage.getItem('customer'));
+    console.log('customer info from other page:', obj);
+    var customer = angular.element(document.querySelector( '#custInfo' ) );
+    customer.append(obj.firstname + " " + obj.lastname);
+  };
+
+  $scope.customerInfo();
 
   $scope.editExistingCustomer = function () {
     var editCustomerObject = {

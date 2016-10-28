@@ -6,41 +6,11 @@
           <div layout-gt-xs="row">
             <md-input-container>
                 <label>Enter date</label>
-                <md-datepicker ng-model="formOneDate" ng-disabled="submittedOne"></md-datepicker>
+                  <md-datepicker ng-model="date" ng-disabled="submittedOne"></md-datepicker>
             </md-input-container>
           </div>
 
-          <!--- - - - - - - - -  - -  - - - -   - - These will autopopulate --->
-
-          <div layout-gt-sm="row">
-            <md-input-container class='md-block' flex-gt-sm=''>
-              <label>Name</label>
-              <input ng-model="name" ng-disabled="submittedOne">
-            </md-input-container>
-          </div>
-
-          <div layout-gt-sm="row">
-            <md-input-container class='md-block' flex-gt-sm=''>
-              <label>Phone</label>
-              <input ng-model="phone" ng-disabled="submittedOne">
-            </md-input-container>
-          </div>
-
-          <div layout-gt-sm="row">
-            <md-input-container class='md-block' flex-gt-sm=''>
-              <label>Email</label>
-              <input ng-model="email" ng-disabled="submittedOne">
-            </md-input-container>
-          </div>
-
-          <div layout-gt-sm="row">
-            <md-input-container class='md-block' flex-gt-sm=''>
-              <label>Address</label>
-              <input ng-model="address" ng-disabled="submittedOne">
-            </md-input-container>
-          </div>
-
-            <!--- - - - - - - - -  - -  - - - -   - - Above will autopopulate --->
+<!-- WE SHOULD ADD THE CUSTOMER INFORMATION HERE (NOT INPUTS, JUST SOME SORT OF PARAGRAPH STYLE) SO THE PDF WILL BE CREATED WITH CUSTOMER INFO ON IT  -->
 
           <div id="injuriesCurrently">
              <div layout-gt-sm="row">

@@ -21,11 +21,12 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       handleBarWidth:$scope.handleBarWidth,
       handleBarBrandAndModel:$scope.handleBarBrandAndModel,
       pedalBrandAndModel:$scope.pedalBrandAndModel,
-      showBrandModelSize:$scope.showBrandModelSize,
+      shoeBrandModelSize:$scope.shoeBrandModelSize,
       brakeLevelPosition:$scope.brakeLevelPosition,
       crankLength:$scope.crankLength,
       standover:$scope.standover,
       stack:$scope.stack
+      //Add notes here
     };
 
     console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
@@ -33,17 +34,44 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       $scope.showHideSubmitFormTwo = false;
         //disable input fields
         $scope.submittedTwo = true;
-    $http({
-      method: 'POST',
-      url: '/addForm2NewFit',
-      data: addForm2NewFitObject
-    }).then(function(form2Response){
-      console.log('success from server', form2Response);
-    });
+    // $http({
+    //   method: 'POST',
+    //   url: '/addForm2NewFit',
+    //   data: addForm2NewFitObject
+    // }).then(function(form2Response){
+    //   console.log('success from server', form2Response);
+    // });
   };
   $scope.updateFormTwo = function(){
     //reset form to submit staus
     $scope.submittedTwo = false;
     $scope.showHideSubmitFormTwo = true;
   };
+
+  $scope.downloadFormTwoPdf = function(){
+    console.log("In the PDF click");
+    var docDefinition =
+      {content: [
+        { text: "Date: " + $scope.form2Date.toString().substring(0,15)},
+        { text: "Saddle Height: " + $scope.saddleHeight },
+        { text: "Saddle Height Over Bars: " + $scope.saddleHeightOverBars },
+        { text: "Saddle to Handlebar reach: " + $scope.saddleToHandlebarReach },
+        { text: "Saddle Angle: " + $scope.saddleAngle },
+        { text: "Saddle Fore-aft: " +$scope.saddleForeAft },
+        { text: "Saddle Brand/Width: " + $scope.saddleBrandAndWidth },
+        { text: "Stem Length: " + $scope.stemLength },
+        { text: "Stem Angle:" + $scope.stemAngle },
+        { text: "Handle Bar Width: " + $scope.handleBarWidth },
+        { text: "Handle Bar Brand and Model: " + $scope.handleBarBrandAndModel },
+        { text: "Pedal Brand and Model: " + $scope.pedalBrandAndModel },
+        { text: "Shoe Brand/Model/Size: " + $scope.shoeBrandModelSize },
+        { text: "Brake Level Position: " + $scope.brakeLevelPosition },
+        { text: "Crank Length: " + $scope.crankLength },
+        { text: "Standover: " + $scope.standover},
+        { text: "stack: " + $scope.stack}
+      ]// end pdf content
+    }; // end docDefinition
+    pdfMake.createPdf(docDefinition).download('newFitForm.pdf');
+  };// end downloadFormTwoPdf
+
 }]);//end form2Controller

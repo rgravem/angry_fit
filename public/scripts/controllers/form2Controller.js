@@ -34,13 +34,13 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       $scope.showHideSubmitFormTwo = false;
         //disable input fields
         $scope.submittedTwo = true;
-    // $http({
-    //   method: 'POST',
-    //   url: '/addForm2NewFit',
-    //   data: addForm2NewFitObject
-    // }).then(function(form2Response){
-    //   console.log('success from server', form2Response);
-    // });
+    $http({
+      method: 'POST',
+      url: '/addForm2NewFit',
+      data: addForm2NewFitObject
+    }).then(function(form2Response){
+      console.log('success from server', form2Response);
+    });
   };
   $scope.updateFormTwo = function(){
     //reset form to submit staus

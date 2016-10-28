@@ -6,6 +6,7 @@ DATABASE NAME: angryFit
 --------COPY, PASTE, AND RUN FROM HERE ON DOWN---------
 
 ------------------CREATE TABLES---------------------
+------------------CREATE TABLES---------------------
 --Employees Table
 CREATE TABLE employees (
 	employeeID SERIAL PRIMARY KEY NOT NULL,
@@ -77,7 +78,7 @@ CREATE TABLE form2_newFit (
 	form2ID SERIAL PRIMARY KEY NOT NULL,
 	bikeID INT REFERENCES bikes(bikeID),
 	employeeID INT REFERENCES employees(employeeID),
-	form2Date VARCHAR (50),
+	date VARCHAR (50),
 	saddleHeight VARCHAR (50),
 	saddleHeightOverBars VARCHAR (50),
 	saddleToHandlebarReach VARCHAR (50),
@@ -126,13 +127,13 @@ CREATE TABLE form3_customFrameGeometry (
 );
 
 
--- create form 4 table
-CREATE TABLE form4_custom_frame_details(
-	id SERIAL PRIMARY KEY NOT NULL,
-	customerID INT REFERENCES customers(id),
-	employeeID INT REFERENCES employees(id),
+--create for Form 4: Custom Frame Details
+CREATE TABLE form4_customFrameDetails(
+	form4ID SERIAL PRIMARY KEY NOT NULL,
+	bikeID INT REFERENCES bikes(bikeID),
+	employeeID INT REFERENCES employees(employeeID),
 	date VARCHAR(50),
-	bikeStyle VARCHAR(50),
+	bikeType VARCHAR(50),
 	bottomBracketShell VARCHAR(50),
 	brakeCompatability VARCHAR(50),
 	brakeMount VARCHAR(50),
@@ -147,5 +148,5 @@ CREATE TABLE form4_custom_frame_details(
 	fendersPainted VARCHAR(50),
 	frameNotes VARCHAR(400),
 	frameOptions TEXT[],
-	paintNotes VARCHAR(400)
+	paintNotes VARCHAR(1000)
 	);

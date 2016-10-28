@@ -112,7 +112,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
 
     var formFourObject ={
       date: $scope.dateCreated.toString().substring(0,15),
-      bikeStyle: $scope.bikeStyle,
+      bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
       brakeCompatability: $scope.brakeCompatability,
       brakeMount:$scope.brakeMount,

@@ -346,7 +346,7 @@ app.post('/addFrameDetails', function (req, res){
   console.log("This is what the server got:", req.body);
 
   var date = req.body.date;
-  var bikeStyle = req.body.bikeStyle;
+  var bikeType = req.body.bikeType;
   var bottomBracketShell = req.body.bottomBracketShell;
   var brakeCompatability= req.body.brakeCompatability;
   var brakeMount = req.body.brakeMount;
@@ -374,9 +374,9 @@ app.post('/addFrameDetails', function (req, res){
     var frameDetails = [];
     //send update to DB
     //query uses the customer id number in the DB to determine which customer info should be edited
-    client.query('INSERT INTO  form4_customFrameDetails (date, bikeStyle, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [date, bikeStyle, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted,frameNotes, frameOptions, paintNotes]);
+    client.query('INSERT INTO  form4_customFrameDetails (date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted,frameNotes, frameOptions, paintNotes]);
     //Query the DB
-    var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY id DESC LIMIT 1;');
+    var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY form4id DESC LIMIT 1;');
     //run for each row in the query
     queryResults.on("row", function(row){
       frameDetails.push(row);

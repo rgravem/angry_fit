@@ -3,6 +3,10 @@
 --must create DB under this name in postico before running the code below
 DATABASE NAME: angryFit
 
+
+
+--------COPY, PASTE, AND RUN FROM HERE ON DOWN---------
+
 ------------------CREATE TABLES---------------------
 --Employees Table
 CREATE TABLE employees (

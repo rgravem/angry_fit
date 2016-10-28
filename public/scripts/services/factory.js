@@ -1,4 +1,4 @@
 app.factory('newCustomerFactory', function(){
-  var newCustomer = {};
+  var service = {};
   return service;
 });

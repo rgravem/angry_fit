@@ -1,6 +1,6 @@
 myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form1Controller');
-  $scope.showHideSubmit = true;
+  $scope.showHideSubmitFormOne = true;
   $scope.addFormOne = function () {
 
     console.log('in AddFormOne button click');
@@ -29,7 +29,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     };
 
     console.log('formOneObject to send to DB:', formOneObject);
-    $scope.showHideSubmit = false;
+    $scope.showHideSubmitFormOne = false;
 
     // $http({
     //   method: 'POST',

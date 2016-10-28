@@ -1,5 +1,6 @@
 myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form2Controller');
+  $scope.showHideSubmitFormTwo = true;
 
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
@@ -24,14 +25,14 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     };
 
     console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
-
-    $http({
-      method: 'POST',
-      url: '/addForm2NewFit',
-      data: addForm2NewFitObject
-    }).then(function(form2Response){
-      console.log('success from server', form2Response);
-    });
+      $scope.showHideSubmitFormTwo = false;
+    // $http({
+    //   method: 'POST',
+    //   url: '/addForm2NewFit',
+    //   data: addForm2NewFitObject
+    // }).then(function(form2Response){
+    //   console.log('success from server', form2Response);
+    // });
   };
 
 }]);//end form2Controller

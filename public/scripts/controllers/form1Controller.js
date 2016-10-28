@@ -1,7 +1,8 @@
 myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form1Controller');
-
+  $scope.showHideSubmit = true;
   $scope.addFormOne = function () {
+
     console.log('in AddFormOne button click');
     var formOneObject = {
       formOneDate: $scope.formOneDate.toString().substring(0,15),
@@ -28,13 +29,14 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     };
 
     console.log('formOneObject to send to DB:', formOneObject);
+    $scope.showHideSubmit = false;
 
-    $http({
-      method: 'POST',
-      url: '/addFormOne',
-      data: formOneObject
-    }).then(function(formOneObject){
-      console.log('success from server', formOneObject);
-    });
+    // $http({
+    //   method: 'POST',
+    //   url: '/addFormOne',
+    //   data: formOneObject
+    // }).then(function(formOneObject){
+    //   console.log('success from server', formOneObject);
+    // });
   };
 }]);//end form1Controller

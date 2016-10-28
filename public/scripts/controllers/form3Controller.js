@@ -1,6 +1,6 @@
 myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form3Controller');
-
+$scope.showHideSubmitFormThree = true;
 $scope.submitFrameGeometry = function(){
   console.log('complete clicked');
   var objectToSend = {
@@ -25,14 +25,16 @@ $scope.submitFrameGeometry = function(){
   	forkOffset: $scope.forkOffset
   };
   console.log('object to send:', objectToSend);
-  $http({
-      method: 'POST',
-      url: '/addFrameGeometry',
-      data: objectToSend
-    }).then(function successCallback(response){
-      console.log('back from server with:', response.data);
-    }, function errorCallback(response) {
-      console.log('err');
-    });// end http call
+  $scope.showHideSubmitFormThree = false;
+
+  // $http({
+  //     method: 'POST',
+  //     url: '/addFrameGeometry',
+  //     data: objectToSend
+  //   }).then(function successCallback(response){
+  //     console.log('back from server with:', response.data);
+  //   }, function errorCallback(response) {
+  //     console.log('err');
+  //   });// end http call
 }; // end addform3
 }]);//end form3Controller

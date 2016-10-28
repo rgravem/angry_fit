@@ -4,8 +4,13 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', function($sco
   $scope.newBikeStart = function(){
     console.log('newbike');
      $scope.newBikeButton = !$scope.newBikeButton;
-  };
 
+  };
+  // $scope.clearsess = function(){
+  //   console.log('clear clicked');
+  //   // sessionStorage.removeItem('customer');
+  //   console.log('obj after clear:', sessionStorage);
+  // };
   $scope.otherType = false;
   $scope.otherSelected = function(){
     $scope.otherType = !$scope.otherType;

@@ -30,7 +30,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     	forkOffset: $scope.forkOffset,
       notes: $scope.notes
     };
-    
+
     console.log('object to send:', objectToSend);
     //hide submit, show update and pdf
     $scope.showHideSubmitFormThree = false;
@@ -52,5 +52,31 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     //reset form to submit staus
     $scope.submittedThree = false;
     $scope.showHideSubmitFormThree = true;
+  };
+  $scope.downloadFormThreePdf = function(){
+    console.log("In the PDF click");
+    var docDefinition =
+      {content: [
+      {text: "Date: " + $scope.frameGeometryFormDate.toString().substring(0,15) },
+      {text: "Inseam: " + $scope.inseam },
+      {text: "Torso: " + $scope.torso },
+      {text: "Arm: " + $scope.arm },
+      {text: "Foot Length: " + $scope.footLength },
+      {text: "Effective Top Tube: " + $scope.effectiveTopTube },
+      {text: "Standover: " + $scope.standover },
+      {text: "Seat Tube Length: " + $scope.seatTubeLength },
+      {text: "Seat Tube Angle: " + $scope.seatTubeAngle },
+      {text: "Head Tube Length: " + $scope.headTubeLength },
+      {text: "Stack: " + $scope.stack },
+      {text: "Reach: " + $scope.reach },
+      {text: "Wheel Base: " + $scope.wheelBase },
+      {text: "Chainstay Length: " + $scope.chainstayLength },
+      {text: "Bottom Bracket Drop: " + $scope.bbDrop },
+      {text: "Axle to Crown: " + $scope.axleToCrown },
+      {text: "Mechanical Trail: " + $scope.mechanicalTrail },
+      {text: "Fork Offset: " + $scope.forkOffset }
+      ]
+    };
+    pdfMake.createPdf(docDefinition).download('customFrameGeometry.pdf');
   };
 }]);//end form3Controller

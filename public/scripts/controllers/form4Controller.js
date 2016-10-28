@@ -9,25 +9,41 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   // show bottom bracket other
   $scope.showBottomBracketOther = false;
   $scope.updateShowBottomBracket= function(){
-    $scope.showBottomBracketOther= !$scope.showBottomBracketOther;
-    };
+    $scope.showBottomBracketOther= true;
+  };
+  //hide bottom bracket other
+  $scope.updateHideBottomBracket = function(){
+    $scope.showBottomBracketOther = false;
+  };
 
   // show brakes other
   $scope.showBrakeOther = false;
   $scope.updateShowBrakes = function(){
-    $scope.showBrakeOther = !$scope.showBrakeOther;
+    $scope.showBrakeOther = true;
     };
+  // hide brakes other
+  $scope.updateHideBrakes = function(){
+    $scope.showBrakeOther = false;
+  } ;
 
   //show brake mount
   $scope.showBrakeMount = false;
   $scope.updateShowBrakeMount = function(){
-      $scope.showBrakeMount= !$scope.showBrakeMount;
+      $scope.showBrakeMount= true;
+  };
+  //hide brake mount
+  $scope.updateHideBrakeMount = function(){
+    $scope.showBrakeMount = false;
   };
 
   // show wheels other
   $scope.showWheelsOther = false;
   $scope.updateShowWheels= function(){
-    $scope.showWheelsOther = !$scope.showWheelsOther;
+    $scope.showWheelsOther = true;
+  };
+  // hide wheels other
+  $scope.updateHideWheels= function(){
+    $scope.showWheelsOther = false;
   };
 
   // Show Dropout Specs
@@ -45,49 +61,72 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   //show custom dropout other
   $scope.customDropoutSpacing = false;
   $scope.updateCustomDropoutSpacing = function(){
-    $scope.customDropoutSpacing = !$scope.customDropoutSpacing;
+    $scope.customDropoutSpacing = true;
+  };
+  // hide custom dropout other
+  $scope.updateHideCustomDropoutSpacing = function(){
+    $scope.customDropoutSpacing = false;
   };
 
   //show standard fork
   $scope.showStandardFork = false;
   $scope.updateShowStandardFork = function(){
-    $scope.showStandardFork = !$scope.showStandardFork;
+    $scope.showStandardFork = true;
+    $scope.showCustomFork=false;
   };
 
   //  show custom fork
   $scope.showCustomFork = false;
   $scope.updateShowCustomFork =function(){
-    $scope.showCustomFork = !$scope.showCustomFork;
+    $scope.showCustomFork = true;
+    $scope.showStandardFork = false;
   };
 
   // show dropper
   $scope.showDropper = false;
   $scope.updateShowDropper = function(){
-    $scope.showDropper = !$scope.showDropper;
+    $scope.showDropper = true;
+  };
+  $scope.updateHideDropper = function(){
+    $scope.showDropper = false;
   };
 
   //show single speed in
   $scope.showSingleSpeed = false;
   $scope.updateShowSingleSpeed = function(){
-    $scope.showSingleSpeed = !$scope.showSingleSpeed;
+    $scope.showSingleSpeed = true;
   };
+  //Hide Single Speed in
+    $scope.updateHideSingleSpeed = function(){
+      $scope.showSingleSpeed = false;
+    };
 
   // show geared hub in
   $scope.showGearedHub = false;
   $scope.updateShowGearedHub = function(){
-    $scope.showGearedHub = !$scope.showGearedHub;
+    $scope.showGearedHub = true;
   };
+  //hide geared hub in
+    $scope.updateHideGearedHub = function(){
+      $scope.showGearedHub = false;
+    };
 
   // show custom paint
   $scope.showCustomPaint = false;
   $scope.updateShowCustomPaint = function(){
-    $scope.showCustomPaint = !$scope.showCustomPaint;
+    $scope.showCustomPaint = true;
+  };
+  $scope.updateHideCustomPaint = function(){
+    $scope.showCustomPaint = false;
   };
 
   //show fender paint
   $scope.showFenderPaint = false;
   $scope.updateShowFenderPaint = function(){
-    $scope.showFenderPaint =!$scope.showFenderPaint;
+    $scope.showFenderPaint =true;
+  };
+  $scope.updateHideFenderPaint = function(){
+    $scope.showFenderPaint =false;
   };
 
 
@@ -135,19 +174,44 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.showHideSubmitFormFour = false;
     //disable input fields
     $scope.submittedFour = true;
-    $http({
-      method: 'POST',
-      url: '/addFrameDetails',
-      data: formFourObject
-    }).then(function(form4Response){
-      console.log('success from server', form4Response);
-    });
+    // $http({
+    //   method: 'POST',
+    //   url: '/addFrameDetails',
+    //   data: formFourObject
+    // }).then(function(form4Response){
+    //   console.log('success from server', form4Response);
+    // });
   }; //End submitFormFour
   //update Form Four
   $scope.updateFormFour = function(){
     //reset form to submit staus
     $scope.submittedFour = false;
     $scope.showHideSubmitFormFour = true;
+  };
+  $scope.downloadFormFourPdf = function(){
+    console.log("In the PDF click");
+    var docDefinition =
+      {content: [
+        {text: "Date: " + $scope.dateCreated.toString().substring(0,15)},
+        {text: "Bike Style: " + $scope.bikeStyle },
+        {text: "Bottom Bracket Shell: " + $scope.bottomBracketShell},
+        {text: "Brake Compatability: " + $scope.brakeCompatability},
+        {text: "Brake Mount: " + $scope.brakeMount },
+        {text: "Wheel Size: " + $scope.wheelSize },
+        {text: "Special Frame Options: " + $scope.specialFrameOptions },
+        {text: "Head Tube Size: " + $scope.headtube },
+        {text: "Fork Type: " + $scope.fork },
+        {text: "Seat Dropper: " + $scope.seatDropperBrand + " " + $scope.seatDropperModel },
+        {text: "Drive Train: " + $scope.drivetrain },
+        {text: "Paint Color: " + $scope.paintColor },
+        {text: "Full Coverage Fenders: " + $scope.fullCoverageFenders},
+        {text: "Fenders Painted: " + $scope.fendersPainted },
+        {text: "Frame Notes: " + $scope.frameNotes },
+        {text: "Frame Options: " + $scope.frameOptions },
+        {text: "Paint Notes: " + $scope.paintNotes },
+      ]// end content
+    };// end doc docDefinition
+    pdfMake.createPdf(docDefinition).download('customFrameDetails.pdf');
   };
 
   var createFrameOptions = function(){

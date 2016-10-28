@@ -1,6 +1,9 @@
 myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   console.log('In form4Controller');
+  // set form to edit and submit status
   $scope.showHideSubmitFormFour = true;
+  $scope.submitted=false;
+
   // show bottom bracket other
   $scope.showBottomBracketOther = false;
   $scope.updateShowBottomBracket= function(){
@@ -127,14 +130,21 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
 
     console.log(formFourObject);
     $scope.showHideSubmitFormFour = false;
-    $http({
-      method: 'POST',
-      url: '/addFrameDetails',
-      data: formFourObject
-    }).then(function(form4Response){
-      console.log('success from server', form4Response);
-    });
+    $scope.submitted = true;
+    // $http({
+    //   method: 'POST',
+    //   url: '/addFrameDetails',
+    //   data: formFourObject
+    // }).then(function(form4Response){
+    //   console.log('success from server', form4Response);
+    // });
   }; //End submitFormFour
+  //update Form Four
+  $scope.updateFormFour = function(){
+    //reset  form to submit staus
+    $scope.submitted = false;
+    $scope.showHideSubmitFormFour = true;
+  };
 
   var createFrameOptions = function(){
     // third water bottle option is true

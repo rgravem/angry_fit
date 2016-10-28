@@ -6,7 +6,7 @@
           <div layout-gt-xs="row">
             <md-input-container>
                 <label>Enter date</label>
-                  <md-datepicker ng-model="formOneDate"></md-datepicker>
+                  <md-datepicker ng-model="formOneDate" ng-disabled="submittedOne"></md-datepicker>
             </md-input-container>
           </div>
 
@@ -15,28 +15,28 @@
             <div layout-gt-sm="row">
               <md-input-container class='md-block' flex-gt-sm=''>
                 <label>Name</label>
-                <input ng-model="name">
+                <input ng-model="name" ng-disabled="submittedOne">
               </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
               <md-input-container class='md-block' flex-gt-sm=''>
                 <label>Phone</label>
-                <input ng-model="phone">
+                <input ng-model="phone" ng-disabled="submittedOne">
               </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
               <md-input-container class='md-block' flex-gt-sm=''>
                 <label>Email</label>
-                <input ng-model="email">
+                <input ng-model="email" ng-disabled="submittedOne">
               </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
               <md-input-container class='md-block' flex-gt-sm=''>
                 <label>Address</label>
-                <input ng-model="address">
+                <input ng-model="address" ng-disabled="submittedOne">
               </md-input-container>
             </div>
 
@@ -44,39 +44,47 @@
 
           <md-radio-group ng-model="injuries">
               <p>Do you have any injuries that prevent you from riding any length of time?</p>
-              <md-radio-button value="yesInjuries">Yes</md-radio-button>
-              <md-radio-button value="noInjuries"  class="md-primary"> No </md-radio-button>
-              <p><textarea rows="4" cols="50"></textarea></p>
+              <md-radio-button value="yesInjuries" ng-disabled="submittedOne">Yes</md-radio-button>
+              <md-radio-button value="noInjuries"  class="md-primary" ng-disabled="submittedOne"> No </md-radio-button>
+              <md-input-container class="md-block" flex-gt-sm="">
+                <textarea rows="1" ng-disabled="submittedOne" placeholder="Please Describe Injuries"></textarea>
+              </md-input-container>
           </md-radio-group>
 
-          What are some of your complaints with your current fit, if any?
-          <p><textarea rows="4" cols="50" ng-model='complaints'></textarea></p>
+          <p>What are some of your complaints with your current fit, if any?</p>
+          <md-input-container class="md-block" flex-gt-sm="">
+            <textarea rows="1"  ng-model='complaints' ng-disabled="submittedOne"></textarea>
+          </md-input-container>
 
           <md-radio-group ng-model="surgeries">
             <p>Have you had any surgeries? If so, how long ago?</p>
-            <md-radio-button value="yesSurgeries">Yes</md-radio-button>
-            <md-radio-button value="noSurgeries"  class="md-primary"> No </md-radio-button>
-            <p><textarea rows="4" cols="50"></textarea></p>
+            <md-radio-button value="yesSurgeries" ng-disabled="submittedOne">Yes</md-radio-button>
+            <md-radio-button value="noSurgeries"  class="md-primary" ng-disabled="submittedOne"> No </md-radio-button>
+            <md-input-container class="md-block" flex-gt-sm="">
+              <textarea rows="1" placeholder="Please Provide Surgery Details"></textarea>
+            </md-input-container>
           </md-radio-group>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm=''>
               <label>How long is your average ride (in miles)?</label>
-              <input ng-model="averageRideLength">
+              <input ng-model="averageRideLength" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <md-radio-group ng-model="upcomingRaces">
             <p>Do you have any races, tours or over all goals in the near future?</p>
-            <md-radio-button value="yesRaces">Yes</md-radio-button>
-            <md-radio-button value="noRaces"  class="md-primary"> No </md-radio-button>
-            <p><textarea rows="4" cols="50"></textarea></p>
+            <md-radio-button value="yesRaces" ng-disabled="submittedOne">Yes</md-radio-button>
+            <md-radio-button value="noRaces"  class="md-primary" ng-disabled="submittedOne"> No </md-radio-button>
+            <md-input-container class="md-block" flex-gt-sm="">
+              <textarea rows="1" ng-disabled="submittedOne" placeholder="Please Provide Details"></textarea>
+            </md-input-container>
           </md-radio-group>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm=''>
               <label>Current bike brand/model/size</label>
-              <input ng-model="currentBikeBrand">
+              <input ng-model="currentBikeBrand" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
@@ -85,77 +93,77 @@
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm=''>
               <label>Saddle height</label>
-              <input ng-model="saddleHeight">
+              <input ng-model="saddleHeight" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm=''>
               <label>Saddle height over bars</label>
-              <input ng-model="saddleHeightOverBars">
+              <input ng-model="saddleHeightOverBars" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm=''>
               <label>Saddle angle</label>
-              <input ng-model="saddleAngle">
+              <input ng-model="saddleAngle" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Saddle setback</label>
-              <input ng-model="saddleSetback">
+              <input ng-model="saddleSetback" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Saddle to handlebar reach</label>
-              <input ng-model="SaddlehandlebarReach">
+              <input ng-model="SaddlehandlebarReach" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Stem length</label>
-              <input ng-model="stemLength">
+              <input ng-model="stemLength" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Stem angle</label>
-              <input ng-model="stemAngle">
+              <input ng-model="stemAngle" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Handle bar width</label>
-              <input ng-model="handlebarWidth">
+              <input ng-model="handlebarWidth" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Handle bar brand/model</label>
-              <input ng-model="handlebarBrand">
+              <input ng-model="handlebarBrand" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Pedal brand/model</label>
-              <input ng-model="pedalBrandModel">
+              <input ng-model="pedalBrandModel" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Shoe brand/model/size</label>
-              <input ng-model="shoeBrand">
+              <input ng-model="shoeBrand" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
@@ -163,14 +171,14 @@
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Brake level position</label>
-              <input ng-model="brakeLevel">
+              <input ng-model="brakeLevel" ng-disabled="submittedOne">
             </md-input-container>
           </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>
               <label>Crank length</label>
-              <input ng-model="crankLength">
+              <input ng-model="crankLength" ng-disabled="submittedOne">
             </md-input-container>
           </div>
         </div>
@@ -178,14 +186,16 @@
     <div layout-gt-sm="column" flex="50">
       <div id='FormOneNotes' class="formOneNotes" flex="100">
         <md-input-container class="md-block" flex-gt-sm="">
-          Notes<textarea rows="1"ng-model='notes'></textarea></p>
+          Notes<textarea rows="1"ng-model='notes' ng-disabled="submittedOne"></textarea></p>
         </md-input-container>
       </div>
     </div>
   </div>
 
   <div layout="row" layout-align="center" flex="100">
-    <md-button id="formOneSubmit" class="md-raised md-primary formOneSubmit" ng-click="addFormOne()">Submit</md-button>
+    <md-button id="formOneSubmit" class="md-raised md-primary formOneSubmit" ng-click="addFormOne()" ng-show="showHideSubmitFormOne">Submit</md-button>
+    <md-button class="md-raised md-primary formUpdate" ng-click="updateFormOne()" ng-hide="showHideSubmitFormOne"> Update </md-button>
+    <md-button class="md-raised md-primary formPdf" ng-hide="showHideSubmitFormOne"> PDF</md-button>
   </div>
 
 </md-content>

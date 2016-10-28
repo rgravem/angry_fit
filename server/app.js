@@ -373,6 +373,29 @@ app.post( '/addFormOne', function( req, res ){
   });// end pg connect
 });//end of post
 
+app.get('/customer', function(req, res){
+  console.log('q is:', req.query.q);
+  var searchIn = req.query.q;
+  console.log('query:', searchIn);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log('error getting search');
+      res.sendStatus(500);
+    }else{
+      console.log('connected via search');
+      var searchCustomersArray = [];
+      var queryResults = client.query('SELECT * FROM customers WHERE UPPER(lastname) LIKE UPPER('+"'%"+searchIn+"%'"+')');
+      queryResults.on('row', function(row){
+        searchCustomersArray.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(searchCustomersArray);
+      }); // end queryResults
+    } //end else
+  }); //end pg.connect
+}); // end search
+
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";

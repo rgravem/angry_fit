@@ -26,4 +26,17 @@ myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArr
 
   $scope.getExistingCustomers();
 
+  $scope.searchCustomer = function(){
+    console.log('search button clicked sent:', $scope.customer);
+    $http({
+      method: 'GET',
+      url: '/customer?q=' + $scope.customer,
+    }).then(function successCallback(response){
+      console.log('back with:', response.data);
+      $scope.existingCustomers = response.data;
+    }, function errorCallback(response){
+      console.log(response);
+    }); // end query call
+  }; // end search
+
 }]);//end existingCustomerController

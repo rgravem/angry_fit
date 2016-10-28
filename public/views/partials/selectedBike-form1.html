@@ -6,64 +6,91 @@
           <div layout-gt-xs="row">
             <md-input-container>
                 <label>Enter date</label>
-                  <md-datepicker ng-model="formOneDate" ng-disabled="submittedOne"></md-datepicker>
+                <md-datepicker ng-model="formOneDate" ng-disabled="submittedOne"></md-datepicker>
             </md-input-container>
           </div>
 
           <!--- - - - - - - - -  - -  - - - -   - - These will autopopulate --->
 
-            <div layout-gt-sm="row">
-              <md-input-container class='md-block' flex-gt-sm=''>
-                <label>Name</label>
-                <input ng-model="name" ng-disabled="submittedOne">
-              </md-input-container>
-            </div>
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>Name</label>
+              <input ng-model="name" ng-disabled="submittedOne">
+            </md-input-container>
+          </div>
 
-            <div layout-gt-sm="row">
-              <md-input-container class='md-block' flex-gt-sm=''>
-                <label>Phone</label>
-                <input ng-model="phone" ng-disabled="submittedOne">
-              </md-input-container>
-            </div>
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>Phone</label>
+              <input ng-model="phone" ng-disabled="submittedOne">
+            </md-input-container>
+          </div>
 
-            <div layout-gt-sm="row">
-              <md-input-container class='md-block' flex-gt-sm=''>
-                <label>Email</label>
-                <input ng-model="email" ng-disabled="submittedOne">
-              </md-input-container>
-            </div>
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>Email</label>
+              <input ng-model="email" ng-disabled="submittedOne">
+            </md-input-container>
+          </div>
 
-            <div layout-gt-sm="row">
-              <md-input-container class='md-block' flex-gt-sm=''>
-                <label>Address</label>
-                <input ng-model="address" ng-disabled="submittedOne">
-              </md-input-container>
-            </div>
+          <div layout-gt-sm="row">
+            <md-input-container class='md-block' flex-gt-sm=''>
+              <label>Address</label>
+              <input ng-model="address" ng-disabled="submittedOne">
+            </md-input-container>
+          </div>
 
             <!--- - - - - - - - -  - -  - - - -   - - Above will autopopulate --->
 
-          <md-radio-group ng-model="injuries">
-              <p>Do you have any injuries that prevent you from riding any length of time?</p>
-              <md-radio-button value="yesInjuries" ng-disabled="submittedOne">Yes</md-radio-button>
-              <md-radio-button value="noInjuries"  class="md-primary" ng-disabled="submittedOne"> No </md-radio-button>
-              <md-input-container class="md-block" flex-gt-sm="">
-                <textarea rows="1" ng-disabled="submittedOne" placeholder="Please Describe Injuries"></textarea>
-              </md-input-container>
-          </md-radio-group>
+          <div id="injuriesCurrently">
+             <div layout-gt-sm="row">
+               <p>Do you have any injuries that prevent you from riding any length of time?</p>
+             </div>
+             <md-radio-group>
+               <div layout-gt-sm="row">
+                 <!-- Seat injuries Yes -->
+                 <md-radio-button value="true" name="injuryIn" ng-click="updateShowInjury()" ng-disabled="submittedOne"> Yes </md-radio-button>
+                 <!-- Seat injuries No -->
+                 <md-radio-button value="false" name="injuryIn" ng-click="updateHideInjury()" ng-disabled="submittedOne"> No </md-radio-button>
+               </div>
+             </md-radio-group>
+
+               <!-- IF yes -->
+             <div id="setInjury" ng-show="showInjury">
+               <div layout-gt-sm="row">
+                 <md-input-container class="md-block" flex-gt-sm="">
+                   <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="injuryInfo" ng-disabled="submittedOne">
+                 </md-input-container>
+               </div>
+             </div>
+          </div>
 
           <p>What are some of your complaints with your current fit, if any?</p>
           <md-input-container class="md-block" flex-gt-sm="">
             <textarea rows="1"  ng-model='complaints' ng-disabled="submittedOne"></textarea>
           </md-input-container>
 
-          <md-radio-group ng-model="surgeries">
+         <div id="surgeriesCurrently">
+           <div layout-gt-sm="row">
             <p>Have you had any surgeries? If so, how long ago?</p>
-            <md-radio-button value="yesSurgeries" ng-disabled="submittedOne">Yes</md-radio-button>
-            <md-radio-button value="noSurgeries"  class="md-primary" ng-disabled="submittedOne"> No </md-radio-button>
-            <md-input-container class="md-block" flex-gt-sm="">
-              <textarea rows="1" placeholder="Please Provide Surgery Details"></textarea>
-            </md-input-container>
-          </md-radio-group>
+          </div>
+           <md-radio-group>
+             <div layout-gt-sm="row">
+              <!-- Seat surgeries Yes -->
+              <md-radio-button value="true" name="surgeriesIn" ng-click="updateShowSurgery()" ng-disabled="submittedOne"> Yes </md-radio-button>
+              <!-- Seat surgeries No -->
+              <md-radio-button value="false" name="surgeriesIn" ng-click="updateHideSurgery()" ng-disabled="submittedOne"> No </md-radio-button>
+            </div>
+           </md-radio-group>
+             <!-- IF yes -->
+          <div id="setInjury" ng-show="showSurgery">
+            <div layout-gt-sm="row">
+             <md-input-container class="md-block" flex-gt-sm="">
+              <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="surgeryInfo" ng-disabled="submittedOne">
+             </md-input-container>
+           </div>
+          </div>
+         </div>
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm=''>
@@ -72,21 +99,35 @@
             </md-input-container>
           </div>
 
-          <md-radio-group ng-model="upcomingRaces">
-            <p>Do you have any races, tours or over all goals in the near future?</p>
-            <md-radio-button value="yesRaces" ng-disabled="submittedOne">Yes</md-radio-button>
-            <md-radio-button value="noRaces"  class="md-primary" ng-disabled="submittedOne"> No </md-radio-button>
-            <md-input-container class="md-block" flex-gt-sm="">
-              <textarea rows="1" ng-disabled="submittedOne" placeholder="Please Provide Details"></textarea>
-            </md-input-container>
-          </md-radio-group>
+         <div id="goalsCurrently">
+            <div layout-gt-sm="row">
+              <p>Do you have any races, tours or over all goals in the near future?</p>
+            </div>
+            <md-radio-group>
+              <div layout-gt-sm="row">
+                <!-- Seat goals Yes -->
+                <md-radio-button value="true" name="goalsIn" ng-click="updateShowGoals()" ng-disabled="submittedOne"> Yes </md-radio-button>
+                <!-- Seat goals No -->
+                <md-radio-button value="false" name="goalsIn" ng-click="updateHideGoals()" ng-disabled="submittedOne"> No </md-radio-button>
+              </div>
+            </md-radio-group>
 
-          <div layout-gt-sm="row">
-            <md-input-container class='md-block' flex-gt-sm=''>
-              <label>Current bike brand/model/size</label>
-              <input ng-model="currentBikeBrand" ng-disabled="submittedOne">
-            </md-input-container>
-          </div>
+               <!-- IF yes -->
+            <div id="setGoals" ng-show="showGoals">
+               <div layout-gt-sm="row">
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="goalsInfo" ng-disabled="submittedOne">
+                  </md-input-container>
+                </div>
+            </div>
+         </div>
+
+         <div layout-gt-sm="row">
+           <md-input-container class='md-block' flex-gt-sm=''>
+             <label>Current bike brand/model/size</label>
+             <input ng-model="currentBikeBrand" ng-disabled="submittedOne">
+           </md-input-container>
+         </div>
 
           <h3>Current Measurements</h3>
 
@@ -166,7 +207,6 @@
               <input ng-model="shoeBrand" ng-disabled="submittedOne">
             </md-input-container>
           </div>
-
 
           <div layout-gt-sm="row">
             <md-input-container class='md-block' flex-gt-sm>

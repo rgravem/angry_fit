@@ -51,4 +51,33 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
       $scope.submittedOne = false;
       $scope.showHideSubmitFormOne = true;
     };
+    // show injury
+    $scope.showInjury = false;
+    $scope.updateShowInjury = function(){
+      $scope.showInjury = true;
+    };
+    //hide injury
+    $scope.updateHideInjury = function(){
+      $scope.showInjury = false;
+    };
+
+    // show surgery
+    $scope.showSurgery = false;
+    $scope.updateShowSurgery = function(){
+      $scope.showSurgery = true;
+    };
+    //hide surgery
+    $scope.updateHideSurgery = function(){
+      $scope.showSurgery = false;
+    };
+
+    // show goals
+    $scope.showGoals = false;
+    $scope.updateShowGoals = function(){
+      $scope.showGoals = true;
+    };
+    //hide goals
+    $scope.updateHideGoals = function(){
+      $scope.showGoals = false;
+    };
 }]);//end form1Controller

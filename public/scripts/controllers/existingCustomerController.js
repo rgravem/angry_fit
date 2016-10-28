@@ -8,6 +8,9 @@ myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArr
   // $scope.existingCustomers = ['Jazzy', 'Brent', 'Justin', 'Ross'];
   $scope.cardClicked = function(user){
     console.log('card clicked', user);
+    sessionStorage.setItem('customer', JSON.stringify(user));
+    var obj = JSON.parse(sessionStorage.getItem('customer'));
+    console.log('json obj:', obj);
   };
 
   $scope.getExistingCustomers = function () {

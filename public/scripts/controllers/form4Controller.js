@@ -151,7 +151,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
 
     var formFourObject ={
       date: $scope.dateCreated.toString().substring(0,15),
-      bikeStyle: $scope.bikeStyle,
+      bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
       brakeCompatability: $scope.brakeCompatability,
       brakeMount:$scope.brakeMount,
@@ -174,19 +174,44 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.showHideSubmitFormFour = false;
     //disable input fields
     $scope.submittedFour = true;
-    $http({
-      method: 'POST',
-      url: '/addFrameDetails',
-      data: formFourObject
-    }).then(function(form4Response){
-      console.log('success from server', form4Response);
-    });
+    // $http({
+    //   method: 'POST',
+    //   url: '/addFrameDetails',
+    //   data: formFourObject
+    // }).then(function(form4Response){
+    //   console.log('success from server', form4Response);
+    // });
   }; //End submitFormFour
   //update Form Four
   $scope.updateFormFour = function(){
     //reset form to submit staus
     $scope.submittedFour = false;
     $scope.showHideSubmitFormFour = true;
+  };
+  $scope.downloadFormFourPdf = function(){
+    console.log("In the PDF click");
+    var docDefinition =
+      {content: [
+        {text: "Date: " + $scope.dateCreated.toString().substring(0,15)},
+        {text: "Bike Style: " + $scope.bikeStyle },
+        {text: "Bottom Bracket Shell: " + $scope.bottomBracketShell},
+        {text: "Brake Compatability: " + $scope.brakeCompatability},
+        {text: "Brake Mount: " + $scope.brakeMount },
+        {text: "Wheel Size: " + $scope.wheelSize },
+        {text: "Special Frame Options: " + $scope.specialFrameOptions },
+        {text: "Head Tube Size: " + $scope.headtube },
+        {text: "Fork Type: " + $scope.fork },
+        {text: "Seat Dropper: " + $scope.seatDropperBrand + " " + $scope.seatDropperModel },
+        {text: "Drive Train: " + $scope.drivetrain },
+        {text: "Paint Color: " + $scope.paintColor },
+        {text: "Full Coverage Fenders: " + $scope.fullCoverageFenders},
+        {text: "Fenders Painted: " + $scope.fendersPainted },
+        {text: "Frame Notes: " + $scope.frameNotes },
+        {text: "Frame Options: " + $scope.frameOptions },
+        {text: "Paint Notes: " + $scope.paintNotes },
+      ]// end content
+    };// end doc docDefinition
+    pdfMake.createPdf(docDefinition).download('customFrameDetails.pdf');
   };
 
   var createFrameOptions = function(){

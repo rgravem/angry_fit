@@ -12,11 +12,11 @@
           </div>
 
           <div id="bikeOptions">
-            <div id="bikeType"layout-gt-sm="row">
+            <div layout-gt-sm="row">
               <md-input-container class="md-block" flex-gt-sm="" >
                 <!-- Waht Style of Bike? -->
-                <label for='bikeStyle'>What style of bike are you looking for?</label>
-                <input type="text" id="bikeStyle" value="" ng-model="bikeStyle" ng-disabled="submittedFour" >
+                <label for='bikeType'>What type of bike are you looking for?</label>
+                <input type="text" id="bikeType" value="" ng-model="bikeType" ng-disabled="submittedFour" >
               </md-input-container>
             </div>
             <!-- Type of Bottom Bracket Shell -->
@@ -183,13 +183,13 @@
               <div layout-gt-sm="row">
                 <p> If you are doing thru-axle rear dropout which spacing would you prefer?(choose one)</p>
               </div>
-              <md-radio-group ng-model="dropoutSpacingIn">
+              <md-radio-group >
                 <div layout-gt-sm="row">
                   <!-- 142mm -->
-                  <md-radio-button value="142mm" name="dropoutSpacing" ng-click="updateHideCustomDropoutSpacing()" ng-disabled="submittedFour">142mm</md-radio-button>
+                  <md-radio-button value="142mm" ng-model="dropoutSpacingIn" name="dropoutSpacing" ng-click="updateHideCustomDropoutSpacing()" ng-disabled="submittedFour">142mm</md-radio-button>
 
                   <!-- 148mm Boost -->
-                  <md-radio-button value="148mm Boost" name="dropoutSpacing" ng-click="updateHideCustomDropoutSpacing()" ng-disabled="submittedFour">148mm Boost</md-radio-button>
+                  <md-radio-button value="148mm Boost" ng-model="dropoutSpacingIn" name="dropoutSpacing" ng-click="updateHideCustomDropoutSpacing()" ng-disabled="submittedFour">148mm Boost</md-radio-button>
                   <!-- Other -->
                   <md-radio-button value="" name="dropoutSpacing" ng-click="updateCustomDropoutSpacing()" ng-disabled="submittedFour">Other</md-radio-button>
                 </div>
@@ -418,6 +418,6 @@
   <div layout-gt-sm="row" layout-align="center" flex="100">
     <md-button class="md-raised md-primary formFourSubmit" ng-click="submitFormFour()" ng-show="showHideSubmitFormFour">Submit</md-button>
       <md-button class="md-raised md-primary formUpdate"  ng-click="updateFormFour()" ng-hide="showHideSubmitFormFour"> Update </md-button>
-      <md-button class="md-raised md-primary formPdf" ng-hide="showHideSubmitFormFour"> PDF</md-button>
+      <md-button class="md-raised md-primary formPdf" ng-click="downloadFormFourPdf()" ng-hide="showHideSubmitFormFour"> PDF</md-button>
   </div>
 </md-content>

@@ -1,8 +1,10 @@
 myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   console.log('In form4Controller');
   // set form to edit and submit status
+  //show submit button, hide update and pdf
   $scope.showHideSubmitFormFour = true;
-  $scope.submitted=false;
+  //keep all input fields active
+  $scope.submittedFour=false;
 
   // show bottom bracket other
   $scope.showBottomBracketOther = false;
@@ -129,20 +131,22 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     };
 
     console.log(formFourObject);
+    //hide submit, show update and pdf
     $scope.showHideSubmitFormFour = false;
-    $scope.submitted = true;
-    // $http({
-    //   method: 'POST',
-    //   url: '/addFrameDetails',
-    //   data: formFourObject
-    // }).then(function(form4Response){
-    //   console.log('success from server', form4Response);
-    // });
+    //disable input fields
+    $scope.submittedFour = true;
+    $http({
+      method: 'POST',
+      url: '/addFrameDetails',
+      data: formFourObject
+    }).then(function(form4Response){
+      console.log('success from server', form4Response);
+    });
   }; //End submitFormFour
   //update Form Four
   $scope.updateFormFour = function(){
-    //reset  form to submit staus
-    $scope.submitted = false;
+    //reset form to submit staus
+    $scope.submittedFour = false;
     $scope.showHideSubmitFormFour = true;
   };
 

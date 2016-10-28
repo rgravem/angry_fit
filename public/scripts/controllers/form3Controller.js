@@ -27,9 +27,10 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     	bbDrop: $scope.bbDrop ,
     	axleToCrown: $scope.axleToCrown ,
     	mechanicalTrail: $scope.mechanicalTrail ,
-    	forkOffset: $scope.forkOffset
-      // add notes to send to db
+    	forkOffset: $scope.forkOffset,
+      notes: $scope.notes
     };
+
     console.log('object to send:', objectToSend);
     //hide submit, show update and pdf
     $scope.showHideSubmitFormThree = false;

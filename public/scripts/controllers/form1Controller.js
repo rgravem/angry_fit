@@ -38,13 +38,13 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     //disable input fields
     $scope.submittedOne = true;
 
-    // $http({
-    //   method: 'POST',
-    //   url: '/addFormOne',
-    //   data: formOneObject
-    // }).then(function(formOneObject){
-    //   console.log('success from server', formOneObject);
-    // });
+    $http({
+      method: 'POST',
+      url: '/addFormOne',
+      data: formOneObject
+    }).then(function(formOneObject){
+      console.log('success from server', formOneObject);
+    });
   };
     $scope.updateFormOne = function(){
       //reset form to submit staus

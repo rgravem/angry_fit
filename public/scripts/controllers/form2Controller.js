@@ -25,7 +25,8 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       brakeLevelPosition:$scope.brakeLevelPosition,
       crankLength:$scope.crankLength,
       standover:$scope.standover,
-      stack:$scope.stack
+      stack:$scope.stack,
+      notes: $scope.notes
     };
 
     console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);

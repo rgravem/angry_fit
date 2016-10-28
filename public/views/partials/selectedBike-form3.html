@@ -6,117 +6,117 @@
         <div layout-gt-xs="row">
           <md-input-container>
               <label>Enter date</label>
-                <md-datepicker ng-model="frameGeometryFormDate"></md-datepicker>
+                <md-datepicker ng-model="frameGeometryFormDate" ng-disabled="submittedThree"></md-datepicker>
           </md-input-container>
         </div>
         <h3>Body Measurements</h3>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Inseam</label>
-                <input ng-model="inseam">
+                <input ng-model="inseam" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Torso</label>
-                <input ng-model="torso">
+                <input ng-model="torso" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Arm</label>
-                <input ng-model="arm">
+                <input ng-model="arm" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Foot length</label>
-                <input ng-model="footLength">
+                <input ng-model="footLength" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <h3>Bike Measurements</h3>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>A: Effective top tube</label>
-                <input ng-model="effectiveTopTube">
+                <input ng-model="effectiveTopTube" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>B: Standover</label>
-                <input ng-model="standover">
+                <input ng-model="standover" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>C: Seat tube length</label>
-                <input ng-model="seatTubeLength">
+                <input ng-model="seatTubeLength" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>D: Seat tube angle</label>
-                <input ng-model="seatTubeAngle">
+                <input ng-model="seatTubeAngle" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>E: Headtube length</label>
-                <input ng-model="headTubeLength">
+                <input ng-model="headTubeLength" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>F: Headtube angle</label>
-                <input ng-model="headTubeAngle">
+                <input ng-model="headTubeAngle" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>G: Stack</label>
-                <input ng-model="stack">
+                <input ng-model="stack" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>H: Reach</label>
-                <input ng-model="reach">
+                <input ng-model="reach" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>I: Wheel base</label>
-                <input ng-model="wheelBase">
+                <input ng-model="wheelBase" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>J: Chainstay length</label>
-                <input ng-model="chainstayLength">
+                <input ng-model="chainstayLength" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>K: BB Drop</label>
-                <input ng-model="bbDrop">
+                <input ng-model="bbDrop" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>L: Axle to crown</label>
-                <input ng-model="axleToCrown">
+                <input ng-model="axleToCrown" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>M: Mechanical trail</label>
-                <input ng-model="mechanicalTrail">
+                <input ng-model="mechanicalTrail" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>N: Fork offset</label>
-                <input ng-model="forkOffset">
+                <input ng-model="forkOffset" ng-disabled="submittedThree">
           </md-input-container>
         </div>
       </div>
@@ -124,7 +124,7 @@
     <div layout-gt-sm="column" flex="60">
         <div id="formThreeNotes" class="formThreeNotes" flex="100">
           <md-input-container class="md-block" flex-gt-sm="">
-            Notes<textarea rows="1"ng-model='notes'></textarea></p>
+            Notes<textarea rows="1"ng-model='notes' ng-disabled="submittedThree"></textarea></p>
           </md-input-container>
         </div>
         <div class="formThreeBikeImage" flex="90">
@@ -133,6 +133,8 @@
     </div>
   </div>
   <div layout-gt-sm="row" layout-align="center" flex="100">
-    <md-button id='frameGeometrySubmit' class="md-raised md-primary formThreeSubmit" ng-click="submitFrameGeometry()">Completed</md-button>
+    <md-button id='frameGeometrySubmit' class="md-raised md-primary formThreeSubmit" ng-click="submitFrameGeometry()" ng-show="showHideSubmitFormThree">Completed</md-button>
+    <md-button class="md-raised md-primary formUpdate" ng-click="updateFormThree()" ng-hide="showHideSubmitFormThree"> Update </md-button>
+    <md-button class="md-raised md-primary formPdf" ng-hide="showHideSubmitFormThree"> PDF</md-button>
   <div>
 </md-content>

@@ -1,22 +1,22 @@
 <h2 class="customFrameDetailsHeading"> Custom Frame Details</h2>
 <md-content class="md-padding">
   <div layout-gt-sm="row">
-    <form name="fitFormFour" layout-gt-sm="column" flex="60" >
+    <form name="fitFormFour" layout-gt-sm="column" flex="60">
         <div id="bikeData" class="formFourInputs" flex="100">
           <!-- Enter Date -->
           <div layout-gt-xs="row">
             <md-input-container>
                 <label>Enter date</label>
-                  <md-datepicker ng-model="dateCreated"></md-datepicker>
+                  <md-datepicker ng-model="dateCreated" ng-disabled="submittedFour" ></md-datepicker>
             </md-input-container>
           </div>
 
           <div id="bikeOptions">
             <div id="bikeType"layout-gt-sm="row">
-              <md-input-container class="md-block" flex-gt-sm="">
+              <md-input-container class="md-block" flex-gt-sm="" >
                 <!-- Waht Style of Bike? -->
                 <label for='bikeStyle'>What style of bike are you looking for?</label>
-                <input type="text" id="bikeStyle" value="" ng-model="bikeStyle">
+                <input type="text" id="bikeStyle" value="" ng-model="bikeStyle" ng-disabled="submittedFour" >
               </md-input-container>
             </div>
             <!-- Type of Bottom Bracket Shell -->
@@ -27,25 +27,25 @@
               <md-radio-group ng-model="bottomBracketShell">
                 <div layout-gt-sm="row">
                   <!-- English 68mm  -->
-                  <md-radio-button  value="English 68mm" name="bottomBracketStyle"> English 68mm</md-radio-button>
+                  <md-radio-button  value="English 68mm" name="bottomBracketStyle" ng-disabled="submittedFour" > English 68mm</md-radio-button>
                   <!-- English 73mm -->
-                  <md-radio-button value="English 73mm" name="bottomBracketStyle"> English 73mm</md-radio-button>
+                  <md-radio-button value="English 73mm" name="bottomBracketStyle" ng-disabled="submittedFour" > English 73mm</md-radio-button>
                   <!-- EBB for Niner insert -->
-                  <md-radio-button  value="EBB for Niner Insert" name="bottomBracketStyle"> EBB for Niner insert </md-radio-button>
+                  <md-radio-button  value="EBB for Niner Insert" name="bottomBracketStyle" ng-disabled="submittedFour" > EBB for Niner insert </md-radio-button>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- T47 68mm -->
-                  <md-radio-button  value="T47 68mm" name="bottomBracketStyle">T47 68mm</md-radio-button>
+                  <md-radio-button  value="T47 68mm" name="bottomBracketStyle" ng-disabled="submittedFour">T47 68mm</md-radio-button>
                   <!-- T47 73mm -->
-                  <md-radio-button value="T47 73mm" name="bottomBracketStyle"> T47 73mm </md-radio-button>
+                  <md-radio-button value="T47 73mm" name="bottomBracketStyle" ng-disabled="submittedFour"> T47 73mm </md-radio-button>
                   <!-- Other -->
-                  <md-radio-button value="" name="bottomBracketStyle" ng-click="updateShowBottomBracket()"> Other </md-radio-button>
+                  <md-radio-button value="" name="bottomBracketStyle" ng-click="updateShowBottomBracket()" ng-disabled="submittedFour"> Other </md-radio-button>
                 </div>
               </md-radio-group>
               <div layout-gt-sm="row" ng-show="showBottomBracketOther">
                 <!-- IF Other-  Input Field  -->
                 <md-input-container class="md-block" flex-gt-sm="">
-                  <input type="text" id="bbOtherIn" value="" placeholder="Bottom Bracket Specifications" ng-model="bottomBracketShell">
+                  <input type="text" id="bbOtherIn" value="" placeholder="Bottom Bracket Specifications" ng-model="bottomBracketShell" ng-disabled="submittedFour">
                 </md-input-container>
               </div>
 
@@ -55,25 +55,25 @@
             <md-radio-group ng-model="brakeCompatability">
               <div layout-gt-sm="row">
                 <!-- ISO Disk Brake-->
-                <md-radio-button value="ISO Disk Brake" name="brakeStyle" ng-click="updateShowBrakeMount()">ISO Disk Brake</md-radio-button>
+                <md-radio-button value="ISO Disk Brake" name="brakeStyle" ng-click="updateShowBrakeMount()" ng-disabled="submittedFour">ISO Disk Brake</md-radio-button>
                 <!-- Flat Mount Disk Brake-->
-                <md-radio-button value="Flat Mount Disk Brake" name="brakeStyle"> Flat Mount Disk Brake </md-radio-button>
+                <md-radio-button value="Flat Mount Disk Brake" name="brakeStyle" ng-disabled="submittedFour"> Flat Mount Disk Brake </md-radio-button>
                 <!-- Short Reach Road Caliper-->
-                <md-radio-button value="Short Reach Road Caliper" name="brakeStyle"> Short Reach Road Caliper</md-radio-button>
+                <md-radio-button value="Short Reach Road Caliper" name="brakeStyle" ng-disabled="submittedFour"> Short Reach Road Caliper</md-radio-button>
               </div>
               <div layout-gt-sm="row">
                 <!-- V Brake-->
-                <md-radio-button value="V Brake" name="brakeStyle"> V Brake </md-radio-button>
+                <md-radio-button value="V Brake" name="brakeStyle" ng-disabled="submittedFour"> V Brake </md-radio-button>
                 <!-- Cantilever Brake-->
-                <md-radio-button value="Cantilever Brake" name="brakeStyle"> Cantilever Brake </md-radio-button>
+                <md-radio-button value="Cantilever Brake" name="brakeStyle" ng-disabled="submittedFour"> Cantilever Brake </md-radio-button>
                 <!-- Other -->
-                <md-radio-button value="" name="brakeStyle" ng-click="updateShowBrakes()"> Other </md-radio-button>
+                <md-radio-button value="" name="brakeStyle" ng-click="updateShowBrakes()" ng-disabled="submittedFour"> Other </md-radio-button>
               </div>
             </md-radio-group>
             <div layout-gt-sm="row" ng-show="showBrakeOther">
-              <md-input-container class="md-block" flex-gt-sm="">
+              <md-input-container class="md-block" flex-gt-sm="" >
                 <!--Other Input Field  -->
-                <input type="text input" id="brakeOtherIn" value="" placeholder="Brake Specifications" ng-model="brakeCompatability">
+                <input type="text input" id="brakeOtherIn" value="" placeholder="Brake Specifications" ng-model="brakeCompatability" ng-disabled="submittedFour">
               </md-input-container>
             </div>
 
@@ -86,9 +86,9 @@
               <md-radio-group ng-model="brakeMount">
                 <div layout-gt-sm="row">
                   <!-- Maybe add info modal about differences -->
-                  <md-radio-button value="chainstay" name="caliperMount"> Chainstay </md-radio-button>
+                  <md-radio-button value="chainstay" name="caliperMount" ng-disabled="submittedFour"> Chainstay </md-radio-button>
                   <!-- Maybe add info modal about differences -->
-                  <md-radio-button value="seatstay" name="caliperMount"> Seatstay </md-radio-button>
+                  <md-radio-button value="seatstay" name="caliperMount" ng-disabled="submittedFour"> Seatstay </md-radio-button>
                 </div>
               </md-radio-group>
             </div>
@@ -100,39 +100,39 @@
             <md-radio-group ng-model="wheelSize">
               <div layout-gt-sm="row">
                 <!-- 700x28-35-->
-                <md-radio-button value="700x23-28" name="wheelStyle"> 700x23-28 </md-radio-button>
+                <md-radio-button value="700x23-28" name="wheelStyle" ng-disabled="submittedFour"> 700x23-28 </md-radio-button>
                 <!-- 700x23-28-->
-                <md-radio-button value="700x28-35" name="wheelStyle"> 700x28-35 </md-radio-button>
+                <md-radio-button value="700x28-35" name="wheelStyle" ng-disabled="submittedFour"> 700x28-35 </md-radio-button>
               </div>
               <div layout-gt-sm="row">
                 <!-- 700x32-38-->
-                <md-radio-button value="700x32-38" name="wheelStyle"> 700x32-38 </md-radio-button>
+                <md-radio-button value="700x32-38" name="wheelStyle" ng-disabled="submittedFour"> 700x32-38 </md-radio-button>
                 <!-- 700x38-45-->
-                <md-radio-button value="700x38-45" name="wheelStyle"> 700x38-45</md-radio-button>
+                <md-radio-button value="700x38-45" name="wheelStyle" ng-disabled="submittedFour"> 700x38-45</md-radio-button>
               </div>
               <div layout-gt-sm="row">
                 <!-- 29x2-2.35-->
-                <md-radio-button value="29x2-2.35" name="wheelStyle"> 29x2-2.35 </md-radio-button>
+                <md-radio-button value="29x2-2.35" name="wheelStyle" ng-disabled="submittedFour"> 29x2-2.35 </md-radio-button>
                 <!-- 29x3-->
-                <md-radio-button value="29x3" name="wheelStyle"> 29x3(Requires Paragon Yoke)</md-radio-button>
+                <md-radio-button value="29x3" name="wheelStyle" ng-disabled="submittedFour"> 29x3(Requires Paragon Yoke)</md-radio-button>
               </div>
               <div layout-gt-sm="row">
                 <!--650bx35-42-->
-                <md-radio-button value="650bx35-42" name="wheelStyle"> 650bx35-42</md-radio-button>
+                <md-radio-button value="650bx35-42" name="wheelStyle" ng-disabled="submittedFour"> 650bx35-42</md-radio-button>
                 <!--650bx2-2.35-->
-                <md-radio-button value="650bx2-2.35" name="wheelStyle">650bx2-2.35</md-radio-button>
+                <md-radio-button value="650bx2-2.35" name="wheelStyle" ng-disabled="submittedFour">650bx2-2.35</md-radio-button>
               </div>
               <div layout-gt-sm="row">
                 <!--650bx3-->
-                <md-radio-button value="650bx3" name="wheelStyle"> 650bx3 (Requires Paragon Yoke)</md-radio-button>
+                <md-radio-button value="650bx3" name="wheelStyle" ng-disabled="submittedFour"> 650bx3 (Requires Paragon Yoke)</md-radio-button>
                 <!-- Other -->
-                <md-radio-button value="" name="wheelStyle" ng-click="updateShowWheels()"> Other</md-radio-button>
+                <md-radio-button value="" name="wheelStyle" ng-click="updateShowWheels()" ng-disabled="submittedFour"> Other</md-radio-button>
               </div>
             <md-radio-group>
             <div layout-gt-sm="row" ng-show="showWheelsOther">
               <md-input-container class="md-block" flex-gt-sm="">
               <!--Other Input Field  -->
-                <input type="text input" id="wheelOtherIn" value="" placeholder="Wheel Specifications" ng-model="wheelSize">
+                <input type="text input" id="wheelOtherIn" value="" placeholder="Wheel Specifications" ng-model="wheelSize" ng-disabled="submittedFour">
               </md-input-container>
             </div>
           </div>
@@ -143,38 +143,38 @@
             </div>
             <div layout-gt-sm="row">
               <!-- 3rd bottle -->
-              <md-checkbox value="3rdBottleMount" ng-model="thirdBottle"> 3rd Bottle Mount</md-checkbox>
+              <md-checkbox value="3rdBottleMount" ng-model="thirdBottle" ng-disabled="submittedFour"> 3rd Bottle Mount</md-checkbox>
               <!-- Rack Mounts -->
-              <md-checkbox value="rackMounts" ng-model="rackMounts"> Rack Mounts</md-checkbox>
+              <md-checkbox value="rackMounts" ng-model="rackMounts" ng-disabled="submittedFour"> Rack Mounts</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Full Coverage Fenders -->
-              <md-checkbox value="fullCoverFenders" ng-model="fullCoverageFenders">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
+              <md-checkbox value="fullCoverFenders" ng-model="fullCoverageFenders" ng-disabled="submittedFour">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
               <!-- Internal Brake Cable-->
-              <md-checkbox value="internalBrakeCable" ng-model="internalBrakeCable"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
+              <md-checkbox value="internalBrakeCable" ng-model="internalBrakeCable" ng-disabled="submittedFour"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Rocking/Sliding Dropouts-->
-              <md-checkbox value="paragonRockingSlidingDropouts" ng-click="updateShowDropoutSpecs()" ng-model="rockingSlidingDropouts"> Paragon Rocking/Sliding Dropouts</md-checkbox>
+              <md-checkbox value="paragonRockingSlidingDropouts" ng-click="updateShowDropoutSpecs()" ng-model="rockingSlidingDropouts" ng-disabled="submittedFour"> Paragon Rocking/Sliding Dropouts</md-checkbox>
               <!-- Thru-axle -->
-              <md-checkbox value="thruAxleDropouts" ng-click="updateShowThruAxle()" ng-model="thruAxleRear"> Thru-axle Rear Dropouts</md-checkbox>
+              <md-checkbox value="thruAxleDropouts" ng-click="updateShowThruAxle()" ng-model="thruAxleRear" ng-disabled="submittedFour"> Thru-axle Rear Dropouts</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Di2 Routing -->
-              <md-checkbox value="di2Routing" ng-model="di2Routing"> Di2 Routing</md-checkbox>
+              <md-checkbox value="di2Routing" ng-model="di2Routing" ng-disabled="submittedFour"> Di2 Routing</md-checkbox>
               <!-- eTap Routing -->
-              <md-checkbox value="eTapRouting" ng-model="eTapRouting">E Tap Routing (no routing)</md-checkbox>
+              <md-checkbox value="eTapRouting" ng-model="eTapRouting" ng-disabled="submittedFour">E Tap Routing (no routing)</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Custom Rear Rack -->
-              <md-checkbox value="rearRack" ng-model="customRearRack"> Custom Rear Rack (specify style in notes)</md-checkbox>
+              <md-checkbox value="rearRack" ng-model="customRearRack" ng-disabled="submittedFour"> Custom Rear Rack (specify style in notes)</md-checkbox>
               <!-- Frame Pump Peg -->
-              <md-checkbox value="FramePump" ng-model="framePump">Frame Pump Peg</md-checkbox>
+              <md-checkbox value="FramePump" ng-model="framePump" ng-disabled="submittedFour">Frame Pump Peg</md-checkbox>
             </div>
             <!-- Dropout Specs -->
             <div layout-gt-sm="row" ng-show="showDropoutSpecs">
               <md-input-container class="md-block" flex-gt-sm="">
-               <input type="text" id="dropoutSpecs" value="" placeholder="Paragon Rocking/Sliding Dropout Specs" ng-model="dropoutSpecsIn">
+               <input type="text" id="dropoutSpecs" value="" placeholder="Paragon Rocking/Sliding Dropout Specs" ng-model="dropoutSpecsIn" ng-disabled="submittedFour">
               </md-input-container>
             </div>
 
@@ -186,17 +186,17 @@
               <md-radio-group ng-model="dropoutSpacingIn">
                 <div layout-gt-sm="row">
                   <!-- 142mm -->
-                  <md-radio-button value="142mm" name="dropoutSpacing">142mm</md-radio-button>
+                  <md-radio-button value="142mm" name="dropoutSpacing" ng-disabled="submittedFour">142mm</md-radio-button>
 
                   <!-- 148mm Boost -->
-                  <md-radio-button value="148mm Boost" name="dropoutSpacing">148mm Boost</md-radio-button>
+                  <md-radio-button value="148mm Boost" name="dropoutSpacing" ng-disabled="submittedFour">148mm Boost</md-radio-button>
                   <!-- Other -->
-                  <md-radio-button value="" name="dropoutSpacing" ng-click="updateCustomDropoutSpacing()">Other</md-radio-button>
+                  <md-radio-button value="" name="dropoutSpacing" ng-click="updateCustomDropoutSpacing()" ng-disabled="submittedFour">Other</md-radio-button>
                 </div>
               </md-radio-group>
               <div layout-gt-sm="row" ng-show="customDropoutSpacing">
                 <md-input-container class="md-block" flex-gt-sm="">
-                  <input type="text" value="" name="dropoutSpacing" placeholder="Custom Dropout Spacing Specifictaions" ng-model="dropoutSpacingIn">
+                  <input type="text" value="" name="dropoutSpacing" placeholder="Custom Dropout Spacing Specifictaions" ng-model="dropoutSpacingIn" ng-disabled="submittedFour">
                 </md-input-container>
               </div>
             </div>
@@ -205,7 +205,7 @@
             <div id="specialFrameOptions">
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm="">
-                  <textarea rows="3" placeholder="Any other special frame options you would like to see included?" ng-model="specialFrameOptions"></textarea>
+                  <textarea rows="3" placeholder="Any other special frame options you would like to see included?" ng-model="specialFrameOptions" ng-disabled="submittedFour"></textarea>
                 </md-input-container>
               </div>
             </div>
@@ -218,11 +218,11 @@
             <md-radio-group ng-model="headtube">
               <div layout-gt-sm="row">
                 <!-- 44mm  -->
-                <md-radio-button value="44mm" name="headtubeStyle">44mm (for forks with tapered steer tubes)</md-radio-button>
+                <md-radio-button value="44mm" name="headtubeStyle" ng-disabled="submittedFour">44mm (for forks with tapered steer tubes)</md-radio-button>
                 <!-- 1-1/8"  -->
-                <md-radio-button value="1 1/8 inch" name="headtubeStyle">1-1/8 inch</md-radio-button>
+                <md-radio-button value="1 1/8 inch" name="headtubeStyle" ng-disabled="submittedFour">1-1/8 inch</md-radio-button>
                 <!-- 1"  -->
-                <md-radio-button value="1 inch" name="headtubeStyle">1 inch(this is possible, but we will talk you out of it)</md-radio-button>
+                <md-radio-button value="1 inch" name="headtubeStyle" ng-disabled="submittedFour">1 inch(this is possible, but we will talk you out of it)</md-radio-button>
               </div>
             </md-radio-group>
             </div>
@@ -234,9 +234,9 @@
               <md-radio-group ng-model="customOrStandardFork">
                 <div layout-gt-sm="row">
                   <!-- Standard Fork -->
-                  <md-radio-button value="standard" name="forkOption" ng-click="updateShowStandardFork()"> Standard Fork </md-radio-button>
+                  <md-radio-button value="standard" name="forkOption" ng-click="updateShowStandardFork()" ng-disabled="submittedFour"> Standard Fork </md-radio-button>
                   <!-- Custom Fork -->
-                  <md-radio-button value="custom" name="forkOption" ng-click="updateShowCustomFork()"> Custom Fork </md-radio-button>
+                  <md-radio-button value="custom" name="forkOption" ng-click="updateShowCustomFork()" ng-disabled="submittedFour"> Custom Fork </md-radio-button>
                 </div>
               </md-radio-group>
 
@@ -244,10 +244,10 @@
               <div id="standardForkIn" ng-show="showStandardFork">
                   <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm="">
-                      <input type="text" id="forkBrandIn" value="" placeholder="Brand" ng-model="forkBrand">
+                      <input type="text" id="forkBrandIn" value="" placeholder="Brand" ng-model="forkBrand" ng-disabled="submittedFour">
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm="">
-                      <input type="text" id="forkModelIn" value="" placeholder="Model" ng-Model="forkModel">
+                      <input type="text" id="forkModelIn" value="" placeholder="Model" ng-Model="forkModel" ng-disabled="submittedFour">
                     </md-input-container>
                   </div>
               </div>
@@ -259,21 +259,21 @@
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Thru Axle -->
-                  <md-checkbox value="thruAxle" ng-model="thruAxle"> Thru Axle </md-checkbox>
+                  <md-checkbox value="thruAxle" ng-model="thruAxle" ng-disabled="submittedFour"> Thru Axle </md-checkbox>
                   <!-- Front Mid Rack Mounts -->
-                  <md-checkbox value="frontMidRackMounts" ng-model="frontRackMounts">Front Mid Rack Mounts</md-checkbox>
+                  <md-checkbox value="frontMidRackMounts" ng-model="frontRackMounts" ng-disabled="submittedFour">Front Mid Rack Mounts</md-checkbox>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Fender Mounts -->
-                  <md-checkbox value="fenderMounts" ng-model="fenderMounts"> Fender Mounts</md-checkbox>
+                  <md-checkbox value="fenderMounts" ng-model="fenderMounts" ng-disabled="submittedFour"> Fender Mounts</md-checkbox>
                   <!-- Internal Routing -->
-                  <md-checkbox value="internalRouting" ng-model="internalRouting"> Internal Routing for Hub Dyno Wire </md-checkbox>
+                  <md-checkbox value="internalRouting" ng-model="internalRouting" ng-disabled="submittedFour"> Internal Routing for Hub Dyno Wire </md-checkbox>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Integrated Fork Contact -->
-                  <md-checkbox value="integratedForkContact" ng-model="integratedForkContact"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
+                  <md-checkbox value="integratedForkContact" ng-model="integratedForkContact" ng-disabled="submittedFour"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
                   <!-- Custom Front Rack -->
-                  <md-checkbox  value="frontRack" ng-model="customFrontRack">Custom Front Rack(specify style in frame options notes) </md-checkbox>
+                  <md-checkbox  value="frontRack" ng-model="customFrontRack" ng-disabled="submittedFour">Custom Front Rack(specify style in frame options notes) </md-checkbox>
                 </div>
               </div>
             </div>
@@ -285,9 +285,9 @@
               <md-radio-group>
                 <div layout-gt-sm="row">
                   <!-- Seat Dropper Yes -->
-                  <md-radio-button value="true" name="dropperIn" ng-click="updateShowDropper()"> Yes </md-radio-button>
+                  <md-radio-button value="true" name="dropperIn" ng-click="updateShowDropper()" ng-disabled="submittedFour"> Yes </md-radio-button>
                   <!-- Seat Dropper No -->
-                  <md-radio-button value="false" name="dropperIn"> No </md-radio-button>
+                  <md-radio-button value="false" name="dropperIn" ng-disabled="submittedFour"> No </md-radio-button>
                 </div>
               </md-radio-group>
 
@@ -295,10 +295,10 @@
                 <div id="seatDropperStyle" ng-show="showDropper">
                   <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm="">
-                      <input type="text" id="dropperBrandIn" value="" placeholder="Brand" ng-model="seatDropperBrand">
+                      <input type="text" id="dropperBrandIn" value="" placeholder="Brand" ng-model="seatDropperBrand" ng-disabled="submittedFour">
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm="">
-                      <input type="text" id="dropperModelIn" value="" placeholder="Model" ng-model="seatDropperModel">
+                      <input type="text" id="dropperModelIn" value="" placeholder="Model" ng-model="seatDropperModel" ng-disabled="submittedFour">
                     </md-input-container>
                   </div>
                 </div>
@@ -311,22 +311,22 @@
               <md-radio-group ng-model="drivetrain">
                 <div layout-gt-sm="row">
                   <!-- Single Speed  -->
-                  <md-radio-button value="Single Speed" name="drivetrainStyle" ng-click="updateShowSingleSpeed()"> Single Speed (please specify chainring tooth count) </md-radio-button>
+                  <md-radio-button value="Single Speed" name="drivetrainStyle" ng-click="updateShowSingleSpeed()" ng-disabled="submittedFour"> Single Speed (please specify chainring tooth count) </md-radio-button>
                   <!-- Internally geared hub -->
-                  <md-radio-button value="Geared Hub" name="drivetrainStyle" ng-click="updateShowGearedHub()"> Internally Geared Hub (please specify) </md-radio-button>
+                  <md-radio-button value="Geared Hub" name="drivetrainStyle" ng-click="updateShowGearedHub()" ng-disabled="submittedFour"> Internally Geared Hub (please specify) </md-radio-button>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- 2 or 3 -->
-                  <md-radio-button value="2Or3ByX" name="drivetrainStyle"> 2 or 3 by "X" </md-radio-button>
+                  <md-radio-button value="2Or3ByX" name="drivetrainStyle" ng-disabled="submittedFour"> 2 or 3 by "X" </md-radio-button>
                   <!-- 1 -->
-                  <md-radio-button value="1ByX" name="drivetrainStyle">1 by "X" (no cable stops for front deraileur) </md-radio-button>
+                  <md-radio-button value="1ByX" name="drivetrainStyle" ng-disabled="submittedFour">1 by "X" (no cable stops for front deraileur) </md-radio-button>
                 </div>
               </md-radio-group>
                 <!-- IF single speed -->
                 <div id="singleSpeedIn" ng-show="showSingleSpeed">
                   <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm="">
-                      <input type="text" id="toothCount" value="" placeholder="Chainring Tooth Count" ng-model="drivetrain">
+                      <input type="text" id="toothCount" value="" placeholder="Chainring Tooth Count" ng-model="drivetrain" ng-disabled="submittedFour">
                     </md-input-container>
                   </div>
                 </div>
@@ -334,7 +334,7 @@
                   <div id="internallyGearedIn" ng-show="showGearedHub">
                     <div layout-gt-sm="row">
                       <md-input-container class="md-block" flex-gt-sm="">
-                        <input type="text" id="gearSpecs" value="" placeholder="Internally Geared Hub Specs" ng-model="drivetrain">
+                        <input type="text" id="gearSpecs" value="" placeholder="Internally Geared Hub Specs" ng-model="drivetrain" ng-disabled="submittedFour">
                       </md-input-container>
                     </div>
                   </div>
@@ -346,26 +346,26 @@
               <md-radio-group ng-model="paintColor">
                 <div layout-gt-sm="row">
                   <!-- Color Option 1 -->
-                  <md-radio-button value="color Option One" name="colorOptions"> Option One </md-radio-button>
+                  <md-radio-button value="color Option One" name="colorOptions" ng-disabled="submittedFour"> Option One </md-radio-button>
                   <!-- Color Option 2 -->
-                  <md-radio-button value="color Option Two" name="colorOptions"> Option Two </md-radio-button>
+                  <md-radio-button value="color Option Two" name="colorOptions" ng-disabled="submittedFour"> Option Two </md-radio-button>
                   <!-- Color Option 3 -->
-                  <md-radio-button value="color Option Three" name="colorOptions"> Option Three </md-radio-button>
+                  <md-radio-button value="color Option Three" name="colorOptions" ng-disabled="submittedFour"> Option Three </md-radio-button>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Color Option 4 -->
-                  <md-radio-button value="color Option Four" name="colorOptions"> Option Four </md-radio-button>
+                  <md-radio-button value="color Option Four" name="colorOptions" ng-disabled="submittedFour"> Option Four </md-radio-button>
                   <!-- Color Option 5 -->
-                  <md-radio-button value="color Option Five" name="colorOptions"> Option Five </md-radio-button>
+                  <md-radio-button value="color Option Five" name="colorOptions" ng-disabled="submittedFour"> Option Five </md-radio-button>
                   <!-- Color Option 6 -->
-                  <md-radio-button value="" name="colorOptions" ng-click="updateShowCustomPaint()"> Option Six </md-radio-button>
+                  <md-radio-button value="" name="colorOptions" ng-click="updateShowCustomPaint()" ng-disabled="submittedFour"> Option Six </md-radio-button>
                 </div>
               </md-radio-group>
                 <!-- IF six -->
                 <div id="optionSixIn" ng-show="showCustomPaint">
                   <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm="">
-                      <input type="text" id="customColor" value="" placeholder="Please Specify a Color" ng-model="paintColor">
+                      <input type="text" id="customColor" value="" placeholder="Please Specify a Color" ng-model="paintColor" ng-disabled="submittedFour">
                     </md-input-container>
                   </div>
                 </div>
@@ -378,9 +378,9 @@
                 <md-radio-group ng-model="fullCoverageFenders">
                   <div layout-gt-sm="row">
                     <!-- Fenders Yes -->
-                    <md-radio-button value="yes" name="fendersIn" ng-click="updateShowFenderPaint()"> Yes </md-radio-button>
+                    <md-radio-button value="yes" name="fendersIn" ng-click="updateShowFenderPaint()" ng-disabled="submittedFour"> Yes </md-radio-button>
                     <!-- Fenders No -->
-                    <md-radio-button value="no" name="fendersIn"> No </md-radio-button>
+                    <md-radio-button value="no" name="fendersIn" ng-disabled="submittedFour"> No </md-radio-button>
                   </div>
                 </md-radio-group>
 
@@ -392,9 +392,9 @@
                   <md-radio-group ng-model="fendersPainted">
                     <div layout-gt-sm="row">
                       <!-- Fender paint Yes -->
-                      <md-radio-button value="yes" name="fenderPaintIn"> Yes </md-radio-button>
+                      <md-radio-button value="yes" name="fenderPaintIn" ng-disabled="submittedFour"> Yes </md-radio-button>
                       <!-- Fender paint No -->
-                      <md-radio-button value="no" name="fenderPaintIn"> No </md-radio-button>
+                      <md-radio-button value="no" name="fenderPaintIn" ng-disabled="submittedFour"> No </md-radio-button>
                     </div>
                   </md-radio-group>
                 </div>
@@ -405,17 +405,19 @@
     <div id="notesContainer"layout-gt-sm="column" flex="40">
       <div id="paintNotes">
         <md-input-container class="md-block" flex-gt-sm="">
-          <textarea rows="1" placeholder="Any other notes regarding paint?" ng-model="paintNotes"></textarea>
+          <textarea rows="1" placeholder="Any other notes regarding paint?" ng-model="paintNotes" ng-disabled="submittedFour"></textarea>
           </md-input-container>
       </div>
       <div id="optionsNotes">
         <md-input-container class="md-block" flex-gt-sm="">
-          <textarea rows="1" placeholder="Any other notes regarding frame options?" ng-model="frameNotes"></textarea>
+          <textarea rows="1" placeholder="Any other notes regarding frame options?" ng-model="frameNotes" ng-disabled="submittedFour"></textarea>
         </md-input-container>
       </div>
     </div>
   </div>
   <div layout-gt-sm="row" layout-align="center" flex="100">
-    <md-button class="md-raised md-primary formFourSubmit" ng-click="submitFormFour()">Submit</md-button>
+    <md-button class="md-raised md-primary formFourSubmit" ng-click="submitFormFour()" ng-show="showHideSubmitFormFour">Submit</md-button>
+      <md-button class="md-raised md-primary formUpdate"  ng-click="updateFormFour()" ng-hide="showHideSubmitFormFour"> Update </md-button>
+      <md-button class="md-raised md-primary formPdf" ng-hide="showHideSubmitFormFour"> PDF</md-button>
   </div>
 </md-content>

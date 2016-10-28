@@ -1,5 +1,10 @@
 myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form2Controller');
+    // set form to edit and submit status
+    //show submit button, hide update and pdf
+  $scope.showHideSubmitFormTwo = true;
+    //keep all input fields active
+    $scope.submittedTwo=false;
 
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
@@ -24,7 +29,10 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     };
 
     console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
-
+      //hide submit, show update and pdf
+      $scope.showHideSubmitFormTwo = false;
+        //disable input fields
+        $scope.submittedTwo = true;
     $http({
       method: 'POST',
       url: '/addForm2NewFit',
@@ -33,5 +41,9 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       console.log('success from server', form2Response);
     });
   };
-
+  $scope.updateFormTwo = function(){
+    //reset form to submit staus
+    $scope.submittedTwo = false;
+    $scope.showHideSubmitFormTwo = true;
+  };
 }]);//end form2Controller

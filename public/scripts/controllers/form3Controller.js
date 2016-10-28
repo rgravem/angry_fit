@@ -35,15 +35,15 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     //disable input fields
     $scope.submittedThree = true;
 
-    // $http({
-    //     method: 'POST',
-    //     url: '/addFrameGeometry',
-    //     data: objectToSend
-    //   }).then(function successCallback(response){
-    //     console.log('back from server with:', response.data);
-    //   }, function errorCallback(response) {
-    //     console.log('err');
-    // });// end http call
+    $http({
+        method: 'POST',
+        url: '/addFrameGeometry',
+        data: objectToSend
+      }).then(function successCallback(response){
+        console.log('back from server with:', response.data);
+      }, function errorCallback(response) {
+        console.log('err');
+    });// end http call
   }; // end addform3
 
   $scope.updateFormThree = function(){

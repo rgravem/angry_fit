@@ -4,7 +4,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
-      formOneDate: $scope.formOneDate.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuries,
       complaints:$scope.complaints,
       surgeries:$scope.surgeries,

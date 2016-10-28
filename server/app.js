@@ -178,35 +178,32 @@ app.get('/customer', function(req, res){
 }); // end search
 
 
-/////////////////////////////Add  form1_existingFitto DB////////////////////////////////
+/////////////////////////////Add  form1_existingFit to DB////////////////////////////////
 app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
-  formOneInfo = req.body;
-  console.log('formOneInfo Object:', formOneInfo);
 
-  var formOneDate = formOneInfo.formOneDate;
-  var customerID = formOneInfo.customerID;
-  var employeeID = formOneInfo.employeeID;
-  var injuries = formOneInfo.injuries;
-  var complaints = formOneInfo.complaints;
-  var surgeries = formOneInfo.surgeries;
-  var averageRideLength = formOneInfo.averageRideLength;
-  var upcomingRaces = formOneInfo.upcomingRaces;
-  var currentBikeBrand = formOneInfo.currentBikeBrand;
-  var saddleHeight = formOneInfo.saddleHeight;
-  var saddleHeightOverBars = formOneInfo.saddleHeightOverBars;
-  var saddleAngle = formOneInfo.saddleAngle;
-  var saddleSetback = formOneInfo.saddleSetback;
-  var SaddlehandlebarReach = formOneInfo.SaddlehandlebarReach;
-  var stemLength = formOneInfo.stemLength;
-  var stemAngle = formOneInfo.stemAngle;
-  var handlebarWidth = formOneInfo.handlebarWidth;
-  var handlebarBrand = formOneInfo.handlebarBrand;
-  var pedalBrandModel = formOneInfo.pedalBrandModel;
-  var shoeBrand = formOneInfo.shoeBrand;
-  var brakeLevel = formOneInfo.brakeLevel;
-  var crankLength = formOneInfo.crankLength;
-  var notes = formOneInfo.notes;
+  var date = req.body.date;
+  var employeeID = req.body.employeeID;
+  var injuries = req.body.injuries;
+  var complaints = req.body.complaints;
+  var surgeries = req.body.surgeries;
+  var averageRideLength = req.body.averageRideLength;
+  var upcomingRaces = req.body.upcomingRaces;
+  var currentBikeBrand = req.body.currentBikeBrand;
+  var saddleHeight = req.body.saddleHeight;
+  var saddleHeightOverBars = req.body.saddleHeightOverBars;
+  var saddleAngle = req.body.saddleAngle;
+  var saddleSetback = req.body.saddleSetback;
+  var SaddlehandlebarReach = req.body.SaddlehandlebarReach;
+  var stemLength = req.body.stemLength;
+  var stemAngle = req.body.stemAngle;
+  var handlebarWidth = req.body.handlebarWidth;
+  var handlebarBrand = req.body.handlebarBrand;
+  var pedalBrandModel = req.body.pedalBrandModel;
+  var shoeBrand = req.body.shoeBrand;
+  var brakeLevel = req.body.brakeLevel;
+  var crankLength = req.body.crankLength;
+  var notes = req.body.notes;
 
   pg.connect(connectionString, function(err, client, done){
     if(err){
@@ -217,10 +214,10 @@ app.post( '/addFormOne', function( req, res ){
 
       var newFormOneToSend = [];
 
-      client.query('INSERT INTO form1_existingFit (formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23);', [formOneDate, customerID, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
+      client.query('INSERT INTO form1_existingFit (date, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22);', [date, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * FROM form1_existingFit ORDER BY id DESC LIMIT 1');
+      var queryResults = client.query('SELECT * FROM form1_existingFit ORDER BY form1id DESC LIMIT 1');
       //run for each row in the query
       queryResults.on("row", function(row){
         newFormOneToSend.push(row);

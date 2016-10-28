@@ -3,6 +3,8 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
       // set form to edit and submit status
       //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
+  // hide Save
+  $scope.showSave = false;
   //keep all input fields active
   $scope.submittedOne=false;
   $scope.addFormOne = function () {
@@ -38,18 +40,33 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     //disable input fields
     $scope.submittedOne = true;
 
-    $http({
-      method: 'POST',
-      url: '/addFormOne',
-      data: formOneObject
-    }).then(function(formOneObject){
-      console.log('success from server', formOneObject);
-    });
+    // $http({
+    //   method: 'POST',
+    //   url: '/addFormOne',
+    //   data: formOneObject
+    // }).then(function(formOneObject){
+    //   console.log('success from server', formOneObject);
+    // });
   }; // end addFormOne
+
+  //update form on click
   $scope.updateFormOne = function(){
-    //reset form to submit staus
-    $scope.submittedOne = false;
-    $scope.showHideSubmitFormOne = true;
+    //hide update
+    $scope.hideUpdate = false;
+    //show save
+    $scope.showSave = true;
+    // unlock
+    $scope.submittedOne=false;
+  };
+
+  // save form on click
+  $scope.saveFormOne= function(){
+      //show update
+      $scope.hideUpdate = true;
+      //hide save
+      $scope.showSave = false;
+      // lock form
+      $scope.submittedOne=true;
   };
   $scope.downloadFormOnePdf = function(){
     console.log("In the PDF click");

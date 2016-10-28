@@ -5,9 +5,10 @@ DATABASE NAME: angryFit
 
 --------COPY, PASTE, AND RUN FROM HERE ON DOWN---------
 
+------------------CREATE TABLES---------------------
 --Employees Table
 CREATE TABLE employees (
-	id SERIAL PRIMARY KEY NOT NULL,
+	employeeID SERIAL PRIMARY KEY NOT NULL,
 	firstName VARCHAR(50),
 	lastName VARCHAR(50),
 	email VARCHAR(70) unique
@@ -15,37 +16,45 @@ CREATE TABLE employees (
 
 --Customers table
 CREATE TABLE customers (
-	id SERIAL PRIMARY KEY NOT NULL,
+	customerID SERIAL PRIMARY KEY NOT NULL,
 	firstName VARCHAR(50),
 	lastName VARCHAR(50),
 	email VARCHAR(70) UNIQUE,
-	phoneNumber varchar(12) check (phoneNumber ~ '^[0-9]+$'),
+	phoneNumber VARCHAR(20),
 	streetAddress VARCHAR(100),
 	unitNumber VARCHAR(10),
 	city VARCHAR(100),
 	state VARCHAR(100),
-	zip VARCHAR(5)
+	zip VARCHAR(10)
+);
+
+--Bike Type table
+CREATE TABLE bikeType (
+	bikeTypeID SERIAL PRIMARY KEY NOT NULL,
+	bikeType VARCHAR(50)
 );
 
 --Bikes table
 CREATE TABLE bikes (
-	id SERIAL PRIMARY KEY NOT NULL,
-	name VARCHAR(50),
-	customerID INT REFERENCES customers(id)
+	bikeID SERIAL PRIMARY KEY NOT NULL,
+	customerID INT REFERENCES customers(customerID),
+	bikeTypeID INT REFERENCES bikeType(bikeTypeID),
+	bikeName VARCHAR(100)
 );
 
---form one (consulation) table
-CREATE TABLE exsistingFit (
-	id SERIAL PRIMARY KEY NOT NULL,
-	customerID INT REFERENCES customers(id),
-	employeeID INT REFERENCES employees(id),
-	formOneDate VARCHAR (20),
-	injuries VARCHAR (400),
-	complaints VARCHAR (400),
-	surgeries VARCHAR (400),
-	averageRideLength VARCHAR (50),
-	upcomingRaces VARCHAR (400),
-	currentBikeBrand VARCHAR (200),
+
+--create for Form 1: Consultation
+CREATE TABLE form1_existingFit (
+	form1ID SERIAL PRIMARY KEY NOT NULL,
+	bikeID INT REFERENCES bikes(bikeID),
+	employeeID INT REFERENCES employees(employeeID),
+	date VARCHAR(50),
+	injuries VARCHAR (1000),
+	complaints VARCHAR (1000),
+	surgeries VARCHAR (1000),
+	averageRideLength VARCHAR (1000),
+	upcomingRaces VARCHAR (1000),
+	currentBikeBrand VARCHAR (1000),
 	saddleHeight VARCHAR (50),
 	saddleHeightOverBars VARCHAR (50),
 	saddleAngle VARCHAR (50),
@@ -58,15 +67,17 @@ CREATE TABLE exsistingFit (
 	pedalBrandModel VARCHAR (50),
 	shoeBrand VARCHAR (50),
 	brakeLevel VARCHAR (50),
-	crankLength VARCHAR (50)
+	crankLength VARCHAR (50),
+	notes VARCHAR (1000)
 );
 
---create for table 2
-CREATE TABLE form2NewFit (
-	id SERIAL PRIMARY KEY NOT NULL,
+
+--create for Form 2: New Fit
+CREATE TABLE form2_newFit (
+	form2ID SERIAL PRIMARY KEY NOT NULL,
+	bikeID INT REFERENCES bikes(bikeID),
+	employeeID INT REFERENCES employees(employeeID),
 	form2Date VARCHAR (50),
-	customerID INT REFERENCES customers(id),
-	employeeID INT REFERENCES employees(id),
 	saddleHeight VARCHAR (50),
 	saddleHeightOverBars VARCHAR (50),
 	saddleToHandlebarReach VARCHAR (50),
@@ -82,14 +93,16 @@ CREATE TABLE form2NewFit (
 	brakeLevelPosition VARCHAR (50),
 	crankLength VARCHAR (50),
 	standover VARCHAR (50),
-	stack VARCHAR (50)
+	stack VARCHAR (50),
+	notes VARCHAR (1000)
 );
 
---  create for table 3
-CREATE TABLE form3custom_frame_geometry (
-	id SERIAL PRIMARY KEY NOT NULL,
-	customerID INT REFERENCES customers(id),
-	employeeID INT REFERENCES employees(id),
+
+--  create for Form 3: Custom Frame Geometry
+CREATE TABLE form3_customFrameGeometry (
+	form3ID SERIAL PRIMARY KEY NOT NULL,
+	bikeID INT REFERENCES bikes(bikeID),
+	employeeID INT REFERENCES employees(employeeID),
 	date VARCHAR(50),
 	inseam VARCHAR(50),
 	torso VARCHAR(50),
@@ -108,8 +121,11 @@ CREATE TABLE form3custom_frame_geometry (
 	bbDrop VARCHAR(50),
 	axleToCrown VARCHAR(50),
 	mechanicalTrail VARCHAR(50),
-	forkOffset VARCHAR(50)
+	forkOffset VARCHAR(50),
+	notes VARCHAR (1000)
 );
+
+
 -- create form 4 table
 CREATE TABLE form4_custom_frame_details(
 	id SERIAL PRIMARY KEY NOT NULL,
@@ -133,4 +149,3 @@ CREATE TABLE form4_custom_frame_details(
 	frameOptions TEXT[],
 	paintNotes VARCHAR(400)
 	);
-	

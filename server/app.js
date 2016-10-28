@@ -238,7 +238,7 @@ app.post( '/addFormOne', function( req, res ){
 app.post( '/addForm2NewFit', function( req, res ){
   console.log( 'in addForm2NewFit', req.body );
 
-  var form2Date = req.body.form2Date;
+  var date = req.body.date;
   var saddleHeight = req.body.saddleHeight;
   var saddleHeightOverBars = req.body.saddleHeightOverBars;
   var saddleToHandlebarReach = req.body.saddleToHandlebarReach;
@@ -266,7 +266,7 @@ app.post( '/addForm2NewFit', function( req, res ){
 
       var form2ToSend = [];
 
-      client.query('INSERT INTO  form2_newFit (form2Date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18);', [form2Date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes]);
+      client.query('INSERT INTO  form2_newFit (date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18);', [date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form2_newFit ORDER BY form2id DESC LIMIT 1');
@@ -339,6 +339,7 @@ app.post('/addFrameGeometry', function(req, res){
       }// end of else
     });// end pg connect
 });
+
 
 ///////////////////////  form4_customFrameDetails post route///////////////////////////////////
 app.post('/addFrameDetails', function (req, res){

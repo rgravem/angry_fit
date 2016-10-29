@@ -16,6 +16,24 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', function($sco
     $scope.otherType = !$scope.otherType;
   };
 
+
+
+  // show injury
+  $scope.newBikeTypeIn = false;
+  $scope.updateShowInjury = function(){
+    $scope.newBikeTypeIn = true;
+  };
+  //hide injury
+  $scope.updateHideInjury = function(){
+    $scope.newBikeTypeIn = false;
+  };
+
+
+
+
+
+
+
   $scope.editExistingCustomer = function () {
     var editCustomerObject = {
       firstName: $scope.firstName,

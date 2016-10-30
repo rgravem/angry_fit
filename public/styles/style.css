@@ -32,6 +32,6 @@ md-radio-button:focus {
   overflow-y: scroll;
   height: 400px;
 }
-.formOneSubmit, .formTwoSubmit, .formThreeSubmit, .formFourSubmit, .formUpdate, .formPdf{
+.formOneSubmit, .formTwoSubmit, .formThreeSubmit, .formFourSubmit, .formUpdate, .formPdf, .formSave{
   width: 60%;
 }

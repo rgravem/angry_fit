@@ -176,13 +176,13 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.showHideSubmitFormFour = false;
     //disable input fields
     $scope.submittedFour = true;
-    // $http({
-    //   method: 'POST',
-    //   url: '/addFrameDetails',
-    //   data: formFourObject
-    // }).then(function(form4Response){
-    //   console.log('success from server', form4Response);
-    // });
+    $http({
+      method: 'POST',
+      url: '/addFrameDetails',
+      data: formFourObject
+    }).then(function(form4Response){
+      console.log('success from server', form4Response);
+    });
   }; //End submitFormFour
   //update Form Four
   $scope.updateFormFour = function(){

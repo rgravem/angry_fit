@@ -416,7 +416,8 @@ app.put( '/editFormFour', function( req, res ){
   var frameNotes = req.body.frameNotes;
   var frameOptions= req.body.frameOptions;
   var paintNotes = req.body.paintNotes;
-  var form4Id = 20; //we need to define where this comes from, it will likely be from a get route that finds that specific customer's information
+  //form4Id is broken right now until we have an ID from the bike that is currently selected
+  var form4Id = 20; 
 
 
   pg.connect(connectionString, function(err, client, done){

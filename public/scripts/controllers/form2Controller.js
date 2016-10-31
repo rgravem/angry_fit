@@ -42,11 +42,34 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       console.log('success from server', form2Response);
     });
   };
+
+
+  //update form 2 on click
   $scope.updateFormTwo = function(){
-    //reset form to submit staus
-    $scope.submittedTwo = false;
-    $scope.showHideSubmitFormTwo = true;
+    //hide update
+    $scope.hideUpdate = false;
+    //show save
+    $scope.showSaveTwo = true;
+    // unlock
+    $scope.submittedTwo=false;
   };
+
+  // save form 2 on click
+  $scope.saveFormTwo= function(){
+      //show update
+      $scope.hideUpdate = true;
+      //hide save
+      $scope.showSaveTwo = false;
+      // lock form
+      $scope.submittedTwo=true;
+  };
+
+  //
+  // $scope.updateFormTwo = function(){
+  //   //reset form to submit staus
+  //   $scope.submittedTwo = false;
+  //   $scope.showHideSubmitFormTwo = true;
+  // };
 
   $scope.downloadFormTwoPdf = function(){
     console.log("In the PDF click");

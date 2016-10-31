@@ -187,7 +187,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   }; //End submitFormFour
 
   ////////////////FORM 4 PUT(Update) Route to DB///////////////////////////////////////
-  $scope.saveFormFour = function(){
+  $scope.updateFormFour = function(){
     console.log("In Update Form Four");
     console.log($scope.customOrStandardFork);
     //show update
@@ -229,7 +229,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       fendersPainted: $scope.fendersPainted,
       frameNotes: $scope.frameNotes,
       frameOptions: $scope.frameOptions,
-      paintNotes: $scope.paintNotes
+      paintNotes: $scope.paintNotes,
+      // form4Id: $scope.obj.customerid
     };
 
     console.log(editFormFourObject);

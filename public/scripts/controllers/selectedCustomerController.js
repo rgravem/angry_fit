@@ -1,4 +1,4 @@
-myApp.controller("selectedCustomerController", ['$scope', '$http', function($scope, $http){
+myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In selectedCustomerController');
 
   $scope.newBikeStart = function(){
@@ -16,24 +16,21 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', function($sco
   };
 
 
-
-
-  // show injury
-  $scope.newBikeTypeIn = false;
-  $scope.updateShowInjury = function(){
-    $scope.newBikeTypeIn = true;
+  // show new bike name
+  $scope.showInNewBikeType = false;
+  $scope.updateShowOther= function(){
+    $scope.showInNewBikeType= true;
   };
-  //hide injury
-  $scope.updateHideInjury = function(){
-    $scope.newBikeTypeIn = false;
+  //hide new bike name
+  $scope.updateHideType = function(){
+    $scope.showInNewBikeType = false;
   };
-
 
   $scope.customerInfo = function(){
     var obj = JSON.parse(sessionStorage.getItem('customer'));
     console.log('customer info from other page:', obj);
     var customer = angular.element(document.querySelector( '#custInfo' ) );
-    customer.append(obj.firstname + " " + obj.lastname);
+    customer.append(obj.firstname + " " + obj.lastname + '</br>' + obj.email + '</br>' + obj.phonenumber + '</br>' + obj.streetaddress + ", " + obj.zip );
   };
 
   $scope.customerInfo();
@@ -59,6 +56,17 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', function($sco
     }).then(function(editCustomerResponse){
       console.log('success from DB', editCustomerResponse);
     });
+  };
+
+  $scope.startNewBike = function(){
+    var newBike = {
+      bikeName: $scope.newBikeName,
+      bikeStyle: $scope.newBikeStyle,
+    };
+    sessionStorage.setItem('newBike', JSON.stringify(newBike));
+    var bike = JSON.parse(sessionStorage.getItem('newBike'));
+    console.log('json obj:', bike);
+    $location.path('/selectedBike/form1');
   };
 
 }]);//end selectedCustomerController

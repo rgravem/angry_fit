@@ -124,7 +124,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.showGoals = true;
   };
   //hide goals
-  $scope.updateHideGoals = function(){
+  $scope.updateHideGoals = function(){  
     $scope.showGoals = false;
   };
 }]);//end form1Controller

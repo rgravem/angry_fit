@@ -137,8 +137,8 @@ app.post( '/addNewCustomer', function( req, res ){
 app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
 
+  // Need to do employeeCreated and bikeId
   var date = req.body.date;
-  var employeeID = req.body.employeeID;
   var injuries = req.body.injuries;
   var complaints = req.body.complaints;
   var surgeries = req.body.surgeries;
@@ -192,6 +192,7 @@ app.post( '/addFormOne', function( req, res ){
 app.post( '/addForm2NewFit', function( req, res ){
   console.log( 'in addForm2NewFit', req.body );
 
+  // Need to do employeeCreated and bikeId
   var date = req.body.date;
   var saddleHeight = req.body.saddleHeight;
   var saddleHeightOverBars = req.body.saddleHeightOverBars;
@@ -243,6 +244,7 @@ app.post( '/addForm2NewFit', function( req, res ){
 app.post('/addFrameGeometry', function(req, res){
   console.log('req.body:', req.body);
 
+  // Need to do employeeCreated and bikeId
   var date = req.body.date;
   var inseam = req.body.inseam;
   var torso = req.body.torso;
@@ -298,6 +300,7 @@ app.post('/addFrameGeometry', function(req, res){
 app.post('/addFormFour', function (req, res){
   console.log("This is what the server got:", req.body);
 
+  // Need to do employeeCreated and bikeId
   var date = req.body.date;
   var bikeType = req.body.bikeType;
   var bottomBracketShell = req.body.bottomBracketShell;
@@ -399,11 +402,10 @@ app.put( '/editFormOne', function( req, res ){
   console.log( 'in editFormOne' );
   console.log('editFormOne:', req.body);
   //assemble object to send
-  var employeeId = req.body.employeeId;
+  var employeeUpdated = req.body.employeeUpdated;
   //need to hardcode bikeId for now until we have persistent data
-  var bikeId = 3;
+  var bikeId = req.body.bikeId;
   var date = req.body.date;
-  var employeeID = req.body.employeeID;
   var injuries = req.body.injuries;
   var complaints = req.body.complaints;
   var surgeries = req.body.surgeries;
@@ -437,7 +439,7 @@ app.put( '/editFormOne', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form1_existingFit SET date = ($1), employeeID = ($2), injuries = ($3), complaints = ($4), surgeries = ($5), averageRideLength = ($6), upcomingRaces = ($7), currentBikeBrand = ($8), saddleHeight = ($9), saddleHeightOverBars = ($10), saddleAngle = ($11), saddleSetback = ($12), SaddlehandlebarReach = ($13), stemLength = ($14), stemAngle = ($15), handlebarWidth = ($16), handlebarBrand = ($17), pedalBrandModel = ($18), shoeBrand = ($19), brakeLevel = ($20), crankLength = ($21), notes = ($22), employeeId = ($23) WHERE bikeId = ($24)', [date, employeeID,  injuries,  complaints,  surgeries,  averageRideLength,  upcomingRaces,  currentBikeBrand,  saddleHeight,  saddleHeightOverBars,  saddleAngle,  saddleSetback,  SaddlehandlebarReach,  stemLength,  stemAngle,  handlebarWidth,  handlebarBrand,  pedalBrandModel,  shoeBrand,  brakeLevel,  crankLength, notes, bikeId]);
+      client.query('UPDATE form1_existingFit SET date = ($1), employeeUpdated = ($2), injuries = ($3), complaints = ($4), surgeries = ($5), averageRideLength = ($6), upcomingRaces = ($7), currentBikeBrand = ($8), saddleHeight = ($9), saddleHeightOverBars = ($10), saddleAngle = ($11), saddleSetback = ($12), SaddlehandlebarReach = ($13), stemLength = ($14), stemAngle = ($15), handlebarWidth = ($16), handlebarBrand = ($17), pedalBrandModel = ($18), shoeBrand = ($19), brakeLevel = ($20), crankLength = ($21), notes = ($22), employeeId = ($23) WHERE bikeId = ($24)', [date, employeeUpdated,  injuries,  complaints,  surgeries,  averageRideLength,  upcomingRaces,  currentBikeBrand,  saddleHeight,  saddleHeightOverBars,  saddleAngle,  saddleSetback,  SaddlehandlebarReach,  stemLength,  stemAngle,  handlebarWidth,  handlebarBrand,  pedalBrandModel,  shoeBrand,  brakeLevel,  crankLength, notes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form1_existingFit ORDER BY form1id DESC LIMIT 1;');
@@ -461,6 +463,9 @@ app.put( '/editFormTwo', function( req, res ){
   console.log( 'in editFormTwo' );
   console.log('editFormTwo:', req.body);
   //assemble object to send
+  var employeeUpdated = req.body.employeeUpdated;
+  //need to hardcode bikeId for now until we have persistent data
+  var bikeId = req.body.bikeId;
   var date = req.body.date;
   var saddleHeight = req.body.saddleHeight;
   var saddleHeightOverBars = req.body.saddleHeightOverBars;
@@ -479,8 +484,6 @@ app.put( '/editFormTwo', function( req, res ){
   var standover = req.body.standover;
   var stack = req.body.stack;
   var notes = req.body.notes;
-  //form3Id is broken right now until we have an ID from the bike that is currently selected
-  var form2Id = 4;
 
   pg.connect(connectionString, function(err, client, done){
     //check for error
@@ -494,7 +497,7 @@ app.put( '/editFormTwo', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form2_newFit SET date = ($1), saddleHeight = ($2), saddleHeightOverBars = ($3), saddleToHandlebarReach = ($4), saddleAngle = ($5), saddleForeAft = ($6), saddleBrandAndWidth = ($7), handleBarBrandAndModel = ($8), stemLength = ($9), stemAngle = ($10), handleBarWidth = ($11), pedalBrandAndModel = ($12), showBrandModelSize = ($13), brakeLevelPosition = ($14), crankLength = ($15), standover = ($16), stack = ($17), notes = ($18) WHERE form2Id = ($19)', [date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes, form2Id]);
+      client.query('UPDATE form2_newFit SET employeeIdUpdated = ($1), date = ($2), saddleHeight = ($3), saddleHeightOverBars = ($4), saddleToHandlebarReach = ($5), saddleAngle = ($6), saddleForeAft = ($7), saddleBrandAndWidth = ($8), handleBarBrandAndModel = ($9), stemLength = ($10), stemAngle = ($11), handleBarWidth = ($12), pedalBrandAndModel = ($13), showBrandModelSize = ($14), brakeLevelPosition = ($15), crankLength = ($16), standover = ($17), stack = ($18), notes = ($19) WHERE bikeId = ($20)', [employeeIdUpdated, date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form2_newFit ORDER BY form2id DESC LIMIT 1;');
@@ -507,7 +510,6 @@ app.put( '/editFormTwo', function( req, res ){
         done();
         //return result as JSON version of array
         return res.json(editFormTwoResponse);
-
       });//end of end
     }// end of else
   });// end pg connect
@@ -519,6 +521,9 @@ app.put( '/editFormThree', function( req, res ){
   console.log( 'in editFormThree' );
   console.log('editFormThree:', req.body);
   //assemble object to send
+  var employeeUpdated = req.body.employeeUpdated;
+  //need to hardcode bikeId for now until we have persistent data
+  var bikeId = req.body.bikeId;
   var date = req.body.date;
   var inseam = req.body.inseam;
   var torso = req.body.torso;
@@ -539,8 +544,6 @@ app.put( '/editFormThree', function( req, res ){
   var mechanicalTrail = req.body.mechanicalTrail;
   var forkOffset = req.body.forkOffset;
   var notes = req.body.notes;
-  //form3Id is broken right now until we have an ID from the bike that is currently selected
-  var form3Id = 2;
 
   pg.connect(connectionString, function(err, client, done){
     //check for error
@@ -554,7 +557,7 @@ app.put( '/editFormThree', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form3_customFrameGeometry SET date = ($1), inseam = ($2), torso = ($3), arm = ($4), footLength = ($5), effectiveTopTube = ($6), standover = ($7), seatTubeLength = ($8), seatTubeAngle = ($9), headTubeLength = ($10), headTubeAngle = ($11), stack = ($12), reach = ($13), wheelBase = ($14), chainstayLength = ($15), bbDrop = ($16), axleToCrown = ($17), mechanicalTrail = ($18), forkOffset = ($19), notes = ($20) WHERE form3Id = ($21)', [date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail,forkOffset, notes, form3Id]);
+      client.query('UPDATE form3_customFrameGeometry SET employeeUpdated = ($1), date = ($2), inseam = ($3), torso = ($4), arm = ($5), footLength = ($6), effectiveTopTube = ($7), standover = ($8), seatTubeLength = ($9), seatTubeAngle = ($10), headTubeLength = ($11), headTubeAngle = ($12), stack = ($13), reach = ($14), wheelBase = ($15), chainstayLength = ($16), bbDrop = ($17), axleToCrown = ($18), mechanicalTrail = ($19), forkOffset = ($20), notes = ($21), WHERE bikeId = ($22)', [employeeUpdated, date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail,forkOffset, notes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form3_customFrameGeometry ORDER BY form3id DESC LIMIT 1;');
@@ -577,6 +580,9 @@ app.put( '/editFormThree', function( req, res ){
 app.put( '/editFormFour', function( req, res ){
   console.log( 'in editFormFour' );
   console.log('editFormFour:', req.body);
+  var employeeUpdated = req.body.employeeUpdated;
+  //need to hardcode bikeId for now until we have persistent data
+  var bikeId = req.body.bikeId;
   //assemble object to send
   var date = req.body.date;
   var bikeType = req.body.bikeType;
@@ -595,9 +601,6 @@ app.put( '/editFormFour', function( req, res ){
   var frameNotes = req.body.frameNotes;
   var frameOptions= req.body.frameOptions;
   var paintNotes = req.body.paintNotes;
-  //form4Id is broken right now until we have an ID from the bike that is currently selected
-  var form4Id = 5;
-
 
 
   pg.connect(connectionString, function(err, client, done){
@@ -612,7 +615,7 @@ app.put( '/editFormFour', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form4_customFrameDetails SET date = ($1), bikeType = ($2), bottomBracketShell = ($3), brakeCompatability = ($4), brakeMount = ($5), wheelSize = ($6), specialFrameOptions = ($7), headTubeSize = ($8), forkType = ($9), seatDropper = ($10), drivetrain = ($11), paintColor = ($12), fullCoverageFenders = ($13), fendersPainted = ($14), frameNotes = ($15), frameOptions = ($16), paintNotes = ($17)  WHERE form4Id = ($18)', [date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes, form4Id]);
+      client.query('UPDATE form4_customFrameDetails SET employeeUpdated = ($1), date = ($2), bikeType = ($3), bottomBracketShell = ($4), brakeCompatability = ($5), brakeMount = ($6), wheelSize = ($7), specialFrameOptions = ($8), headTubeSize = ($9), forkType = ($10), seatDropper = ($11), drivetrain = ($12), paintColor = ($13), fullCoverageFenders = ($14), fendersPainted = ($15), frameNotes = ($16), frameOptions = ($17), paintNotes = ($18)  WHERE bikeId = ($19)', [employeeUpdated, date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY form4id DESC LIMIT 1;');
@@ -655,8 +658,6 @@ app.post('/addBike', function(req, res){
     }
   });
 });
-
-
 
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){

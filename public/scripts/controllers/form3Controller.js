@@ -9,6 +9,8 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   $scope.submitFrameGeometry = function(){
     console.log('complete clicked');
     var objectToSend = {
+      employeeCreated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.frameGeometryFormDate.toString().substring(0,15),
       inseam: $scope.inseam,
     	torso: $scope.torso,
@@ -59,6 +61,8 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedThree=true;
 
     var editFormThreeObject = {
+      employeeUpdated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.frameGeometryFormDate.toString().substring(0,15),
       inseam: $scope.inseam,
     	torso: $scope.torso,

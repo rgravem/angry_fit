@@ -151,7 +151,9 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     //generate fork type
     forkType();
 
-    var formFourObject ={
+    var formFourObject = {
+      employeeCreated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.dateCreated.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
@@ -213,6 +215,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     forkType();
 
     var editFormFourObject ={
+      employeeUpdated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.dateCreated.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,

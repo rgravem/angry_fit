@@ -42,6 +42,8 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {
+      employeeCreated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       saddleHeight: $scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
@@ -87,6 +89,8 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedTwo=true;
 
     var editFormTwoObject = {
+      employeeUpdated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       saddleHeight: $scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,

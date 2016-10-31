@@ -7,10 +7,12 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   $scope.showSave = false;
   //keep all input fields active
   $scope.submittedOne=false;
-  $scope.addFormOne = function () {
 
+  $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
+      employeeCreated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuries,
       complaints:$scope.complaints,
@@ -60,7 +62,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedOne=true;
 
     var editFormOneObject = {
-      employeeId: employee.employeeid,
+      employeeUpdated: employee.employeeid,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuries,

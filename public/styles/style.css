@@ -41,3 +41,11 @@ md-radio-button:focus {
 .showMeasurement{
   display: block;
 }
+@media screen and (max-width: 1024px) and (min-width: 768px){
+  .formTwoBikeImage svg{
+    width: 700px !important;
+    height:300px !important;
+
+  }
+
+}

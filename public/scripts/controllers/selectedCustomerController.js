@@ -16,18 +16,15 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', function($sco
   };
 
 
-
-
-  // show injury
-  $scope.newBikeTypeIn = false;
-  $scope.updateShowInjury = function(){
-    $scope.newBikeTypeIn = true;
+  // show new bike name
+  $scope.showInNewBikeType = false;
+  $scope.updateShowOther= function(){
+    $scope.showInNewBikeType= true;
   };
-  //hide injury
-  $scope.updateHideInjury = function(){
-    $scope.newBikeTypeIn = false;
+  //hide new bike name
+  $scope.updateHideType = function(){
+    $scope.showInNewBikeType = false;
   };
-
 
   $scope.customerInfo = function(){
     var obj = JSON.parse(sessionStorage.getItem('customer'));

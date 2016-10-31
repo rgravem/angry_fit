@@ -6,6 +6,18 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     //keep all input fields active
     $scope.submittedTwo=false;
 
+    $scope.standoverFocus = function(){
+     console.log(document.getElementById("standoverMeasure").className);
+     document.getElementById("standoverMeasure").className.baseVal = "showMeasurement";
+     console.log(document.getElementById("standoverMeasure").className);
+   };
+   $scope.standoverBlur= function(){
+     console.log(document.getElementById("standoverMeasure").className);
+     document.getElementById("standoverMeasure").className.baseVal = "hideMeasurement";
+     console.log(document.getElementById("standoverMeasure").className);
+   }
+
+
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {

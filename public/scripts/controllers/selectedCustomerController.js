@@ -5,11 +5,11 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     console.log('newbike');
      $scope.newBikeButton = !$scope.newBikeButton;
   };
-  // $scope.clearsess = function(){
-  //   console.log('clear clicked');
-  //   // sessionStorage.removeItem('customer');
-  //   console.log('obj after clear:', sessionStorage);
-  // };
+  $scope.clearsess = function(){
+    console.log('clear clicked');
+    // sessionStorage.removeItem('customer');
+    console.log('obj after clear:', sessionStorage);
+  };
   $scope.otherType = false;
   $scope.otherSelected = function(){
     $scope.otherType = !$scope.otherType;
@@ -63,7 +63,14 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
       bikeName: $scope.newBikeName,
       bikeStyle: $scope.newBikeStyle,
     };
-    sessionStorage.setItem('newBike', JSON.stringify(newBike));
+    $http({
+      method: 'PUT',
+      url: '/addBike',
+      data: newBike
+    }).then(function(addBikeResponse){
+      console.log('added bike:', addBikeResponse.data);
+    });
+    sessionStorage.setItem('newBike', JSON.stringify(addBikeResponse.data[0]));
     var bike = JSON.parse(sessionStorage.getItem('newBike'));
     console.log('json obj:', bike);
     $location.path('/selectedBike/form1');

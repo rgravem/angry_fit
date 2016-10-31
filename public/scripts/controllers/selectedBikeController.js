@@ -11,7 +11,7 @@ myApp.controller("selectedBikeController", ['$scope', '$http', function($scope, 
     var obj = JSON.parse(sessionStorage.getItem('customer'));
     console.log('customer info from other page:', obj);
     var customer = angular.element(document.querySelector( '#custInfo' ) );
-    customer.append("Customer: " + obj.firstname + " " + obj.lastname + " " + "Bike Name: " + bike.bikeName);
+    customer.append("Customer: " + obj.firstname + " " + obj.lastname + " " + "Bike Name: " + bike.bikename);
   };
 
   $scope.customerInfo();

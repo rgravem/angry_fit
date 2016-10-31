@@ -132,7 +132,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   };
 
 
-  //Submit Form Four
+  ////////////////FORM 4 POST Route to DB///////////////////////////////////////
   $scope.submitFormFour = function(){
     console.log("In Submit Form Four");
     console.log($scope.customOrStandardFork);
@@ -176,14 +176,78 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.showHideSubmitFormFour = false;
     //disable input fields
     $scope.submittedFour = true;
+
     $http({
       method: 'POST',
-      url: '/addFrameDetails',
+      url: '/addFormFour',
       data: formFourObject
     }).then(function(form4Response){
       console.log('success from server', form4Response);
     });
   }; //End submitFormFour
+
+  ////////////////FORM 4 PUT(Update) Route to DB///////////////////////////////////////
+  $scope.saveFormFour = function(){
+    console.log("In Update Form Four");
+    console.log($scope.customOrStandardFork);
+    //show update
+    $scope.hideUpdateFour = true;
+    //hide save
+    $scope.showSaveFour = false;
+    // lock form
+    $scope.submittedFour=true;
+
+    //initialize frame options array
+    $scope.frameOptions=[];
+    // initialize fork varaiable
+    $scope.fork =[];
+
+    //brake mounting if
+    if($scope.brakeMount=== undefined){
+      //give value if none
+      $scope.brakeMount = "N/A";
+    }
+    //generate frame options array
+    createFrameOptions();
+    //generate fork type
+    forkType();
+
+    var editFormFourObject ={
+      date: $scope.dateCreated.toString().substring(0,15),
+      bikeType: $scope.bikeType,
+      bottomBracketShell:$scope.bottomBracketShell,
+      brakeCompatability: $scope.brakeCompatability,
+      brakeMount:$scope.brakeMount,
+      wheelSize: $scope.wheelSize,
+      specialFrameOptions: $scope.specialFrameOptions,
+      headTubeSize: $scope.headtube,
+      forkType: $scope.fork,
+      seatDropper: $scope.seatDropperBrand + " " + $scope.seatDropperModel,
+      drivetrain:  $scope.drivetrain,
+      paintColor: $scope.paintColor,
+      fullCoverageFenders: $scope.fullCoverageFenders,
+      fendersPainted: $scope.fendersPainted,
+      frameNotes: $scope.frameNotes,
+      frameOptions: $scope.frameOptions,
+      paintNotes: $scope.paintNotes
+    };
+
+    console.log(editFormFourObject);
+    //hide submit, show update and pdf
+    $scope.showHideSubmitFormFour = false;
+    //disable input fields
+    $scope.submittedFour = true;
+
+    $http({
+      method: 'PUT',
+      url: '/editFormFour',
+      data: editFormFourObject
+    }).then(function(editForm4Response){
+      console.log('success from server', editForm4Response);
+    });
+  }; //End saveFormFour
+
+
   //update Form Four
   $scope.updateFormFour = function(){
     $scope.hideUpdateFour = false;
@@ -192,8 +256,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     // unlock
     $scope.submittedFour=false;
     //
-
   };
+
   $scope.downloadFormFourPdf = function(){
     console.log("In the PDF click");
     var docDefinition =
@@ -219,16 +283,17 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     };// end doc docDefinition
     pdfMake.createPdf(docDefinition).download('customFrameDetails.pdf');
   };
-    // save form on click
-  $scope.saveFormFour= function(){
-    //show update
-    $scope.hideUpdateFour = true;
-    //hide save
-    $scope.showSaveFour = false;
-    // lock form
-    $scope.submittedFour=true;
 
-    };
+  //   // save form on click
+  // $scope.saveFormFour= function(){
+  //   //show update
+  //   $scope.hideUpdateFour = true;
+  //   //hide save
+  //   $scope.showSaveFour = false;
+  //   // lock form
+  //   $scope.submittedFour=true;
+  //
+  //   };
 
   var createFrameOptions = function(){
     // third water bottle option is true

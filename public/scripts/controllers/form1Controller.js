@@ -3,13 +3,15 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
       // set form to edit and submit status
       //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
+  // hide Save
+  $scope.showSave = false;
   //keep all input fields active
   $scope.submittedOne=false;
   $scope.addFormOne = function () {
 
     console.log('in AddFormOne button click');
     var formOneObject = {
-      formOneDate: $scope.formOneDate.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuries,
       complaints:$scope.complaints,
       surgeries:$scope.surgeries,
@@ -45,39 +47,84 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     // }).then(function(formOneObject){
     //   console.log('success from server', formOneObject);
     // });
+  }; // end addFormOne
+
+  //update form on click
+  $scope.updateFormOne = function(){
+    //hide update
+    $scope.hideUpdate = false;
+    //show save
+    $scope.showSave = true;
+    // unlock
+    $scope.submittedOne=false;
   };
-    $scope.updateFormOne = function(){
-      //reset form to submit staus
-      $scope.submittedOne = false;
-      $scope.showHideSubmitFormOne = true;
-    };
-    // show injury
+
+  // save form on click
+  $scope.saveFormOne= function(){
+      //show update
+      $scope.hideUpdate = true;
+      //hide save
+      $scope.showSave = false;
+      // lock form
+      $scope.submittedOne=true;
+  };
+  $scope.downloadFormOnePdf = function(){
+    console.log("In the PDF click");
+    var docDefinition =
+      {content: [
+        {text: "Date: " + $scope.formOneDate.toString().substring(0,15) },
+        {text: "Injuries: " + $scope.injuries },
+        {text: "Complaints: " + $scope.complaints },
+        {text: "Surgeries: " + $scope.surgeries },
+        {text: "Average Ride Length: " + $scope.averageRideLength },
+        {text: "Upcoming Races: " + $scope.upcomingRaces },
+        {text: "Current Bike Brand: " + $scope.currentBikeBrand },
+        {text: "Saddle Height: " + $scope.saddleHeight },
+        {text: "Saddle Height Over Bars: " + $scope.saddleHeightOverBars },
+        {text: "Saddle Angle: " + $scope.saddleAngle},
+        {text: "Saddle Setback: " + $scope.saddleSetback },
+        {text: "Saddle Handlebar Reach: " +  $scope.SaddlehandlebarReach},
+        {text: "Stem Length: " + $scope.stemLength },
+        {text: "Stem Angle: " + $scope.stemAngle },
+        {text: "Handlebar Width: " + $scope.handlebarWidth },
+        {text: "Handlebar Brand: " + $scope.handlebarBrand },
+        {text: "Pedal Brand/Model: " + $scope.pedalBrandModel },
+        {text: "Shoe Brand: " + $scope.shoeBrand },
+        {text: "Brake Level: " + $scope.brakeLevel },
+        {text: "Crank Length: " + $scope.crankLength },
+        {text: "Notes: " + $scope.notes }
+      ]// end content
+    };// end docDefinition
+    pdfMake.createPdf(docDefinition).download('existingFit.pdf');
+  }; // end downloadFormOnePdf
+
+  // show injury
+  $scope.showInjury = false;
+  $scope.updateShowInjury = function(){
+    $scope.showInjury = true;
+  };
+  //hide injury
+  $scope.updateHideInjury = function(){
     $scope.showInjury = false;
-    $scope.updateShowInjury = function(){
-      $scope.showInjury = true;
-    };
-    //hide injury
-    $scope.updateHideInjury = function(){
-      $scope.showInjury = false;
-    };
+  };
 
-    // show surgery
+  // show surgery
+  $scope.showSurgery = false;
+  $scope.updateShowSurgery = function(){
+    $scope.showSurgery = true;
+  };
+  //hide surgery
+  $scope.updateHideSurgery = function(){
     $scope.showSurgery = false;
-    $scope.updateShowSurgery = function(){
-      $scope.showSurgery = true;
-    };
-    //hide surgery
-    $scope.updateHideSurgery = function(){
-      $scope.showSurgery = false;
-    };
+  };
 
-    // show goals
+  // show goals
+  $scope.showGoals = false;
+  $scope.updateShowGoals = function(){
+    $scope.showGoals = true;
+  };
+  //hide goals
+  $scope.updateHideGoals = function(){
     $scope.showGoals = false;
-    $scope.updateShowGoals = function(){
-      $scope.showGoals = true;
-    };
-    //hide goals
-    $scope.updateHideGoals = function(){
-      $scope.showGoals = false;
-    };
+  };
 }]);//end form1Controller

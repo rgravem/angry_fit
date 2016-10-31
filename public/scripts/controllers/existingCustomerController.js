@@ -1,4 +1,4 @@
-myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArray', '$firebaseAuth', function($scope, $http, $firebaseArray, $firebaseAuth){
+myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArray', '$firebaseAuth', '$location', function($scope, $http, $firebaseArray, $firebaseAuth, $location){
   console.log('In existingCustomerController');
 
   var existingCustomers = ['Justin'];
@@ -11,6 +11,7 @@ myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArr
     sessionStorage.setItem('customer', JSON.stringify(user));
     var obj = JSON.parse(sessionStorage.getItem('customer'));
     console.log('json obj:', obj);
+    $location.path('/selectedCustomer');
   };
 
   $scope.getExistingCustomers = function () {

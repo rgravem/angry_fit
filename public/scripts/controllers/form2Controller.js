@@ -87,7 +87,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     }).then(function(editForm2Response){
       console.log('success from server', editForm2Response);
     });
-  }; //End saveFormThree
+  }; //End saveFormTwo
 
 
   //update form 2 on click

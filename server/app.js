@@ -394,6 +394,68 @@ app.put( '/editExistingCustomer', function( req, res ){
   });// end pg connect
 }); //end of editing current customer
 
+//////////////////////////////Edit Form 1 Route////////////////////////////////////
+app.put( '/editFormOne', function( req, res ){
+  console.log( 'in editFormOne' );
+  console.log('editFormOne:', req.body);
+  //assemble object to send
+  var employeeId = req.body.employeeId;
+  //need to hardcode bikeId for now until we have persistent data
+  var bikeId = 3;
+  var date = req.body.date;
+  var employeeID = req.body.employeeID;
+  var injuries = req.body.injuries;
+  var complaints = req.body.complaints;
+  var surgeries = req.body.surgeries;
+  var averageRideLength = req.body.averageRideLength;
+  var upcomingRaces = req.body.upcomingRaces;
+  var currentBikeBrand = req.body.currentBikeBrand;
+  var saddleHeight = req.body.saddleHeight;
+  var saddleHeightOverBars = req.body.saddleHeightOverBars;
+  var saddleAngle = req.body.saddleAngle;
+  var saddleSetback = req.body.saddleSetback;
+  var SaddlehandlebarReach = req.body.SaddlehandlebarReach;
+  var stemLength = req.body.stemLength;
+  var stemAngle = req.body.stemAngle;
+  var handlebarWidth = req.body.handlebarWidth;
+  var handlebarBrand = req.body.handlebarBrand;
+  var pedalBrandModel = req.body.pedalBrandModel;
+  var shoeBrand = req.body.shoeBrand;
+  var brakeLevel = req.body.brakeLevel;
+  var crankLength = req.body.crankLength;
+  var notes = req.body.notes;
+
+  pg.connect(connectionString, function(err, client, done){
+    //check for error
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB via form 1 PUT Route");
+      //array to hold results
+      var editFormOneResponse = [];
+      //send update to DB
+
+      //query uses the customer id number in the DB to determine which fields should be updated
+      client.query('UPDATE form1_existingFit SET date = ($1), employeeID = ($2), injuries = ($3), complaints = ($4), surgeries = ($5), averageRideLength = ($6), upcomingRaces = ($7), currentBikeBrand = ($8), saddleHeight = ($9), saddleHeightOverBars = ($10), saddleAngle = ($11), saddleSetback = ($12), SaddlehandlebarReach = ($13), stemLength = ($14), stemAngle = ($15), handlebarWidth = ($16), handlebarBrand = ($17), pedalBrandModel = ($18), shoeBrand = ($19), brakeLevel = ($20), crankLength = ($21), notes = ($22), employeeId = ($23) WHERE bikeId = ($24)', [date, employeeID,  injuries,  complaints,  surgeries,  averageRideLength,  upcomingRaces,  currentBikeBrand,  saddleHeight,  saddleHeightOverBars,  saddleAngle,  saddleSetback,  SaddlehandlebarReach,  stemLength,  stemAngle,  handlebarWidth,  handlebarBrand,  pedalBrandModel,  shoeBrand,  brakeLevel,  crankLength, notes, bikeId]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * FROM form1_existingFit ORDER BY form1id DESC LIMIT 1;');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        editFormOneResponse.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(editFormOneResponse);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+}); //end of form one edits
+
 //////////////////////////////Edit Form 2 Route////////////////////////////////////
 app.put( '/editFormTwo', function( req, res ){
   console.log( 'in editFormTwo' );
@@ -426,7 +488,7 @@ app.put( '/editFormTwo', function( req, res ){
       console.log(err);
     }//end error check
     else{
-      console.log("connected to DB via form 3 PUT Route");
+      console.log("connected to DB via form 2 PUT Route");
       //array to hold results
       var editFormTwoResponse = [];
       //send update to DB
@@ -449,7 +511,7 @@ app.put( '/editFormTwo', function( req, res ){
       });//end of end
     }// end of else
   });// end pg connect
-}); //end of form three edits
+}); //end of form two edits
 
 
 //////////////////////////////Edit Form 3 Route////////////////////////////////////

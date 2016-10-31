@@ -6,6 +6,39 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     //keep all input fields active
     $scope.submittedTwo=false;
 
+    // focus / blur properties for inputs
+    $scope.standoverFocus = function(){
+     document.getElementById("standoverMeasure").className.baseVal = "showMeasurement";
+   };
+   $scope.standoverBlur= function(){
+     document.getElementById("standoverMeasure").className.baseVal = "hideMeasurement";
+   };
+   $scope.saddleHeightFocus = function(){
+     document.getElementById("saddleHeightMeasure").className.baseVal = "showMeasurement";
+   };
+   $scope.saddleHeightBlur= function(){
+     document.getElementById("saddleHeightMeasure").className.baseVal = "hideMeasurement";
+   };
+   $scope.saddleOverBarsFocus = function(){
+     document.getElementById("saddleHeightOverBarsMeasure").className.baseVal = "showMeasurement";
+   };
+   $scope.saddleOverBarsBlur = function(){
+     document.getElementById("saddleHeightOverBarsMeasure").className.baseVal = "hideMeasurement";
+   };
+   $scope.handleBarReachFocus = function(){
+    document.getElementById("handleBarReach").className.baseVal = "showMeasurement";
+  };
+  $scope.handleBarReachBlur = function(){
+    document.getElementById("handleBarReach").className.baseVal = "hideMeasurement";
+  };
+  $scope.saddleAngleFocus= function(){
+    document.getElementById("saddleAngle").className.baseVal = "showMeasurement";
+  };
+  $scope.saddleAngleBlur = function(){
+    document.getElementById("saddleAngle").className.baseVal = "hideMeasurement";
+  };
+
+
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {

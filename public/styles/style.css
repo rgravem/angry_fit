@@ -35,3 +35,9 @@ md-radio-button:focus {
 .formOneSubmit, .formTwoSubmit, .formThreeSubmit, .formFourSubmit, .formUpdate, .formPdf, .formSave{
   width: 60%;
 }
+.hideMeasurement{
+  display: none;
+}
+.showMeasurement{
+  display: block;
+}

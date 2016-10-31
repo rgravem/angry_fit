@@ -11,6 +11,14 @@ myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArr
     sessionStorage.setItem('customer', JSON.stringify(user));
     var obj = JSON.parse(sessionStorage.getItem('customer'));
     console.log('json obj:', obj);
+    // $http({
+    //   method: 'GET',
+    //   url: '/getBikes'
+    // }).then(function success(bikes){
+    //   console.log('bikes from server:', bikes);
+    // }, function error(errorObject){
+    //   console.log(errorObject);
+    // });
     $location.path('/selectedCustomer');
   };
 

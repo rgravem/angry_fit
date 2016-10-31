@@ -1,3 +1,4 @@
+
 #customerTypeButtons {
   height: 150px;
 
@@ -34,4 +35,17 @@ md-radio-button:focus {
 }
 .formOneSubmit, .formTwoSubmit, .formThreeSubmit, .formFourSubmit, .formUpdate, .formPdf, .formSave{
   width: 60%;
+}
+.hideMeasurement{
+  display: none;
+}
+.showMeasurement{
+  display: block;
+}
+@media screen and (max-width: 1024px) and (min-width: 768px){
+  .formTwoBikeImage svg{
+    width: 700px !important;
+    height:300px !important;
+
+  }
 }

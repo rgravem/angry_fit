@@ -23,7 +23,7 @@
    <div layout-gt-sm="row">
      <p>New bike type?</p>
    </div>
-   <md-radio-group>
+   <md-radio-group ng-model='newBikeStyle'>
      <div layout-gt-sm="row">
        <!-- Seat injuries Yes -->
        <md-radio-button value="flatBar" name="newBikeTypeIn" ng-click="updateHideType()"> Flat bar </md-radio-button>
@@ -37,7 +37,7 @@
    <div id="setNewBikeType" ng-show="showInNewBikeType">
      <div layout-gt-sm="row">
        <md-input-container class="md-block" flex-gt-sm="">
-         <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="newBikeInfo">
+         <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="newBikeStyle">
        </md-input-container>
      </div>
    </div>

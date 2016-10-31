@@ -394,6 +394,65 @@ app.put( '/editExistingCustomer', function( req, res ){
   });// end pg connect
 }); //end of editing current customer
 
+//////////////////////////////Edit Form 3 Route////////////////////////////////////
+app.put( '/editFormThree', function( req, res ){
+  console.log( 'in editFormThree' );
+  console.log('editFormThree:', req.body);
+  //assemble object to send
+  var date = req.body.date;
+  var inseam = req.body.inseam;
+  var torso = req.body.torso;
+  var arm = req.body.arm;
+  var footLength = req.body.footLength;
+  var effectiveTopTube = req.body.effectiveTopTube;
+  var standover = req.body.standover;
+  var seatTubeLength = req.body.seatTubeLength;
+  var seatTubeAngle = req.body.seatTubeAngle;
+  var headTubeLength = req.body.headTubeLength;
+  var headTubeAngle = req.body.headTubeAngle;
+  var stack = req.body.stack;
+  var reach = req.body.reach;
+  var wheelBase = req.body.wheelBase;
+  var chainstayLength = req.body.chainstayLength;
+  var bbDrop = req.body.bbDrop;
+  var axleToCrown = req.body.axleToCrown;
+  var mechanicalTrail = req.body.mechanicalTrail;
+  var forkOffset = req.body.forkOffset;
+  var notes = req.body.notes;
+  //form3Id is broken right now until we have an ID from the bike that is currently selected
+  var form3Id = 2;
+
+  pg.connect(connectionString, function(err, client, done){
+    //check for error
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB via form 3 PUT Route");
+      //array to hold results
+      var editFormThreeResponse = [];
+      //send update to DB
+
+      //query uses the customer id number in the DB to determine which fields should be updated
+      client.query('UPDATE form3_customFrameGeometry SET date = ($1), inseam = ($2), torso = ($3), arm = ($4), footLength = ($5), effectiveTopTube = ($6), standover = ($7), seatTubeLength = ($8), seatTubeAngle = ($9), headTubeLength = ($10), headTubeAngle = ($11), stack = ($12), reach = ($13), wheelBase = ($14), chainstayLength = ($15), bbDrop = ($16), axleToCrown = ($17), mechanicalTrail = ($18), forkOffset = ($19), notes = ($20)  WHERE form3Id = ($21)', [date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail,forkOffset, notes, form3Id]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * FROM form3_customFrameGeometry ORDER BY form3id DESC LIMIT 1;');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        editFormThreeResponse.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(editFormThreeResponse);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+}); //end of form three edits
+
 //////////////////////////////Edit Form 4 Route////////////////////////////////////
 app.put( '/editFormFour', function( req, res ){
   console.log( 'in editFormFour' );

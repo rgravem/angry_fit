@@ -394,6 +394,64 @@ app.put( '/editExistingCustomer', function( req, res ){
   });// end pg connect
 }); //end of editing current customer
 
+//////////////////////////////Edit Form 2 Route////////////////////////////////////
+app.put( '/editFormTwo', function( req, res ){
+  console.log( 'in editFormTwo' );
+  console.log('editFormTwo:', req.body);
+  //assemble object to send
+  var date = req.body.date;
+  var saddleHeight = req.body.saddleHeight;
+  var saddleHeightOverBars = req.body.saddleHeightOverBars;
+  var saddleToHandlebarReach = req.body.saddleToHandlebarReach;
+  var saddleAngle = req.body.saddleAngle;
+  var saddleForeAft = req.body.saddleForeAft;
+  var saddleBrandAndWidth = req.body.saddleBrandAndWidth;
+  var handleBarBrandAndModel = req.body.handleBarBrandAndModel;
+  var stemLength =req.body.stemLength;
+  var stemAngle =req.body.stemAngle;
+  var handleBarWidth = req.body.handleBarWidth;
+  var pedalBrandAndModel = req.body.pedalBrandAndModel;
+  var showBrandModelSize = req.body.showBrandModelSize;
+  var brakeLevelPosition = req.body.brakeLevelPosition;
+  var crankLength = req.body.crankLength;
+  var standover = req.body.standover;
+  var stack = req.body.stack;
+  var notes = req.body.notes;
+  //form3Id is broken right now until we have an ID from the bike that is currently selected
+  var form2Id = 4;
+
+  pg.connect(connectionString, function(err, client, done){
+    //check for error
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB via form 3 PUT Route");
+      //array to hold results
+      var editFormTwoResponse = [];
+      //send update to DB
+
+      //query uses the customer id number in the DB to determine which fields should be updated
+      client.query('UPDATE form2_newFit SET date = ($1), saddleHeight = ($2), saddleHeightOverBars = ($3), saddleToHandlebarReach = ($4), saddleAngle = ($5), saddleForeAft = ($6), saddleBrandAndWidth = ($7), handleBarBrandAndModel = ($8), stemLength = ($9), stemAngle = ($10), handleBarWidth = ($11), pedalBrandAndModel = ($12), showBrandModelSize = ($13), brakeLevelPosition = ($14), crankLength = ($15), standover = ($16), stack = ($17), notes = ($18) WHERE form2Id = ($19)', [date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes, form2Id]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * FROM form2_newFit ORDER BY form2id DESC LIMIT 1;');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        editFormTwoResponse.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(editFormTwoResponse);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+}); //end of form three edits
+
+
 //////////////////////////////Edit Form 3 Route////////////////////////////////////
 app.put( '/editFormThree', function( req, res ){
   console.log( 'in editFormThree' );
@@ -434,7 +492,7 @@ app.put( '/editFormThree', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form3_customFrameGeometry SET date = ($1), inseam = ($2), torso = ($3), arm = ($4), footLength = ($5), effectiveTopTube = ($6), standover = ($7), seatTubeLength = ($8), seatTubeAngle = ($9), headTubeLength = ($10), headTubeAngle = ($11), stack = ($12), reach = ($13), wheelBase = ($14), chainstayLength = ($15), bbDrop = ($16), axleToCrown = ($17), mechanicalTrail = ($18), forkOffset = ($19), notes = ($20)  WHERE form3Id = ($21)', [date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail,forkOffset, notes, form3Id]);
+      client.query('UPDATE form3_customFrameGeometry SET date = ($1), inseam = ($2), torso = ($3), arm = ($4), footLength = ($5), effectiveTopTube = ($6), standover = ($7), seatTubeLength = ($8), seatTubeAngle = ($9), headTubeLength = ($10), headTubeAngle = ($11), stack = ($12), reach = ($13), wheelBase = ($14), chainstayLength = ($15), bbDrop = ($16), axleToCrown = ($17), mechanicalTrail = ($18), forkOffset = ($19), notes = ($20) WHERE form3Id = ($21)', [date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail,forkOffset, notes, form3Id]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form3_customFrameGeometry ORDER BY form3id DESC LIMIT 1;');

@@ -94,7 +94,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     }).then(function(editForm3Response){
       console.log('success from server', editForm3Response);
     });
-  }; //End saveFormFour
+  }; //End saveFormThree
 
 
   //update form 3 on click

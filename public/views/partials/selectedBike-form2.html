@@ -13,28 +13,28 @@
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>A: Saddle Height</label>
-            <input ng-model="saddleHeight" ng-disabled="submittedTwo">
+            <input ng-model="saddleHeight"  ng-focus="saddleHeightFocus()" ng-blur="saddleHeightBlur()"ng-disabled="submittedTwo">
           </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>B: Saddle height over bars</label>
-                <input ng-model="saddleHeightOverBars" ng-disabled="submittedTwo">
+                <input ng-model="saddleHeightOverBars" ng-focus="saddleOverBarsFocus()" ng-blur="saddleOverBarsBlur()" ng-disabled="submittedTwo">
           </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>C: Saddle to handlebar reach</label>
-                <input ng-model="saddleToHandlebarReach" ng-disabled="submittedTwo">
+                <input ng-model="saddleToHandlebarReach" ng-focus="handleBarReachFocus()" ng-blur="handleBarReachBlur()" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>D: Saddle angle</label>
-                <input ng-model="saddleAngle" ng-disabled="submittedTwo">
+                <input ng-model="saddleAngle" ng-focus="saddleAngleFocus()" ng-blur="saddleAngleBlur()" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
 
@@ -4031,10 +4031,42 @@
         	c-0.396-1.891-0.937-5.022,3.647-2.81c4.945-1.558,14.414-4.132,14.414-4.132l0.79,2.638L340.615,145.459L340.615,145.459z"/>
         <path fill="#808080" stroke="#808080" stroke-width="2" d="M338.255,144.604c0,0.217-0.176,0.393-0.393,0.393
         	c-0.216,0-0.393-0.176-0.393-0.393c0-0.216,0.177-0.392,0.393-0.392C338.08,144.211,338.255,144.387,338.255,144.604z"/>
+          <!-- Saddle Height -->
+          <g id="saddleHeightMeasure" class="hideMeasurement">
+            <line x1="240" y1="80" x2="310" y2="60" stroke="green" stroke-width="3"/>
+            <line x1="240" y1="80" x2="340" y2="440" stroke="green" stroke-width="3"/>
+            <line x1="340" y1="440" x2="420" y2="420" stroke="green" stroke-width="3"/>
+            <text x="305" y="295" font-size="14" font-family="Helvetica" fill="black"> A </text>
+          </g>
+          <!-- Saddle Height Over Bars -->
+          <g id="saddleHeightOverBarsMeasure" class="hideMeasurement" >
+            <line x1="330" y1="40" x2="330" y2="70" stroke="green" stroke-width="3"/>
+            <line x1="330" y1="55" x2="450" y2="55"  stroke-dasharray="10,10" stroke="green" stroke-width="3"/>
+            <line x1="450" y1="55" x2="450" y2="100"  stroke-dasharray="10,10" stroke="green" stroke-width="3"/>
+            <text x="460" y="90" font-size="14" font-family="Helvetica" fill="black" > B </text>
+            <line x1="450" y1="100" x2="620" y2="100" stroke-dasharray="10,10" stroke="green" stroke-width="3"/>
+            <line x1="620" y1="115" x2="620" y2="85" stroke="green" stroke-width="3"/>
+
+          </g>
+          <!-- HandleBar Reach -->
+          <g id="handleBarReach" class="hideMeasurement">
+            <line x1="397" y1="25" x2="397" y2="80" stroke="green" stroke-width="3"/>
+            <line x1="397" y1="25" x2="670" y2="25" stroke="green" stroke-width="3"/>
+            <line x1="670" y1="25" x2="670" y2="90" stroke="green" stroke-width="3" />
+            <text x="405" y="50" font-size="14" font-family="Helvetica" fill="black" > C </text>
+          </g>
+          <!-- SaddleAngle -->
+          <g id="saddleAngle" class="hideMeasurement" >
+            <line x1="210" y1="55" x2="310" y2="55" stroke="green" stroke-width="3"/>
+            <line x1="210" y1="85" x2="310" y2="55" stroke="green" stroke-width="3"/>
+            <path d= "M230 55 C 220 55, 220 85, 230 79"  fill="transparent" stroke="green" stroke-width="3" />
+            <text x="200" y="75" font-size="14" font-family="Helvetica" fill="black"> D </text>
+          </g>
+          <!-- Standover -->
           <g id="standoverMeasure" class="hideMeasurement">
-          <line x1="50" y1="150" x2="50" y2="550" stroke="#361d10" stroke-width="3" />
-          <line x1="50" y1="150" x2="420" y2="150" stroke="#361d10" stroke-width="3" />
-          <text x="55" y="165" font-size="14" font family="Helvetica"> O </text>
+            <line x1="50" y1="150" x2="50" y2="550" stroke="green" stroke-width="3" />
+            <line x1="50" y1="150" x2="420" y2="150" stroke="green" stroke-width="3" />
+            <text x="55" y="165" font-size="14" font-family="Helvetica" fill="black"> O </text>
         </g>
         </svg>
 

@@ -5,7 +5,7 @@ DATABASE NAME: angryFit
 
 
 
---------COPY, PASTE, AND RUN FROM HERE ON DOWN---------
+--------------------------------COPY, PASTE, AND RUN FROM HERE ON DOWN------------------------------
 
 ------------------CREATE TABLES---------------------
 --Employees Table
@@ -30,25 +30,21 @@ CREATE TABLE customers (
 	zip VARCHAR(10)
 );
 
---Bike Type table
-CREATE TABLE bikeType (
-	bikeTypeID SERIAL PRIMARY KEY NOT NULL,
-	bikeType VARCHAR(50)
-);
-
 --Bikes table
 CREATE TABLE bikes (
 	bikeID SERIAL PRIMARY KEY NOT NULL,
 	customerID INT REFERENCES customers(customerID),
-	bikeTypeID INT REFERENCES bikeType(bikeTypeID),
-	bikeName VARCHAR(100)
-);
+	bikeName VARCHAR(100),
+	bikeType VARCHAR (50)
+	);
 
 --create for Form 1: Consultation
 CREATE TABLE form1_existingFit (
 	form1ID SERIAL PRIMARY KEY NOT NULL,
 	bikeID INT REFERENCES bikes(bikeID),
 	employeeID INT REFERENCES employees(employeeID),
+	employeeCreated VARCHAR (50) REFERENCES employees (lastName),
+	employeeUpdated VARCHAR (50) REFERENCES employees (lastName),
 	date VARCHAR(50),
 	injuries VARCHAR (1000),
 	complaints VARCHAR (1000),
@@ -77,6 +73,8 @@ CREATE TABLE form2_newFit (
 	form2ID SERIAL PRIMARY KEY NOT NULL,
 	bikeID INT REFERENCES bikes(bikeID),
 	employeeID INT REFERENCES employees(employeeID),
+	employeeCreated VARCHAR (50) REFERENCES employees (lastName),
+	employeeUpdated VARCHAR (50) REFERENCES employees (lastName),
 	date VARCHAR (50),
 	saddleHeight VARCHAR (50),
 	saddleHeightOverBars VARCHAR (50),
@@ -102,6 +100,8 @@ CREATE TABLE form3_customFrameGeometry (
 	form3ID SERIAL PRIMARY KEY NOT NULL,
 	bikeID INT REFERENCES bikes(bikeID),
 	employeeID INT REFERENCES employees(employeeID),
+	employeeCreated VARCHAR (50) REFERENCES employees (lastName),
+	employeeUpdated VARCHAR (50) REFERENCES employees (lastName),
 	date VARCHAR(50),
 	inseam VARCHAR(50),
 	torso VARCHAR(50),
@@ -129,6 +129,8 @@ CREATE TABLE form4_customFrameDetails(
 	form4ID SERIAL PRIMARY KEY NOT NULL,
 	bikeID INT REFERENCES bikes(bikeID),
 	employeeID INT REFERENCES employees(employeeID),
+	employeeCreated VARCHAR (50) REFERENCES employees (lastName),
+	employeeUpdated VARCHAR (50) REFERENCES employees (lastName),
 	date VARCHAR(50),
 	bikeType VARCHAR(50),
 	bottomBracketShell VARCHAR(50),

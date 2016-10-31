@@ -15,6 +15,17 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     $scope.otherType = !$scope.otherType;
   };
 
+
+  // show new bike name
+  $scope.showInNewBikeType = false;
+  $scope.updateShowOther= function(){
+    $scope.showInNewBikeType= true;
+  };
+  //hide new bike name
+  $scope.updateHideType = function(){
+    $scope.showInNewBikeType = false;
+  };
+
   $scope.customerInfo = function(){
     var obj = JSON.parse(sessionStorage.getItem('customer'));
     console.log('customer info from other page:', obj);
@@ -23,6 +34,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   };
 
   $scope.customerInfo();
+
 
   $scope.editExistingCustomer = function () {
     var editCustomerObject = {

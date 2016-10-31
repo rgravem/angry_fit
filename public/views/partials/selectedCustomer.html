@@ -17,7 +17,40 @@
 </div>
 </div>
 
+
+
 <div id="newBikeType">
+   <div layout-gt-sm="row">
+     <p>New bike type?</p>
+   </div>
+   <md-radio-group>
+     <div layout-gt-sm="row">
+       <!-- Seat injuries Yes -->
+       <md-radio-button value="flatBar" name="newBikeTypeIn" ng-click="updateHideType()"> Flat bar </md-radio-button>
+       <md-radio-button value="dropBar" name="newBikeTypeIn" ng-click="updateHideType()"> Drop bar </md-radio-button>
+       <md-radio-button value="triTT" name="newBikeTypeIn" ng-click="updateHideType()"> Tri/TT </md-radio-button>
+       <md-radio-button value="" name="newBikeTypeIn" ng-click="updateShowOther()"> Other </md-radio-button>
+     </div>
+   </md-radio-group>
+
+     <!-- IF yes -->
+   <div id="setNewBikeType" ng-show="showInNewBikeType">
+     <div layout-gt-sm="row">
+       <md-input-container class="md-block" flex-gt-sm="">
+         <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="newBikeInfo">
+       </md-input-container>
+     </div>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div id="newBikeType">
   <div layout-gt-sm="row">
     <p>New bike type:</p>
   </div>
@@ -37,7 +70,7 @@
       </md-input-container>
     </div>
   </div>
-  </div>
+  </div> -->
   <div layout-gt-sm="row" layout-align="center" flex="100">
     <md-button id='startNewBikeButton' class="md-raised md-primary" ng-click="startNewBike()">Start Fit</md-button>
 

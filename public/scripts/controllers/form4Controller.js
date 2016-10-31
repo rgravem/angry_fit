@@ -5,6 +5,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   $scope.showHideSubmitFormFour = true;
   //keep all input fields active
   $scope.submittedFour=false;
+  // hide Save
+  $scope.showSaveFour = false;
 
   // show bottom bracket other
   $scope.showBottomBracketOther = false;
@@ -174,19 +176,23 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.showHideSubmitFormFour = false;
     //disable input fields
     $scope.submittedFour = true;
-    // $http({
-    //   method: 'POST',
-    //   url: '/addFrameDetails',
-    //   data: formFourObject
-    // }).then(function(form4Response){
-    //   console.log('success from server', form4Response);
-    // });
+    $http({
+      method: 'POST',
+      url: '/addFrameDetails',
+      data: formFourObject
+    }).then(function(form4Response){
+      console.log('success from server', form4Response);
+    });
   }; //End submitFormFour
   //update Form Four
   $scope.updateFormFour = function(){
-    //reset form to submit staus
-    $scope.submittedFour = false;
-    $scope.showHideSubmitFormFour = true;
+    $scope.hideUpdateFour = false;
+    //show save
+    $scope.showSaveFour = true;
+    // unlock
+    $scope.submittedFour=false;
+    //
+
   };
   $scope.downloadFormFourPdf = function(){
     console.log("In the PDF click");
@@ -213,6 +219,16 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     };// end doc docDefinition
     pdfMake.createPdf(docDefinition).download('customFrameDetails.pdf');
   };
+    // save form on click
+  $scope.saveFormFour= function(){
+    //show update
+    $scope.hideUpdateFour = true;
+    //hide save
+    $scope.showSaveFour = false;
+    // lock form
+    $scope.submittedFour=true;
+
+    };
 
   var createFrameOptions = function(){
     // third water bottle option is true

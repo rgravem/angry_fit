@@ -4043,7 +4043,8 @@
   </div>
   <div layout="row" layout-align="center" flex="100">
     <md-button class="md-raised md-primary formTwoSubmit" placeholder="Submit" ng-click="addForm2NewFit()" ng-show="showHideSubmitFormTwo">Submit</md-button>
-    <md-button class="md-raised md-primary formUpdate" ng-click="updateFormTwo()" ng-hide="showHideSubmitFormTwo"> Update </md-button>
+    <md-button class="md-raised md-primary formUpdate" ng-click="updateFormTwo()" ng-hide="showHideSubmitFormTwo" ng-show="hideUpdate"> Update </md-button>
+    <md-button class="md-raised md-primary formUpdate" ng-show='showSaveTwo' ng-click="saveFormTwo()"> Save Updates </md-button>
     <md-button class="md-raised md-primary formPdf"  ng-click="downloadFormTwoPdf()" ng-hide="showHideSubmitFormTwo"> PDF</md-button>
   </div>
 </md-content>

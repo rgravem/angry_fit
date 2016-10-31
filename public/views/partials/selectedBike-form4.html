@@ -419,7 +419,8 @@
   </div>
   <div layout-gt-sm="row" layout-align="center" flex="100">
     <md-button class="md-raised md-primary formFourSubmit" ng-click="submitFormFour()" ng-show="showHideSubmitFormFour">Submit</md-button>
-      <md-button class="md-raised md-primary formUpdate"  ng-click="updateFormFour()" ng-hide="showHideSubmitFormFour"> Update </md-button>
+      <md-button class="md-raised md-primary formUpdate"  ng-click="updateFormFour()" ng-hide="showHideSubmitFormFour" ng-show="hideUpdateFour"> Update </md-button>
+      <md-button class="md-raised md-primary formSave"  ng-click="saveFormFour()" ng-show="showSaveFour"> Save Updates </md-button>
       <md-button class="md-raised md-primary formPdf" ng-click="downloadFormFourPdf()" ng-hide="showHideSubmitFormFour"> PDF</md-button>
   </div>
 </md-content>

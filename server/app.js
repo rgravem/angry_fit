@@ -91,7 +91,7 @@ app.post( '/addNewCustomer', function( req, res ){
       client.query('INSERT INTO customers (firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * From customers');
+      var queryResults = client.query('SELECT * FROM customers ORDER BY id DESC LIMIT 1');
       //run for each row in the query
       queryResults.on("row", function(row){
         newCustomerToSend.push(row);

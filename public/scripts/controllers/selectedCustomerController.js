@@ -1,15 +1,15 @@
 myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In selectedCustomerController');
-
+  var obj = JSON.parse(sessionStorage.getItem('customer'));
   $scope.newBikeStart = function(){
     console.log('newbike');
      $scope.newBikeButton = !$scope.newBikeButton;
   };
-  // $scope.clearsess = function(){
-  //   console.log('clear clicked');
-  //   // sessionStorage.removeItem('customer');
-  //   console.log('obj after clear:', sessionStorage);
-  // };
+  $scope.clearsess = function(){
+    console.log('clear clicked');
+    // sessionStorage.removeItem('customer');
+    console.log('obj after clear:', sessionStorage);
+  };
   $scope.otherType = false;
   $scope.otherSelected = function(){
     $scope.otherType = !$scope.otherType;
@@ -27,7 +27,6 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   };
 
   $scope.customerInfo = function(){
-    var obj = JSON.parse(sessionStorage.getItem('customer'));
     console.log('customer info from other page:', obj);
     var customer = angular.element(document.querySelector( '#custInfo' ) );
     customer.append(obj.firstname + " " + obj.lastname + '</br>' + obj.email + '</br>' + obj.phonenumber + '</br>' + obj.streetaddress + ", " + obj.zip );
@@ -62,11 +61,19 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     var newBike = {
       bikeName: $scope.newBikeName,
       bikeStyle: $scope.newBikeStyle,
+      customerID: obj.customerid,
     };
-    sessionStorage.setItem('newBike', JSON.stringify(newBike));
-    var bike = JSON.parse(sessionStorage.getItem('newBike'));
-    console.log('json obj:', bike);
-    $location.path('/selectedBike/form1');
+    $http({
+      method: 'POST',
+      url: '/addBike',
+      data: newBike
+    }).then(function(addBikeResponse){
+      console.log('added bike:', addBikeResponse.data);
+      sessionStorage.setItem('newBike', JSON.stringify(addBikeResponse.data[0]));
+      var bike = JSON.parse(sessionStorage.getItem('newBike'));
+      console.log('json obj:', bike);
+      $location.path('/selectedBike/form1');
+    });
   };
 
 }]);//end selectedCustomerController

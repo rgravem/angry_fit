@@ -118,7 +118,7 @@ app.post( '/addNewCustomer', function( req, res ){
       client.query('INSERT INTO customers (firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * FROM customers ORDER BY id DESC LIMIT 1');
+      var queryResults = client.query('SELECT * FROM customers ORDER BY customerid DESC LIMIT 1');
       //run for each row in the query
       queryResults.on("row", function(row){
         newCustomerToSend.push(row);
@@ -417,7 +417,7 @@ app.put( '/editFormFour', function( req, res ){
   var frameOptions= req.body.frameOptions;
   var paintNotes = req.body.paintNotes;
   //form4Id is broken right now until we have an ID from the bike that is currently selected
-  var form4Id = 20; 
+  var form4Id = 20;
 
 
   pg.connect(connectionString, function(err, client, done){
@@ -451,6 +451,30 @@ app.put( '/editFormFour', function( req, res ){
   });// end pg connect
 }); //end of form four edits
 
+app.post('/addBike', function(req, res){
+  console.log('in addBike with:', req.body);
+
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from addBike');
+      var newBikeIn = [];
+      client.query('INSERT INTO bikes (customerID, bikeName, bikeType) VALUES ($1, $2, $3);', [req.body.customerID, req.body.bikeName, req.body.bikeStyle]);
+      var queryResults = client.query('SELECT * FROM bikes ORDER BY bikeid DESC LIMIT 1');
+      queryResults.on("row", function(row){
+        newBikeIn.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(newBikeIn);
+
+        });//end of end
+    }
+  });
+});
 
 
 

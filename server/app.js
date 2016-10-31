@@ -41,6 +41,7 @@ app.get("/privateData", function(req, res){
   });
 });
 
+////////////////////////////////////////////////////////////////// GET ROUTES ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////Get Existing Customers from DB/////////////////////////////
 app.get('/getExistingCustomers', function(req, res){
   console.log('in getExistingCustomers route');
@@ -63,7 +64,33 @@ app.get('/getExistingCustomers', function(req, res){
   }); //end pg.connect
 }); //end getExistingCustomers
 
-/////////////////////////////Add New Customer to DB////////////////////////////////
+
+/////////////////////////////Get all customers from DB////////////////////////////////
+app.get('/customer', function(req, res){
+  console.log('q is:', req.query.q);
+  var searchIn = req.query.q;
+  console.log('query:', searchIn);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log('error getting search');
+      res.sendStatus(500);
+    }else{
+      console.log('connected via search');
+      var searchCustomersArray = [];
+      var queryResults = client.query('SELECT * FROM customers WHERE UPPER(lastname) LIKE UPPER('+"'%"+searchIn+"%'"+')');
+      queryResults.on('row', function(row){
+        searchCustomersArray.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(searchCustomersArray);
+      }); // end queryResults
+    } //end else
+  }); //end pg.connect
+}); // end search
+
+////////////////////////////////////////////////////////////////// POST ROUTES ////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////Add New Customer to DB POST Route////////////////////////////////
 app.post( '/addNewCustomer', function( req, res ){
   console.log( 'in addNewCustomer', req.body );
   newCustomerInfo = req.body;
@@ -106,80 +133,7 @@ app.post( '/addNewCustomer', function( req, res ){
   });// end pg connect
 });//end of post
 
-/////////////////////////Edit Existing Customer in DB///////////////////////////
-app.post( '/editExistingCustomer', function( req, res ){
-  console.log( 'in editExistingCustomer' );
-  editCustomerInfo = req.body;
-  console.log('editCustomerInfo:', editCustomerInfo);
-  //assemble object to send
-  var firstName = editCustomerInfo.firstName;
-  var lastName = editCustomerInfo.lastName;
-  var email = editCustomerInfo.email;
-  var phoneNumber = editCustomerInfo.phoneNumber;
-  var streetAddress = editCustomerInfo.streetAddress;
-  var unitNumber = editCustomerInfo.unitNumber;
-  var city = editCustomerInfo.city;
-  var state = editCustomerInfo.state;
-  var zip = editCustomerInfo.zip;
-  var id = editCustomerInfo.id; //we need to define where this comes from, it will likely be from a get route that finds that specific customer's information
-
-  pg.connect(connectionString, function(err, client, done){
-    //check for error
-    if(err){
-      console.log(err);
-    }//end error check
-    else{
-      console.log("connected to DB");
-      //array to hold results
-      var editCustomerInfoToSend = [];
-      //send update to DB
-
-      //query uses the customer id number in the DB to determine which customer info should be edited
-      client.query('UPDATE customers SET firstName = ($1), lastName = ($2), email = ($3), phoneNumber = ($4), streetAddress = ($5), unitNumber = ($6), city = ($7), state = ($8), zip = ($9) WHERE id = ($10)', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, id]);
-
-      //Query the DB
-      var queryResults = client.query('SELECT * From customers');
-      //run for each row in the query
-      queryResults.on("row", function(row){
-        editCustomerInfoToSend.push(row);
-      }); //end of row
-      queryResults.on('end', function(){
-        //we're done
-        done();
-        //return result as JSON version of array
-        return res.json(editCustomerInfoToSend);
-
-      });//end of end
-    }// end of else
-  });// end pg connect
-}); //end of editing current customer
-
-/////////////////////////////Get all customers from DB////////////////////////////////
-app.get('/customer', function(req, res){
-  console.log('q is:', req.query.q);
-  var searchIn = req.query.q;
-  console.log('query:', searchIn);
-  pg.connect(connectionString, function(err, client, done){
-    if(err){
-      console.log('error getting search');
-      res.sendStatus(500);
-    }else{
-      console.log('connected via search');
-      var searchCustomersArray = [];
-      var queryResults = client.query('SELECT * FROM customers WHERE UPPER(lastname) LIKE UPPER('+"'%"+searchIn+"%'"+')');
-      queryResults.on('row', function(row){
-        searchCustomersArray.push(row);
-      });
-      queryResults.on('end', function(){
-        done();
-        return res.json(searchCustomersArray);
-      }); // end queryResults
-    } //end else
-  }); //end pg.connect
-}); // end search
-
-
-/////////////////////////////Add  form1_existingFit to DB////////////////////////////////
+/////////////////////////////Add  form1_existingFit to DB POST Route////////////////////////////////
 app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
 
@@ -234,7 +188,7 @@ app.post( '/addFormOne', function( req, res ){
   });// end pg connect
 });//end of post
 
-/////////////////////////////Add Form 2: New Fit to DB////////////////////////////////
+////////////////////Add Form 2: New Fit to DB POST Route/////////////////
 app.post( '/addForm2NewFit', function( req, res ){
   console.log( 'in addForm2NewFit', req.body );
 
@@ -285,7 +239,7 @@ app.post( '/addForm2NewFit', function( req, res ){
   });// end pg connect
 });//end of post
 
-///////////////////////////////// form3_customFrameGeometry///////////////////////////////////////////
+//////////////////////// form3_customFrameGeometry POST Route///////////////////////
 app.post('/addFrameGeometry', function(req, res){
   console.log('req.body:', req.body);
 
@@ -340,9 +294,8 @@ app.post('/addFrameGeometry', function(req, res){
     });// end pg connect
 });
 
-
 ///////////////////////  form4_customFrameDetails post route///////////////////////////////////
-app.post('/addFrameDetails', function (req, res){
+app.post('/addFormFour', function (req, res){
   console.log("This is what the server got:", req.body);
 
   var date = req.body.date;
@@ -391,6 +344,115 @@ app.post('/addFrameDetails', function (req, res){
     }// end of else
   });// end pg connect
 });
+
+//////////////////////////////////////////////////////////////// PUT ROUTES ////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////Edit Existing Customer in DB///////////////////////////
+app.put( '/editExistingCustomer', function( req, res ){
+  console.log( 'in editExistingCustomer' );
+  editCustomerInfo = req.body;
+  console.log('editCustomerInfo:', editCustomerInfo);
+  //assemble object to send
+  var firstName = editCustomerInfo.firstName;
+  var lastName = editCustomerInfo.lastName;
+  var email = editCustomerInfo.email;
+  var phoneNumber = editCustomerInfo.phoneNumber;
+  var streetAddress = editCustomerInfo.streetAddress;
+  var unitNumber = editCustomerInfo.unitNumber;
+  var city = editCustomerInfo.city;
+  var state = editCustomerInfo.state;
+  var zip = editCustomerInfo.zip;
+  var id = editCustomerInfo.id; //we need to define where this comes from, it will likely be from a get route that finds that specific customer's information
+
+  pg.connect(connectionString, function(err, client, done){
+    //check for error
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB");
+      //array to hold results
+      var editCustomerInfoToSend = [];
+      //send update to DB
+
+      //query uses the customer id number in the DB to determine which customer info should be edited
+      client.query('UPDATE customers SET firstName = ($1), lastName = ($2), email = ($3), phoneNumber = ($4), streetAddress = ($5), unitNumber = ($6), city = ($7), state = ($8), zip = ($9) WHERE id = ($10)', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, id]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * From customers');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        editCustomerInfoToSend.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(editCustomerInfoToSend);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+}); //end of editing current customer
+
+//////////////////////////////Edit Form 4 Route////////////////////////////////////
+app.put( '/editFormFour', function( req, res ){
+  console.log( 'in editFormFour' );
+  console.log('editFormFour:', req.body);
+  //assemble object to send
+  var date = req.body.date;
+  var bikeType = req.body.bikeType;
+  var bottomBracketShell = req.body.bottomBracketShell;
+  var brakeCompatability= req.body.brakeCompatability;
+  var brakeMount = req.body.brakeMount;
+  var wheelSize = req.body.wheelSize;
+  var specialFrameOptions = req.body.specialFrameOptions;
+  var headTubeSize = req.body.headTubeSize;
+  var forkType = req.body.forkType;
+  var seatDropper = req.body.seatDropper;
+  var drivetrain = req.body.drivetrain;
+  var paintColor = req.body.paintColor;
+  var fullCoverageFenders = req.body.fullCoverageFenders;
+  var fendersPainted = req.body.fendersPainted;
+  var frameNotes = req.body.frameNotes;
+  var frameOptions= req.body.frameOptions;
+  var paintNotes = req.body.paintNotes;
+  //form4Id is broken right now until we have an ID from the bike that is currently selected
+  var form4Id = 20; 
+
+
+  pg.connect(connectionString, function(err, client, done){
+    //check for error
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB via form 4 PUT Route");
+      //array to hold results
+      var editFormFourResponse = [];
+      //send update to DB
+
+      //query uses the customer id number in the DB to determine which fields should be updated
+      client.query('UPDATE form4_customFrameDetails SET date = ($1), bikeType = ($2), bottomBracketShell = ($3), brakeCompatability = ($4), brakeMount = ($5), wheelSize = ($6), specialFrameOptions = ($7), headTubeSize = ($8), forkType = ($9), seatDropper = ($10), drivetrain = ($11), paintColor = ($12), fullCoverageFenders = ($13), fendersPainted = ($14), frameNotes = ($15), frameOptions = ($16), paintNotes = ($17)  WHERE form4Id = ($18)', [date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes, form4Id]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY form4id DESC LIMIT 1;');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        editFormFourResponse.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(editFormFourResponse);
+
+      });//end of end
+    }// end of else
+  });// end pg connect
+}); //end of form four edits
+
+
+
 
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){

@@ -51,7 +51,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
 
     $http({
       method: 'PUT',
-      url: '/editExistingCustomer',
+      url: '/editFormFour',
       data: editCustomerObject
     }).then(function(editCustomerResponse){
       console.log('success from DB', editCustomerResponse);

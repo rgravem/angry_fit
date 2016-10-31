@@ -19,7 +19,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     	seatTubeLength: $scope.seatTubeLength,
     	seatTubeAngle: $scope.seatTubeAngle,
     	headTubeLength: $scope.headTubeLength,
-    	headTubeAngle: $scope.headTubeAngle ,
+    	headTubeAngle: $scope.headTubeAngle,
     	stack: $scope.stack ,
     	reach: $scope.reach,
     	wheelBase: $scope.wheelBase ,

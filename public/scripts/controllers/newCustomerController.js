@@ -13,17 +13,17 @@ myApp.controller("newCustomerController", ['$scope', '$http', '$location', funct
       state:$scope.state,
       zip:$scope.zip
     };
-    sessionStorage.setItem('customer', JSON.stringify(newCustomerObject));
-    var obj = JSON.parse(sessionStorage.getItem('customer'));
-    console.log('json obj:', obj);
-    console.log('newCustomerObject to send to DB:', newCustomerObject);
 
     $http({
       method: 'POST',
       url: '/addNewCustomer',
       data: newCustomerObject
     }).then(function(newCustomerResponse){
-      console.log('success from server', newCustomerResponse);
+      console.log('success from server', newCustomerResponse.data);
+      sessionStorage.setItem('customer', JSON.stringify(newCustomerResponse.data[0]));
+      var obj = JSON.parse(sessionStorage.getItem('customer'));
+      console.log('json obj:', obj);
+      console.log('newCustomerObject to send to DB:', newCustomerResponse);
       $location.path('/selectedCustomer');
     });
   };

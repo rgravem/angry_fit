@@ -62,6 +62,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     var newBike = {
       bikeName: $scope.newBikeName,
       bikeStyle: $scope.newBikeStyle,
+      customerID: $obj.id,
     };
     $http({
       method: 'PUT',

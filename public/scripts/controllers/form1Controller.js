@@ -126,7 +126,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     console.log("In the PDF click");
     var docDefinition =
       {content: [
-        {text: "Date: " + $scope.formOneDate.toString().substring(0,15) },
+        {text: "Date: " + $scope.date.toString().substring(0,15) },
         {text: "Injuries: " + $scope.injuries },
         {text: "Complaints: " + $scope.complaints },
         {text: "Surgeries: " + $scope.surgeries },

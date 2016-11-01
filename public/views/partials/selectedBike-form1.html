@@ -1,8 +1,9 @@
 <h2 class="existingFitFormHeading">Consultation Form</h2>
 <md-content class="md-padding">
-  <div layout-gt-sm="row" >
-    <form name="fitFormOne" layout-gt-sm="column" flex="50">
+  <div layout-gt-sm="row">
+    <form name="fitFormOne" layout-gt-sm="column" flex="60">
         <div id="formOneInputs" class="formOneInputs" flex="100">
+
           <div layout-gt-xs="row">
             <md-input-container>
                 <label>Enter date</label>
@@ -11,7 +12,6 @@
           </div>
 
 <!-- WE SHOULD ADD THE CUSTOMER INFORMATION HERE (NOT INPUTS, JUST SOME SORT OF PARAGRAPH STYLE) SO THE PDF WILL BE CREATED WITH CUSTOMER INFO ON IT  -->
-
           <div id="injuriesCurrently">
              <div layout-gt-sm="row">
                <p>Do you have any injuries that prevent you from riding any length of time?</p>
@@ -191,10 +191,10 @@
               <input ng-model="crankLength" ng-disabled="submittedOne">
             </md-input-container>
           </div>
-        </div>
+      </div>
     </form>
-    <div layout-gt-sm="column" flex="50">
-      <div id='FormOneNotes' class="formOneNotes" flex="100">
+    <div id='formOneNotesContainer' layout-gt-sm="column" flex="40">
+      <div id='FormOneNotes'>
         <md-input-container class="md-block" flex-gt-sm="">
           Notes<textarea rows="1"ng-model='notes' ng-disabled="submittedOne"></textarea></p>
         </md-input-container>
@@ -202,11 +202,10 @@
     </div>
   </div>
 
-  <div layout="row" layout-align="center" flex="100">
+  <div layout-gt-sm="row" layout-align="center" flex="100">
     <md-button id="formOneSubmit" class="md-raised md-primary formOneSubmit" ng-click="addFormOne()" ng-show="showHideSubmitFormOne">Submit</md-button>
     <md-button class="md-raised md-primary formUpdate" ng-click="updateFormOne()" ng-hide="showHideSubmitFormOne" ng-show="hideUpdate"> Update </md-button>
     <md-button class="md-raised md-primary formUpdate" ng-show="showSave" ng-click="saveFormOne()"> Save Updates</md-button>
     <md-button class="md-raised md-primary formPdf" ng-click="downloadFormOnePdf()" ng-hide="showHideSubmitFormOne"> PDF</md-button>
   </div>
-
 </md-content>

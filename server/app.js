@@ -355,20 +355,18 @@ app.post('/addFormFour', function (req, res){
 //////////////////////////////////////////////////////////////// PUT ROUTES ////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////Edit Existing Customer in DB///////////////////////////
 app.put( '/editExistingCustomer', function( req, res ){
-  console.log( 'in editExistingCustomer' );
-  editCustomerInfo = req.body;
-  console.log('editCustomerInfo:', editCustomerInfo);
+  console.log( 'in editExistingCustomer', req.body );
   //assemble object to send
-  var firstName = editCustomerInfo.firstName;
-  var lastName = editCustomerInfo.lastName;
-  var email = editCustomerInfo.email;
-  var phoneNumber = editCustomerInfo.phoneNumber;
-  var streetAddress = editCustomerInfo.streetAddress;
-  var unitNumber = editCustomerInfo.unitNumber;
-  var city = editCustomerInfo.city;
-  var state = editCustomerInfo.state;
-  var zip = editCustomerInfo.zip;
-  var id = editCustomerInfo.id; //we need to define where this comes from, it will likely be from a get route that finds that specific customer's information
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var email = req.body.email;
+  var phoneNumber = req.body.phoneNumber;
+  var streetAddress = req.body.streetAddress;
+  var unitNumber = req.body.unitNumber;
+  var city = req.body.city;
+  var state = req.body.state;
+  var zip = req.body.zip;
+  var customerId = req.body.customerId; //we need to define where this comes from, it will likely be from a get route that finds that specific customer's information
 
   pg.connect(connectionString, function(err, client, done){
     //check for error
@@ -382,10 +380,10 @@ app.put( '/editExistingCustomer', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which customer info should be edited
-      client.query('UPDATE customers SET firstName = ($1), lastName = ($2), email = ($3), phoneNumber = ($4), streetAddress = ($5), unitNumber = ($6), city = ($7), state = ($8), zip = ($9) WHERE id = ($10)', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, id]);
+      client.query('UPDATE customers SET firstName = ($1), lastName = ($2), email = ($3), phoneNumber = ($4), streetAddress = ($5), unitNumber = ($6), city = ($7), state = ($8), zip = ($9) WHERE customerId = ($10)', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, customerId]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * From customers');
+      var queryResults = client.query('SELECT * FROM customers WHERE customerid = '+"'"+customerId+"'"+' ');
       //run for each row in the query
       queryResults.on("row", function(row){
         editCustomerInfoToSend.push(row);

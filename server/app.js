@@ -658,7 +658,27 @@ app.post('/addBike', function(req, res){
         //return result as JSON version of array
         return res.json(newBikeIn);
 
-        });//end of end
+      });//end of end
+    }
+  });
+});
+
+app.get('/getBikes', function(req, res){
+  console.log('in getbikes query:', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from getbikes');
+      var bikes = [];
+      var queryResults = client.query("SELECT * FROM bikes WHERE customerid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        bikes.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(bikes);
+      });
     }
   });
 });

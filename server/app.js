@@ -683,6 +683,86 @@ app.get('/getBikes', function(req, res){
   });
 });
 
+app.get('/getBikeFormOne', function(req, res){
+  console.log('in form one query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from form one');
+      var formOne = [];
+      var queryResults = client.query("SELECT * FROM form1_existingfit WHERE bikeid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        formOne.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(formOne);
+      });
+    }
+  });
+});
+
+app.get('/getBikeFormTwo', function(req, res){
+  console.log('in form Two query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from form Two');
+      var formTwo = [];
+      var queryResults = client.query("SELECT * FROM form2_newfit WHERE bikeid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        formTwo.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(formTwo);
+      });
+    }
+  });
+});
+
+app.get('/getBikeFormThree', function(req, res){
+  console.log('in form Three query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from form Three');
+      var formThree = [];
+      var queryResults = client.query("SELECT * FROM form3_customframegeometry WHERE bikeid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        formThree.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(formThree);
+      });
+    }
+  });
+});
+
+app.get('/getBikeFormFour', function(req, res){
+  console.log('in form Four query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from form Four');
+      var formFour = [];
+      var queryResults = client.query("SELECT * FROM form4_customframedetails WHERE bikeid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        formFour.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(formFour);
+      });
+    }
+  });
+});
+
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";

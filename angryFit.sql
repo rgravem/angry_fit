@@ -38,7 +38,7 @@ CREATE TABLE bikes (
 	);
 
 
---create for Form 1: Consultation
+--create for Form 1: Existing Fit
 CREATE TABLE form1_existingFit (
 	form1ID SERIAL PRIMARY KEY NOT NULL,
 	bikeID INT REFERENCES bikes(bikeID),

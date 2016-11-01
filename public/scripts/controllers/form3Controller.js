@@ -9,6 +9,8 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   $scope.submitFrameGeometry = function(){
     console.log('complete clicked');
     var objectToSend = {
+      employeeCreated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.frameGeometryFormDate.toString().substring(0,15),
       inseam: $scope.inseam,
     	torso: $scope.torso,
@@ -48,6 +50,57 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     });// end http call
   }; // end addform3
 
+  ////////////////FORM 3 PUT(Update) Route to DB///////////////////////////////////////
+  $scope.saveFormThree = function(){
+    console.log('complete clicked');
+    //show update
+    $scope.hideUpdate = true;
+    //hide save
+    $scope.showSaveThree = false;
+    // lock form
+    $scope.submittedThree=true;
+
+    var editFormThreeObject = {
+      employeeUpdated: employee.employeeid,
+      bikeId: bike.bikeid,
+      date: $scope.frameGeometryFormDate.toString().substring(0,15),
+      inseam: $scope.inseam,
+    	torso: $scope.torso,
+    	arm: $scope.arm,
+    	footLength: $scope.footLength,
+    	effectiveTopTube: $scope.effectiveTopTube,
+    	standover: $scope.standover,
+    	seatTubeLength: $scope.seatTubeLength,
+    	seatTubeAngle: $scope.seatTubeAngle,
+    	headTubeLength: $scope.headTubeLength,
+    	headTubeAngle: $scope.headTubeAngle,
+    	stack: $scope.stack ,
+    	reach: $scope.reach,
+    	wheelBase: $scope.wheelBase ,
+    	chainstayLength: $scope.chainstayLength ,
+    	bbDrop: $scope.bbDrop ,
+    	axleToCrown: $scope.axleToCrown ,
+    	mechanicalTrail: $scope.mechanicalTrail ,
+    	forkOffset: $scope.forkOffset,
+      notes: $scope.notes
+    };
+
+    console.log('object to send:', editFormThreeObject);
+    //hide submit, show update and pdf
+    $scope.showHideSubmitFormThree = false;
+    //disable input fields
+    $scope.submittedThree = true;
+
+    $http({
+      method: 'PUT',
+      url: '/editFormThree',
+      data: editFormThreeObject
+    }).then(function(editForm3Response){
+      console.log('success from server', editForm3Response);
+    });
+  }; //End saveFormThree
+
+
   //update form 3 on click
   $scope.updateFormThree = function(){
     //hide update
@@ -58,15 +111,15 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedThree=false;
   };
 
-  // save form 3 on click
-  $scope.saveFormThree= function(){
-      //show update
-      $scope.hideUpdate = true;
-      //hide save
-      $scope.showSaveThree = false;
-      // lock form
-      $scope.submittedThree=true;
-  };
+  // // save form 3 on click
+  // $scope.saveFormThree= function(){
+  //     //show update
+  //     $scope.hideUpdate = true;
+  //     //hide save
+  //     $scope.showSaveThree = false;
+  //     // lock form
+  //     $scope.submittedThree=true;
+  // };
 
   // $scope.updateFormThree = function(){
   //   //reset form to submit staus

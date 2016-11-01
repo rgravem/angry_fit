@@ -48,6 +48,8 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {
+      employeeCreated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       saddleHeight: $scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
@@ -82,6 +84,54 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     });
   };
 
+  ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
+  $scope.saveFormTwo = function(){
+    console.log('complete clicked');
+    //show update
+    $scope.hideUpdate = true;
+    //hide save
+    $scope.showSaveTwo = false;
+    // lock form
+    $scope.submittedTwo=true;
+
+    var editFormTwoObject = {
+      employeeUpdated: employee.employeeid,
+      bikeId: bike.bikeid,
+      date: $scope.date.toString().substring(0,15),
+      saddleHeight: $scope.saddleHeight,
+      saddleHeightOverBars:$scope.saddleHeightOverBars,
+      saddleToHandlebarReach:$scope.saddleToHandlebarReach,
+      saddleAngle:$scope.saddleAngle,
+      saddleForeAft:$scope.saddleForeAft,
+      saddleBrandAndWidth:$scope.saddleBrandAndWidth,
+      stemLength:$scope.stemLength,
+      stemAngle:$scope.stemAngle,
+      handleBarWidth:$scope.handleBarWidth,
+      handleBarBrandAndModel:$scope.handleBarBrandAndModel,
+      pedalBrandAndModel:$scope.pedalBrandAndModel,
+      shoeBrandModelSize:$scope.shoeBrandModelSize,
+      brakeLevelPosition:$scope.brakeLevelPosition,
+      crankLength:$scope.crankLength,
+      standover:$scope.standover,
+      stack:$scope.stack,
+      notes: $scope.notes
+    };
+
+    console.log('object to send:', editFormTwoObject);
+    //hide submit, show update and pdf
+    $scope.showHideSubmitFormTwo = false;
+      //disable input fields
+      $scope.submittedTwo = true;
+
+    $http({
+      method: 'PUT',
+      url: '/editFormTwo',
+      data: editFormTwoObject
+    }).then(function(editForm2Response){
+      console.log('success from server', editForm2Response);
+    });
+  }; //End saveFormTwo
+
 
   //update form 2 on click
   $scope.updateFormTwo = function(){
@@ -93,15 +143,15 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedTwo=false;
   };
 
-  // save form 2 on click
-  $scope.saveFormTwo= function(){
-      //show update
-      $scope.hideUpdate = true;
-      //hide save
-      $scope.showSaveTwo = false;
-      // lock form
-      $scope.submittedTwo=true;
-  };
+  // // save form 2 on click
+  // $scope.saveFormTwo= function(){
+  //     //show update
+  //     $scope.hideUpdate = true;
+  //     //hide save
+  //     $scope.showSaveTwo = false;
+  //     // lock form
+  //     $scope.submittedTwo=true;
+  // };
 
   //
   // $scope.updateFormTwo = function(){

@@ -151,7 +151,9 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     //generate fork type
     forkType();
 
-    var formFourObject ={
+    var formFourObject = {
+      employeeCreated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.dateCreated.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
@@ -187,7 +189,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   }; //End submitFormFour
 
   ////////////////FORM 4 PUT(Update) Route to DB///////////////////////////////////////
-  $scope.updateFormFour = function(){
+  $scope.saveFormFour = function(){
     console.log("In Update Form Four");
     console.log($scope.customOrStandardFork);
     //show update
@@ -213,6 +215,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     forkType();
 
     var editFormFourObject ={
+      employeeUpdated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.dateCreated.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,

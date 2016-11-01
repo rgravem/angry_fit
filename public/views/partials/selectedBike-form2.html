@@ -54,35 +54,35 @@
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
-            <label>H: Stem length</label>
+            <label>G: Stem length</label>
                 <input ng-model="stemLength" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
-            <label>I: Stem angle</label>
+            <label>H: Stem angle</label>
                 <input ng-model="stemAngle" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
-            <label>J: Handle bar width</label>
+            <label>I: Handle bar width</label>
                 <input ng-model="handleBarWidth" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
-            <label>K: Handle bar brand/model</label>
+            <label>J: Handle bar brand/model</label>
                 <input ng-model="handleBarBrandAndModel" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
-            <label>L: Pedal brand/model</label>
+            <label>K: Pedal brand/model</label>
                 <input ng-model="pedalBrandAndModel" ng-disabled="submittedTwo">
               </md-input-container>
           <md-input-container class="md-block" flex-gt-sm="">
@@ -92,20 +92,21 @@
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
-            <label>M: Brake level position</label>
+            <label>L: Brake level position</label>
                 <input ng-model="brakeLevelPosition" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
-            <label>N: Crank Length</label>
+            <label>M: Crank Length</label>
                 <input ng-model="crankLength" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
+
             <label>O: Standover</label>
                 <input id="standover" ng-focus="standoverFocus()" ng-blur="standoverBlur()"ng-model="standover" ng-disabled="submittedTwo">
                 </md-input-container>
@@ -113,7 +114,7 @@
 
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
-            <label>P: Stack</label>
+            <label>O: Stack</label>
                 <input ng-model="stack" ng-disabled="submittedTwo">
                 </md-input-container>
         </div>
@@ -184,7 +185,7 @@
   <div layout="row" layout-align="center" flex="100">
     <md-button class="md-raised md-primary formTwoSubmit" placeholder="Submit" ng-click="addForm2NewFit()" ng-show="showHideSubmitFormTwo">Submit</md-button>
     <md-button class="md-raised md-primary formUpdate" ng-click="updateFormTwo()" ng-hide="showHideSubmitFormTwo" ng-show="hideUpdate"> Update </md-button>
-    <md-button class="md-raised md-primary formUpdate" ng-show='showSaveTwo' ng-click="saveFormTwo()"> Save Updates </md-button>
+    <md-button class="md-raised md-primary formUpdate" ng-click="saveFormTwo()" ng-show='showSaveTwo'> Save Updates </md-button>
     <md-button class="md-raised md-primary formPdf"  ng-click="downloadFormTwoPdf()" ng-hide="showHideSubmitFormTwo"> PDF</md-button>
   </div>
 </md-content>

@@ -137,8 +137,9 @@ app.post( '/addNewCustomer', function( req, res ){
 app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
 
-  // Need to do employeeCreated and bikeId
   var date = req.body.date;
+  var employeeCreated = req.body.employeeId;
+  var bikeId = req.body.bikeId;
   var injuries = req.body.injuries;
   var complaints = req.body.complaints;
   var surgeries = req.body.surgeries;
@@ -169,7 +170,7 @@ app.post( '/addFormOne', function( req, res ){
 
       var newFormOneToSend = [];
 
-      client.query('INSERT INTO form1_existingFit (date, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22);', [date, employeeID, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
+      client.query('INSERT INTO form1_existingFit (date, employeeCreated, bikeId, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23);', [date, employeeCreated, bikeId, injuries, complaints, surgeries, averageRideLength, upcomingRaces, currentBikeBrand, saddleHeight, saddleHeightOverBars, saddleAngle, saddleSetback, SaddlehandlebarReach, stemLength, stemAngle, handlebarWidth, handlebarBrand, pedalBrandModel, shoeBrand, brakeLevel, crankLength, notes]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form1_existingFit ORDER BY form1id DESC LIMIT 1');
@@ -192,8 +193,9 @@ app.post( '/addFormOne', function( req, res ){
 app.post( '/addForm2NewFit', function( req, res ){
   console.log( 'in addForm2NewFit', req.body );
 
-  // Need to do employeeCreated and bikeId
   var date = req.body.date;
+  var employeeCreated = req.body.employeeId;
+  var bikeId = req.body.bikeId;
   var saddleHeight = req.body.saddleHeight;
   var saddleHeightOverBars = req.body.saddleHeightOverBars;
   var saddleToHandlebarReach = req.body.saddleToHandlebarReach;
@@ -221,7 +223,7 @@ app.post( '/addForm2NewFit', function( req, res ){
 
       var form2ToSend = [];
 
-      client.query('INSERT INTO  form2_newFit (date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18);', [date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes]);
+      client.query('INSERT INTO  form2_newFit (date, employeeCreated, bikeId, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20);', [date, employeeCreated, bikeId, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form2_newFit ORDER BY form2id DESC LIMIT 1');
@@ -244,8 +246,9 @@ app.post( '/addForm2NewFit', function( req, res ){
 app.post('/addFrameGeometry', function(req, res){
   console.log('req.body:', req.body);
 
-  // Need to do employeeCreated and bikeId
   var date = req.body.date;
+  var employeeCreated = req.body.employeeId;
+  var bikeId = req.body.bikeId;
   var inseam = req.body.inseam;
   var torso = req.body.torso;
   var arm = req.body.arm;
@@ -278,7 +281,7 @@ app.post('/addFrameGeometry', function(req, res){
         //send update to DB
 
         //query uses the customer id number in the DB to determine which customer info should be edited
-        client.query('INSERT INTO form3_customFrameGeometry (date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail, forkOffset, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20);', [date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail, forkOffset, notes]);
+        client.query('INSERT INTO form3_customFrameGeometry (date, employeeCreated, bikeId, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail, forkOffset, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22);', [date, employeeCreated, bikeId, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail, forkOffset, notes]);
         //Query the DB
         var queryResults = client.query('SELECT * FROM form3_customFrameGeometry ORDER BY form3id DESC LIMIT 1;');
         //run for each row in the query
@@ -300,8 +303,9 @@ app.post('/addFrameGeometry', function(req, res){
 app.post('/addFormFour', function (req, res){
   console.log("This is what the server got:", req.body);
 
-  // Need to do employeeCreated and bikeId
   var date = req.body.date;
+  var employeeCreated = req.body.employeeId;
+  var bikeId = req.body.bikeId;
   var bikeType = req.body.bikeType;
   var bottomBracketShell = req.body.bottomBracketShell;
   var brakeCompatability= req.body.brakeCompatability;
@@ -330,7 +334,7 @@ app.post('/addFormFour', function (req, res){
     var frameDetails = [];
     //send update to DB
     //query uses the customer id number in the DB to determine which customer info should be edited
-    client.query('INSERT INTO  form4_customFrameDetails (date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);', [date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted,frameNotes, frameOptions, paintNotes]);
+    client.query('INSERT INTO  form4_customFrameDetails (date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19);', [date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes]);
     //Query the DB
     var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY form4id DESC LIMIT 1;');
     //run for each row in the query

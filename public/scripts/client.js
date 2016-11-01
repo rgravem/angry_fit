@@ -1,5 +1,12 @@
 console.log('client.js is sourced, yo!');
 
+console.realWarn = console.warn;
+console.warn = function (message) {
+    if (message.indexOf("ARIA") == -1) {
+        console.realWarn.apply(console, arguments);
+    }
+};
+
 //source in angular
 var myApp = angular.module("myApp", ['ui.router', 'ngMaterial', 'ngMessages', 'firebase']);
 

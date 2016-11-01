@@ -471,13 +471,52 @@ app.post('/addBike', function(req, res){
         //return result as JSON version of array
         return res.json(newBikeIn);
 
-        });//end of end
+      });//end of end
     }
   });
 });
 
-
-
+app.get('/getBikes', function(req, res){
+  console.log('in getbikes query:', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from getbikes');
+      var bikes = [];
+      var queryResults = client.query("SELECT * FROM bikes WHERE customerid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        bikes.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(bikes);
+      });
+    }
+  });
+});
+// app.get('/customer', function(req, res){
+//   console.log('q is:', req.query.q);
+//   var searchIn = req.query.q;
+//   console.log('query:', searchIn);
+// pg.connect(connectionString, function(err, client, done){
+//   if(err){
+//     console.log('error getting search');
+//     res.sendStatus(500);
+//   }else{
+//     console.log('connected via search');
+//     var searchCustomersArray = [];
+//     var queryResults = client.query('SELECT * FROM customers WHERE UPPER(lastname) LIKE UPPER('+"'%"+searchIn+"%'"+')');
+//     queryResults.on('row', function(row){
+//       searchCustomersArray.push(row);
+//     });
+//     queryResults.on('end', function(){
+//       done();
+//       return res.json(searchCustomersArray);
+//     }); // end queryResults
+//   } //end else
+// }); //end pg.connect
+// }); // end search
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";

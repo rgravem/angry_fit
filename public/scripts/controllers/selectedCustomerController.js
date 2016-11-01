@@ -1,21 +1,27 @@
 myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In selectedCustomerController');
   var obj = JSON.parse(sessionStorage.getItem('customer'));
+  var bikeList = JSON.parse(sessionStorage.getItem('customerBikes'));
+
   $scope.newBikeStart = function(){
     console.log('newbike');
      $scope.newBikeButton = !$scope.newBikeButton;
   };
-  $scope.clearsess = function(){
-    console.log('clear clicked');
+  $scope.loadBikes = function(){
+    var bikeList = JSON.parse(sessionStorage.getItem('customerBikes'));
+    $scope.customerBikes = bikeList;
     // sessionStorage.removeItem('customer');
     console.log('obj after clear:', sessionStorage);
   };
+
   $scope.otherType = false;
   $scope.otherSelected = function(){
     $scope.otherType = !$scope.otherType;
   };
 
-
+  var reload = function(){
+    location.reload();
+  };
   // show new bike name
   $scope.showInNewBikeType = false;
   $scope.updateShowOther= function(){
@@ -33,6 +39,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   };
 
   $scope.customerInfo();
+  $scope.loadBikes();
 
 
   $scope.editExistingCustomer = function () {
@@ -75,5 +82,4 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
       $location.path('/selectedBike/form1');
     });
   };
-
 }]);//end selectedCustomerController

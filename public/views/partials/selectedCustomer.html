@@ -3,8 +3,20 @@
 <div id="custInfo" ng-model="customerInfo">
 
 </div>
+
+<div class='md-padding' layout="row" layout-wrap>
+      <md-card style="width: 200px;" ng-repeat="bike in customerBikes" ng-click="cardClicked(bike)">
+        <img src="http://placehold.it/150x150" class="md-card-image" alt="user avatar">
+        <md-card-content>
+          <h3>{{bike.bikename}} {{bike.biketype}}</h3>
+
+        </md-card-content>
+      </md-card>
+    </div>
+
 <md-button class="md-raised md-primary" ng-click="newBikeStart()" ng-hide="newBikeButton">Start New Fit</md-button>
-<md-button class="md-raised md-primary" ng-click="clearsess()">Clear session</md-button>
+<md-button class="md-raised md-primary" ng-click="loadBikes()">Load Bikes</md-button>
+
 
 <div id="newBike" ng-show="newBikeButton">
 <div id="newBikeName">
@@ -17,40 +29,7 @@
 </div>
 </div>
 
-
-
 <div id="newBikeType">
-   <div layout-gt-sm="row">
-     <p>New bike type?</p>
-   </div>
-   <md-radio-group ng-model='newBikeStyle'>
-     <div layout-gt-sm="row">
-       <!-- Seat injuries Yes -->
-       <md-radio-button value="flatBar" name="newBikeTypeIn" ng-click="updateHideType()"> Flat bar </md-radio-button>
-       <md-radio-button value="dropBar" name="newBikeTypeIn" ng-click="updateHideType()"> Drop bar </md-radio-button>
-       <md-radio-button value="triTT" name="newBikeTypeIn" ng-click="updateHideType()"> Tri/TT </md-radio-button>
-       <md-radio-button value="" name="newBikeTypeIn" ng-click="updateShowOther()"> Other </md-radio-button>
-     </div>
-   </md-radio-group>
-
-     <!-- IF yes -->
-   <div id="setNewBikeType" ng-show="showInNewBikeType">
-     <div layout-gt-sm="row">
-       <md-input-container class="md-block" flex-gt-sm="">
-         <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="newBikeStyle">
-       </md-input-container>
-     </div>
-   </div>
-</div>
-
-
-
-
-
-
-
-
-<!-- <div id="newBikeType">
   <div layout-gt-sm="row">
     <p>New bike type:</p>
   </div>
@@ -70,7 +49,7 @@
       </md-input-container>
     </div>
   </div>
-  </div> -->
+  </div>
   <div layout-gt-sm="row" layout-align="center" flex="100">
     <md-button id='startNewBikeButton' class="md-raised md-primary" ng-click="startNewBike()">Start Fit</md-button>
 

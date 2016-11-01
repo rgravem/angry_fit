@@ -10,16 +10,21 @@ myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArr
     console.log('card clicked', user);
     sessionStorage.setItem('customer', JSON.stringify(user));
     var obj = JSON.parse(sessionStorage.getItem('customer'));
-    console.log('json obj:', obj);
-    // $http({
-    //   method: 'GET',
-    //   url: '/getBikes'
-    // }).then(function success(bikes){
-    //   console.log('bikes from server:', bikes);
-    // }, function error(errorObject){
-    //   console.log(errorObject);
-    // });
-    $location.path('/selectedCustomer');
+    console.log('json obj:', obj.customerid);
+    $http({
+      method: 'GET',
+      url: '/getBikes?q=' + obj.customerid,
+    }).then(function success(bikes){
+      console.log('bikes from server:', bikes.data);
+      sessionStorage.setItem('customerBikes', JSON.stringify(bikes.data));
+      var bikeList = JSON.parse(sessionStorage.getItem('customerBikes'));
+      console.log('json bikeList:', bikeList);
+    }, function error(errorObject){
+      console.log(errorObject);
+    });
+    setTimeout(function(){
+     $location.path('/selectedCustomer');
+   }, 0);
   };
 
   $scope.getExistingCustomers = function () {

@@ -37,6 +37,12 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   $scope.saddleAngleBlur = function(){
     document.getElementById("saddleAngle").className.baseVal = "hideMeasurement";
   };
+  $scope.saddleForeAftFocus = function(){
+    document.getElementById("saddleForeAft").className.baseVal = "showMeasurement";
+  };
+  $scope.saddleForeAftBlur = function(){
+    document.getElementById("saddleForeAft").className.baseVal = "hideMeasurement";
+  };
 
 
   $scope.addForm2NewFit = function () {

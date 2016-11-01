@@ -267,7 +267,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     console.log("In the PDF click");
     var docDefinition =
       {content: [
-        {text: "Date: " + $scope.dateCreated.toString().substring(0,15)},
+        {text: "Date: " + $scope.date.toString().substring(0,15)},
         {text: "Bike Style: " + $scope.bikeStyle },
         {text: "Bottom Bracket Shell: " + $scope.bottomBracketShell},
         {text: "Brake Compatability: " + $scope.brakeCompatability},

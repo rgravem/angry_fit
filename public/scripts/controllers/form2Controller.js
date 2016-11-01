@@ -164,7 +164,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     console.log("In the PDF click");
     var docDefinition =
       {content: [
-        { text: "Date: " + $scope.form2Date.toString().substring(0,15)},
+        { text: "Date: " + $scope.date.toString().substring(0,15)},
         { text: "Saddle Height: " + $scope.saddleHeight },
         { text: "Saddle Height Over Bars: " + $scope.saddleHeightOverBars },
         { text: "Saddle to Handlebar reach: " + $scope.saddleToHandlebarReach },

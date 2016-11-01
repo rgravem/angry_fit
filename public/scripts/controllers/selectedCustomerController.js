@@ -35,29 +35,42 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     customer.append(obj.firstname + " " + obj.lastname + '</br>' + obj.email + '</br>' + obj.phonenumber + '</br>' + obj.streetaddress + ", " + obj.zip );
   };
 
+
   $scope.customerInfo();
   $scope.loadBikes();
 
 
-  $scope.editExistingCustomer = function () {
+  $scope.editCustomerInfo = function () {
+    console.log("in editCustomerInfo");
     var editCustomerObject = {
-      firstName: $scope.firstName,
-      lastName:$scope.lastName,
-      email:$scope.email,
-      phoneNumber:$scope.phoneNumber,
-      streetAddress:$scope.streetAddress,
-      unitNumber:$scope.unitNumber,
-      city:$scope.city,
-      state:$scope.state,
-      zip:$scope.zip
+      firstName: obj.firstname,
+      lastName: obj.lastname,
+      email: obj.email,
+      phoneNumber: obj.phonenumber,
+      streetAddress: obj.streetaddress,
+      unitNumber: obj.unitnumber,
+      city: obj.city,
+      state: obj.state,
+      zip: obj.zip,
+      customerId: obj.customerid
     };
+
+    console.log("editCustomerObject", editCustomerObject);
 
     $http({
       method: 'PUT',
-      url: '/editFormFour',
+      url: '/editExistingCustomer',
       data: editCustomerObject
     }).then(function(editCustomerResponse){
       console.log('success from DB', editCustomerResponse);
+      console.log('customer info from other page:', obj);
+      //write over the #custInfo dom element to properly display the edited customer
+      var customer = angular.element(document.querySelector( '#custInfo' ) );
+      customer.html(editCustomerResponse.data[0].firstname + " " + editCustomerResponse.data[0].lastname + '</br>' + editCustomerResponse.data[0].email + '</br>' + editCustomerResponse.data[0].phonenumber + '</br>' + editCustomerResponse.data[0].streetaddress + ", " + editCustomerResponse.data[0].zip );
+      //set session data to equal the edited customer's new info
+      sessionStorage.setItem('customer', JSON.stringify(editCustomerResponse.data[0]));
+      obj = JSON.parse(sessionStorage.getItem('customer'));
+      console.log(obj);
     });
   };
 

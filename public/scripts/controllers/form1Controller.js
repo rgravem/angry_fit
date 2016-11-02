@@ -12,15 +12,17 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   $scope.submittedOne=false;
 
   $scope.formOneLoad = function(){
-    if (formOne[0] == undefined){
+    if (formOne == undefined){
+      console.log('starting new bike');
+    }else if (formOne[0] == undefined){
       alert('Existing Fit has no data');
-    }else{
+    } else {
     console.log("form 1 session:", formOne[0]);
-    $scope.injuries = formOne[0].injuries;
+    $scope.injuryInfo = formOne[0].injuries;
     $scope.complaints = formOne[0].complaints;
-    $scope.surgeries = formOne[0].surgeries;
+    $scope.surgeryInfo = formOne[0].surgeries;
     $scope.averageRideLength = formOne[0].averageridelength;
-    $scope.upcomingRaces = formOne[0].upcomingraces;
+    $scope.goalsInfo = formOne[0].upcomingraces;
     $scope.currentBikeBrand = formOne[0].currentbikebrand;
     $scope.saddleHeight = formOne[0].saddleheight;
     $scope.saddleHeightOverBars = formOne[0].saddleheightoverbars;
@@ -46,11 +48,11 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
       employeeCreated: employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
-      injuries: $scope.injuries,
+      injuries: $scope.injuryInfo,
       complaints:$scope.complaints,
-      surgeries:$scope.surgeries,
+      surgeries:$scope.surgeryInfo,
       averageRideLength:$scope.averageRideLength,
-      upcomingRaces:$scope.upcomingRaces,
+      upcomingRaces:$scope.goalsInfo,
       currentBikeBrand:$scope.currentBikeBrand,
       saddleHeight:$scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
@@ -74,13 +76,13 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     //disable input fields
     $scope.submittedOne = true;
 
-    // $http({
-    //   method: 'POST',
-    //   url: '/addFormOne',
-    //   data: formOneObject
-    // }).then(function(formOneObject){
-    //   console.log('success from server', formOneObject);
-    // });
+    $http({
+      method: 'POST',
+      url: '/addFormOne',
+      data: formOneObject
+    }).then(function(formOneObject){
+      console.log('success from server', formOneObject);
+    });
   }; // end addFormOne
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
@@ -94,14 +96,14 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedOne=true;
 
     var editFormOneObject = {
-      employeeUpdated: employee.employeeid,
+      employeeCreated: employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
-      injuries: $scope.injuries,
+      injuries: $scope.injuryInfo,
       complaints:$scope.complaints,
-      surgeries:$scope.surgeries,
+      surgeries:$scope.surgeryInfo,
       averageRideLength:$scope.averageRideLength,
-      upcomingRaces:$scope.upcomingRaces,
+      upcomingRaces:$scope.goalsInfo,
       currentBikeBrand:$scope.currentBikeBrand,
       saddleHeight:$scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
@@ -144,15 +146,6 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedOne=false;
   };
 
-  // // save form on click
-  // $scope.saveFormOne= function(){
-  //     //show update
-  //     $scope.hideUpdate = true;
-  //     //hide save
-  //     $scope.showSave = false;
-  //     // lock form
-  //     $scope.submittedOne=true;
-  // };
 
   $scope.downloadFormOnePdf = function(){
     console.log("In the PDF click");

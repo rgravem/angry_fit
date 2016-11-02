@@ -4,7 +4,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
-
+  $scope.date= new Date();
   // set form to edit and submit status
   //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
@@ -47,13 +47,8 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
-<<<<<<< HEAD
-      // employeeCreated: employee.employeeid,
-      // bikeId: bike.bikeid,
-=======
       employeeCreated: employee,
       bikeId: bike.bikeid,
->>>>>>> master
       date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuryInfo,
       complaints:$scope.complaints,
@@ -103,13 +98,8 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedOne=true;
 
     var editFormOneObject = {
-<<<<<<< HEAD
-      // employeeUpdated: employee.employeeid,
-      // bikeId: bike.bikeid,
-=======
       employeeCreated: employee,
       bikeId: bike.bikeid,
->>>>>>> master
       date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuryInfo,
       complaints:$scope.complaints,

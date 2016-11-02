@@ -59,18 +59,6 @@
 </md-content>
 
 
-<!--//////////////////////////Bike Cards For Each Customer///////////////////////////////-->
-<div class='md-padding' layout="row" layout-wrap>
-      <md-card style="width: 200px;" ng-repeat="bike in customerBikes" ng-click="cardClicked(bike)">
-        <img src="http://placehold.it/150x150" class="md-card-image" alt="user avatar">
-        <md-card-content>
-          <h3>{{bike.bikename}} {{bike.biketype}}</h3>
-
-        </md-card-content>
-      </md-card>
-    </div>
-
-
 <md-button class="md-raised md-primary" ng-click="newBikeStart()" ng-hide="newBikeButton">Start New Fit</md-button>
 <md-button class="md-raised md-primary" ng-click="loadBikes()">Load Bikes</md-button>
 

@@ -1,5 +1,9 @@
 myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   console.log('In form4Controller');
+  var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
+  var employee = JSON.parse(sessionStorage.getItem('employee'));
+  var formFour = JSON.parse(sessionStorage.getItem('formFour'));
+  $scope.date= new Date();
   // set form to edit and submit status
   //show submit button, hide update and pdf
   $scope.showHideSubmitFormFour = true;
@@ -154,7 +158,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     var formFourObject = {
       employeeCreated: employee.employeeid,
       bikeId: bike.bikeid,
-      date: $scope.dateCreated.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
       brakeCompatability: $scope.brakeCompatability,
@@ -217,7 +221,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     var editFormFourObject ={
       employeeUpdated: employee.employeeid,
       bikeId: bike.bikeid,
-      date: $scope.dateCreated.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
       brakeCompatability: $scope.brakeCompatability,

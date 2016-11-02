@@ -6,6 +6,14 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
 
   $scope.date= new Date();
+  $scope.submitButton = function(){
+    if (formOne == undefined) {
+      console.log('starting new');
+    } else if(formOne[0] !== undefined) {
+    $scope.showHideSubmitFormOne = false;
+    $scope.submittedOne = true;
+  }
+  };
   // set form to edit and submit status
   //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
@@ -44,6 +52,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   }
   };
   $scope.formOneLoad();
+  $scope.submitButton();
 
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');

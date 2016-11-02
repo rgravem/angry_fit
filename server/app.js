@@ -138,7 +138,7 @@ app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
 
   var date = req.body.date;
-  var employeeCreated = req.body.employeeId;
+  var employeeCreated = req.body.employeeCreated;
   var bikeId = req.body.bikeId;
   var injuries = req.body.injuries;
   var complaints = req.body.complaints;

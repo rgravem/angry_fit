@@ -37,7 +37,7 @@ md-radio-button:focus {
   margin-right: auto;
 }
 .customerSelectHeading{
-  color:
+  color: #361d10;
   margin-top: 5%;
 }
 .customerTypes{
@@ -99,5 +99,7 @@ md-nav-bar md-nav-ink-bar {
 #formOneIcon{
 display: block;
 margin: auto;
+margin-top:10%;
 width: 40%;
+opacity: 0.75;
 }

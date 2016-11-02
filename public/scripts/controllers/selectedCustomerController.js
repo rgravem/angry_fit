@@ -128,8 +128,8 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
       data: newBike
     }).then(function(addBikeResponse){
       console.log('added bike:', addBikeResponse.data);
-      sessionStorage.setItem('newBike', JSON.stringify(addBikeResponse.data[0]));
-      var bike = JSON.parse(sessionStorage.getItem('newBike'));
+      sessionStorage.setItem('selectedBike', JSON.stringify(addBikeResponse.data[0]));
+      var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
       console.log('json obj:', bike);
       $location.path('/selectedBike/form1');
     }); // end then response
@@ -190,7 +190,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
      console.log(errorObject);
    }); // end get form four
    setTimeout(function(){
-   //  $location.path('/selectedCustomer');
+    $location.path('/selectedBike/form1');
     }, 0);
   }; //end cardClicked
 

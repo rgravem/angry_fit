@@ -12,51 +12,26 @@
           </div>
 
 <!-- WE SHOULD ADD THE CUSTOMER INFORMATION HERE (NOT INPUTS, JUST SOME SORT OF PARAGRAPH STYLE) SO THE PDF WILL BE CREATED WITH CUSTOMER INFO ON IT  -->
-          <div id="injuriesCurrently">
-             <div layout-gt-sm="row">
-               <p>Do you have any injuries that prevent you from riding any length of time?</p>
-             </div>
-             <md-radio-group>
-               <div layout-gt-sm="row">
-                 <!-- Seat injuries Yes -->
-                 <md-radio-button value="true" name="injuryIn" ng-click="updateShowInjury()" ng-disabled="submittedOne"> Yes </md-radio-button>
-                 <!-- Seat injuries No -->
-                 <md-radio-button value="false" name="injuryIn" ng-click="updateHideInjury()" ng-disabled="submittedOne"> No </md-radio-button>
-               </div>
-             </md-radio-group>
-
-               <!-- IF yes -->
-             <div id="setInjury" ng-show="showInjury">
+             <div id="setInjury">
                <div layout-gt-sm="row">
                  <md-input-container class="md-block" flex-gt-sm="">
-                   <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="injuryInfo" ng-disabled="submittedOne">
+                   <label>Do you have any injuries that prevent you from riding any length of time?</label>
+                   <input type="text" id="injuryIn" value="" ng-model="injuryInfo" ng-disabled="submittedOne">
                  </md-input-container>
                </div>
              </div>
-          </div>
 
-          <p>What are some of your complaints with your current fit, if any?</p>
+
           <md-input-container class="md-block" flex-gt-sm="">
-            <textarea rows="1"  ng-model='complaints' ng-disabled="submittedOne"></textarea>
+            <textarea rows="1"  ng-model='complaints' placeholder="What are some of your complaints with your current fit, if any?" ng-disabled="submittedOne"></textarea>
           </md-input-container>
 
          <div id="surgeriesCurrently">
-           <div layout-gt-sm="row">
-            <p>Have you had any surgeries? If so, how long ago?</p>
-          </div>
-           <md-radio-group>
-             <div layout-gt-sm="row">
-              <!-- Seat surgeries Yes -->
-              <md-radio-button value="true" name="surgeriesIn" ng-click="updateShowSurgery()" ng-disabled="submittedOne"> Yes </md-radio-button>
-              <!-- Seat surgeries No -->
-              <md-radio-button value="false" name="surgeriesIn" ng-click="updateHideSurgery()" ng-disabled="submittedOne"> No </md-radio-button>
-            </div>
-           </md-radio-group>
-             <!-- IF yes -->
-          <div id="setInjury" ng-show="showSurgery">
+
+          <div id="setInjury">
             <div layout-gt-sm="row">
              <md-input-container class="md-block" flex-gt-sm="">
-              <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="surgeryInfo" ng-disabled="submittedOne">
+              <input type="text" id="injuryIn" value="" placeholder="Have you had any surgeries? If so, how long ago?" ng-model="surgeryInfo" ng-disabled="submittedOne">
              </md-input-container>
            </div>
           </div>
@@ -70,23 +45,10 @@
           </div>
 
          <div id="goalsCurrently">
-            <div layout-gt-sm="row">
-              <p>Do you have any races, tours or over all goals in the near future?</p>
-            </div>
-            <md-radio-group>
-              <div layout-gt-sm="row">
-                <!-- Seat goals Yes -->
-                <md-radio-button value="true" name="goalsIn" ng-click="updateShowGoals()" ng-disabled="submittedOne"> Yes </md-radio-button>
-                <!-- Seat goals No -->
-                <md-radio-button value="false" name="goalsIn" ng-click="updateHideGoals()" ng-disabled="submittedOne"> No </md-radio-button>
-              </div>
-            </md-radio-group>
-
-               <!-- IF yes -->
             <div id="setGoals" ng-show="showGoals">
                <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm="">
-                    <input type="text" id="injuryIn" value="" placeholder="Explain" ng-model="goalsInfo" ng-disabled="submittedOne">
+                    <input type="text" id="injuryIn" value="" placeholder="What races, tours or over all goals are in the near future?" ng-model="goalsInfo" ng-disabled="submittedOne">
                   </md-input-container>
                 </div>
             </div>

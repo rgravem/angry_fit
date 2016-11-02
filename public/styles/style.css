@@ -49,3 +49,9 @@ md-radio-button:focus {
 
   }
 }
+
+#formOneIcon{
+display: block;
+margin: auto;
+width: 40%;
+}

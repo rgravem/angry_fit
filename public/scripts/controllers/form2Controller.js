@@ -139,6 +139,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       data: addForm2NewFitObject
     }).then(function(form2Response){
       console.log('success from server', form2Response);
+      sessionStorage.setItem('formTwo', JSON.stringify(form2Response.data));
     });
   };
 
@@ -187,6 +188,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
       data: editFormTwoObject
     }).then(function(editForm2Response){
       console.log('success from server', editForm2Response);
+      sessionStorage.setItem('formTwo', JSON.stringify(editForm2Response.data));
     });
   }; //End saveFormTwo
 

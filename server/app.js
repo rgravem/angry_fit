@@ -194,7 +194,7 @@ app.post( '/addForm2NewFit', function( req, res ){
   console.log( 'in addForm2NewFit', req.body );
 
   var date = req.body.date;
-  var employeeCreated = req.body.employeeId;
+  var employeeCreated = req.body.employee;
   var bikeId = req.body.bikeId;
   var saddleHeight = req.body.saddleHeight;
   var saddleHeightOverBars = req.body.saddleHeightOverBars;
@@ -207,7 +207,7 @@ app.post( '/addForm2NewFit', function( req, res ){
   var stemAngle =req.body.stemAngle;
   var handleBarWidth = req.body.handleBarWidth;
   var pedalBrandAndModel = req.body.pedalBrandAndModel;
-  var showBrandModelSize = req.body.showBrandModelSize;
+  var shoeBrandModelSize = req.body.shoeBrandModelSize;
   var brakeLevelPosition = req.body.brakeLevelPosition;
   var crankLength = req.body.crankLength;
   var standover = req.body.standover;
@@ -304,7 +304,7 @@ app.post('/addFormFour', function (req, res){
   console.log("This is what the server got:", req.body);
 
   var date = req.body.date;
-  var employeeCreated = req.body.employeeId;
+  var employeeCreated = req.body.employee;
   var bikeId = req.body.bikeId;
   var bikeType = req.body.bikeType;
   var bottomBracketShell = req.body.bottomBracketShell;
@@ -465,7 +465,7 @@ app.put( '/editFormTwo', function( req, res ){
   console.log( 'in editFormTwo' );
   console.log('editFormTwo:', req.body);
   //assemble object to send
-  var employeeUpdated = req.body.employeeUpdated;
+  var employeeUpdated = req.body.employee;
   //need to hardcode bikeId for now until we have persistent data
   var bikeId = req.body.bikeId;
   var date = req.body.date;
@@ -480,7 +480,7 @@ app.put( '/editFormTwo', function( req, res ){
   var stemAngle =req.body.stemAngle;
   var handleBarWidth = req.body.handleBarWidth;
   var pedalBrandAndModel = req.body.pedalBrandAndModel;
-  var showBrandModelSize = req.body.showBrandModelSize;
+  var shoeBrandModelSize = req.body.shoeBrandModelSize;
   var brakeLevelPosition = req.body.brakeLevelPosition;
   var crankLength = req.body.crankLength;
   var standover = req.body.standover;
@@ -499,7 +499,7 @@ app.put( '/editFormTwo', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form2_newFit SET employeeIdUpdated = ($1), date = ($2), saddleHeight = ($3), saddleHeightOverBars = ($4), saddleToHandlebarReach = ($5), saddleAngle = ($6), saddleForeAft = ($7), saddleBrandAndWidth = ($8), handleBarBrandAndModel = ($9), stemLength = ($10), stemAngle = ($11), handleBarWidth = ($12), pedalBrandAndModel = ($13), showBrandModelSize = ($14), brakeLevelPosition = ($15), crankLength = ($16), standover = ($17), stack = ($18), notes = ($19) WHERE bikeId = ($20)', [employeeIdUpdated, date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, showBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes, bikeId]);
+      client.query('UPDATE form2_newFit SET employeeUpdated = ($1), date = ($2), saddleHeight = ($3), saddleHeightOverBars = ($4), saddleToHandlebarReach = ($5), saddleAngle = ($6), saddleForeAft = ($7), saddleBrandAndWidth = ($8), handleBarBrandAndModel = ($9), stemLength = ($10), stemAngle = ($11), handleBarWidth = ($12), pedalBrandAndModel = ($13), shoeBrandModelSize = ($14), brakeLevelPosition = ($15), crankLength = ($16), standover = ($17), stack = ($18), notes = ($19) WHERE bikeId = ($20)', [employeeUpdated, date, saddleHeight, saddleHeightOverBars, saddleToHandlebarReach, saddleAngle, saddleForeAft, saddleBrandAndWidth, handleBarBrandAndModel, stemLength, stemAngle, handleBarWidth, pedalBrandAndModel, shoeBrandModelSize, brakeLevelPosition, crankLength, standover, stack, notes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form2_newFit ORDER BY form2id DESC LIMIT 1;');

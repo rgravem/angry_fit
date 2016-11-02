@@ -1,5 +1,9 @@
 myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   console.log('In form4Controller');
+  var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
+  var employee = JSON.parse(sessionStorage.getItem('employee'));
+  var formFour = JSON.parse(sessionStorage.getItem('formFour'));
+  $scope.date= new Date();
   // set form to edit and submit status
   //show submit button, hide update and pdf
   $scope.showHideSubmitFormFour = true;
@@ -131,6 +135,15 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.showFenderPaint =false;
   };
 
+  $scope.submitButton = function(){
+    if (formFour == undefined) {
+      console.log('starting new');
+    } else if(formFour[0] !== undefined) {
+    $scope.showHideSubmitFormFour = false;
+    $scope.submittedFour = true;
+  }
+  };
+  submitButton();
 
   ////////////////FORM 4 POST Route to DB///////////////////////////////////////
   $scope.submitFormFour = function(){
@@ -154,7 +167,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     var formFourObject = {
       employeeCreated: employee.employeeid,
       bikeId: bike.bikeid,
-      date: $scope.dateCreated.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
       brakeCompatability: $scope.brakeCompatability,
@@ -185,6 +198,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       data: formFourObject
     }).then(function(form4Response){
       console.log('success from server', form4Response);
+      sessionStorage.setItem('formFour', JSON.stringify(form4Response.data));
     });
   }; //End submitFormFour
 
@@ -217,7 +231,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     var editFormFourObject ={
       employeeUpdated: employee.employeeid,
       bikeId: bike.bikeid,
-      date: $scope.dateCreated.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
       brakeCompatability: $scope.brakeCompatability,
@@ -249,6 +263,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       data: editFormFourObject
     }).then(function(editForm4Response){
       console.log('success from server', editForm4Response);
+      sessionStorage.setItem('formFour', JSON.stringify(editForm4Response.data));
     });
   }; //End saveFormFour
 

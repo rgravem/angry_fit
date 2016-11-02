@@ -5,6 +5,15 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
 
+  $scope.date= new Date();
+  $scope.submitButton = function(){
+    if (formOne == undefined) {
+      console.log('starting new');
+    } else if(formOne[0] !== undefined) {
+    $scope.showHideSubmitFormOne = false;
+    $scope.submittedOne = true;
+  }
+  };
   // set form to edit and submit status
   //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
@@ -14,15 +23,17 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   $scope.submittedOne = false;
 
   $scope.formOneLoad = function(){
-    if (formOne[0] === undefined){
+    if (formOne == undefined){
+      console.log('starting new bike');
+    }else if (formOne[0] == undefined){
       alert('Existing Fit has no data');
-    }else{
+    } else {
     console.log("form 1 session:", formOne[0]);
-    $scope.injuries = formOne[0].injuries;
+    $scope.injuryInfo = formOne[0].injuries;
     $scope.complaints = formOne[0].complaints;
-    $scope.surgeries = formOne[0].surgeries;
+    $scope.surgeryInfo = formOne[0].surgeries;
     $scope.averageRideLength = formOne[0].averageridelength;
-    $scope.upcomingRaces = formOne[0].upcomingraces;
+    $scope.goalsInfo = formOne[0].upcomingraces;
     $scope.currentBikeBrand = formOne[0].currentbikebrand;
     $scope.saddleHeight = formOne[0].saddleheight;
     $scope.saddleHeightOverBars = formOne[0].saddleheightoverbars;
@@ -41,18 +52,19 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   }
   };
   $scope.formOneLoad();
+  $scope.submitButton();
 
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
-      employeeCreated: employee,
+      employeeCreated: employee.employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
-      injuries: $scope.injuries,
+      injuries: $scope.injuryInfo,
       complaints:$scope.complaints,
-      surgeries:$scope.surgeries,
+      surgeries:$scope.surgeryInfo,
       averageRideLength:$scope.averageRideLength,
-      upcomingRaces:$scope.upcomingRaces,
+      upcomingRaces:$scope.goalsInfo,
       currentBikeBrand:$scope.currentBikeBrand,
       saddleHeight:$scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
@@ -76,13 +88,14 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     //disable input fields
     $scope.submittedOne = true;
 
-    // $http({
-    //   method: 'POST',
-    //   url: '/addFormOne',
-    //   data: formOneObject
-    // }).then(function(formOneObject){
-    //   console.log('success from server', formOneObject);
-    // });
+    $http({
+      method: 'POST',
+      url: '/addFormOne',
+      data: formOneObject
+    }).then(function(formOneObject){
+      sessionStorage.setItem('formOne', JSON.stringify(formOneObject.data));
+      console.log('success from server', formOneObject);
+    });
   }; // end addFormOne
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
@@ -96,14 +109,14 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedOne=true;
 
     var editFormOneObject = {
-      employeeUpdated: employee.employeeid,
+      employeeCreated: employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
-      injuries: $scope.injuries,
+      injuries: $scope.injuryInfo,
       complaints:$scope.complaints,
-      surgeries:$scope.surgeries,
+      surgeries:$scope.surgeryInfo,
       averageRideLength:$scope.averageRideLength,
-      upcomingRaces:$scope.upcomingRaces,
+      upcomingRaces:$scope.goalsInfo,
       currentBikeBrand:$scope.currentBikeBrand,
       saddleHeight:$scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
@@ -132,7 +145,9 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
       url: '/editFormOne',
       data: editFormOneObject
     }).then(function(editForm1Response){
+      sessionStorage.setItem('formOne', JSON.stringify(editForm1Response.data));
       console.log('success from server', editForm1Response);
+
     });
   }; //End saveFormOne
 
@@ -146,41 +161,79 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedOne=false;
   };
 
-  // // save form on click
-  // $scope.saveFormOne= function(){
-  //     //show update
-  //     $scope.hideUpdate = true;
-  //     //hide save
-  //     $scope.showSave = false;
-  //     // lock form
-  //     $scope.submittedOne=true;
-  // };
 
   $scope.downloadFormOnePdf = function(){
     console.log("In the PDF click");
     var docDefinition =
-      {content: [
-        {text: "Date: " + $scope.date.toString().substring(0,15) },
-        {text: "Injuries: " + $scope.injuries },
-        {text: "Complaints: " + $scope.complaints },
-        {text: "Surgeries: " + $scope.surgeries },
-        {text: "Average Ride Length: " + $scope.averageRideLength },
-        {text: "Upcoming Races: " + $scope.upcomingRaces },
-        {text: "Current Bike Brand: " + $scope.currentBikeBrand },
-        {text: "Saddle Height: " + $scope.saddleHeight },
-        {text: "Saddle Height Over Bars: " + $scope.saddleHeightOverBars },
-        {text: "Saddle Angle: " + $scope.saddleAngle},
-        {text: "Saddle Setback: " + $scope.saddleSetback },
-        {text: "Saddle Handlebar Reach: " +  $scope.SaddlehandlebarReach},
-        {text: "Stem Length: " + $scope.stemLength },
-        {text: "Stem Angle: " + $scope.stemAngle },
-        {text: "Handlebar Width: " + $scope.handlebarWidth },
-        {text: "Handlebar Brand: " + $scope.handlebarBrand },
-        {text: "Pedal Brand/Model: " + $scope.pedalBrandModel },
-        {text: "Shoe Brand: " + $scope.shoeBrand },
-        {text: "Brake Level: " + $scope.brakeLevel },
-        {text: "Crank Length: " + $scope.crankLength },
-        {text: "Notes: " + $scope.notes }
+        {pageOrientation: 'landscape',
+        content: [
+          {
+            text: 'Consultation Form',
+            style: 'header',
+            bold: true
+          },
+
+        {text: "Date: " + '' + '' + $scope.date.toString().substring(0,15), margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Injuries: "},
+        {text: '' + $scope.injuries, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Complaints: "},
+        {text: '' + $scope.complaints, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Surgeries: " },
+        {text: '' + $scope.surgeries, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Average Ride Length:"},
+        {text: '' + $scope.averageRideLength, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Upcoming Races: "},
+        {text: '' + $scope.upcomingRaces, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Current Bike Brand: "},
+        {text: '' + $scope.currentBikeBrand, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Saddle Height: "},
+        {text:  '' + $scope.saddleHeight,  margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Saddle Height Over Bars: "},
+        {text: '' + $scope.saddleHeightOverBars, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Saddle Angle: "},
+        {text:'' + $scope.saddleAngle, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Saddle Setback: "},
+        {text:'' + $scope.saddleSetback, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Saddle Handlebar Reach: "},
+        {text: '' + $scope.SaddlehandlebarReach, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Stem Length: "},
+        {text:'' + $scope.stemLength, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Stem Angle: "},
+        {text:'' + $scope.stemAngle, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Handlebar Width: "},
+        {text:'' + $scope.handlebarWidth, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Handlebar Brand: "},
+        {text: '' + $scope.handlebarBrand, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Pedal Brand/Model: "},
+        {text: '' + $scope.pedalBrandModel, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Shoe Brand: "},
+        {text: '' + $scope.shoeBrand, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Brake Level: "},
+        {text: '' + $scope.brakeLevel, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Crank Length: "},
+        {text:'' + $scope.crankLength, margin: [ 1, 2, 5, 5 ], bold: true },
+
+        {text: "Notes: ", alignment: 'right'},
+        {text: '' + $scope.notes, alignment: 'right' },
       ]// end content
     };// end docDefinition
     pdfMake.createPdf(docDefinition).download('existingFit.pdf');

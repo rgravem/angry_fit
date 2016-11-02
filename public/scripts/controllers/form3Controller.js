@@ -11,6 +11,91 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   $scope.showHideSubmitFormThree = true;
   //keep all input fields active
   $scope.submittedThree=false;
+  // focus / blur properties for inputs
+ $scope.effectiveTopTubeFocus = function(){
+   document.getElementById("effectiveTopTubeMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.effectiveTopTubeBlur= function(){
+   document.getElementById("effectiveTopTubeMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.standoverFocus = function(){
+   document.getElementById("standoverMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.standoverBlur= function(){
+   document.getElementById("standoverMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.seatTubeLengthFocus = function(){
+   document.getElementById("seatTubeLengthMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.seatTubeLengthBlur= function(){
+   document.getElementById("seatTubeLengthMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.seatTubeAngleFocus = function(){
+   document.getElementById("seatTubeAngleMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.seatTubeAngleBlur= function(){
+   document.getElementById("seatTubeAngleMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.headTubeLengthFocus = function(){
+   document.getElementById("headTubeLengthMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.headTubeLengthBlur= function(){
+   document.getElementById("headTubeLengthMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.headTubeAngleFocus = function(){
+   document.getElementById("headTubeAngleMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.headTubeAngleBlur= function(){
+   document.getElementById("headTubeAngleMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.stackFocus = function(){
+   document.getElementById("stackMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.stackBlur= function(){
+   document.getElementById("stackMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.reachFocus = function(){
+   document.getElementById("reachMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.reachBlur= function(){
+   document.getElementById("reachMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.wheelBaseFocus = function(){
+   document.getElementById("wheelBaseMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.wheelBaseBlur= function(){
+   document.getElementById("wheelBaseMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.chainstayLengthFocus = function(){
+   document.getElementById("chainstayLengthMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.chainstayLengthBlur= function(){
+   document.getElementById("chainstayLengthMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.bbDropFocus = function(){
+   document.getElementById("bbDropMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.bbDropBlur= function(){
+   document.getElementById("bbDropMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.axleToCrownFocus = function(){
+   document.getElementById("axleToCrownMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.axleToCrownBlur= function(){
+   document.getElementById("axleToCrownMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.mechanicalTrailFocus = function(){
+   document.getElementById("mechanicalTrailMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.mechanicalTrailBlur= function(){
+   document.getElementById("mechanicalTrailMeasure").className.baseVal = "hideMeasurement";
+ };
+ $scope.forkOffsetFocus = function(){
+   document.getElementById("forkOffsetMeasure").className.baseVal = "showMeasurement";
+ };
+ $scope.forkOffsetBlur= function(){
+   document.getElementById("forkOffsetMeasure").className.baseVal = "hideMeasurement";
+ };
 
   $scope.submitFrameGeometry = function(){
     console.log('complete clicked');

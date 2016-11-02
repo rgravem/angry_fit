@@ -38,85 +38,85 @@
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>A: Effective top tube</label>
-                <input ng-model="effectiveTopTube" ng-disabled="submittedThree">
+                <input ng-model="effectiveTopTube" ng-focus="effectiveTopTubeFocus()" ng-blur="effectiveTopTubeBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>B: Standover</label>
-                <input ng-model="standover" ng-disabled="submittedThree">
+                <input ng-model="standover" ng-focus="standoverFocus()" ng-blur="standoverBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>C: Seat tube length</label>
-                <input ng-model="seatTubeLength" ng-disabled="submittedThree">
+                <input ng-model="seatTubeLength" ng-focus="seatTubeLengthFocus()" ng-blur="seatTubeLengthBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>D: Seat tube angle</label>
-                <input ng-model="seatTubeAngle" ng-disabled="submittedThree">
+                <input ng-model="seatTubeAngle" ng-focus="seatTubeAngleFocus()" ng-blur="seatTubeAngleBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>E: Headtube length</label>
-                <input ng-model="headTubeLength" ng-disabled="submittedThree">
+                <input ng-model="headTubeLength" ng-focus="headTubeLengthFocus()" ng-blur="headTubeLengthBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>F: Headtube angle</label>
-                <input ng-model="headTubeAngle" ng-disabled="submittedThree">
+                <input ng-model="headTubeAngle"ng-focus="headTubeAngleFocus()" ng-blur="headTubeAngleBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>G: Stack</label>
-                <input ng-model="stack" ng-disabled="submittedThree">
+                <input ng-model="stack" ng-focus="stackFocus()" ng-blur="stackBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>H: Reach</label>
-                <input ng-model="reach" ng-disabled="submittedThree">
+                <input ng-model="reach" ng-focus="reachFocus()" ng-blur="reachBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>I: Wheel base</label>
-                <input ng-model="wheelBase" ng-disabled="submittedThree">
+                <input ng-model="wheelBase" ng-Focus="wheelBaseFocus()" ng-blur="wheelBaseBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>J: Chainstay length</label>
-                <input ng-model="chainstayLength" ng-disabled="submittedThree">
+                <input ng-model="chainstayLength" ng-focus="chainstayLengthFocus()" ng-blur="chainstayLengthBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>K: BB Drop</label>
-                <input ng-model="bbDrop" ng-disabled="submittedThree">
+                <input ng-model="bbDrop" ng-focus="bbDropFocus()" ng-blur="bbDropBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>L: Axle to crown</label>
-                <input ng-model="axleToCrown" ng-disabled="submittedThree">
+                <input ng-model="axleToCrown" ng-focus="axleToCrownFocus()" ng-blur="axleToCrownBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>M: Mechanical trail</label>
-                <input ng-model="mechanicalTrail" ng-disabled="submittedThree">
+                <input ng-model="mechanicalTrail" ng-focus="mechanicalTrailFocus()" ng-blur="mechanicalTrailBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>N: Fork offset</label>
-                <input ng-model="forkOffset" ng-disabled="submittedThree">
+                <input ng-model="forkOffset" ng-focus="forkOffsetFocus()" ng-blur="forkOffsetBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
       </div>
@@ -129,9 +129,384 @@
         </div>
         <div class="formThreeBikeImage">
           <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          	 width="853.234px" height="484.762px" viewBox="0 0 953.234 584.762" enable-background="new 0 0 953.234 584.762" preserveAspectRatio="xMidYMid meet"
+          	 width="953.234px" height="584.762px" viewBox="0 0 953.234 584.762" enable-background="new 0 0 953.234 584.762"
           	 xml:space="preserve">
-             <image xlink:href="./assets/angry_road_bike.png" width="853.234px" height="484.762px" x="45.98" y="40.188"/>
+          <filter  width="1.69647" height="2.04564" x="-.34824" y="-.52282" id="filter5616">
+          	<feGaussianBlur  stdDeviation=".1102"></feGaussianBlur>
+          </filter>
+          <filter  width="1.57831" height="2.05679" x="-.28916" y="-.52839" id="filter5608">
+          	<feGaussianBlur  stdDeviation=".0958"></feGaussianBlur>
+          </filter>
+          <filter  width="1.13338" height="4.09284" x="-.06669" y="-1.54642" id="filter4932-5">
+          	<feGaussianBlur  stdDeviation=".5496"></feGaussianBlur>
+          </filter>
+          <filter  width="1.1586" height="2.04519" x="-.0793" y="-.5226" id="filter4924">
+          	<feGaussianBlur  stdDeviation=".4797"></feGaussianBlur>
+          </filter>
+          <filter  width="1.97427" height="1.29465" x="-.48713" y="-.14732" id="filter4912-9">
+          	<feGaussianBlur  stdDeviation=".1894"></feGaussianBlur>
+          </filter>
+          <filter  id="filter4886">
+          	<feGaussianBlur  stdDeviation=".4616"></feGaussianBlur>
+          </filter>
+          <filter  width="1.36019" height="1.10888" x="-.18009" y="-.05444" id="filter4787">
+          	<feGaussianBlur  stdDeviation=".3078"></feGaussianBlur>
+          </filter>
+          <filter  width="1.28307" height="1.1884" x="-.14153" y="-.0942" id="filter4772">
+          	<feGaussianBlur  stdDeviation=".1588"></feGaussianBlur>
+          </filter>
+          <filter  width="1.02051" height="1.48066" x="-.01026" y="-.24033" id="filter4756">
+          	<feGaussianBlur  stdDeviation=".3124"></feGaussianBlur>
+          </filter>
+          <filter  width="1.11946" height="1.55695" x="-.05973" y="-.27847" id="filter4703">
+          	<feGaussianBlur  stdDeviation=".2232"></feGaussianBlur>
+          </filter>
+          <filter  width="1.08959" height="1.41771" x="-.0448" y="-.20886" id="filter4699">
+          	<feGaussianBlur  stdDeviation=".1782"></feGaussianBlur>
+          </filter>
+          <filter  id="filter4683">
+          	<feGaussianBlur  stdDeviation=".2004"></feGaussianBlur>
+          </filter>
+          <filter  id="filter4667">
+          	<feGaussianBlur  stdDeviation=".319"></feGaussianBlur>
+          </filter>
+          <filter  id="filter12719">
+          	<feGaussianBlur  stdDeviation="21.5366"></feGaussianBlur>
+          </filter>
+          <title>Road Bike</title>
+          <g filter="url(#filter12719)">
+          	<rect x="57.98" y="112.511" fill="transparent" width="861.265" height="504.396"/>
+          </g>
+          <g transform="translate(-13.79375,-24.29231)">
+          	<path fill="#E44636" stroke="#E44636" stroke-width="0.0762" d="M653.052,230.399l0.361-1.951l0.787-5.121l0.166-4l-0.309-1.707
+          		l-0.662-1.336l-1.99-1.718l-2.836-1.292l-1.109-0.396l-52.27,55.266L490.24,377.961l-42.463,44.895l-0.646,2.405l-2.253,7.091
+          		l-1.01,5.262l0.517,1.688l0.52,1.687l2.944,1.081l4.43,0.024l1.439,0.198l49.358-52.188l103.809-110.897L653.052,230.399z"/>
+          	<g filter="url(#filter4886)">
+          		<line fill="none" stroke="#EDEEF0" x1="646.125" y1="220.282" x2="451.237" y2="424.469"/>
+          	</g>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M745.143,406.888c0.004-1.258-1.016-2.279-2.271-2.284
+          		c-1.257-0.003-2.281,1.015-2.285,2.272c0,0.004,0,0.008,0,0.012c-0.002,1.258,1.018,2.281,2.273,2.285
+          		c1.258,0.002,2.281-1.016,2.283-2.271C745.143,406.896,745.143,406.892,745.143,406.888"/>
+          	<path fill="#FFFEF7" stroke="#000000" stroke-width="0.0762" d="M735.358,399.228l-58.9-112.476l-12.754-28.985l16.684-7.342
+          		l12.758,28.985l48.631,116.806L735.358,399.228z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M676.371,242.315l-1.293-1.233l-1.346-1.052l-1.303-1.339
+          		l1.303,1.339l1.346,1.052L676.371,242.315l0.414-0.19l-2.748-5.98l-0.373,0.171l-0.151,1.184l0.204,1.199l0.227,0.875l0.449,0.972
+          		l-0.449-0.972l-0.227-0.875l-0.204-1.199l0.151-1.184l-0.387-1.215l-7.744,2.471l6.924-2.208l-1.143-3.569l-14.789,4.721
+          		l1.137,3.569l6.74-2.151l-7.396,2.36l4.473,14.011l-0.846-2.64l-0.219-2.223l-0.004-2.655l0.086-2.069l-0.188-1.588l0.188,1.588
+          		l-0.086,2.069l0.004,2.655l0.219,2.223l0.846,2.64l3.543,7.653l1.557-0.382l1.166-0.233l1.398-0.069l1.562,0.379l1.488,0.529
+          		l1.258,0.575l1.34,0.913l1.07,1.026l1.127,1.333l0.484,0.299l0.438-0.202l0.104-0.512l-0.408-1.74l-0.027-1.921l0.389-2.055
+          		l0.811-2.038l0.883-1.34l1.479-1.483l1.271-0.666l-4.189-9.115l-0.822-1.395L676.371,242.315z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M736.25,401.197l0.213-1.168l1.141-1l2.559-1.166l1.769-0.178
+          		l0.911,0.471L736.25,401.197z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M745.143,406.888c0.004-1.258-1.016-2.279-2.271-2.284
+          		c-1.257-0.003-2.281,1.015-2.285,2.272c0,0.004,0,0.008,0,0.012c-0.002,1.258,1.018,2.281,2.273,2.285
+          		c1.258,0.002,2.281-1.016,2.283-2.271C745.143,406.896,745.143,406.892,745.143,406.888"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M745.143,406.888c0.004-1.258-1.016-2.279-2.271-2.284
+          		c-1.257-0.003-2.281,1.015-2.285,2.272c0,0.004,0,0.008,0,0.012c-0.002,1.258,1.018,2.281,2.273,2.285
+          		c1.258,0.002,2.281-1.016,2.283-2.271C745.143,406.896,745.143,406.892,745.143,406.888"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M245.163,392.399l-0.238,0.345l-0.245,0.34l-0.25,0.345
+          		l-0.257,0.34l-0.264,0.337l-0.268,0.338l-0.273,0.332l-0.28,0.329l-0.285,0.33l-0.289,0.322l-0.294,0.321l-0.298,0.317
+          		l-0.303,0.316l-0.305,0.308l-0.312,0.311l-0.317,0.301l-0.319,0.298l-0.321,0.294l-0.326,0.287l-0.331,0.279l-0.333,0.279
+          		l-0.337,0.271l-0.338,0.262l-0.342,0.261l-0.345,0.254l-0.347,0.244l-0.349,0.237l-0.352,0.229l-0.352,0.224l-0.356,0.217
+          		l-0.181,0.108l-0.178,0.117l-0.171,0.125l-0.169,0.127l-0.162,0.136l-0.16,0.138l-0.152,0.146l-0.15,0.146l-0.144,0.152
+          		l-0.139,0.158l-0.134,0.16l-0.127,0.166l-0.123,0.174l-0.118,0.175l-0.113,0.177l-0.106,0.184l-0.1,0.184l-0.095,0.188l-0.09,0.191
+          		l-0.083,0.195l-0.076,0.195l-0.072,0.199l-0.062,0.199l-0.058,0.199l-0.053,0.205l-0.044,0.211l-0.04,0.209l-0.03,0.209
+          		l-0.026,0.21l-0.019,0.213l-0.009,0.216l-0.005,0.213l0.002,0.156l0.007,0.156l0.012,0.164l0.014,0.16l0.019,0.158l0.023,0.16
+          		l0.026,0.152l0.027,0.148l0.904,4.529l0.012,0.059l0.009,0.061l0.009,0.061l0.007,0.064l0.005,0.061l0.004,0.062l0.002,0.061
+          		l0.002,0.062l-0.002,0.088l-0.005,0.092l-0.009,0.092l-0.009,0.084l-0.016,0.088l-0.017,0.09l-0.021,0.084l-0.023,0.086
+          		l-0.027,0.084l-0.028,0.082l-0.032,0.082l-0.035,0.082l-0.037,0.08l-0.042,0.074l-0.042,0.078l-0.046,0.073l-0.046,0.074
+          		l-0.051,0.073l-0.053,0.066l-0.055,0.071l-0.056,0.063l-0.06,0.062l-0.062,0.062l-0.065,0.061l-0.064,0.057l-0.07,0.059
+          		l-0.069,0.054l-0.074,0.054l-0.074,0.047l-0.076,0.045l-0.076,0.043l-0.132,0.07l-0.127,0.07l-0.127,0.078l-0.123,0.078
+          		l-0.118,0.088l-0.115,0.086l-0.111,0.096l-0.108,0.096l-0.104,0.101l-0.102,0.104l-0.097,0.104l-0.092,0.112l-0.09,0.113
+          		l-0.083,0.117l-0.081,0.117l-0.076,0.123l-0.072,0.125l-0.069,0.127l-0.063,0.131l-0.058,0.131l-0.055,0.135l-0.049,0.135
+          		l-0.043,0.141l-0.04,0.143l-0.034,0.143l-0.03,0.143l-0.023,0.148l-0.019,0.145l-0.014,0.146l-0.009,0.148l-0.002,0.147
+          		l0.002,0.108l0.005,0.109l0.009,0.113l0.012,0.109l0.014,0.113l0.019,0.108l0.021,0.108l0.025,0.106l0.025,0.108l0.033,0.109
+          		l0.032,0.104l0.037,0.105l0.037,0.106l0.044,0.103l0.044,0.104l0.046,0.1l0.051,0.104l0.051,0.1l0.055,0.1l0.058,0.097l0.06,0.096
+          		l0.062,0.093l0.064,0.093l0.067,0.093l0.069,0.085l0.072,0.085l0.072,0.086l0.076,0.081l0.079,0.081l0.079,0.074l0.083,0.073
+          		l0.083,0.074l-1.281,1.566l0.111,0.029l0.113,0.032l0.114,0.028l0.116,0.027l0.115,0.023l0.118,0.021l0.118,0.021l0.118,0.019
+          		l0.118,0.016l0.121,0.014l0.12,0.017l0.12,0.011l0.121,0.007l0.12,0.007h0.12l0.123,0.004l0.18-0.004l0.18-0.007l0.178-0.011
+          		l0.18-0.021l0.178-0.021l0.176-0.024l0.178-0.031l0.176-0.039l0.173-0.042l0.173-0.046l0.171-0.051l0.169-0.057l0.169-0.062
+          		l0.167-0.062l0.167-0.067l0.162-0.073l0.162-0.077l0.157-0.082l0.157-0.085l0.155-0.089l0.152-0.097l0.148-0.1l0.146-0.101
+          		l0.146-0.104l0.139-0.113l0.139-0.112l0.134-0.116l0.132-0.121l0.129-0.124l0.125-0.131l0.121-0.132l0.118-0.136l0.077-0.096
+          		l0.056-0.071l0.051-0.069l0.051-0.07l0.051-0.07l0.048-0.074l0.046-0.074l0.044-0.076l0.044-0.075l0.04-0.077l0.042-0.082
+          		l0.037-0.078l0.037-0.081l0.035-0.082l0.032-0.081l0.032-0.08l0.03-0.087l0.028-0.083l0.025-0.086l0.023-0.086l0.023-0.089
+          		l0.021-0.084l0.019-0.09l0.016-0.084l0.014-0.09l0.014-0.089l0.012-0.088l0.009-0.09l0.007-0.084l0.004-0.093l0.002-0.089
+          		l0.002-0.089l-0.067-4.562l-1.603-7.938l0.033-0.12l0.032-0.117l0.037-0.112l0.042-0.113l0.046-0.106l0.051-0.104l0.056-0.106
+          		l0.06-0.099l0.064-0.101l0.067-0.097l0.071-0.092l0.076-0.093l0.079-0.086l0.083-0.082l0.086-0.08l0.088-0.074l0.092-0.071
+          		l0.095-0.065l0.1-0.067l0.1-0.058l0.104-0.057l0.106-0.05l0.106-0.05l0.111-0.042l0.111-0.036l0.113-0.035l0.115-0.027l0.118-0.024
+          		l0.118-0.019l0.12-0.015l0.12-0.008l0.12-0.003l0.088,0.003l0.086,0.004l0.085,0.008l0.086,0.007l0.085,0.015l0.083,0.016
+          		l0.083,0.019l0.083,0.019l0.081,0.024l0.082,0.021l0.081,0.027l0.079,0.028l0.079,0.035l0.077,0.031l0.076,0.035l0.076,0.039
+          		l0.074,0.039l0.071,0.047l0.072,0.045l0.069,0.047l0.069,0.049l0.067,0.055l0.064,0.055l0.063,0.053l0.062,0.062l0.06,0.06
+          		l0.06,0.062l0.055,0.061l0.056,0.066l0.053,0.066l0.051,0.066l0.032,0.047l0.816,4.068l0.092,0.08l0.098,0.08l0.097,0.082
+          		l0.099,0.078l0.1,0.082l0.102,0.077l0.102,0.074l0.102,0.077l0.106,0.074l0.104,0.074l0.106,0.074l0.108,0.07l0.109,0.074
+          		l0.109,0.066l0.111,0.064l0.111,0.072l0.113,0.062l0.113,0.064l0.114,0.064l0.113,0.062l0.115,0.061l0.116,0.057l0.116,0.062
+          		l0.118,0.057l0.118,0.051l0.116,0.057l0.12,0.051l0.118,0.049l0.12,0.047l0.118,0.045l0.12,0.047l0.11,0.039l0.174,0.059
+          		l0.189,0.057l0.197,0.059l0.201,0.053l0.199,0.054l0.197,0.042l0.097,0.021l0.095,0.018l0.093,0.018l0.09,0.02l7.583,1.232
+          		l0.04-0.248l3.591,0.589l0.978-5.995l-3.591-0.589l0.042-0.248l-2.359-0.388l-3.589-0.588l-0.176-0.03l-0.155-0.039l-0.15-0.043
+          		l-0.15-0.054l-0.143-0.057l-0.144-0.061l-0.136-0.07l-0.137-0.075l-0.129-0.077l-0.127-0.086l-0.123-0.092l-0.12-0.096
+          		l-0.113-0.104l-0.111-0.104l-0.104-0.108l-0.102-0.112l-0.095-0.119l-0.09-0.125l-0.085-0.123l-0.079-0.133l-0.074-0.135
+          		l-0.07-0.135l-0.062-0.145l-0.056-0.141l-0.051-0.146l-0.046-0.146l-0.037-0.152l-0.03-0.15l-0.025-0.156l-0.019-0.154
+          		l-0.009-0.156l-0.005-0.159l0.002-0.105l0.007-0.108l0.012-0.109l0.014-0.109l0.016-0.109l0.019-0.105l0.021-0.104l0.021-0.102
+          		l0.06-0.263l0.065-0.261l0.067-0.254l0.072-0.26l0.074-0.255l0.079-0.255l0.081-0.256l0.085-0.252l0.088-0.252l0.093-0.25
+          		l0.094-0.252l0.097-0.248l0.102-0.248l0.104-0.248l0.106-0.244l0.111-0.24l0.113-0.246l0.116-0.24l0.118-0.236l0.122-0.236
+          		l0.123-0.232l0.127-0.234l0.129-0.229l0.132-0.229l0.132-0.229l0.137-0.225l0.139-0.223l0.141-0.221l0.143-0.217l0.146-0.217
+          		l0.146-0.213l0.15-0.209l0.238-0.379l-0.213-0.137l1.922-3.047l-4.281-2.698l-1.922,3.043l-0.215-0.132l-0.654,1.035l-0.125,0.193
+          		l-0.225,0.348L245.163,392.399z"/>
+          	<path fill="none" stroke="#000000" stroke-width="0.0762" d="M232.514,415.392l0.118-0.053l0.116-0.062l0.113-0.062l0.109-0.067
+          		l0.108-0.07l0.104-0.073l0.1-0.078l0.099-0.081l0.093-0.083l0.093-0.088l0.087-0.095l0.086-0.092l0.081-0.098l0.079-0.1
+          		l0.074-0.104l0.069-0.104l0.067-0.105l0.065-0.109l0.058-0.11l0.056-0.113l0.051-0.116l0.048-0.117l0.042-0.117l0.04-0.122
+          		l0.035-0.122l0.03-0.122l0.025-0.126l0.021-0.127l0.016-0.127l0.014-0.131l0.007-0.129l0.002-0.133l-0.002-0.082l-0.002-0.086
+          		l-0.007-0.089l-0.009-0.088l-0.009-0.086l-0.012-0.086l-0.014-0.082l-0.014-0.08l-0.701-3.515l-0.023-0.125l-0.021-0.129
+          		l-0.019-0.135l-0.016-0.138l-0.014-0.14l-0.009-0.137l-0.004-0.138l-0.002-0.132l0.007-0.288l0.021-0.282l0.037-0.279l0.049-0.274
+          		l0.062-0.271l0.076-0.265l0.088-0.259l0.099-0.255l0.114-0.247l0.123-0.24l0.136-0.234l0.146-0.229l0.155-0.221l0.167-0.209
+          		l0.175-0.203l0.185-0.194l0.194-0.187l0.204-0.176l0.213-0.168l0.217-0.154l0.229-0.146l0.233-0.135l0.241-0.125l0.247-0.111
+          		l0.254-0.099l0.259-0.091l0.266-0.074l0.271-0.062l0.272-0.051l0.28-0.035l0.284-0.021l0.287-0.011l0.25,0.008l0.245,0.02
+          		l0.245,0.025l0.24,0.037l0.239,0.049l0.233,0.062l0.231,0.064l0.227,0.08l0.222,0.087l0.22,0.097l0.212,0.104l0.208,0.116
+          		l0.203,0.121l0.199,0.133l0.192,0.139l0.185,0.148l0.181,0.15l0.173,0.164l0.164,0.17l0.16,0.176l0.153,0.184l0.144,0.188
+          		l0.136,0.197l0.127,0.201l0.118,0.207l0.111,0.213l0.102,0.219l0.093,0.225l0.083,0.229l0.072,0.232l0.062,0.236l0.052,0.225
+          		l1.197,5.9L232.514,415.392z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M250.896,393.315l-5.15-1.8L250.896,393.315z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M255.149,413.06l-1.339-6.627L255.149,413.06z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M236.552,419.036c0-1.258-1.02-2.277-2.278-2.277
+          		c-1.258,0-2.278,1.021-2.278,2.277c0,1.26,1.02,2.278,2.278,2.278C235.532,421.316,236.552,420.296,236.552,419.036"/>
+          	<path fill="#FFFEF7" stroke="#000000" stroke-width="0.0762" d="M654.362,234.493l17.365-5.542l-23.861-74.767l-17.365,5.542
+          		L654.362,234.493z"/>
+          	<path fill="#FFFEF7" stroke="#000000" stroke-width="0.0762" d="M368.256,165.52l-13.848,4.234l19.322,63.197l43.636,145.501
+          		l19.321,63.194l15.397-4.705l-19.32-63.198l-45.188-145.026L368.256,165.52z"/>
+          	<path fill="#E44636" d="M638.043,172.06l-0.248-1.248l-0.541-1.235l-1.715-2.291l-2.646-2.537l-1.084-0.924l-52.451,2.29
+          		L427.6,172.741l-56.383,2.461l-0.709,1.002l-1.935,2.737l-1.726,2.441l-0.917,1.298l1.679,1.185l3.148,2.228l3.536,2.499
+          		l1.293,0.914l52.642-2.298l151.76-6.625l56.381-2.462l0.471-0.992l0.979-2.695L638.043,172.06z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M445.51,432.038l-38.528-5.964l-150.734-19.232l-1.007,6.505
+          		l149.495,27.238l38.529,5.967L445.51,432.038z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M369.985,199.159l0.391-1.951l-0.936,0.167l-1.782,0.357
+          		l-2.169,0.675l-1.247,0.973l-38.42,61.536l-79.379,129.521l4.725,2.947l81.524-128.176l34.688-55.558l0.825-2.349l1.021-4.434
+          		L369.985,199.159z"/>
+          	<path fill="#DEDEDD" stroke="#000000" stroke-width="0.0762" d="M532.422,333.595l0.371-0.311l0.344-0.312l0.357-0.364l0.34-0.377
+          		l0.295-0.361l0.283-0.385l0.223-0.318l0.271-0.434l-0.475-0.449l-3.207,3.389l0.475,0.447l0.416-0.289L532.422,333.595z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M675.153,102.401l0.373-1.293l0.131-0.2l0.039,0.594l-0.062,0.74
+          		l-0.213,1.073l-0.236,1.154l-0.964,3.508l-0.278,0.77l-0.521,0.604l-0.621,0.483l0.621-0.483l0.521-0.604l0.278-0.77l0.964-3.508
+          		l0.236-1.154l0.213-1.073l0.062-0.74l-0.039-0.594l0.117-0.182l0.35-0.187l3.908-0.81l0.936,4.522l0.795-0.165l-0.936-4.521
+          		l2.412-0.5l0.355-0.016l0.346,0.12l0.266,0.176l3.334,2.063l-0.506-2.444l-0.258-0.157l0.355,1.779l-0.355-1.779l-2.57,0.537
+          		l3.438,2.126l1.598,1.137l1.236,1.006l1.324,1.477l0.779,1.195l0.631,1.34l0.375,1.138l0.268,1.028l0.164,1.049l0.107,1.193
+          		l-0.049,1.482l-0.238,1.405l-0.631,1.881l-0.735,1.416l-1.015,1.678l-2.311,3.316l2.571-0.527l-0.38-1.775l0.38,1.775l0.175-0.247
+          		l-0.506-2.44l-2.24,3.218l-0.174,0.268l-0.268,0.246l-0.336,0.129l-2.414,0.5l-0.938-4.521l1.621-0.613l1.475-0.965l1.176-1.202
+          		l0.914-1.44l0.592-1.589l0.246-1.824l-0.168-1.792l-0.555-1.711l-0.953-1.576l-1.17-1.224l-1.414-0.958l-1.56-0.635l-1.735-0.301
+          		l-1.73,0.082l-0.793,0.165l-1.289,0.44l-1.271,0.734l-1.32,1.151l-0.975,1.294l-0.686,1.426l-0.387,1.489l-0.092,1.528l0.162,1.361
+          		l0.391,1.314l0.693,1.364l0.941,1.214l1.193,1.038l1.41,0.801l1.67,0.531l1.459,0.168l1.355-0.107l0.796-0.164L684.224,120
+          		l0.938,4.522l-3.912,0.809l-0.375-0.089l-0.256-0.319l-0.142-0.304l-0.353-0.656l-0.619-0.9l-0.678-0.964l-2.277-2.836
+          		l-0.561-0.596l-0.719-0.347l-0.764-0.197l0.764,0.197l0.719,0.347l0.561,0.596l2.277,2.836l0.678,0.964l0.619,0.9l0.353,0.656
+          		l0.142,0.304l-0.875-0.77l-1.658-1.09l-1.672-0.613l-1.94,0.15l-32.923,6.818l-1.618,1.58l-16.401,5.234l16.401-5.234l5.539,15.591
+          		l-17.366,5.542l-4.574-15.898l-5.877-18.422l16.396-5.234l-16.396,5.234l-0.771-2.412l16.398-5.234l0.77,2.412l2.238,0.349
+          		l34.908-7.229l1.727-0.592l1.207-1.15L675.153,102.401z"/>
+          	<path fill="#F2F2F2" stroke="#000000" stroke-width="0.35" d="M691.041,112.043c0-4.444-3.604-8.047-8.047-8.047
+          		c-4.445,0-8.047,3.603-8.047,8.047c0,4.445,3.602,8.048,8.047,8.048C687.438,120.091,691.041,116.488,691.041,112.043
+          		L691.041,112.043"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M239.08,419.042c0.001-2.656-2.15-4.812-4.807-4.812
+          		c-2.656-0.003-4.811,2.149-4.812,4.805c0,0.002,0,0.004,0,0.008c-0.001,2.654,2.15,4.811,4.806,4.812
+          		c2.656,0.002,4.811-2.148,4.812-4.806C239.08,419.046,239.08,419.044,239.08,419.042"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M238.321,419.042c0-2.237-1.813-4.053-4.05-4.053
+          		c-2.236,0-4.05,1.813-4.05,4.053c0,2.234,1.813,4.049,4.05,4.049C236.507,423.091,238.321,421.277,238.321,419.042"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M236.042,419.042c0-0.979-0.793-1.772-1.772-1.772
+          		s-1.771,0.795-1.771,1.772c0,0.977,0.793,1.771,1.771,1.771S236.042,420.018,236.042,419.042"/>
+          	<g filter="url(#filter5608)">
+          		<line fill="none" stroke="#FFFFFF" x1="251.351" y1="442.606" x2="248.534" y2="444.148"/>
+          	</g>
+          	<g filter="url(#filter5616)">
+          		<line fill="none" stroke="#FFFFFF" x1="228.286" y1="422.716" x2="225.595" y2="420.923"/>
+          	</g>
+          	<g filter="url(#filter4667)">
+          		<line fill="none" stroke="#F3F4F5" x1="681.223" y1="260.885" x2="736.905" y2="389.044"/>
+          	</g>
+          	<path fill="#EDEEF0" stroke="#1F1A17" stroke-width="0.0762" d="M655.908,241.186c-3.031-0.311-4.543-3.651-2.082-6.474
+          		l18.408-5.951c3.033,0.312,4.543,3.666,2.084,6.499L655.908,241.186z"/>
+          	<path fill="none" stroke="#1F1A17" stroke-width="0.0762" d="M654.701,240.875l20.285-6.556"/>
+          	<path fill="#EDEEF0" stroke="#1F1A17" stroke-width="0.0762" d="M634.735,225.851l12.229-12.887l-1.523-5.133l0.396-0.103
+          		c2.389,3.308,4.822,4.237,7.74,6.723c1.312,1.117,1.367,4.705,0.996,6.923c-0.561,3.348,0.715,7.351,4.15,6.307l11.912-3.622
+          		l1.516,4.702l-18.213,5.918l-1.104-3.518l-8.742,9.138l-0.232-0.15c2.998-2.924,6.594-12.838,4.994-17.196
+          		c-2.229-6.066-9.186-0.733-13.939,3.112L634.735,225.851z"/>
+          	<path fill="none" stroke="#FFFFFF" stroke-width="0.1764" d="M643.858,240.151c2.998-2.924,6.594-12.838,4.994-17.196
+          		c-2.227-6.066-9.186-0.733-13.938,3.112"/>
+          	<g filter="url(#filter4756)">
+          		<line fill="none" stroke="#EDEEF0" x1="374.844" y1="178.512" x2="633.869" y2="167.458"/>
+          	</g>
+          	<path fill="#EDEEF0" stroke="#1F1A17" stroke-width="0.0762" d="M620.242,179.157l15.912-0.657l1.594,4.634l0.373-0.112
+          		c-0.166-4.099,2.355-5.686,2.519-9.572c0.071-1.731-0.771-4.748-2.442-6.272c-2.521-2.301-2.127-4.053-0.688-4.524l12.253-4.005
+          		l-1.55-4.711l-18.045,5.863l1.064,3.4l-14.688,0.759l0.074,0.408c4.188,0.451,14.586,0.912,16.363,6.539
+          		c1.668,5.276-7.342,7.067-12.75,7.922l0.012,0.33h-0.001V179.157z"/>
+          	<path fill="none" stroke="#FFFFFF" stroke-width="0.1764" d="M616.621,164.365c4.215,0.455,14.455,0.832,16.246,6.654
+          		c1.639,5.325-7.394,7.116-12.836,7.976"/>
+          	<path fill="#E44636" d="M386.756,226.024c-5.266-10.041-12.474-14.504-19.378-13.852l-12.969-42.418l13.849-4.234L386.756,226.024z
+          		"/>
+          	<g filter="url(#filter4787)">
+          		<line fill="none" stroke="#EDEEF0" x1="365.563" y1="167.051" x2="380.098" y2="215.133"/>
+          	</g>
+          	<path fill="#E44636" d="M363.721,200.215c1.307-2.298,5.69-6.351,6.652-3.006c0.961,3.344-2.122,9.215-3.593,13.401l-35.225,56.38
+          		c2.59-4.88-9.828,11.272-13.523,13.936c0.935-4.909,10.516-22.29,6.894-18.55L363.721,200.215z"/>
+          	<path fill="none" stroke="#FFFFFF" d="M630.989,111.489l0.584,1.737 M631.83,114.458l0.408,1.285l5.158,0.907 M641.17,126.825
+          		l-4.188,3.476l0.361,1.14 M637.664,132.715l4.656,14.241 M643.063,148.219l0.555,1.694 M643.903,150.78l1.137,3.471 M645.09,155.58
+          		l1.214,3.606 M667.328,225.689l1.25,4.016 M670.302,230.35l1.566,4.477"/>
+          	<g filter="url(#filter4683)">
+          		<line fill="none" stroke="#F3F4F5" x1="647.065" y1="162.424" x2="665.668" y2="220.832"/>
+          	</g>
+          	<g filter="url(#filter4772)">
+          		<polyline fill="none" stroke="#FFFFFF" points="669.561,238.577 670.362,241.11 675.135,244.858 679.104,252.914 		"/>
+          	</g>
+          	<path fill="#DEDEDD" stroke="#000000" stroke-width="0.0762" d="M510.151,357.136l0.373-0.309l0.344-0.312l0.357-0.36l0.344-0.375
+          		l0.291-0.363l0.287-0.389l0.219-0.318l0.27-0.434l-0.475-0.449l-3.207,3.392l0.479,0.448l0.414-0.293L510.151,357.136z"/>
+          	<g filter="url(#filter4703)">
+          		<line fill="none" stroke="#FFFFFF" x1="642.268" y1="126.225" x2="674.039" y2="119.41"/>
+          	</g>
+          	<g filter="url(#filter4699)">
+          		<line fill="none" stroke="#FFFFFF" x1="638.582" y1="115.791" x2="672.41" y2="108.536"/>
+          	</g>
+          	<path fill="#E44636" stroke="#000000" stroke-width="0.0762" stroke-linecap="round" stroke-linejoin="round" d="M405.175,440.627
+          		l38.092,5.925l2.254-14.479l-38.468-5.95l-32.484-4.185c1.564,3.718,6.618,3.231,6.212,6.687
+          		c-0.188,1.597-22.77-3.517-24.938-2.021c15.316,5.729-9.963,2.271-11.003,3.067L405.175,440.627z"/>
+          	<g filter="url(#filter4924)">
+          		<line fill="none" stroke="#EDEEF0" x1="390.537" y1="427.062" x2="441.978" y2="434.869"/>
+          	</g>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M744.729,401.273l1.297,2.062l-0.883,0.521l-2.285-0.786
+          		l-3.199,1.479l-0.857,2.343l-0.666-0.082l-0.324-1.521l-0.539-1.57l-1.123-2.271l-2.025-3.967l2.312-1.74l1.49-1.522l0.574-1.188
+          		l0.244-0.938l0.02-1.619l-0.725-2.916l0.357-0.057l4.578,10.326l0.945,1.942L744.729,401.273z"/>
+          	<path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M743.676,402.074l0.885,0.234l0.902,0.447l0.744,0.572l0.648,0.744
+          		l0.428,0.741l0.312,0.898l0.166,0.944l-0.025,0.84l-0.168,0.846l-0.293,0.765l-0.783,1.05l-0.627,0.188l-0.562-0.504l-0.16-3.096
+          		l-0.107-0.555l-0.344-0.671l-0.477-0.472l-0.584-0.309l-0.529-0.119l-0.842,0.064l-0.748,0.365l-0.561,0.592l-0.262,0.559
+          		l-0.102,0.525l-0.064,2.887l-0.013,0.432l-0.589,0.408l-0.766-0.392l-0.445-0.69l-0.325-0.537l-0.257-0.756l-0.118-0.666
+          		l-0.067-0.779l0.375-1.527l0.543-1.016l0.641-0.741l1.011-0.741l1.209-0.467l1.041-0.135L743.676,402.074z"/>
+          	<path fill="#EDEEF0" stroke="#1F1A17" stroke-width="0.0762" d="M648.213,153.935c2.166-3.178,0.58-5.349-2.738-7.349
+          		l-17.296,5.624c-1.563,3.55-1.612,6.237,1.989,7.588L648.213,153.935z"/>
+          	<path fill="none" stroke="#1F1A17" stroke-width="0.0762" d="M648.248,148.803l-21.067,6.845"/>
+          	<path fill="#361D10" stroke="#000000" stroke-width="0.1533" d="M638.686,228.928c0,0,1.195,3.675,2.885,2.61
+          		c2.301-1.452,4.07-3.671,4.295-4.42s-0.627-2.348-2.539-2.739L638.686,228.928z"/>
+          </g>
+          <path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M435.585,415c0-2.797-2.267-5.062-5.062-5.062
+          	c-2.798,0-5.063,2.268-5.063,5.062s2.268,5.062,5.063,5.062C433.318,420.064,435.585,417.796,435.585,415"/>
+          <path fill="#EDEEF0" stroke="#000000" stroke-width="0.0215" d="M386.12,383.039l0.256,0.365l0.138,0.15L386.12,383.039z"/>
+          <path fill="#E54735" d="M430.971,393.736l0.761-2.562l5.826,19.342l-15.354,4.598l-5.615-18.559l1.877,1.616l2.46,0.836l2.958-0.124
+          	l3.146-1.01l2.524-1.828L430.971,393.736z"/>
+          <path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M435.585,415c0-2.797-2.267-5.062-5.062-5.062
+          	c-2.798,0-5.063,2.268-5.063,5.062s2.268,5.062,5.063,5.062C433.318,420.064,435.585,417.796,435.585,415"/>
+          <path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M435.585,415c0-2.797-2.267-5.062-5.062-5.062
+          	c-2.798,0-5.063,2.268-5.063,5.062s2.268,5.062,5.063,5.062C433.318,420.064,435.585,417.796,435.585,415"/>
+          <g filter="url(#filter4912-9)">
+          	<line fill="none" stroke="#EDEEF0" x1="429.607" y1="396.99" x2="432.913" y2="407.92"/>
+          </g>
+          <g filter="url(#filter4932-5)">
+          	<polyline fill="none" stroke="#FFFFFF" points="509.552,410.642 500.249,411.346 449.117,410.248 439.468,408.324 	"/>
+          </g>
+          <path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M411.116,359.703l-0.375,0.035l-0.376-0.074l-0.34-0.188
+          	l-0.252-0.279l-0.09-0.145l-0.1-0.203l-0.503-1.685l-0.054-0.31l0.011-0.312l0.1-0.312l0.17-0.271l0.237-0.186l0.237-0.143
+          	l0.284-0.076l0.312,0.01l3.231,0.418l0.266,0.07l0.485,0.26l0.344,0.388l-0.021-0.021l0.167,0.348l0.078,0.396l-0.023,0.554
+          	l-0.186,0.444l-0.313,0.369l-0.461,0.19L411.116,359.703z"/>
+          <path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M409.823,357.305v0.018v0.015v0.019l0.004,0.02v0.016v0.018v0.018
+          	l0.028,0.131l0.251,0.943l0.1,0.258l0.159,0.217l0.206,0.17l0.201,0.104l0.356,0.078l0.311-0.036l2.146-0.58l0.504-0.17l0.127-0.096
+          	l0.128-0.16l0.124-0.201l0.062-0.203l0.035-0.219l-0.028-0.221l-0.121-0.328l-0.229-0.281l-0.313-0.188l-0.181-0.035l-2.511-0.379
+          	l-0.135-0.019l-0.22-0.015l-0.244,0.054l-0.348,0.166l-0.233,0.252l-0.146,0.29l-0.032,0.333L409.823,357.305L409.823,357.305z"/>
+          <path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M410.667,358.718l0.092,0.087l0.177,0.079l0.183,0.038l0.199-0.029
+          	l2.299-0.609l0.193-0.096l0.176-0.141l0.06-0.131l0.043-0.112l0.014-0.136l-0.003-0.15l-0.046-0.109l-0.05-0.109l-0.093-0.107
+          	l-0.127-0.096l-0.23-0.07l-2.521-0.363l-0.188-0.024l-0.153,0.024l-0.188,0.105l-0.155,0.148l-0.085,0.212v0.267l0.318,1.193
+          	L410.667,358.718z"/>
+          <path fill="#4D4D4D" stroke="#333333" stroke-width="0.2822" d="M340.615,145.459c-3.058,4.33-4.515,1.277-4.827-0.226
+          	c-0.396-1.891-0.938-5.022,3.646-2.81c4.945-1.558,14.414-4.132,14.414-4.132l0.79,2.638L340.615,145.459L340.615,145.459z"/>
+          <path fill="#EDEEF0" stroke="#000000" stroke-width="0.0762" d="M440.648,413c0-5.593-4.534-10.127-10.127-10.127
+          	c-5.595,0-10.129,4.534-10.129,10.127s4.534,10.127,10.129,10.127C436.114,423.127,440.648,418.592,440.648,413"/>
+          <path fill="#808080" stroke="#808080" stroke-width="2" d="M338.255,144.604c0,0.217-0.176,0.393-0.393,0.393
+          	c-0.216,0-0.394-0.176-0.394-0.393c0-0.216,0.178-0.392,0.394-0.392C338.08,144.211,338.255,144.387,338.255,144.604z"/>
+          <!-- Effective Top Tube -->
+          <g id="effectiveTopTubeMeasure" class="hideMeasurement">
+            <line x1="345" y1="65" x2="618" y2="65" stroke="green" stroke-width="3"/>
+            <line x1="618" y1="65" x2="618" y2="82" stroke="green" stroke-width="3"/>
+            <line x1="345" y1="65" x2="345" y2="135" stroke="green" stroke-width="3"/>
+            <text x="350" y="55" font-size="14" font-family="Helvetica" fill="black" > A </text>
+          </g>
+          <!-- Standover -->
+          <g id="standoverMeasure" class="hideMeasurement">
+            <line x1="150" y1="500" x2="150" y2="150" stroke="green" stroke-width="3"/>
+            <line x1="150" y1="150" x2="470" y2="150" stroke="green" stroke-width="3"/>
+            <text x="160" y="350" font-size="14" font-family="Helvetica" fill="black" > B </text>
+          </g>
+          <!-- Seat Tube Length -->
+          <g id="seatTubeLengthMeasure" class="hideMeasurement">
+            <line x1="330" y1="135" x2="330" y2="415" stroke="green" stroke-width="3"/>
+            <line x1="330" y1="415" x2="430" y2="415" stroke="green" stroke-width="3"/>
+            <line x1="330" y1="135" x2="355" y2="135" stroke="green" stroke-width="3"/>
+            <text x="340" y="300" font-size="14" font-family="Helvetica" fill="black" > C </text>
+          </g>
+          <!-- Seat Tube Angle  -->
+          <g id="seatTubeAngleMeasure" class="hideMeasurement">
+            <line x1="368" y1="250" x2="390" y2="325" stroke="green" stroke-width="3"/>
+            <line x1="330" y1="325" x2="390" y2="325" stroke="green" stroke-width="3"/>
+            <path d="M350 325 C 350 325 350 300 382 300" fill="transparent" stroke="green" stroke-width="3"/>
+            <text x="340" y="300" font-size="14" font-family="Helvetica" fill="black"> D </text>
+          </g>
+          <!-- Head Tube Length -->
+          <g id="headTubeLengthMeasure" class="hideMeasurement">
+            <line x1="655" y1="130" x2="675" y2="190" stroke="green" stroke-width="3"/>
+            <line x1="655" y1="130" x2="635" y2="135" stroke="green" stroke-width="3"/>
+            <line x1="655" y1="195" x2="675" y2="190" stroke="green" stroke-width="3"/>
+            <text x="675" y="160" font-size="14" font-family="Helvetica" fill="black"> E </text>
+          </g>
+          <!-- Head Tube angle -->
+          <g id="headTubeAngleMeasure" class="hideMeasurement">
+            <line x1="625" y1="130" x2="735" y2="450" stroke-dasharray="5, 5" stroke="green" stroke-width="3"/>
+            <line x1="625" y1="325" x2="693" y2="325" stroke="green" stroke-width="3"/>
+            <path d="M640 325 C630 325 650 280 681 290" fill="transparent" stroke="green" stroke-width="3"/>
+            <text x="630" y="290" font-size="14" font-family="Helvetica" fill="black"> F </text>
+          </g>
+          <!-- Stack -->
+          <g id="stackMeasure" class="hideMeasurement">
+            <line x1="430" y1="415" x2="430" y2="100" stroke="green" stroke-width="3"/>
+            <line x1="430" y1="100" x2="620" y2="100" stroke="green" stroke-width="3"/>
+            <text x="510" y="90" font-size="14" font-family="Helvetica" fill="black"> G </text>
+          </g>
+          <!-- Reach -->
+          <g id="reachMeasure" class="hideMeasurement">
+            <line x1="430" y1="415" x2="430" y2="75" stroke="green" stroke-width="3"/>
+            <line x1="430" y1="75" x2="620" y2="75" stroke="green" stroke-width="3"/>
+            <line x1="620" y1="75" x2="620" y2="85" stroke="green" stroke-width="3"/>
+            <text x="515" y="67" font-size="14" font-family="Helvetica" fill="black"> H </text>
+          </g>
+          <g id="wheelBaseMeasure" class="hideMeasurement">
+            <line x1="215" y1="440" x2="735" y2="440" stroke="green" stroke-width="3"/>
+            <line x1="215" y1="441" x2="215" y2="410" stroke="green" stroke-width="3"/>
+            <line x1="735" y1="441" x2="735" y2="410" stroke="green" stroke-width="3"/>
+            <text x="230" y="458" font-size="14" font-family="Helvetica" fill="black"> I </text>
+          </g>
+          <!-- Chainstay Length -->
+          <g id="chainstayLengthMeasure" class="hideMeasurement">
+            <line x1="215" y1="415" x2="430" y2="445" stroke="green" stroke-width="3"/>
+            <line x1="215" y1="415" x2="217" y2="402" stroke="green" stroke-width="3"/>
+            <line x1="430" y1="445" x2="431" y2="425" stroke="green" stroke-width="3"/>
+            <text x="310" y="450" font-size="14" font-family="Helvetica" fill="black"> J </text>
+          </g>
+          <!-- BB Drop -->
+          <g id="bbDropMeasure" class="hideMeasurement">
+            <line x1="425" y1="413" x2="438" y2="413" stroke="green" stroke-width="3"/>
+            <line x1="438" y1="413" x2="438" y2="375" stroke="green" stroke-width="3"/>
+            <line x1="438" y1="375" x2="735" y2="375" stroke="green" stroke-width="3"/>
+            <text x="575" y="395" font-size="14" font-family="Helvetica" fill="black"> K </text>
+          </g>
+          <!-- Axle to Crown -->
+          <g id="axleToCrownMeasure" class="hideMeasurement">
+            <line x1="680" y1="198" x2="755" y2="370" stroke="green" stroke-width="3"/>
+            <line x1="680" y1="198" x2="660" y2="204" stroke="green" stroke-width="3"/>
+            <line x1="755" y1="370" x2="735" y2="377" stroke="green" stroke-width="3"/>
+            <text x="735" y="290" font-size="14" font-family="Helvetica" fill="black"> L </text>
+          </g>
+          <!-- Mechanical Trail -->
+          <g id="mechanicalTrailMeasure" class="hideMeasurement">
+            <line x1="625" y1="130" x2="735" y2="450" stroke-dasharray="5, 5" stroke="green" stroke-width="3"/>
+            <line x1="720" y1="410" x2="740" y2="410" stroke="green" stroke-width="3"/>
+            <line x1="740" y1="410" x2="738" y2="395" stroke="green" stroke-width="3" />
+            <text x="750" y="410" font-size="14" font-family="Helvetica" fill="black" > M</text>
+          </g>
+          <!-- Fork Offset -->
+          <g id="forkOffsetMeasure" class="hideMeasurement">
+            <line x1="720" y1="410" x2="740" y2="410" stroke="green" stroke-width="3"/>
+            <line x1="720" y1="410" x2="720" y2="395" stroke="green" stroke-width="3"/>
+            <line x1="740" y1="410" x2="740" y2="395" stroke="green" stroke-width="3" />
+            <text x="750" y="410" font-size="14" font-family="Helvetica" fill="black" > N </text>
+          </g>
           </svg>
         </div>
     </div>

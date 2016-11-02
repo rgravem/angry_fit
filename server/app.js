@@ -247,7 +247,7 @@ app.post('/addFrameGeometry', function(req, res){
   console.log('req.body:', req.body);
 
   var date = req.body.date;
-  var employeeCreated = req.body.employeeId;
+  var employeeCreated = req.body.employeeCreated;
   var bikeId = req.body.bikeId;
   var inseam = req.body.inseam;
   var torso = req.body.torso;

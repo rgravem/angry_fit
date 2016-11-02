@@ -3,7 +3,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
-  var formOne = JSON.parse(sessionStorage.getItem('formOne'));
+  var formThree = JSON.parse(sessionStorage.getItem('formOne'));
 
   // set form to edit and submit status
   //show submit button, hide update and pdf
@@ -45,7 +45,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
-      employeeCreated: employee,
+      employeeCreated: sessionStorage.employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuries,

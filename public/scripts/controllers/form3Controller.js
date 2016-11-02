@@ -4,15 +4,11 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formThree = JSON.parse(sessionStorage.getItem('formThree'));
-
-  console.log(employee);
-  console.log(formThree);
+  $scope.date= new Date();
+  
   // set form to edit and submit status
   //show submit button, hide update and pdf
-  var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
-  var employee = JSON.parse(sessionStorage.getItem('employee'));
-  var formThree = JSON.parse(sessionStorage.getItem('formThree'));
-  $scope.date= new Date();
+
   $scope.showHideSubmitFormThree = true;
   //keep all input fields active
   $scope.submittedThree=false;

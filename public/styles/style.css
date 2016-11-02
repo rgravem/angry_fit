@@ -46,6 +46,7 @@ md-radio-button:focus {
 .formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
   height: 400px;
+  overflow-x: hidden;
 }
 .formOneSubmit, .formTwoSubmit, .formThreeSubmit, .formFourSubmit, .formUpdate, .formPdf, .formSave{
   width: 60%;
@@ -94,6 +95,7 @@ md-nav-bar md-nav-ink-bar {
 
 .formTwoBikeImage{
   margin-top: -5%;
+  margin-left: 2%;
 }
 
 #formOneIcon{
@@ -102,4 +104,17 @@ margin: auto;
 margin-top:10%;
 width: 40%;
 opacity: 0.75;
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 2px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+.formTwoNotes{
+  margin-left: 10%;
+  margin-right: 10%;
 }

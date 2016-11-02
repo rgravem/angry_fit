@@ -1,9 +1,65 @@
-<md-content class="md-padding">
+<!-- <md-content class="md-padding">
 <h2>Selected Customer</h2>
 <div id="custInfo" ng-click="editCustomerInfo()" ng-model="customerInfo">
+</div> -->
 
-</div>
+<!--//////////////////////////Customer Form///////////////////////////////-->
+<md-content class="md-padding">
+  <h2 class="newCustomerHeading">Customer Information</h2>
+  <form class="newCustomerForm" action="" method="post" layout-gt-sm="column" flex="50" max-height="100%">
 
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="First Name" ng-model="firstName" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Last Name" ng-model="lastName" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+
+    <div layout-gt-sm ="row">
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Email Address" ng-model="email" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Phone Number" ng-model="phoneNumber" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+    </div>
+    <div layout-gt-sm="row">
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Street Address" ng-model="streetAddress" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Unit Number" ng-model="unitNumber" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+    </div>
+    <div layout-gt-sm ="row">
+      <md-input-container class="md-block" flex-gt-sm="60">
+        <input type="text" placeholder="City" ng-model="city" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+
+      <md-input-container class="md-block" layout-gt-sm="20">
+        <input type="text" placeholder="State" ng-model="state" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+
+      <md-input-container class="md-block" layout-gt-sm="20">
+        <input type="text" placeholder="Zip" ng-model="zip" ng-disabled="submittedSelectedCustomer">
+      </md-input-container>
+    </div>
+    <!-- <md-input-container flex-gt-sm=""> -->
+      <md-button class="md-raised md-primary" placeholder="Submit" ng-click="editCustomerInfo()">Submit Changes</md-button>
+    <!-- </md-input-container> -->
+    <div layout-gt-sm="row" layout-align="center" flex="100">
+      <md-button class="md-raised md-primary editExistingCustomer" ng-click="editCustomerInfo()" ng-show="showHideSubmitFormOne">Submit Changes</md-button>
+      <md-button class="md-raised md-primary formUpdate" ng-click="updateExistingCustomer()" ng-hide="showHideSubmitFormOne" ng-show="hideUpdate"> Update Information </md-button>
+      <md-button class="md-raised md-primary formUpdate" ng-show="showSave" ng-click="test()"> Save Updates</md-button>
+    </div>
+  </form>
+</md-content>
+
+
+<!--//////////////////////////Bike Cards For Each Customer///////////////////////////////-->
 <div class='md-padding' layout="row" layout-wrap>
       <md-card style="width: 200px;" ng-repeat="bike in customerBikes" ng-click="cardClicked(bike)">
         <img src="http://placehold.it/150x150" class="md-card-image" alt="user avatar">

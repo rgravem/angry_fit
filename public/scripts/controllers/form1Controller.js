@@ -1,12 +1,12 @@
 myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form1Controller');
-      // set form to edit and submit status
-      //show submit button, hide update and pdf
+  // set form to edit and submit status
+  //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
   // hide Save
   $scope.showSave = false;
   //keep all input fields active
-  $scope.submittedOne=false;
+  $scope.submittedOne = false;
 
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');

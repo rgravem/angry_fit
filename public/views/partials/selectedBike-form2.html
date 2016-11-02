@@ -1,7 +1,7 @@
 <h2 class="newFitFormHeading">New Fit</h2>
-<md-content class="md-padding">
+<md-content class="md-padding cream-background">
   <div layout-gt-sm="row">
-    <form name="fitFormTwo" layout-gt-sm="column" flex="40" >
+    <form name="fitFormTwo" class="cream-background" layout-gt-sm="column" flex="40" >
       <div id="formTwoInputs" class="formTwoInputs" flex="100">
         <div layout-gt-xs="row">
           <md-input-container>
@@ -120,14 +120,14 @@
       </div>
     </form>
     <div layout-gt-sm="column" flex="60">
-      <div id="formTwoNotes" class="formTwoNotes" flex="100">
+      <div id="formTwoNotes" class="formTwoNotes cream-background" flex="100">
       <md-input-container class="md-block" flex-gt-sm="">
         Notes<textarea rows="1" ng-model='notes' ng-disabled="submittedTwo"></textarea></p>
       </md-input-container>
     </div>
       <div class="formTwoBikeImage">
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        	 width="853.234px" height="484.762px" viewBox="0 0 953.234 584.762"  preserveAspectRatio="xMidYMid meet"
+        	 width="700.234px" height="324.762px" viewBox="0 0 953.234 584.762"  preserveAspectRatio="xMidYMid meet"
         	 xml:space="preserve"  >
 
           <filter  width="1.69647" height="2.04564" x="-.34824" y="-.52282" id="filter5616">
@@ -4140,7 +4140,7 @@
     </div>
   </div>
   <div layout="row" layout-align="center" flex="100">
-    <md-button class="md-raised md-primary formTwoSubmit" placeholder="Submit" ng-click="addForm2NewFit()" ng-show="showHideSubmitFormTwo">Submit</md-button>
+    <md-button class="angry-button formTwoSubmit" placeholder="Submit" ng-click="addForm2NewFit()" ng-show="showHideSubmitFormTwo">Submit</md-button>
     <md-button class="md-raised md-primary formUpdate" ng-click="updateFormTwo()" ng-hide="showHideSubmitFormTwo" ng-show="hideUpdate"> Update </md-button>
     <md-button class="md-raised md-primary formUpdate" ng-click="saveFormTwo()" ng-show='showSaveTwo'> Save Updates </md-button>
     <md-button class="md-raised md-primary formPdf"  ng-click="downloadFormTwoPdf()" ng-hide="showHideSubmitFormTwo"> PDF</md-button>

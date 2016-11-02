@@ -1,15 +1,17 @@
 myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form1Controller');
-      // set form to edit and submit status
-      //show submit button, hide update and pdf
+
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
+
+  // set form to edit and submit status
+  //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
   // hide Save
   $scope.showSave = false;
   //keep all input fields active
-  $scope.submittedOne=false;
+  $scope.submittedOne = false;
 
   $scope.formOneLoad = function(){
     if (formOne == undefined){

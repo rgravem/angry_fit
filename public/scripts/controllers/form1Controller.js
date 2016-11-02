@@ -4,6 +4,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
+
   $scope.date= new Date();
   $scope.submitButton = function(){
     if (formOne == undefined) {
@@ -56,7 +57,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
-      employeeCreated: employee,
+      employeeCreated: employee.employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuryInfo,

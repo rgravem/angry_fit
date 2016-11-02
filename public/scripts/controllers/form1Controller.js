@@ -84,6 +84,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
       url: '/addFormOne',
       data: formOneObject
     }).then(function(formOneObject){
+      sessionStorage.setItem('formOne', JSON.stringify(formOneObject.data));
       console.log('success from server', formOneObject);
     });
   }; // end addFormOne
@@ -135,7 +136,9 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
       url: '/editFormOne',
       data: editFormOneObject
     }).then(function(editForm1Response){
+      sessionStorage.setItem('formOne', JSON.stringify(editForm1Response.data));
       console.log('success from server', editForm1Response);
+
     });
   }; //End saveFormOne
 

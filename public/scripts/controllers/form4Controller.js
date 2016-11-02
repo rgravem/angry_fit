@@ -189,6 +189,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       data: formFourObject
     }).then(function(form4Response){
       console.log('success from server', form4Response);
+      sessionStorage.setItem('formFour', JSON.stringify(form4Response.data));
     });
   }; //End submitFormFour
 
@@ -253,6 +254,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       data: editFormFourObject
     }).then(function(editForm4Response){
       console.log('success from server', editForm4Response);
+      sessionStorage.setItem('formFour', JSON.stringify(editForm4Response.data));
     });
   }; //End saveFormFour
 

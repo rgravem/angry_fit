@@ -28,13 +28,20 @@ md-radio-button:focus {
     border: 0;
  }
 
-.newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading{
+.newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading, .customerSelectHeading{
   text-align:center;
   font-size: 24px;
 }
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
+}
+.customerSelectHeading{
+  color:
+  margin-top: 5%;
+}
+.customerTypes{
+  margin-top: 5%;
 }
 .formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;

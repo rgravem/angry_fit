@@ -143,7 +143,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.submittedFour = true;
   }
   };
-  submitButton();
+  $scope.submitButton();
 
   ////////////////FORM 4 POST Route to DB///////////////////////////////////////
   $scope.submitFormFour = function(){

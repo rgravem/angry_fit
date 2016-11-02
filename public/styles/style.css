@@ -1,4 +1,10 @@
+body{
+  background-color: #faf6ee;
+}
 
+.cream-background{
+  background-color: #faf6ee;
+}
 #customerTypeButtons {
   height: 150px;
 
@@ -24,6 +30,7 @@ md-radio-button:focus {
 
 .newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading{
   text-align:center;
+  font-size: 24px;
 }
 .newCustomerForm{
   margin-left: auto;
@@ -42,10 +49,42 @@ md-radio-button:focus {
 .showMeasurement{
   display: block;
 }
-@media screen and (max-width: 1024px) and (min-width: 768px){
-  .formTwoBikeImage svg{
+/*@media screen and (max-width: 1024px) and (min-width: 768px){
+  .formTwoBikeImage svg, .formThreeBikeImage svg{
     width: 700px !important;
     height:300px !important;
 
   }
+}*/
+.md-toolbar-tools{
+  background-color: #e54735;
+}
+/*Nav text*/
+._md-nav-button-text{
+  color: #e54735;
+  font-size:16px;
+}
+
+.angry-button {
+  padding: 0 6px 0 6px;
+  /*margin: 6px 8px 6px 8px;*/
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+  color: #faf6ee;
+  background-color: #002f54;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+/* nested nav underline*/
+md-nav-bar md-nav-ink-bar {
+  background: #e54735;
+}
+
+.formTwoBikeImage{
+  margin-top: -5%;
 }

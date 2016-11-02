@@ -74,49 +74,49 @@
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>G: Stack</label>
-                <input ng-model="stack" ng-disabled="submittedThree">
+                <input ng-model="stack" ng-focus="stackFocus()" ng-blur="stackBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>H: Reach</label>
-                <input ng-model="reach" ng-disabled="submittedThree">
+                <input ng-model="reach" ng-focus="reachFocus()" ng-blur="reachBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>I: Wheel base</label>
-                <input ng-model="wheelBase" ng-disabled="submittedThree">
+                <input ng-model="wheelBase" ng-Focus="wheelBaseFocus()" ng-blur="wheelBaseBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>J: Chainstay length</label>
-                <input ng-model="chainstayLength" ng-disabled="submittedThree">
+                <input ng-model="chainstayLength" ng-focus="chainstayLengthFocus()" ng-blur="chainstayLengthBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>K: BB Drop</label>
-                <input ng-model="bbDrop" ng-disabled="submittedThree">
+                <input ng-model="bbDrop" ng-focus="bbDropFocus()" ng-blur="bbDropBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>L: Axle to crown</label>
-                <input ng-model="axleToCrown" ng-disabled="submittedThree">
+                <input ng-model="axleToCrown" ng-focus="axleToCrownFocus()" ng-blur="axleToCrownBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>M: Mechanical trail</label>
-                <input ng-model="mechanicalTrail" ng-disabled="submittedThree">
+                <input ng-model="mechanicalTrail" ng-focus="mechanicalTrailFocus()" ng-blur="mechanicalTrailBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
         <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>N: Fork offset</label>
-                <input ng-model="forkOffset" ng-disabled="submittedThree">
+                <input ng-model="forkOffset" ng-focus="forkOffsetFocus()" ng-blur="forkOffsetBlur()" ng-disabled="submittedThree">
           </md-input-container>
         </div>
       </div>
@@ -452,6 +452,60 @@
             <line x1="625" y1="325" x2="693" y2="325" stroke="green" stroke-width="3"/>
             <path d="M640 325 C630 325 650 280 681 290" fill="transparent" stroke="green" stroke-width="3"/>
             <text x="630" y="290" font-size="14" font-family="Helvetica" fill="black"> F </text>
+          </g>
+          <!-- Stack -->
+          <g id="stackMeasure" class="hideMeasurement">
+            <line x1="430" y1="415" x2="430" y2="100" stroke="green" stroke-width="3"/>
+            <line x1="430" y1="100" x2="620" y2="100" stroke="green" stroke-width="3"/>
+            <text x="510" y="90" font-size="14" font-family="Helvetica" fill="black"> G </text>
+          </g>
+          <!-- Reach -->
+          <g id="reachMeasure" class="hideMeasurement">
+            <line x1="430" y1="415" x2="430" y2="75" stroke="green" stroke-width="3"/>
+            <line x1="430" y1="75" x2="620" y2="75" stroke="green" stroke-width="3"/>
+            <line x1="620" y1="75" x2="620" y2="85" stroke="green" stroke-width="3"/>
+            <text x="515" y="67" font-size="14" font-family="Helvetica" fill="black"> H </text>
+          </g>
+          <g id="wheelBaseMeasure" class="hideMeasurement">
+            <line x1="215" y1="440" x2="735" y2="440" stroke="green" stroke-width="3"/>
+            <line x1="215" y1="441" x2="215" y2="410" stroke="green" stroke-width="3"/>
+            <line x1="735" y1="441" x2="735" y2="410" stroke="green" stroke-width="3"/>
+            <text x="230" y="458" font-size="14" font-family="Helvetica" fill="black"> I </text>
+          </g>
+          <!-- Chainstay Length -->
+          <g id="chainstayLengthMeasure" class="hideMeasurement">
+            <line x1="215" y1="415" x2="430" y2="445" stroke="green" stroke-width="3"/>
+            <line x1="215" y1="415" x2="217" y2="402" stroke="green" stroke-width="3"/>
+            <line x1="430" y1="445" x2="431" y2="425" stroke="green" stroke-width="3"/>
+            <text x="310" y="450" font-size="14" font-family="Helvetica" fill="black"> J </text>
+          </g>
+          <!-- BB Drop -->
+          <g id="bbDropMeasure" class="hideMeasurement">
+            <line x1="425" y1="413" x2="438" y2="413" stroke="green" stroke-width="3"/>
+            <line x1="438" y1="413" x2="438" y2="375" stroke="green" stroke-width="3"/>
+            <line x1="438" y1="375" x2="735" y2="375" stroke="green" stroke-width="3"/>
+            <text x="575" y="395" font-size="14" font-family="Helvetica" fill="black"> K </text>
+          </g>
+          <!-- Axle to Crown -->
+          <g id="axleToCrownMeasure" class="hideMeasurement">
+            <line x1="680" y1="198" x2="755" y2="370" stroke="green" stroke-width="3"/>
+            <line x1="680" y1="198" x2="660" y2="204" stroke="green" stroke-width="3"/>
+            <line x1="755" y1="370" x2="735" y2="377" stroke="green" stroke-width="3"/>
+            <text x="735" y="290" font-size="14" font-family="Helvetica" fill="black"> L </text>
+          </g>
+          <!-- Mechanical Trail -->
+          <g id="mechanicalTrailMeasure" class="hideMeasurement">
+            <line x1="625" y1="130" x2="735" y2="450" stroke-dasharray="5, 5" stroke="green" stroke-width="3"/>
+            <line x1="720" y1="410" x2="740" y2="410" stroke="green" stroke-width="3"/>
+            <line x1="740" y1="410" x2="738" y2="395" stroke="green" stroke-width="3" />
+            <text x="750" y="410" font-size="14" font-family="Helvetica" fill="black" > M</text>
+          </g>
+          <!-- Fork Offset -->
+          <g id="forkOffsetMeasure" class="hideMeasurement">
+            <line x1="720" y1="410" x2="740" y2="410" stroke="green" stroke-width="3"/>
+            <line x1="720" y1="410" x2="720" y2="395" stroke="green" stroke-width="3"/>
+            <line x1="740" y1="410" x2="740" y2="395" stroke="green" stroke-width="3" />
+            <text x="750" y="410" font-size="14" font-family="Helvetica" fill="black" > N </text>
           </g>
           </svg>
         </div>

@@ -247,7 +247,7 @@ app.post('/addFrameGeometry', function(req, res){
   console.log('req.body:', req.body);
 
   var date = req.body.date;
-  var employeeCreated = req.body.employee;
+  var employeeCreated = req.body.employeeCreated;
   var bikeId = req.body.bikeId;
   var inseam = req.body.inseam;
   var torso = req.body.torso;
@@ -559,7 +559,7 @@ app.put( '/editFormThree', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form3_customFrameGeometry SET employeeUpdated = ($1), date = ($2), inseam = ($3), torso = ($4), arm = ($5), footLength = ($6), effectiveTopTube = ($7), standover = ($8), seatTubeLength = ($9), seatTubeAngle = ($10), headTubeLength = ($11), headTubeAngle = ($12), stack = ($13), reach = ($14), wheelBase = ($15), chainstayLength = ($16), bbDrop = ($17), axleToCrown = ($18), mechanicalTrail = ($19), forkOffset = ($20), notes = ($21), WHERE bikeId = ($22)', [employeeUpdated, date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail,forkOffset, notes, bikeId]);
+      client.query('UPDATE form3_customFrameGeometry SET employeeUpdated = ($1), date = ($2), inseam = ($3), torso = ($4), arm = ($5), footLength = ($6), effectiveTopTube = ($7), standover = ($8), seatTubeLength = ($9), seatTubeAngle = ($10), headTubeLength = ($11), headTubeAngle = ($12), stack = ($13), reach = ($14), wheelBase = ($15), chainstayLength = ($16), bbDrop = ($17), axleToCrown = ($18), mechanicalTrail = ($19), forkOffset = ($20), notes = ($21) WHERE bikeId = ($22)', [employeeUpdated, date, inseam, torso, arm, footLength, effectiveTopTube, standover, seatTubeLength, seatTubeAngle, headTubeLength, headTubeAngle, stack, reach, wheelBase, chainstayLength, bbDrop, axleToCrown, mechanicalTrail,forkOffset, notes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form3_customFrameGeometry ORDER BY form3id DESC LIMIT 1;');

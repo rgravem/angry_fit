@@ -2,6 +2,10 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form2Controller');
     // set form to edit and submit status
     //show submit button, hide update and pdf
+  var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
+  var employee = JSON.parse(sessionStorage.getItem('employee'));
+  var formTwo = JSON.parse(sessionStorage.getItem('formTwo'));
+  $scope.date= new Date();
   $scope.showHideSubmitFormTwo = true;
     //keep all input fields active
     $scope.submittedTwo=false;
@@ -102,7 +106,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {
-      employeeCreated: employee.employeeid,
+      employeeCreated: employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       saddleHeight: $scope.saddleHeight,
@@ -149,7 +153,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedTwo=true;
 
     var editFormTwoObject = {
-      employeeUpdated: employee.employeeid,
+      employeeUpdated: employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       saddleHeight: $scope.saddleHeight,

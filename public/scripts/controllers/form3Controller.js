@@ -2,6 +2,10 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form3Controller');
   // set form to edit and submit status
   //show submit button, hide update and pdf
+  var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
+  var employee = JSON.parse(sessionStorage.getItem('employee'));
+  var formThree = JSON.parse(sessionStorage.getItem('formThree'));
+  $scope.date= new Date();
   $scope.showHideSubmitFormThree = true;
   //keep all input fields active
   $scope.submittedThree=false;
@@ -94,9 +98,9 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   $scope.submitFrameGeometry = function(){
     console.log('complete clicked');
     var objectToSend = {
-      employeeCreated: employee.employeeid,
+      employeeCreated: employee,
       bikeId: bike.bikeid,
-      date: $scope.frameGeometryFormDate.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       inseam: $scope.inseam,
     	torso: $scope.torso,
     	arm: $scope.arm,
@@ -148,7 +152,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     var editFormThreeObject = {
       employeeUpdated: employee.employeeid,
       bikeId: bike.bikeid,
-      date: $scope.frameGeometryFormDate.toString().substring(0,15),
+      date: $scope.date.toString().substring(0,15),
       inseam: $scope.inseam,
     	torso: $scope.torso,
     	arm: $scope.arm,

@@ -95,6 +95,16 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
    document.getElementById("forkOffsetMeasure").className.baseVal = "hideMeasurement";
  };
 
+ $scope.submitButton = function(){
+   if (formThree == undefined) {
+     console.log('starting new');
+   } else if(formThree[0] !== undefined) {
+   $scope.showHideSubmitFormThree = false;
+   $scope.submittedThree = true;
+ }
+ };
+ $submitButton();
+
   $scope.submitFrameGeometry = function(){
     console.log('complete clicked');
     var objectToSend = {

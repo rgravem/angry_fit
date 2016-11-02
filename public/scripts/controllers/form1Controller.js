@@ -48,7 +48,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
-      employeeCreated: sessionStorage.employee,
+      employeeCreated: employee.employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuryInfo,

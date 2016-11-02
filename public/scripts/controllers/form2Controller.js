@@ -7,12 +7,6 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedTwo=false;
 
     // focus / blur properties for inputs
-    $scope.standoverFocus = function(){
-     document.getElementById("standoverMeasure").className.baseVal = "showMeasurement";
-   };
-   $scope.standoverBlur= function(){
-     document.getElementById("standoverMeasure").className.baseVal = "hideMeasurement";
-   };
    $scope.saddleHeightFocus = function(){
      document.getElementById("saddleHeightMeasure").className.baseVal = "showMeasurement";
    };
@@ -42,6 +36,66 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   };
   $scope.saddleForeAftBlur = function(){
     document.getElementById("saddleForeAft").className.baseVal = "hideMeasurement";
+  };
+  $scope.saddleBrandFocus = function(){
+  document.getElementById("saddleBrand").className.baseVal = "showMeasurement";
+  };
+  $scope.saddleBrandBlur = function(){
+  document.getElementById("saddleBrand").className.baseVal = "hideMeasurement";
+  };
+  $scope.stemLengthFocus= function(){
+  document.getElementById("stemLengthMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.stemLengthBlur= function(){
+    document.getElementById("stemLengthMeasure").className.baseVal = "hideMeasurement";
+  };
+  $scope.stemAngleFocus= function(){
+  document.getElementById("stemAngleMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.stemAngleBlur= function(){
+    document.getElementById("stemAngleMeasure").className.baseVal = "hideMeasurement";
+  };
+  $scope.handleBarWidthFocus= function(){
+  document.getElementById("handleBarWidthMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.handleBarWidthBlur= function(){
+    document.getElementById("handleBarWidthMeasure").className.baseVal = "hideMeasurement";
+  };
+  $scope.handleBarBrandFocus= function(){
+  document.getElementById("handleBarBrandMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.handleBarBrandBlur= function(){
+    document.getElementById("handleBarBrandMeasure").className.baseVal = "hideMeasurement";
+  };
+  $scope.pedalBrandFocus= function(){
+  document.getElementById("pedalBrandMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.pedalBrandBlur= function(){
+    document.getElementById("pedalBrandMeasure").className.baseVal = "hideMeasurement";
+  };
+  $scope.brakeLevelFocus= function(){
+  document.getElementById("brakeLevelPositionMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.brakeLevelBlur= function(){
+    document.getElementById("brakeLevelPositionMeasure").className.baseVal = "hideMeasurement";
+  };
+  $scope.crankLengthFocus= function(){
+  document.getElementById("crankLengthMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.crankLengthBlur= function(){
+    document.getElementById("crankLengthMeasure").className.baseVal = "hideMeasurement";
+  };
+  $scope.standoverFocus = function(){
+   document.getElementById("standoverMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.standoverBlur= function(){
+   document.getElementById("standoverMeasure").className.baseVal = "hideMeasurement";
+  };
+  $scope.stackFocus= function(){
+    document.getElementById("stackMeasure").className.baseVal = "showMeasurement";
+  };
+  $scope.stackBlur= function(){
+    document.getElementById("stackMeasure").className.baseVal = "hideMeasurement";
   };
 
 
@@ -164,7 +218,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     console.log("In the PDF click");
     var docDefinition =
       {content: [
-        { text: "Date: " + $scope.form2Date.toString().substring(0,15)},
+        { text: "Date: " + $scope.date.toString().substring(0,15)},
         { text: "Saddle Height: " + $scope.saddleHeight },
         { text: "Saddle Height Over Bars: " + $scope.saddleHeightOverBars },
         { text: "Saddle to Handlebar reach: " + $scope.saddleToHandlebarReach },

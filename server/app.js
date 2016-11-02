@@ -138,7 +138,7 @@ app.post( '/addFormOne', function( req, res ){
   console.log( 'in addFormOne', req.body );
 
   var date = req.body.date;
-  var employeeCreated = req.body.employeeId;
+  var employeeCreated = req.body.employeeCreated;
   var bikeId = req.body.bikeId;
   var injuries = req.body.injuries;
   var complaints = req.body.complaints;
@@ -355,20 +355,18 @@ app.post('/addFormFour', function (req, res){
 //////////////////////////////////////////////////////////////// PUT ROUTES ////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////Edit Existing Customer in DB///////////////////////////
 app.put( '/editExistingCustomer', function( req, res ){
-  console.log( 'in editExistingCustomer' );
-  editCustomerInfo = req.body;
-  console.log('editCustomerInfo:', editCustomerInfo);
+  console.log( 'in editExistingCustomer', req.body );
   //assemble object to send
-  var firstName = editCustomerInfo.firstName;
-  var lastName = editCustomerInfo.lastName;
-  var email = editCustomerInfo.email;
-  var phoneNumber = editCustomerInfo.phoneNumber;
-  var streetAddress = editCustomerInfo.streetAddress;
-  var unitNumber = editCustomerInfo.unitNumber;
-  var city = editCustomerInfo.city;
-  var state = editCustomerInfo.state;
-  var zip = editCustomerInfo.zip;
-  var id = editCustomerInfo.id; //we need to define where this comes from, it will likely be from a get route that finds that specific customer's information
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var email = req.body.email;
+  var phoneNumber = req.body.phoneNumber;
+  var streetAddress = req.body.streetAddress;
+  var unitNumber = req.body.unitNumber;
+  var city = req.body.city;
+  var state = req.body.state;
+  var zip = req.body.zip;
+  var customerId = req.body.customerId; //we need to define where this comes from, it will likely be from a get route that finds that specific customer's information
 
   pg.connect(connectionString, function(err, client, done){
     //check for error
@@ -382,10 +380,10 @@ app.put( '/editExistingCustomer', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which customer info should be edited
-      client.query('UPDATE customers SET firstName = ($1), lastName = ($2), email = ($3), phoneNumber = ($4), streetAddress = ($5), unitNumber = ($6), city = ($7), state = ($8), zip = ($9) WHERE id = ($10)', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, id]);
+      client.query('UPDATE customers SET firstName = ($1), lastName = ($2), email = ($3), phoneNumber = ($4), streetAddress = ($5), unitNumber = ($6), city = ($7), state = ($8), zip = ($9) WHERE customerId = ($10)', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, customerId]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * From customers');
+      var queryResults = client.query('SELECT * FROM customers WHERE customerid = '+"'"+customerId+"'"+' ');
       //run for each row in the query
       queryResults.on("row", function(row){
         editCustomerInfoToSend.push(row);
@@ -443,7 +441,7 @@ app.put( '/editFormOne', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form1_existingFit SET date = ($1), employeeUpdated = ($2), injuries = ($3), complaints = ($4), surgeries = ($5), averageRideLength = ($6), upcomingRaces = ($7), currentBikeBrand = ($8), saddleHeight = ($9), saddleHeightOverBars = ($10), saddleAngle = ($11), saddleSetback = ($12), SaddlehandlebarReach = ($13), stemLength = ($14), stemAngle = ($15), handlebarWidth = ($16), handlebarBrand = ($17), pedalBrandModel = ($18), shoeBrand = ($19), brakeLevel = ($20), crankLength = ($21), notes = ($22), employeeId = ($23) WHERE bikeId = ($24)', [date, employeeUpdated,  injuries,  complaints,  surgeries,  averageRideLength,  upcomingRaces,  currentBikeBrand,  saddleHeight,  saddleHeightOverBars,  saddleAngle,  saddleSetback,  SaddlehandlebarReach,  stemLength,  stemAngle,  handlebarWidth,  handlebarBrand,  pedalBrandModel,  shoeBrand,  brakeLevel,  crankLength, notes, bikeId]);
+      client.query('UPDATE form1_existingFit SET date = ($1), employeeUpdated = ($2), injuries = ($3), complaints = ($4), surgeries = ($5), averageRideLength = ($6), upcomingRaces = ($7), currentBikeBrand = ($8), saddleHeight = ($9), saddleHeightOverBars = ($10), saddleAngle = ($11), saddleSetback = ($12), SaddlehandlebarReach = ($13), stemLength = ($14), stemAngle = ($15), handlebarWidth = ($16), handlebarBrand = ($17), pedalBrandModel = ($18), shoeBrand = ($19), brakeLevel = ($20), crankLength = ($21), notes = ($22) WHERE bikeId = ($23)', [date, employeeUpdated,  injuries,  complaints,  surgeries,  averageRideLength,  upcomingRaces,  currentBikeBrand,  saddleHeight,  saddleHeightOverBars,  saddleAngle,  saddleSetback,  SaddlehandlebarReach,  stemLength,  stemAngle,  handlebarWidth,  handlebarBrand,  pedalBrandModel,  shoeBrand,  brakeLevel,  crankLength, notes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form1_existingFit ORDER BY form1id DESC LIMIT 1;');
@@ -658,7 +656,107 @@ app.post('/addBike', function(req, res){
         //return result as JSON version of array
         return res.json(newBikeIn);
 
-        });//end of end
+      });//end of end
+    }
+  });
+});
+
+app.get('/getBikes', function(req, res){
+  console.log('in getbikes query:', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from getbikes');
+      var bikes = [];
+      var queryResults = client.query("SELECT * FROM bikes WHERE customerid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        bikes.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(bikes);
+      });
+    }
+  });
+});
+
+app.get('/getBikeFormOne', function(req, res){
+  console.log('in form one query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from form one');
+      var formOne = [];
+      var queryResults = client.query("SELECT * FROM form1_existingfit WHERE bikeid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        formOne.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(formOne);
+      });
+    }
+  });
+});
+
+app.get('/getBikeFormTwo', function(req, res){
+  console.log('in form Two query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from form Two');
+      var formTwo = [];
+      var queryResults = client.query("SELECT * FROM form2_newfit WHERE bikeid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        formTwo.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(formTwo);
+      });
+    }
+  });
+});
+
+app.get('/getBikeFormThree', function(req, res){
+  console.log('in form Three query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from form Three');
+      var formThree = [];
+      var queryResults = client.query("SELECT * FROM form3_customframegeometry WHERE bikeid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        formThree.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(formThree);
+      });
+    }
+  });
+});
+
+app.get('/getBikeFormFour', function(req, res){
+  console.log('in form Four query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from form Four');
+      var formFour = [];
+      var queryResults = client.query("SELECT * FROM form4_customframedetails WHERE bikeid='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        formFour.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(formFour);
+      });
     }
   });
 });

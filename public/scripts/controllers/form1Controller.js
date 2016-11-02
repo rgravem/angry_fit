@@ -1,24 +1,65 @@
 myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form1Controller');
-      // set form to edit and submit status
-      //show submit button, hide update and pdf
+
+  var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
+  var employee = JSON.parse(sessionStorage.getItem('employee'));
+  var formOne = JSON.parse(sessionStorage.getItem('formOne'));
+
+  // set form to edit and submit status
+  //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
   // hide Save
   $scope.showSave = false;
   //keep all input fields active
-  $scope.submittedOne=false;
+  $scope.submittedOne = false;
+
+  $scope.formOneLoad = function(){
+    if (formOne == undefined){
+      console.log('starting new bike');
+    }else if (formOne[0] == undefined){
+      alert('Existing Fit has no data');
+    } else {
+    console.log("form 1 session:", formOne[0]);
+    $scope.injuryInfo = formOne[0].injuries;
+    $scope.complaints = formOne[0].complaints;
+    $scope.surgeryInfo = formOne[0].surgeries;
+    $scope.averageRideLength = formOne[0].averageridelength;
+    $scope.goalsInfo = formOne[0].upcomingraces;
+    $scope.currentBikeBrand = formOne[0].currentbikebrand;
+    $scope.saddleHeight = formOne[0].saddleheight;
+    $scope.saddleHeightOverBars = formOne[0].saddleheightoverbars;
+    $scope.saddleAngle = formOne[0].saddleangle;
+    $scope.saddleSetback = formOne[0].saddlesetback;
+    $scope.SaddlehandlebarReach = formOne[0].saddlehandlebarreach;
+    $scope.stemLength = formOne[0].stemlength;
+    $scope.stemAngle = formOne[0].stemangle;
+    $scope.handlebarWidth = formOne[0].handlebarwidth;
+    $scope.handlebarBrand = formOne[0].handlebarbrand;
+    $scope.pedalBrandModel = formOne[0].pedalbrandmodel;
+    $scope.shoeBrand = formOne[0].shoebrand;
+    $scope.brakeLevel = formOne[0].brakelevel;
+    $scope.crankLength = formOne[0].cranklength;
+    $scope.notes = formOne[0].notes;
+  }
+  };
+  $scope.formOneLoad();
 
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
+<<<<<<< HEAD
       // employeeCreated: employee.employeeid,
       // bikeId: bike.bikeid,
+=======
+      employeeCreated: employee,
+      bikeId: bike.bikeid,
+>>>>>>> master
       date: $scope.date.toString().substring(0,15),
-      injuries: $scope.injuries,
+      injuries: $scope.injuryInfo,
       complaints:$scope.complaints,
-      surgeries:$scope.surgeries,
+      surgeries:$scope.surgeryInfo,
       averageRideLength:$scope.averageRideLength,
-      upcomingRaces:$scope.upcomingRaces,
+      upcomingRaces:$scope.goalsInfo,
       currentBikeBrand:$scope.currentBikeBrand,
       saddleHeight:$scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
@@ -62,14 +103,19 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedOne=true;
 
     var editFormOneObject = {
+<<<<<<< HEAD
       // employeeUpdated: employee.employeeid,
       // bikeId: bike.bikeid,
+=======
+      employeeCreated: employee,
+      bikeId: bike.bikeid,
+>>>>>>> master
       date: $scope.date.toString().substring(0,15),
-      injuries: $scope.injuries,
+      injuries: $scope.injuryInfo,
       complaints:$scope.complaints,
-      surgeries:$scope.surgeries,
+      surgeries:$scope.surgeryInfo,
       averageRideLength:$scope.averageRideLength,
-      upcomingRaces:$scope.upcomingRaces,
+      upcomingRaces:$scope.goalsInfo,
       currentBikeBrand:$scope.currentBikeBrand,
       saddleHeight:$scope.saddleHeight,
       saddleHeightOverBars:$scope.saddleHeightOverBars,
@@ -112,15 +158,6 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedOne=false;
   };
 
-  // // save form on click
-  // $scope.saveFormOne= function(){
-  //     //show update
-  //     $scope.hideUpdate = true;
-  //     //hide save
-  //     $scope.showSave = false;
-  //     // lock form
-  //     $scope.submittedOne=true;
-  // };
 
   $scope.downloadFormOnePdf = function(){
     console.log("In the PDF click");

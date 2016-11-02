@@ -84,6 +84,12 @@ myApp.controller("navController", ['$scope', '$http', '$firebaseArray', '$fireba
   $scope.startOver = function(){
     $location.path('/customerType');
     sessionStorage.removeItem('customer');
-    sessionStorage.removeItem('newBike');
+    sessionStorage.removeItem('customerBikes');
+    sessionStorage.removeItem('formFour');
+    sessionStorage.removeItem('formOne');
+    sessionStorage.removeItem('formThree');
+    sessionStorage.removeItem('formTwo');
+    sessionStorage.removeItem('selectedBike');
+
   };
   }]);

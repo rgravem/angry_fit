@@ -1,7 +1,29 @@
 myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In selectedCustomerController');
+  // set form to edit and submit status
+  //show submit button, hide update and pdf
+  $scope.showHideSelectedCustomer = true;
+  // hide Save
+  $scope.showSave = false;
+  //keep all input fields active
+  $scope.submittedSelectedCustomer = true;
+
+
   var obj = JSON.parse(sessionStorage.getItem('customer'));
   var bikeList = JSON.parse(sessionStorage.getItem('customerBikes'));
+
+  console.log(obj);
+
+  //append customer info from the DB to the current input fields
+  $scope.firstName = obj.firstname;
+  $scope.lastName = obj.lastname;
+  $scope.email = obj.email;
+  $scope.phoneNumber = obj.phonenumber;
+  $scope.streetAddress = obj.streetaddress;
+  $scope.unitNumber = obj.unitnumber;
+  $scope.city = obj.city;
+  $scope.state = obj.state;
+  $scope.zip = obj.zip;
 
   $scope.newBikeStart = function(){
     console.log('newbike');
@@ -18,7 +40,6 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     $scope.otherType = !$scope.otherType;
   };
 
-
   // show new bike name
   $scope.showInNewBikeType = false;
   $scope.updateShowOther= function(){
@@ -32,26 +53,35 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   $scope.customerInfo = function(){
     console.log('customer info from other page:', obj);
     var customer = angular.element(document.querySelector( '#custInfo' ) );
-    customer.append(obj.firstname + " " + obj.lastname + '</br>' + obj.email + '</br>' + obj.phonenumber + '</br>' + obj.streetaddress + ", " + obj.zip );
+    customer.append(obj.firstname + " " + obj.lastname + '</br>' + obj.email + '</br>' + obj.phonenumber + '</br>' + obj.streetaddress + ", " + obj.city + ", " + obj.state + " " + obj.zip );
   };
 
 
   $scope.customerInfo();
   $scope.loadBikes();
 
-
+///////////////////////////////Edit customer Info///////////////////////////////////////
   $scope.editCustomerInfo = function () {
     console.log("in editCustomerInfo");
+
+    //show update
+    $scope.hideUpdate = true;
+    //hide save
+    $scope.showSave = false;
+    // lock form
+    $scope.submittedOne=true;
+
+    
     var editCustomerObject = {
-      firstName: obj.firstname,
-      lastName: obj.lastname,
-      email: obj.email,
-      phoneNumber: obj.phonenumber,
-      streetAddress: obj.streetaddress,
-      unitNumber: obj.unitnumber,
-      city: obj.city,
-      state: obj.state,
-      zip: obj.zip,
+      firstName: $scope.firstName,
+      lastName: $scope.lastName,
+      email: $scope.email,
+      phoneNumber: $scope.phoneNumber,
+      streetAddress: $scope.streetAddress,
+      unitNumber: $scope.unitNumber,
+      city: $scope.city,
+      state: $scope.state,
+      zip: $scope.zip,
       customerId: obj.customerid
     };
 
@@ -74,6 +104,18 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     });
   };
 
+  ///////////////////////////////Update Form///////////////////////////////////////
+  $scope.updateExistingCustomer = function(){
+    //hide update
+    $scope.showHideSelectedCustomer = false;
+    //show save
+    $scope.showSave = true;
+    // unlock
+    $scope.submittedSelectedCustomer = false;
+  };
+
+
+  ///////////////////////////////Start New Bike///////////////////////////////////////
   $scope.startNewBike = function(){
     var newBike = {
       bikeName: $scope.newBikeName,
@@ -93,6 +135,8 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     }); // end then response
   }; // end start new bike
 
+
+  ///////////////////////////////on Card Click///////////////////////////////////////
   $scope.cardClicked = function(bike){
     console.log('card clicked', bike);
     sessionStorage.setItem('selectedBike', JSON.stringify(bike));
@@ -109,7 +153,6 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     }, function error(errorObject){
       console.log(errorObject);
     }); // end get form one
-
 
    $http({
      method: 'GET',
@@ -149,5 +192,6 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
    setTimeout(function(){
     $location.path('/selectedBike/form1');
     }, 0);
-  };
+  }; //end cardClicked
+
 }]);//end selectedCustomerController

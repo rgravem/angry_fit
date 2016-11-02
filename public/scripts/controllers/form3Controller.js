@@ -5,7 +5,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formThree = JSON.parse(sessionStorage.getItem('formThree'));
   $scope.date= new Date();
-  
+
   // set form to edit and submit status
   //show submit button, hide update and pdf
 
@@ -107,7 +107,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
    $scope.submittedThree = true;
  }
  };
- $submitButton();
+ $scope.submitButton();
  $scope.formThreeLoad = function(){
    if (formThree === undefined){
      console.log('starting new bike');

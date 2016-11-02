@@ -1,7 +1,7 @@
 myApp.controller("selectedBikeController", ['$scope', '$http', function($scope, $http){
   console.log('In selectedBikeController');
 
-  var bike = JSON.parse(sessionStorage.getItem('newBike'));
+  var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   console.log('json obj bike:', bike);
 
   // var obj = JSON.parse(sessionStorage.getItem('customer'));

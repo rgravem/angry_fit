@@ -120,7 +120,6 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
     } else if(formOneObject.crankLength == undefined){
       alert("Please indicate crank length - all fields are required");
     } else {
-      alert("everything is filled out");
 
     console.log('formOneObject to send to DB:', formOneObject);
     //hide submit, show update and pdf

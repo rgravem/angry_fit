@@ -128,6 +128,9 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
 
   ///////////////////////////////Start New Bike///////////////////////////////////////
   $scope.startNewBike = function(){
+    if ($scope.newBikeName == undefined) {
+      alert('Please name the new bike!');
+    } else {
 
     var newBike = {
       bikeName: $scope.newBikeName,
@@ -145,6 +148,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
       console.log('json obj:', bike);
       $location.path('/selectedBike/form1');
     }); // end then response
+  }
   }; // end start new bike
 
 

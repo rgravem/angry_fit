@@ -1,7 +1,7 @@
 <h2 class="customFrameDetailsHeading"> Custom Frame Details</h2>
-<md-content class="md-padding">
+<md-content class="md-padding cream-background">
   <div layout-gt-sm="row">
-    <form name="fitFormFour" layout-gt-sm="column" flex="60">
+    <form name="fitFormFour" class="cream-background" layout-gt-sm="column" flex="60">
         <div id="bikeData" class="formFourInputs" flex="100">
           <!-- Enter Date -->
           <div layout-gt-xs="row">
@@ -404,23 +404,23 @@
             </div>
         </div>
     </form>
-    <div id="notesContainer"layout-gt-sm="column" flex="40">
+    <div id="notesContainer" class="formFourNotes" layout-gt-sm="column" flex="60">
       <div id="paintNotes">
         <md-input-container class="md-block" flex-gt-sm="">
-          <textarea rows="1" placeholder="Any other notes regarding paint?" ng-model="paintNotes" ng-disabled="submittedFour"></textarea>
+          <textarea rows="4" placeholder="Any other notes regarding paint?" ng-model="paintNotes" ng-disabled="submittedFour"></textarea>
           </md-input-container>
       </div>
       <div id="optionsNotes">
         <md-input-container class="md-block" flex-gt-sm="">
-          <textarea rows="1" placeholder="Any other notes regarding frame options?" ng-model="frameNotes" ng-disabled="submittedFour"></textarea>
+          <textarea rows="4" placeholder="Any other notes regarding frame options?" ng-model="frameNotes" ng-disabled="submittedFour"></textarea>
         </md-input-container>
       </div>
     </div>
   </div>
   <div layout-gt-sm="row" layout-align="center" flex="100">
-    <md-button class="md-raised md-primary formFourSubmit" ng-click="submitFormFour()" ng-show="showHideSubmitFormFour">Submit</md-button>
-      <md-button class="md-raised md-primary formUpdate"  ng-click="updateFormFour()" ng-hide="showHideSubmitFormFour" ng-show="hideUpdateFour"> Update </md-button>
-      <md-button class="md-raised md-primary formSave"  ng-click="saveFormFour()" ng-show="showSaveFour"> Save Updates </md-button>
-      <md-button class="md-raised md-primary formPdf" ng-click="downloadFormFourPdf()" ng-hide="showHideSubmitFormFour"> PDF</md-button>
+    <md-button class="angry-button formFourSubmit" ng-click="submitFormFour()" ng-show="showHideSubmitFormFour">Submit</md-button>
+      <md-button class="angry-button formUpdate"  ng-click="updateFormFour()" ng-hide="showHideSubmitFormFour" ng-show="hideUpdateFour"> Update </md-button>
+      <md-button class="angry-button formSave"  ng-click="saveFormFour()" ng-show="showSaveFour"> Save Updates </md-button>
+      <md-button class="angry-button formPdf" ng-click="downloadFormFourPdf()" ng-hide="showHideSubmitFormFour"> PDF</md-button>
   </div>
 </md-content>

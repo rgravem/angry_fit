@@ -1,5 +1,6 @@
 body{
   background-color: #faf6ee;
+
 }
 
 .cream-background{
@@ -31,6 +32,7 @@ md-radio-button:focus {
 .newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading, .customerSelectHeading{
   text-align:center;
   font-size: 24px;
+  margin-top: -0.5%;
 }
 .newCustomerForm{
   margin-left: auto;
@@ -97,6 +99,10 @@ md-nav-bar md-nav-ink-bar {
   margin-top: -5%;
   margin-left: 2%;
 }
+.formThreeBikeImage{
+  margin-top: -7%;
+  margin-left: 2%;
+}
 
 #formOneIcon{
 display: block;
@@ -114,7 +120,10 @@ opacity: 0.75;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
-.formTwoNotes{
-  margin-left: 10%;
-  margin-right: 10%;
+form{
+  margin-left: 2%;
+}
+.formTwoNotes,.formThreeNotes,.formOneNotes, .formFourNotes{
+  margin-left: 5%;
+  margin-right: 7%;
 }

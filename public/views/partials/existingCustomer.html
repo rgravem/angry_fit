@@ -1,21 +1,20 @@
-<h2>Existing Customer Selection</h2>
-<div class="exisitingUserGrid">
+<h2 class="existingCustomerHeading">Select Existing Customer</h2>
+<div class="exisitingUserGrid" class="cream-background">
 
 
-<md-content class="md-padding">
-  <div layout-gt-sm="row">
-    <md-input-container class='sm-block' flex-gt-sm=''>
-      <label>Search by customer's last name</label>
-      <input ng-model="customer">
-      <md-button class="md-raised md-primary" center='left' ng-click="searchCustomer()">Search</md-button>
+<md-content  class="cream-background">
+  <div layout-gt-sm="row" class="cream-background"  >
+    <md-input-container   class='md-block  cream-background customerSearch' flex="20" >
+      <label  flex="60">Search by customer's last name</label>
+      <input ng-model="customer" flex="100">
     </md-input-container>
+    <md-button class="md-fab angry-button search-button" style="background:#002f54;" ng-click="searchCustomer()"><md-icon class="material-icons md-48" style="color: #faf6ee;"> search </md-icon></md-button>
   </div>
 </md-content>
 
-
-  <div class='md-padding' layout="row" layout-wrap>
+  <div class='md-padding customersDisplay' layout="row" layout-wrap>
         <md-card style="width: 200px;" ng-repeat="user in existingCustomers" ng-click="cardClicked(user)">
-          <img src="http://placehold.it/150x150" class="md-card-image" alt="user avatar">
+          <img src="assets/angry_icons/acf_logo.png" class="md-card-image" alt="user avatar">
           <md-card-content>
             <h3>{{user.firstname}} {{user.lastname}}</h3>
 

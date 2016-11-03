@@ -4,6 +4,8 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formThree = JSON.parse(sessionStorage.getItem('formThree'));
+  var obj = JSON.parse(sessionStorage.getItem('customer'));
+
   $scope.date= new Date();
 
   // set form to edit and submit status
@@ -264,25 +266,78 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   $scope.downloadFormThreePdf = function(){
     console.log("In the PDF click");
     var docDefinition =
-      {content: [
-      {text: "Date: " + $scope.frameGeometryFormDate.toString().substring(0,15) },
-      {text: "Inseam: " + $scope.inseam },
-      {text: "Torso: " + $scope.torso },
-      {text: "Arm: " + $scope.arm },
-      {text: "Foot Length: " + $scope.footLength },
-      {text: "Effective Top Tube: " + $scope.effectiveTopTube },
-      {text: "Standover: " + $scope.standover },
-      {text: "Seat Tube Length: " + $scope.seatTubeLength },
-      {text: "Seat Tube Angle: " + $scope.seatTubeAngle },
-      {text: "Head Tube Length: " + $scope.headTubeLength },
-      {text: "Stack: " + $scope.stack },
-      {text: "Reach: " + $scope.reach },
-      {text: "Wheel Base: " + $scope.wheelBase },
-      {text: "Chainstay Length: " + $scope.chainstayLength },
-      {text: "Bottom Bracket Drop: " + $scope.bbDrop },
-      {text: "Axle to Crown: " + $scope.axleToCrown },
-      {text: "Mechanical Trail: " + $scope.mechanicalTrail },
-      {text: "Fork Offset: " + $scope.forkOffset }
+      {pageOrientation: 'landscape',
+      content: [
+        {
+          text: 'Custom Frame Geometry',
+          style: 'header',
+          bold: true,
+          margin: [ 1, 2, 5, 5 ]
+        },
+        {text: "Name:" },
+        {text: '' + obj.firstname + ' ' + obj.lastname, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Phone:" },
+        {text: '' + obj.phonenumber, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Email:" },
+        {text: '' + obj.email, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Address:"},
+        {text: '' + obj.streetaddress + ' ' + obj.unitnumber + ' ' + obj.city + ' ' + obj.state + ' ' + obj.zip, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text:"Date: " + '' + '' + $scope.date.toString().substring(0,15), margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Inseam:"},
+        {text: '' + $scope.inseam, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Torso:"},
+        {text: '' + $scope.torso, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Arm:"},
+        {text: '' + $scope.arm, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Foot Length:"},
+        {text: '' + $scope.footLength, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Effective Top Tube:"},
+        {text: '' + $scope.effectiveTopTube, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Standover:"},
+        {text: '' + $scope.standover, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Seat Tube Length:"},
+        {text: '' + $scope.standover, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Seat Tube Angle:"},
+        {text: '' + $scope.seatTubeAngle, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Head Tube Length:"},
+        {text: '' + $scope.headTubeLength, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Stack:"},
+        {text: '' + $scope.stack, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Reach:"},
+        {text: '' + $scope.reach, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Wheel Base:"},
+        {text: '' + $scope.wheelBase, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Chainstay Length:"},
+        {text: '' + $scope.chainstayLength, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Bottom Bracket Drop:"},
+        {text: '' + $scope.bbDrop, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Axle to Crown:"},
+        {text: '' + $scope.axleToCrown, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Mechanical Trail:"},
+        {text: '' + $scope.mechanicalTrail, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Fork Offset:"},
+        {text: '' + $scope.forkOffset, margin: [ 1, 2, 5, 5 ], bold: true},
       ]
     };
     pdfMake.createPdf(docDefinition).download('customFrameGeometry.pdf');

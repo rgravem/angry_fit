@@ -620,7 +620,7 @@ app.put( '/editFormFour', function( req, res ){
       client.query('UPDATE form4_customFrameDetails SET employeeUpdated = ($1), date = ($2), bikeType = ($3), bottomBracketShell = ($4), brakeCompatability = ($5), brakeMount = ($6), wheelSize = ($7), specialFrameOptions = ($8), headTubeSize = ($9), forkType = ($10), seatDropper = ($11), drivetrain = ($12), paintColor = ($13), fullCoverageFenders = ($14), fendersPainted = ($15), frameNotes = ($16), frameOptions = ($17), paintNotes = ($18)  WHERE bikeId = ($19)', [employeeUpdated, date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, forkType, seatDropper, drivetrain, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes, bikeId]);
 
       //Query the DB
-      var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY form4id DESC LIMIT 1;');
+      var queryResults = client.query('SELECT * FROM form4_customFrameDetails WHERE bikeId = '+"'"+bikeId+"'"+' ');
       //run for each row in the query
       queryResults.on("row", function(row){
         editFormFourResponse.push(row);

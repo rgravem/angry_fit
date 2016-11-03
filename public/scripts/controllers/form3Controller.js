@@ -8,7 +8,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
 
   // set form to edit and submit status
   //show submit button, hide update and pdf
-
+  console.log(formThree);
   $scope.showHideSubmitFormThree = true;
   //keep all input fields active
   $scope.submittedThree=false;

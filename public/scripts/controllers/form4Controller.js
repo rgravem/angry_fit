@@ -3,6 +3,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formFour = JSON.parse(sessionStorage.getItem('formFour'));
+
+  console.log(formFour[0].bottombracketshell);
   $scope.date= new Date();
   // set form to edit and submit status
   //show submit button, hide update and pdf
@@ -144,6 +146,59 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   }
   };
   $scope.submitButton();
+
+  $scope.formFourLoad = function(){
+    if (formFour === undefined){
+      console.log('starting new bike');
+    }else if (formFour[0] === undefined){
+      alert('Existing Fit has no data');
+    } else {
+    console.log("form 4 session:", formFour[0]);
+    // $scope.inseam = formThree[0].inseam;
+    // $scope.torso = formThree[0].torso;
+    // $scope.arm = formThree[0].arm;
+    // $scope.footLength = formThree[0].footlength;
+    // $scope.effectiveTopTube = formThree[0].effectivetoptube;
+    // $scope.standover = formThree[0].standover;
+    // $scope.seatTubeLength = formThree[0].seattubelength;
+    // $scope.seatTubeAngle = formThree[0].seattubeangle;
+    // $scope.headTubeLength = formThree[0].headtubelength;
+    // $scope.headTubeAngle = formThree[0].headtubeangle;
+    // $scope.stack = formThree[0].stack ;
+    // $scope.reach = formThree[0].reach;
+    // $scope.wheelBase = formThree[0].wheelbase ;
+    // $scope.chainstayLength = formThree[0].chainstaylength ;
+    // $scope.bbDrop = formThree[0].bbDrop ;
+    // $scope.axleToCrown = formThree[0].axletocrown ;
+    // $scope.mechanicalTrail = formThree[0].mechanicaltrail ;
+    // $scope.forkOffset = formThree[0].forkoffset;
+    // $scope.notes = formThree[0].notes;
+    $scope.bikeType = formFour[0].biketype;
+    $scope.bottomBracketShell = formFour[0].bottombracketshell;
+    $scope.brakeCompatability = formFour[0].brakecompatability;
+    $scope.brakeMount = formFour[0].brakemount;
+    $scope.wheelSize = formFour[0].wheelsize;
+      //special frame options is checkboxes
+      // specialFrameOptions = $scope.specialframeoptions;
+    $scope.headtube = formFour[0].headtubesize;
+      //need to add a customOrStandardFork option in the DB
+      // $scope.customOrStandardFork = formFour[0].forktype;
+    $scope.forkBrand = formFour[0].forktype[0];
+    $scope.forkModel = formFour[0].forktype[1];
+      //need to adjust so yes and no are in DB
+      // $scope.seatDropper = formFour[0].seatdropperbrand + " " + formFour[0].seatdroppermodel;
+      //investigate options
+      // drivetrain:  $scope.drivetrain,
+    $scope.paintColor = formFour[0].paintcolor;
+    $scope.fullCoverageFenders = formFour[0].fullcoveragefenders;
+    $scope.fendersPainted = formFour[0].fenderspainted;
+    $scope.frameOptions = $scope.frameoptions;
+    $scope.frameNotes = formFour[0].framenotes;
+    $scope.paintNotes = formFour[0].paintnotes;
+  }
+};
+  $scope.formFourLoad();
+
 
   ////////////////FORM 4 POST Route to DB///////////////////////////////////////
   $scope.submitFormFour = function(){

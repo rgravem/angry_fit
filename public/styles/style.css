@@ -1,6 +1,13 @@
 body{
   background-color: #faf6ee;
-
+  color:#361d10;
+}
+h4{
+  color: #361d10;
+}
+md-radio-button{
+  margin-right: 1%;
+  margin-left: 1%;
 }
 .material-icons.md-48 {
   font-size: 28px;
@@ -47,6 +54,8 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
+  border-right: 1px solid #361d10;
+  padding-right: 15px;
 }
 .customerSelectHeading, .existingCustomerHeading{
 
@@ -55,7 +64,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 .customerTypes{
   margin-top: 5%;
 }
-.formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputsit  {
+.formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
   height: 400px;
   overflow-x: hidden;
@@ -85,6 +94,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 }*/
 .md-toolbar-tools{
   background-color: #e54735;
+  border-bottom: 5px solid #361d10;
 }
 /*Nav text*/
 ._md-nav-button-text{
@@ -166,4 +176,10 @@ border-bottom: 3px solid #e54735;
 }
 .customerDisplay{
   height: 50px;
+}
+.bikeFits{
+  margin-left: 5%;
+  overflow-y: scroll;
+  height: 600px;
+  overflow-x: hidden;
 }

@@ -4,6 +4,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
+  var obj = JSON.parse(sessionStorage.getItem('customer'));
   $scope.date= new Date();
   // set form to edit and submit status
   //show submit button, hide update and pdf
@@ -158,74 +159,56 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
         {pageOrientation: 'landscape',
         content: [
           {
-            text: 'Consultation Form',
+            text: 'Existing Fit', fontSize: 18,
             style: 'header',
-            bold: true
+            bold: true,
+            margin: [ 1, 2, 5, 5 ],
+            alignment: 'center'
+
           },
+          {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
+          {text: ' ' + obj.phonenumber,  alignment: 'center'},
+          {text: ' ' + obj.email,  alignment: 'center'},
+          {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
+          {text: ' ' + obj.unitnumber,  alignment: 'center'},
+          {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
 
-        {text: "Date: " + '' + '' + $scope.date.toString().substring(0,15), margin: [ 1, 2, 5, 5 ], bold: true},
 
-        {text: "Injuries: "},
-        {text: '' + $scope.injuries, margin: [ 1, 2, 5, 5 ], bold: true},
+            {
+            style: 'tableExample',
+            margin: [0, 10, 0, 0],
+            table: {
+                body:[
+                    ['Injuries', 'Complaints', 'Surgeries', 'Average Ride', 'Goals', 'Current Bike Brand','Saddle Height', 'Saddle Height Over Bars', 'Saddle Angle', 'Saddle Setback'],
+                    ['' + $scope.injuryInfo, '' + $scope.complaints, '' + $scope.surgeryInfo, ''+ $scope.averageRideLength, '' + $scope.upcomingRaces, '' + $scope.currentBikeBrand, '' + $scope.saddleHeight, '' + $scope.saddleHeightOverBars, '' + $scope.saddleAngle, '' + $scope.saddleSetback],
+                  ]
+                }
+              },
 
-        {text: "Complaints: "},
-        {text: '' + $scope.complaints, margin: [ 1, 2, 5, 5 ], bold: true},
-
-        {text: "Surgeries: " },
-        {text: '' + $scope.surgeries, margin: [ 1, 2, 5, 5 ], bold: true},
-
-        {text: "Average Ride Length:"},
-        {text: '' + $scope.averageRideLength, margin: [ 1, 2, 5, 5 ], bold: true},
-
-        {text: "Upcoming Races: "},
-        {text: '' + $scope.upcomingRaces, margin: [ 1, 2, 5, 5 ], bold: true},
-
-        {text: "Current Bike Brand: "},
-        {text: '' + $scope.currentBikeBrand, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Saddle Height: "},
-        {text:  '' + $scope.saddleHeight,  margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Saddle Height Over Bars: "},
-        {text: '' + $scope.saddleHeightOverBars, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Saddle Angle: "},
-        {text:'' + $scope.saddleAngle, margin: [ 1, 2, 5, 5 ], bold: true},
-
-        {text: "Saddle Setback: "},
-        {text:'' + $scope.saddleSetback, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Saddle Handlebar Reach: "},
-        {text: '' + $scope.SaddlehandlebarReach, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Stem Length: "},
-        {text:'' + $scope.stemLength, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Stem Angle: "},
-        {text:'' + $scope.stemAngle, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Handlebar Width: "},
-        {text:'' + $scope.handlebarWidth, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Handlebar Brand: "},
-        {text: '' + $scope.handlebarBrand, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Pedal Brand/Model: "},
-        {text: '' + $scope.pedalBrandModel, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Shoe Brand: "},
-        {text: '' + $scope.shoeBrand, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Brake Level: "},
-        {text: '' + $scope.brakeLevel, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Crank Length: "},
-        {text:'' + $scope.crankLength, margin: [ 1, 2, 5, 5 ], bold: true },
-
-        {text: "Notes: ", alignment: 'right'},
-        {text: '' + $scope.notes, alignment: 'right' },
+            {
+            style: 'tableExample',
+            margin: [0, 10, 0, 0],
+            table: {
+                body:[
+                    ['Saddle Handlebar Reach', 'Stem Length', 'Stem Angle', 'Handlebar Width', 'Handlebar Brand', 'Pedal Brand/Model', 'Shoe Brand', 'Brake Level', 'Crank Length'],
+                    ['' + $scope.SaddlehandlebarReach, '' + $scope.stemLength, '' + $scope.stemAngle, '' + $scope.handlebarWidth, '' + $scope.handlebarBrand, '' + $scope.pedalBrandModel, '' + $scope.shoeBrand,  '' + $scope.brakeLevel, '' + $scope.crankLength]
+                  ]
+                }
+              },
+              {
+              style: 'tableExample',
+              alignment: 'center',
+              margin: [0, 10, 0, 0],
+              table: {
+                  body:[
+                      ['Notes'],
+                      ['' + $scope.notes]
+                    ]
+                  }
+                },
       ]// end content
-    };// end docDefinition
+    // };// end docDefinition
+  };
     pdfMake.createPdf(docDefinition).download('existingFit.pdf');
   }; // end downloadFormOnePdf
 

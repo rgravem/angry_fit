@@ -5,6 +5,8 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formTwo = JSON.parse(sessionStorage.getItem('formTwo'));
+  var obj = JSON.parse(sessionStorage.getItem('customer'));
+
   $scope.date= new Date();
   $scope.showHideSubmitFormTwo = true;
     //keep all input fields active
@@ -232,24 +234,75 @@ $scope.submitButton();
   $scope.downloadFormTwoPdf = function(){
     console.log("In the PDF click");
     var docDefinition =
-      {content: [
-        { text: "Date: " + $scope.date.toString().substring(0,15)},
-        { text: "Saddle Height: " + $scope.saddleHeight },
-        { text: "Saddle Height Over Bars: " + $scope.saddleHeightOverBars },
-        { text: "Saddle to Handlebar reach: " + $scope.saddleToHandlebarReach },
-        { text: "Saddle Angle: " + $scope.saddleAngle },
-        { text: "Saddle Fore-aft: " +$scope.saddleForeAft },
-        { text: "Saddle Brand/Width: " + $scope.saddleBrandAndWidth },
-        { text: "Stem Length: " + $scope.stemLength },
-        { text: "Stem Angle:" + $scope.stemAngle },
-        { text: "Handle Bar Width: " + $scope.handleBarWidth },
-        { text: "Handle Bar Brand and Model: " + $scope.handleBarBrandAndModel },
-        { text: "Pedal Brand and Model: " + $scope.pedalBrandAndModel },
-        { text: "Shoe Brand/Model/Size: " + $scope.shoeBrandModelSize },
-        { text: "Brake Level Position: " + $scope.brakeLevelPosition },
-        { text: "Crank Length: " + $scope.crankLength },
-        { text: "Standover: " + $scope.standover},
-        { text: "stack: " + $scope.stack}
+      {pageOrientation: 'landscape',
+      content: [
+        {
+          text: 'New Fit',
+          style: 'header',
+          bold: true,
+          margin: [ 1, 2, 5, 5 ]
+        },
+        {text: "Name:" },
+        {text: '' + obj.firstname + ' ' + obj.lastname, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Phone:" },
+        {text: '' + obj.phonenumber, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Email:" },
+        {text: '' + obj.email, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Address:"},
+        {text: '' + obj.streetaddress + ' ' + obj.unitnumber + ' ' + obj.city + ' ' + obj.state + ' ' + obj.zip, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text:"Date: " + '' + '' + $scope.date.toString().substring(0,15), margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Saddle Height: "},
+        {text: '' + $scope.saddleHeight, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Saddle Height Over Bars: "},
+        {text: '' + $scope.saddleHeightOverBars, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Saddle to Handlebar reach: "},
+        {text: '' + $scope.saddleToHandlebarReach, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Saddle Angle: "},
+        {text: '' + $scope.saddleAngle, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Saddle Fore-aft: "},
+        {text: '' + $scope.saddleForeAft, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Saddle Brand/Width: "},
+        {text: '' + $scope.saddleBrandAndWidth, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Stem Length: "},
+        {text: '' + $scope.stemLength, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Stem Angle: "},
+        {text: '' + $scope.stemAngle, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Handle Bar Width: "},
+        {text: '' + $scope.handleBarWidth, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Handle Bar Brand and Model: "},
+        {text: '' + $scope.handleBarWidth, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Pedal Brand and Model:  "},
+        {text: '' + $scope.pedalBrandAndModel, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Shoe Brand/Model/Size:  "},
+        {text: '' + $scope.shoeBrandModelSize, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Brake Level Position:  "},
+        {text: '' + $scope.brakeLevelPosition, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Crank Length:  "},
+        {text: '' + $scope.crankLength, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Standover: "},
+        {text: '' + $scope.standover, margin: [ 1, 2, 5, 5 ], bold: true},
+
+        {text: "Stack: "},
+        {text: '' + $scope.stack, margin: [ 1, 2, 5, 5 ], bold: true},
       ]// end pdf content
     }; // end docDefinition
     pdfMake.createPdf(docDefinition).download('newFitForm.pdf');

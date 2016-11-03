@@ -103,7 +103,16 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   $scope.stackBlur= function(){
     document.getElementById("stackMeasure").className.baseVal = "hideMeasurement";
   };
+  $scope.submitButton = function(){
+    if (formTwo == undefined) {
+      console.log('starting new');
+    } else if(formTwo[0] !== undefined) {
+    $scope.showHideSubmitFormTwo = false;
+    $scope.submittedTwo = true;
+  }
+  };
 
+$scope.submitButton();
 
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');

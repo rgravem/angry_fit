@@ -5,7 +5,16 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
   var obj = JSON.parse(sessionStorage.getItem('customer'));
+
   $scope.date= new Date();
+  $scope.submitButton = function(){
+    if (formOne == undefined) {
+      console.log('starting new');
+    } else if(formOne[0] !== undefined) {
+    $scope.showHideSubmitFormOne = false;
+    $scope.submittedOne = true;
+  }
+  };
   // set form to edit and submit status
   //show submit button, hide update and pdf
   $scope.showHideSubmitFormOne = true;
@@ -44,11 +53,12 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
   }
   };
   $scope.formOneLoad();
+  $scope.submitButton();
 
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
     var formOneObject = {
-      employeeCreated: employee,
+      employeeCreated: employee.employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       injuries: $scope.injuryInfo,

@@ -137,6 +137,15 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.showFenderPaint =false;
   };
 
+  $scope.submitButton = function(){
+    if (formFour == undefined) {
+      console.log('starting new');
+    } else if(formFour[0] !== undefined) {
+    $scope.showHideSubmitFormFour = false;
+    $scope.submittedFour = true;
+  }
+  };
+  $scope.submitButton();
 
   ////////////////FORM 4 POST Route to DB///////////////////////////////////////
   $scope.submitFormFour = function(){

@@ -1,13 +1,16 @@
 myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
   console.log('In form3Controller');
-  // set form to edit and submit status
-  //show submit button, hide update and pdf
+
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formThree = JSON.parse(sessionStorage.getItem('formThree'));
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
   $scope.date= new Date();
+
+  // set form to edit and submit status
+  //show submit button, hide update and pdf
+
   $scope.showHideSubmitFormThree = true;
   //keep all input fields active
   $scope.submittedThree=false;
@@ -97,6 +100,47 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
    document.getElementById("forkOffsetMeasure").className.baseVal = "hideMeasurement";
  };
 
+
+ $scope.submitButton = function(){
+   if (formThree == undefined) {
+     console.log('starting new');
+   } else if(formThree[0] !== undefined) {
+   $scope.showHideSubmitFormThree = false;
+   $scope.submittedThree = true;
+ }
+ };
+ $scope.submitButton();
+ $scope.formThreeLoad = function(){
+   if (formThree === undefined){
+     console.log('starting new bike');
+   }else if (formThree[0] === undefined){
+     alert('Existing Fit has no data');
+   } else {
+   console.log("form 3 session:", formThree[0]);
+   $scope.inseam = formThree[0].inseam;
+   $scope.torso = formThree[0].torso;
+   $scope.arm = formThree[0].arm;
+   $scope.footLength = formThree[0].footlength;
+   $scope.effectiveTopTube = formThree[0].effectivetoptube;
+   $scope.standover = formThree[0].standover;
+   $scope.seatTubeLength = formThree[0].seattubelength;
+   $scope.seatTubeAngle = formThree[0].seattubeangle;
+   $scope.headTubeLength = formThree[0].headtubelength;
+   $scope.headTubeAngle = formThree[0].headtubeangle;
+   $scope.stack = formThree[0].stack ;
+   $scope.reach = formThree[0].reach;
+   $scope.wheelBase = formThree[0].wheelbase ;
+   $scope.chainstayLength = formThree[0].chainstaylength ;
+   $scope.bbDrop = formThree[0].bbDrop ;
+   $scope.axleToCrown = formThree[0].axletocrown ;
+   $scope.mechanicalTrail = formThree[0].mechanicaltrail ;
+   $scope.forkOffset = formThree[0].forkoffset;
+   $scope.notes = formThree[0].notes;
+ }
+ };
+ $scope.formThreeLoad();
+
+
   $scope.submitFrameGeometry = function(){
     console.log('complete clicked');
     var objectToSend = {
@@ -153,7 +197,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
     $scope.submittedThree=true;
 
     var editFormThreeObject = {
-      employeeUpdated: employee.employeeid,
+      employeeUpdated: employee.employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       inseam: $scope.inseam,

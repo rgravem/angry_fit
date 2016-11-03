@@ -1,7 +1,7 @@
 <h2 class="existingFitFormHeading">Existing Fit</h2>
-<md-content class="md-padding">
+<md-content class="md-padding cream-background">
   <div layout-gt-sm="row">
-    <form name="fitFormOne" layout-gt-sm="column" flex="60">
+    <form name="fitFormOne" class="cream-background" layout-gt-sm="column" flex="50">
         <div id="formOneInputs" class="formOneInputs" flex="100">
 
           <div layout-gt-xs="row">
@@ -155,22 +155,22 @@
           </div>
       </div>
     </form>
-    <div id='formOneNotesContainer' layout-gt-sm="column" flex="40">
-      <div id='FormOneNotes'>
+    <div id='formOneNotesContainer' layout-gt-sm="column" flex="60">
+      <div id='FormOneNotes' class="formOneNotes cream-background">
         <md-input-container class="md-block" flex-gt-sm="">
           Notes<textarea rows="1"ng-model='notes' ng-disabled="submittedOne"></textarea></p>
         </md-input-container>
         <div id="formOneIcon">
-          <img src="../assets/angry_Icons/acf_logo.png" height="148" width="148">
+          <img src="../assets/angry_Icons/acf_logo.png" height="200" width="200">
        </div>
       </div>
     </div>
   </div>
 
   <div layout-gt-sm="row" layout-align="center" flex="100">
-    <md-button id="formOneSubmit" class="md-raised md-primary formOneSubmit" ng-click="addFormOne()" ng-show="showHideSubmitFormOne">Submit</md-button>
-    <md-button class="md-raised md-primary formUpdate" ng-click="updateFormOne()" ng-hide="showHideSubmitFormOne" ng-show="hideUpdate"> Update </md-button>
-    <md-button class="md-raised md-primary formUpdate" ng-show="showSave" ng-click="saveFormOne()"> Save Updates</md-button>
-    <md-button class="md-raised md-primary formPdf" ng-click="downloadFormOnePdf()" ng-hide="showHideSubmitFormOne"> PDF</md-button>
+    <md-button id="formOneSubmit" class="angry-button formOneSubmit" ng-click="addFormOne()" ng-show="showHideSubmitFormOne">Submit</md-button>
+    <md-button class="angry-button formUpdate" ng-click="updateFormOne()" ng-hide="showHideSubmitFormOne" ng-show="hideUpdate"> Update </md-button>
+    <md-button class="angry-button formUpdate" ng-show="showSave" ng-click="saveFormOne()"> Save Updates</md-button>
+    <md-button class="angry-button  formPdf" ng-click="downloadFormOnePdf()" ng-hide="showHideSubmitFormOne"> PDF</md-button>
   </div>
 </md-content>

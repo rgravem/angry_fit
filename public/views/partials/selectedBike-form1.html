@@ -16,7 +16,7 @@
                <div layout-gt-sm="row">
                  <md-input-container class="md-block" flex-gt-sm="">
                    <label>Do you have any injuries that prevent you from riding any length of time?</label>
-                   <input type="text" id="injuryIn" value="" ng-model="injuryInfo" ng-disabled="submittedOne">
+                   <input type="text" id="injuryIn" name="injuryInfo" value="" ng-model="injuryInfo" ng-disabled="submittedOne">
                  </md-input-container>
                </div>
              </div>
@@ -25,7 +25,6 @@
           <md-input-container class="md-block" flex-gt-sm="">
             <textarea rows="1"  ng-model='complaints' placeholder="What are some of your complaints with your current fit, if any?" ng-disabled="submittedOne"></textarea>
           </md-input-container>
-
          <div id="surgeriesCurrently">
 
           <div id="setInjury">
@@ -45,7 +44,7 @@
           </div>
 
          <div id="goalsCurrently">
-            <div id="setGoals" ng-show="showGoals">
+            <div id="setGoals">
                <div layout-gt-sm="row">
                   <md-input-container class="md-block" flex-gt-sm="">
                     <input type="text" id="injuryIn" value="" placeholder="What races, tours or over all goals are in the near future?" ng-model="goalsInfo" ng-disabled="submittedOne">

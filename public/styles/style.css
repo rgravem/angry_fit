@@ -1,5 +1,6 @@
 body{
   background-color: #faf6ee;
+
 }
 
 .cream-background{
@@ -27,18 +28,34 @@ md-radio-button:focus {
     outline: none;
     border: 0;
  }
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+    border-color: #e54735;
+}
+md-input-container:not(.md-input-invalid).md-input-focused label {
+    color: #e54735;
+}
 
-.newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading{
+.newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading, .customerSelectHeading{
   text-align:center;
   font-size: 24px;
+  margin-top: -0.5%;
+  color: #361d10;
 }
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
 }
+.customerSelectHeading{
+
+  margin-top: 5%;
+}
+.customerTypes{
+  margin-top: 5%;
+}
 .formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
   height: 400px;
+  overflow-x: hidden;
 }
 .formOneSubmit, .formTwoSubmit, .formThreeSubmit, .formFourSubmit, .formUpdate, .formPdf, .formSave{
   width: 60%;
@@ -87,10 +104,33 @@ md-nav-bar md-nav-ink-bar {
 
 .formTwoBikeImage{
   margin-top: -5%;
+  margin-left: 2%;
+}
+.formThreeBikeImage{
+  margin-top: -7%;
+  margin-left: 2%;
 }
 
 #formOneIcon{
 display: block;
 margin: auto;
+margin-top:10%;
 width: 40%;
+opacity: 0.75;
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 2px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+form{
+  margin-left: 2%;
+}
+.formTwoNotes,.formThreeNotes,.formOneNotes, .formFourNotes{
+  margin-left: 5%;
+  margin-right: 7%;
 }

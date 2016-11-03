@@ -88,7 +88,7 @@ CREATE TABLE form2_newFit (
 	handleBarWidth VARCHAR (50),
 	handleBarBrandAndModel VARCHAR (50),
 	pedalBrandAndModel VARCHAR (50),
-	showBrandModelSize VARCHAR (50),
+	shoeBrandModelSize VARCHAR (50),
 	brakeLevelPosition VARCHAR (50),
 	crankLength VARCHAR (50),
 	standover VARCHAR (50),

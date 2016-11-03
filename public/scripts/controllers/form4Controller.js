@@ -158,25 +158,6 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       alert('Existing Fit has no data');
     } else {
     console.log("form 4 session:", formFour[0]);
-    // $scope.inseam = formThree[0].inseam;
-    // $scope.torso = formThree[0].torso;
-    // $scope.arm = formThree[0].arm;
-    // $scope.footLength = formThree[0].footlength;
-    // $scope.effectiveTopTube = formThree[0].effectivetoptube;
-    // $scope.standover = formThree[0].standover;
-    // $scope.seatTubeLength = formThree[0].seattubelength;
-    // $scope.seatTubeAngle = formThree[0].seattubeangle;
-    // $scope.headTubeLength = formThree[0].headtubelength;
-    // $scope.headTubeAngle = formThree[0].headtubeangle;
-    // $scope.stack = formThree[0].stack ;
-    // $scope.reach = formThree[0].reach;
-    // $scope.wheelBase = formThree[0].wheelbase ;
-    // $scope.chainstayLength = formThree[0].chainstaylength ;
-    // $scope.bbDrop = formThree[0].bbDrop ;
-    // $scope.axleToCrown = formThree[0].axletocrown ;
-    // $scope.mechanicalTrail = formThree[0].mechanicaltrail ;
-    // $scope.forkOffset = formThree[0].forkoffset;
-    // $scope.notes = formThree[0].notes;
     $scope.bikeType = formFour[0].biketype;
     $scope.bottomBracketShell = formFour[0].bottombracketshell;
     $scope.brakeCompatability = formFour[0].brakecompatability;

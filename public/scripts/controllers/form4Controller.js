@@ -3,6 +3,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formFour = JSON.parse(sessionStorage.getItem('formFour'));
+  var obj = JSON.parse(sessionStorage.getItem('customer'));
+
   $scope.date= new Date();
   // set form to edit and submit status
   //show submit button, hide update and pdf
@@ -165,8 +167,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     forkType();
 
     var formFourObject = {
-      employeeCreated: employee.employeeid,
-      bikeId: bike.bikeid,
+      // employeeCreated: employee.employeeid,
+      // bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
@@ -281,24 +283,75 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   $scope.downloadFormFourPdf = function(){
     console.log("In the PDF click");
     var docDefinition =
-      {content: [
-        {text: "Date: " + $scope.date.toString().substring(0,15)},
-        {text: "Bike Style: " + $scope.bikeStyle },
-        {text: "Bottom Bracket Shell: " + $scope.bottomBracketShell},
-        {text: "Brake Compatability: " + $scope.brakeCompatability},
-        {text: "Brake Mount: " + $scope.brakeMount },
-        {text: "Wheel Size: " + $scope.wheelSize },
-        {text: "Special Frame Options: " + $scope.specialFrameOptions },
-        {text: "Head Tube Size: " + $scope.headtube },
-        {text: "Fork Type: " + $scope.fork },
-        {text: "Seat Dropper: " + $scope.seatDropperBrand + " " + $scope.seatDropperModel },
-        {text: "Drive Train: " + $scope.drivetrain },
-        {text: "Paint Color: " + $scope.paintColor },
-        {text: "Full Coverage Fenders: " + $scope.fullCoverageFenders},
-        {text: "Fenders Painted: " + $scope.fendersPainted },
-        {text: "Frame Notes: " + $scope.frameNotes },
-        {text: "Frame Options: " + $scope.frameOptions },
-        {text: "Paint Notes: " + $scope.paintNotes },
+      {pageOrientation: 'landscape',
+      content: [
+        {
+          text: 'Custom Frame Details',
+          style: 'header',
+          bold: true,
+          margin: [ 1, 2, 5, 5 ]
+        },
+        {text: "Name:" },
+        {text: '' + obj.firstname + ' ' + obj.lastname, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Phone:" },
+        {text: '' + obj.phonenumber, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Email:" },
+        {text: '' + obj.email, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Address:"},
+        {text: '' + obj.streetaddress + ' ' + obj.unitnumber + ' ' + obj.city + ' ' + obj.state + ' ' + obj.zip, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text:"Date: " + '' + '' + $scope.date.toString().substring(0,15), margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Bike Style: "},
+        {text: '' + $scope.bikeStyle, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Bottom Bracket Shell: "},
+        {text: '' + $scope.bottomBracketShell, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Brake Compatability: "},
+        {text: '' + $scope.brakeCompatability, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Brake Mount: "},
+        {text: '' + $scope.brakeMount, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Wheel Size: "},
+        {text: '' + $scope.wheelSize, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Special Frame Options: "},
+        {text: '' + $scope.specialFrameOptions, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Head Tube Size: "},
+        {text: '' + $scope.headtube, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Fork Type: "},
+        {text: '' + $scope.fork, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Seat Dropper: "},
+        {text: '' + $scope.seatDropperBrand + " " + $scope.seatDropperModel, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Drive Train: "},
+        {text: '' + $scope.drivetrain, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Paint Color: "},
+        {text: '' + $scope.paintColor, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Full Coverage Fenders: "},
+        {text: '' + $scope.fullCoverageFenders, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Fenders Painted: "},
+        {text: '' + $scope.fendersPainted, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Frame Notes: "},
+        {text: '' + $scope.frameNotes, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Frame Options: "},
+        {text: '' + $scope.frameOptions, margin: [ 1, 2, 5, 9 ], bold: true},
+
+        {text: "Paint Notes: "},
+        {text: '' + $scope.paintNotes, margin: [ 1, 2, 5, 9 ], bold: true},
       ]// end content
     };// end doc docDefinition
     pdfMake.createPdf(docDefinition).download('customFrameDetails.pdf');

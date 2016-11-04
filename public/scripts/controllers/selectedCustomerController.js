@@ -193,9 +193,9 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
    }, function error(errorObject){
      console.log(errorObject);
    }); // end get form four
-  //  setTimeout(function(){
+   setTimeout(function(){
     $location.path('/selectedBike/form1');
-    // }, 0);
+    }, 0);
   }; //end cardClicked
 
 }]);//end selectedCustomerController

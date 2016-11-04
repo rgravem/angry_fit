@@ -255,7 +255,7 @@
               </div>
 
               <!-- If Custom  -->
-              <div id="customForkIn"ng-show="showCustomFork">
+              <div id="customForkIn" ng-show="showCustomFork">
                 <div layout-gt-sm="row">
                   <p> What options would you like for the custom steel fork?</p>
                 </div>
@@ -284,7 +284,7 @@
               <div layout-gt-sm="row">
                 <p> Are you planning on using a dropper seatpost</p>
               </div>
-              <md-radio-group>
+              <md-radio-group ng-model="seatDropper">
                 <div layout-gt-sm="row">
                   <!-- Seat Dropper Yes -->
                   <md-radio-button value="true" name="dropperIn" ng-click="updateShowDropper()" ng-disabled="submittedFour"> Yes </md-radio-button>

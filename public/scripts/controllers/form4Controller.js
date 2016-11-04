@@ -166,13 +166,14 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       //special frame options is checkboxes
       // specialFrameOptions = $scope.specialframeoptions;
     $scope.headtube = formFour[0].headtubesize;
-      //need to add a customOrStandardFork option in the DB
-      // $scope.customOrStandardFork = formFour[0].forktype;
     $scope.forkBrand = formFour[0].forktype[0];
     $scope.customOrStandardFork = formFour[0].customorstandardfork;
     $scope.forkModel = formFour[0].forktype[1];
       //need to adjust so yes and no are in DB
       // $scope.seatDropper = formFour[0].seatdropperbrand + " " + formFour[0].seatdroppermodel;
+    $scope.seatDropper = formFour[0].seatdropper;
+    $scope.seatDropperBrand = formFour[0].seatdropperbrand;
+    $scope.seatDropperModel = formFour[0].seatdroppermodel;
       //investigate options
       // drivetrain:  $scope.drivetrain,
     $scope.paintColor = formFour[0].paintcolor;
@@ -218,7 +219,9 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,
       forkType: $scope.fork,
-      seatDropper: $scope.seatDropperBrand + " " + $scope.seatDropperModel,
+      seatDropper: $scope.seatDropper,
+      seatDropperBrand: $scope.seatDropperBrand,
+      seatDropperModel: $scope.seatDropperModel,
       drivetrain:  $scope.drivetrain,
       paintColor: $scope.paintColor,
       fullCoverageFenders: $scope.fullCoverageFenders,
@@ -283,7 +286,9 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,
       forkType: $scope.fork,
-      seatDropper: $scope.seatDropperBrand + " " + $scope.seatDropperModel,
+      seatDropper: $scope.seatDropper,
+      seatDropperBrand: $scope.seatDropperBrand,
+      seatDropperModel: $scope.seatDropperModel,
       drivetrain:  $scope.drivetrain,
       paintColor: $scope.paintColor,
       fullCoverageFenders: $scope.fullCoverageFenders,

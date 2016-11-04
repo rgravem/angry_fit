@@ -4,7 +4,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formFour = JSON.parse(sessionStorage.getItem('formFour'));
 
-  console.log(formFour[0].bottombracketshell);
+  // console.log(formFour[0].bottombracketshell);
 
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
@@ -155,7 +155,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     if (formFour === undefined){
       console.log('starting new bike');
     }else if (formFour[0] === undefined){
-      alert('Existing Fit has no data');
+      alert('Custom Frame Details has no data');
     } else {
     console.log("form 4 session:", formFour[0]);
     $scope.bikeType = formFour[0].biketype;
@@ -169,6 +169,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       //need to add a customOrStandardFork option in the DB
       // $scope.customOrStandardFork = formFour[0].forktype;
     $scope.forkBrand = formFour[0].forktype[0];
+    $scope.customOrStandardFork = formFour[0].customorstandardfork;
     $scope.forkModel = formFour[0].forktype[1];
       //need to adjust so yes and no are in DB
       // $scope.seatDropper = formFour[0].seatdropperbrand + " " + formFour[0].seatdroppermodel;
@@ -205,8 +206,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     forkType();
 
     var formFourObject = {
-      // employeeCreated: employee.employeeid,
-      // bikeId: bike.bikeid,
+      employeeCreated: employee.employeeid,
+      bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
@@ -215,6 +216,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       wheelSize: $scope.wheelSize,
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
+      customOrStandardFork: $scope.customOrStandardFork,
       forkType: $scope.fork,
       seatDropper: $scope.seatDropperBrand + " " + $scope.seatDropperModel,
       drivetrain:  $scope.drivetrain,
@@ -374,16 +376,6 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     pdfMake.createPdf(docDefinition).download('customFrameDetails.pdf');
   };
 
-  //   // save form on click
-  // $scope.saveFormFour= function(){
-  //   //show update
-  //   $scope.hideUpdateFour = true;
-  //   //hide save
-  //   $scope.showSaveFour = false;
-  //   // lock form
-  //   $scope.submittedFour=true;
-  //
-  //   };
 
   var createFrameOptions = function(){
     // third water bottle option is true

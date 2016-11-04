@@ -116,7 +116,7 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
     if (formTwo == undefined){
       console.log('starting new bike');
     }else if (formTwo[0] == undefined){
-      alert('form two has no data');
+      alert('New Fit has no data');
     } else {
     console.log("form 2 session:", formTwo[0]);
     $scope.saddleHeight = formTwo[0].saddleheight;

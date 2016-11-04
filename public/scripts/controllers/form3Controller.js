@@ -115,7 +115,7 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
      console.log('starting new bike');
    }else if (formThree[0] == undefined){
 
-     alert('Existing Fit has no data');
+     alert('Custom Frame Geometry has no data');
 
    } else {
    console.log("form 3 session:", formThree[0]);

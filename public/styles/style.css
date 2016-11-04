@@ -13,6 +13,9 @@ md-radio-button{
   margin-right: 1%;
   margin-left: 1%;
 }
+md-content{
+  overflow-x: hidden;
+}
 .material-icons.md-48 {
   font-size: 28px;
 
@@ -53,14 +56,25 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   color: #361d10;
 
 }
-.customerInformationHeading, .loginHeading{
+.customerInformationHeading{
   text-align:center;
   margin-top: 1%;
   font-size: 24px;
   color: #361d10;
 
 }
+.loginHeading{
+  text-align:center;
+  margin-top: 5%;
+  font-size: 24px;
+  color: #361d10;
+}
 .newCustomerForm{
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+}
+.updateCustomerForm{
   margin-left: auto;
   margin-right: auto;
   border-right: 1px solid #361d10;
@@ -99,6 +113,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     width: 170px !important;
   }
 }
+
 .md-toolbar-tools{
   background-color: #e54735;
   border-bottom: 5px solid #361d10;
@@ -127,7 +142,6 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   padding: 0 6px 0 6px;
   min-width: 88px;
   border-radius: 3px;
-  font-size: 14px;
   text-align: center;
   text-transform: uppercase;
   text-decoration:none;
@@ -150,11 +164,14 @@ md-nav-bar md-nav-ink-bar {
 
 .formTwoBikeImage{
   margin-top: -5%;
-  margin-left: 2%;
+  margin-left: -2%;
+  margin-bottom: 5%;
+
 }
 .formThreeBikeImage{
-  margin-top: -7%;
-  margin-left: 2%;
+  margin-top: -5%;
+  margin-left: -9%;
+  margin-bottom: 5%;
 }
 
 #formOneIcon{

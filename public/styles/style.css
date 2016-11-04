@@ -1,8 +1,18 @@
 body{
   background-color: #faf6ee;
+  color:#361d10;
+}
+h4{
+  color: #361d10;
+}
+md-radio-button{
+  margin-right: 1%;
+  margin-left: 1%;
+}
+.material-icons.md-48 {
+  font-size: 28px;
 
 }
-
 .cream-background{
   background-color: #faf6ee;
 }
@@ -35,7 +45,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     color: #e54735;
 }
 
-.newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading, .customerSelectHeading{
+.newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading, .customerSelectHeading, .existingCustomerHeading{
   text-align:center;
   font-size: 24px;
   margin-top: -0.5%;
@@ -44,8 +54,10 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
+  border-right: 1px solid #361d10;
+  padding-right: 15px;
 }
-.customerSelectHeading{
+.customerSelectHeading, .existingCustomerHeading{
 
   margin-top: 5%;
 }
@@ -56,6 +68,13 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   overflow-y: scroll;
   height: 400px;
   overflow-x: hidden;
+}
+.customersDisplay{
+    overflow-y: scroll;
+    height: 410px;
+    overflow-x: hidden;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 .formOneSubmit, .formTwoSubmit, .formThreeSubmit, .formFourSubmit, .formUpdate, .formPdf, .formSave{
   width: 60%;
@@ -75,6 +94,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 }*/
 .md-toolbar-tools{
   background-color: #e54735;
+  border-bottom: 5px solid #361d10;
 }
 /*Nav text*/
 ._md-nav-button-text{
@@ -84,7 +104,6 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 
 .angry-button {
   padding: 0 6px 0 6px;
-  /*margin: 6px 8px 6px 8px;*/
   min-width: 88px;
   border-radius: 3px;
   font-size: 14px;
@@ -96,6 +115,12 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   color: #faf6ee;
   background-color: #002f54;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.search{
+  display:block;
+  margin-top:1%;
+  margin-left:auto;
+  margin-right:auto;
 }
 /* nested nav underline*/
 md-nav-bar md-nav-ink-bar {
@@ -133,4 +158,28 @@ form{
 .formTwoNotes,.formThreeNotes,.formOneNotes, .formFourNotes{
   margin-left: 5%;
   margin-right: 7%;
+}
+.customerSearch{
+  margin-left: 2%;
+
+}
+md-card{
+  text-align: center;
+  background-color: #002f54;
+  color:#faf6ee;
+  box-shadow: 0 1px 3px #361d10;
+
+}
+.md-card-image{
+background-color: #faf6ee;
+border-bottom: 3px solid #e54735;
+}
+.customerDisplay{
+  height: 50px;
+}
+.bikeFits{
+  margin-left: 5%;
+  overflow-y: scroll;
+  height: 600px;
+  overflow-x: hidden;
 }

@@ -8,6 +8,10 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   //keep all input fields active
   $scope.submittedSelectedCustomer = true;
 
+  // show bike fits
+  $scope.hideBikes= true;
+
+
 
   var obj = JSON.parse(sessionStorage.getItem('customer'));
   var bikeList = JSON.parse(sessionStorage.getItem('customerBikes'));
@@ -26,6 +30,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   $scope.zip = obj.zip;
 
   $scope.newBikeStart = function(){
+    $scope.hideBikes= false;
     console.log('newbike');
      $scope.newBikeButton = !$scope.newBikeButton;
   };
@@ -63,14 +68,12 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
 ///////////////////////////////Edit customer Info///////////////////////////////////////
   $scope.editCustomerInfo = function () {
     console.log("in editCustomerInfo");
-
     //show update
-    $scope.hideUpdate = true;
+    $scope.hideUpdate = false;
     //hide save
     $scope.showSave = false;
     // lock form
     $scope.submittedOne=true;
-
 
     var editCustomerObject = {
       firstName: $scope.firstName,
@@ -107,16 +110,28 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   ///////////////////////////////Update Form///////////////////////////////////////
   $scope.updateExistingCustomer = function(){
     //hide update
-    $scope.showHideSelectedCustomer = false;
+    $scope.showHideUpdateCustomer = true;
     //show save
     $scope.showSave = true;
     // unlock
     $scope.submittedSelectedCustomer = false;
   };
+  $scope.saveExistingCustomer = function(){
+      //show update
+      $scope.showHideUpdateCustomer = false;
+      //hide save
+      $scope.showSave = false;
+      // lock form
+      $scope.submittedSelectedCustomer = true;
+  };
 
 
   ///////////////////////////////Start New Bike///////////////////////////////////////
   $scope.startNewBike = function(){
+    if ($scope.newBikeName == undefined) {
+      alert('Please name the new bike!');
+    } else {
+
     var newBike = {
       bikeName: $scope.newBikeName,
       bikeStyle: $scope.newBikeStyle,
@@ -133,6 +148,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
       console.log('json obj:', bike);
       $location.path('/selectedBike/form1');
     }); // end then response
+  }
   }; // end start new bike
 
 
@@ -189,9 +205,9 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
    }, function error(errorObject){
      console.log(errorObject);
    }); // end get form four
-  //  setTimeout(function(){
+   setTimeout(function(){
     $location.path('/selectedBike/form1');
-    // }, 0);
+    }, 0);
   }; //end cardClicked
 
 }]);//end selectedCustomerController

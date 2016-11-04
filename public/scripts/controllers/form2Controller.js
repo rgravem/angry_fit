@@ -112,7 +112,35 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   }
   };
 
-$scope.submitButton();
+  $scope.formTwoLoad = function(){
+    if (formTwo == undefined){
+      console.log('starting new bike');
+    }else if (formTwo[0] == undefined){
+      alert('form two has no data');
+    } else {
+    console.log("form 2 session:", formTwo[0]);
+    $scope.saddleHeight = formTwo[0].saddleheight;
+    $scope.saddleHeightOverBars = formTwo[0].saddleheightoverbars;
+    $scope.saddleToHandlebarReach = formTwo[0].saddletohandlebarreach;
+    $scope.saddleAngle = formTwo[0].saddleangle;
+    $scope.saddleForeAft = formTwo[0].saddleforeaft;
+    $scope.saddleBrandAndWidth = formTwo[0].saddlebrandandwidth;
+    $scope.stemLength = formTwo[0].stemlength;
+    $scope.stemAngle = formTwo[0].stemangle;
+    $scope.handleBarWidth = formTwo[0].handlebarwidth;
+    $scope.handleBarBrandAndModel = formTwo[0].handlebarbrandandmodel;
+    $scope.pedalBrandAndModel = formTwo[0].pedalbrandandmodel;
+    $scope.shoeBrandModelSize = formTwo[0].shoebrandmodelsize;
+    $scope.brakeLevelPosition = formTwo[0].brakelevelposition;
+    $scope.crankLength = formTwo[0].cranklength;
+    $scope.standover = formTwo[0].standover;
+    $scope.stack = formTwo[0].stack;
+    $scope.notes = formTwo[0].notes;
+  }
+  };
+  $scope.formTwoLoad();
+
+  $scope.submitButton();
 
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');
@@ -138,8 +166,34 @@ $scope.submitButton();
       stack:$scope.stack,
       notes: $scope.notes
     };
-
-    console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
+    if (addForm2NewFitObject.saddleHeight == undefined) {
+        alert("Please indicate saddle height - all fields are required");
+    } else if (addForm2NewFitObject.saddleHeightOverBars == undefined) {
+      alert("Please indicate saddle height over bars - all fields are required");
+    } else if (addForm2NewFitObject.saddleToHandlebarReach == undefined) {
+      alert("Please indicate saddle to handlebar reach - all fields are required");
+    } else if (addForm2NewFitObject.saddleAngle == undefined) {
+      alert("Please indicate saddle angle - all fields are required");
+    } else if (addForm2NewFitObject.saddleForeAft == undefined) {
+      alert("Please indicate saddle fore-aft - all fields are required");
+    } else if (addForm2NewFitObject.saddleBrandAndWidth == undefined) {
+      alert("Please indicate saddle brand and width - all fields are required");
+    } else if (addForm2NewFitObject.stemLength == undefined) {
+      alert("Please indicate stem length - all fields are required");
+    } else if (addForm2NewFitObject.handleBarWidth == undefined) {
+      alert("Please indicate handle bar width - all fields are required");
+    } else if (addForm2NewFitObject.handleBarBrandAndModel == undefined){
+      alert("Please indicate handle bar brand and model - all fields are required");
+    } else if (addForm2NewFitObject.brakeLevelPosition == undefined){
+      alert("Please indicate brake level position - all fields are required");
+    } else if (addForm2NewFitObject.crankLength == undefined){
+      alert("Please indicate crank length - all fields are required");
+    } else if (addForm2NewFitObject.standover == undefined){
+      alert("Please indicate standover - all fields are required");
+    } else if (addForm2NewFitObject.stack == undefined){
+      alert("Please indicate stack - all fields are required");
+    } else {
+        console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
       //hide submit, show update and pdf
       $scope.showHideSubmitFormTwo = false;
         //disable input fields
@@ -152,6 +206,7 @@ $scope.submitButton();
       console.log('success from server', form2Response);
       sessionStorage.setItem('formTwo', JSON.stringify(form2Response.data));
     });
+  }
   };
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////

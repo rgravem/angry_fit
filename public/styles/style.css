@@ -42,8 +42,29 @@ md-radio-button:focus {
     outline: none;
     border: 0;
  }
+md-input-container .md-input[disabled]{
+  color:#361d10;
+  }
+md-input-container:not(.md-input-invalid).md-input-has-value label{
+  color: #361d10;
+  }
+
+  md-input-container .md-input[disabled]{
+    background-image: linear-gradient(to right,
+       rgba(54,29,16,0.75) 0%, rgba(54,29,16,0.75) 33%, transparent 0%);
+  }
+
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     border-color: #e54735;
+}
+md-input-container .md-input {
+border-color: #361d10;
+}
+md-input-container label{
+  color:#361d10;
+}
+md-input-container .md-placeholder{
+  color:#361d10;
 }
 md-input-container:not(.md-input-invalid).md-input-focused label {
     color: #e54735;

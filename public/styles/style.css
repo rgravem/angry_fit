@@ -157,6 +157,12 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   margin-left:auto;
   margin-right:auto;
 }
+.md-fab:not([disabled]):hover{
+  background-color:  #faf6ee !important;
+}
+.search-button :not([disabled]):hover{
+  color: #002f54 !important;
+}
 /* nested nav underline*/
 md-nav-bar md-nav-ink-bar {
   background: #e54735;

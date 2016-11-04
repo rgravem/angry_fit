@@ -74,12 +74,15 @@ myApp.controller("navController", ['$scope', '$http', '$firebaseArray', '$fireba
   console.log('In navController');
   var auth = $firebaseAuth();
 
+
   $scope.logOut = function(){
     auth.$signOut().then(function(){
       console.log('Logging the user out!');
+        window.location.href = "https://accounts.google.com/logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:3000/#/login";
       $location.path('/login');
     });
   };
+
 
   $scope.startOver = function(){
     $location.path('/customerType');

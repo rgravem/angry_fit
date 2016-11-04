@@ -112,7 +112,35 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   }
   };
 
-$scope.submitButton();
+  $scope.formTwoLoad = function(){
+    if (formTwo == undefined){
+      console.log('starting new bike');
+    }else if (formTwo[0] == undefined){
+      alert('form two has no data');
+    } else {
+    console.log("form 2 session:", formTwo[0]);
+    $scope.saddleHeight = formTwo[0].saddleheight;
+    $scope.saddleHeightOverBars = formTwo[0].saddleheightoverbars;
+    $scope.saddleToHandlebarReach = formTwo[0].saddletohandlebarreach;
+    $scope.saddleAngle = formTwo[0].saddleangle;
+    $scope.saddleForeAft = formTwo[0].saddleforeaft;
+    $scope.saddleBrandAndWidth = formTwo[0].saddlebrandandwidth;
+    $scope.stemLength = formTwo[0].stemlength;
+    $scope.stemAngle = formTwo[0].stemangle;
+    $scope.handleBarWidth = formTwo[0].handlebarwidth;
+    $scope.handleBarBrandAndModel = formTwo[0].handlebarbrandandmodel;
+    $scope.pedalBrandAndModel = formTwo[0].pedalbrandandmodel;
+    $scope.shoeBrandModelSize = formTwo[0].shoebrandmodelsize;
+    $scope.brakeLevelPosition = formTwo[0].brakelevelposition;
+    $scope.crankLength = formTwo[0].cranklength;
+    $scope.standover = formTwo[0].standover;
+    $scope.stack = formTwo[0].stack;
+    $scope.notes = formTwo[0].notes;
+  }
+  };
+  $scope.formTwoLoad();
+
+  $scope.submitButton();
 
   $scope.addForm2NewFit = function () {
     console.log('in addForm2NewFit');

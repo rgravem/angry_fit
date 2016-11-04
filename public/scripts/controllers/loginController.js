@@ -5,8 +5,7 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
   // This code runs whenever the user logs in
   $scope.logIn = function login(){
     auth.$signInWithPopup("google").then(function(firebaseUser) {
-      console.log("Signed in as:", firebaseUser.user.email);
-      sessionStorage.setItem('employee', JSON.stringify(firebaseUser.user.email));
+      console.log("Signed in as:", firebaseUser.user.displayName);
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
     });
@@ -38,7 +37,10 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
     }
 
   });
-
+  $scope.googleOut = function(){
+    console.log("hit google logout");
+    window.location.href = "https://accounts.google.com/logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:3000/#/login";
+  };
   // This code runs when the user logs out
   $scope.logOut = function(){
     auth.$signOut().then(function(){

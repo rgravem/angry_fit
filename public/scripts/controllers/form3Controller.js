@@ -114,7 +114,9 @@ myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
    if (formThree == undefined){
      console.log('starting new bike');
    }else if (formThree[0] == undefined){
-     console.log("form 3 has no data");
+
+     alert('Existing Fit has no data');
+
    } else {
    console.log("form 3 session:", formThree[0]);
    $scope.inseam = formThree[0].inseam;

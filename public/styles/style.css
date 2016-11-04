@@ -5,9 +5,16 @@ body{
 h4{
   color: #361d10;
 }
+h3{
+  font-weight:400;
+
+}
 md-radio-button{
   margin-right: 1%;
   margin-left: 1%;
+}
+md-content{
+  overflow-x: hidden;
 }
 .material-icons.md-48 {
   font-size: 28px;
@@ -16,10 +23,7 @@ md-radio-button{
 .cream-background{
   background-color: #faf6ee;
 }
-#customerTypeButtons {
-  height: 150px;
 
-}
 
 .exisitingUserGrid md-grid-list {
   margin: 8px;
@@ -50,8 +54,27 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   font-size: 24px;
   margin-top: -0.5%;
   color: #361d10;
+
+}
+.customerInformationHeading{
+  text-align:center;
+  margin-top: 1%;
+  font-size: 24px;
+  color: #361d10;
+
+}
+.loginHeading{
+  text-align:center;
+  margin-top: 5%;
+  font-size: 24px;
+  color: #361d10;
 }
 .newCustomerForm{
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+}
+.updateCustomerForm{
   margin-left: auto;
   margin-right: auto;
   border-right: 1px solid #361d10;
@@ -85,13 +108,12 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 .showMeasurement{
   display: block;
 }
-/*@media screen and (max-width: 1024px) and (min-width: 768px){
-  .formTwoBikeImage svg, .formThreeBikeImage svg{
-    width: 700px !important;
-    height:300px !important;
-
+@media screen and (max-width: 1024px) and (min-width: 768px){
+  .customerBike{
+    width: 170px !important;
   }
-}*/
+}
+
 .md-toolbar-tools{
   background-color: #e54735;
   border-bottom: 5px solid #361d10;
@@ -116,6 +138,19 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   background-color: #002f54;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
+.angry-button:not([disabled]):hover{
+  padding: 0 6px 0 6px;
+  min-width: 88px;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+  color: #002f54 ;
+  background-color:  #faf6ee;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
 .search{
   display:block;
   margin-top:1%;
@@ -129,11 +164,14 @@ md-nav-bar md-nav-ink-bar {
 
 .formTwoBikeImage{
   margin-top: -5%;
-  margin-left: 2%;
+  margin-left: -2%;
+  margin-bottom: 5%;
+
 }
 .formThreeBikeImage{
-  margin-top: -7%;
-  margin-left: 2%;
+  margin-top: -5%;
+  margin-left: -9%;
+  margin-bottom: 5%;
 }
 
 #formOneIcon{
@@ -182,4 +220,30 @@ border-bottom: 3px solid #e54735;
   overflow-y: scroll;
   height: 600px;
   overflow-x: hidden;
+}
+.secretData{
+  text-align: center;
+  margin-top: 5%;
+  color:#361d10;
+}
+.largeButtons {
+  height: 150px;
+  font-size: 24px;
+}
+.newBikeIn{
+  margin-top: 15%;
+}
+/* fill color while checked*/
+md-radio-button.md-default-theme .md-on,
+md-radio-button .md-on {
+  background-color: #e54735;
+
+}
+/* border while checked*/
+md-radio-button.md-default-theme.md-checked .md-off,
+md-radio-button.md-checked .md-off {
+  border-color: #e54735;
+}
+md-checkbox.md-checked.angry .md-icon {
+ background-color: #e54735;
 }

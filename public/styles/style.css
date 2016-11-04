@@ -16,9 +16,12 @@ md-radio-button{
 md-content{
   overflow-x: hidden;
 }
-.material-icons.md-48 {
+.material-icons.md-28 {
   font-size: 28px;
-
+}
+.material-icons.md-22{
+  margin-top:-2%;
+  font-size:22px;
 }
 .cream-background{
   background-color: #faf6ee;
@@ -134,11 +137,12 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     width: 170px !important;
   }
 }
-
-.md-toolbar-tools{
+md-toolbar:not(.md-menu-toolbar){
   background-color: #e54735;
+  height: 12%;
   border-bottom: 5px solid #361d10;
 }
+
 /*Nav text*/
 ._md-nav-button-text{
   color: #e54735;
@@ -296,4 +300,17 @@ md-checkbox.md-checked.angry .md-icon {
 }
 .md-datepicker-calendar-icon{
   fill: #e54735;
+}
+.headerLogo{
+  margin-top: 1%;
+  width: 20%;
+  margin-left:30%;
+}
+@media screen and (max-width: 1024px) and (min-width: 768px){
+  .headerLogo{
+    display: block;
+    margin-top:2%;
+    margin-left:27%;
+    width:25%;
+  }
 }

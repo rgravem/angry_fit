@@ -310,7 +310,7 @@
               <div layout-gt-sm="row">
                 <p> What Type of Drivetrain will you be using?(choose one)</p>
               </div>
-              <md-radio-group >
+              <md-radio-group ng-model="drivetrain">
                 <div layout-gt-sm="row">
                   <!-- Single Speed  -->
                   <md-radio-button value="Single Speed" name="drivetrainStyle" ng-click="updateShowSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour"> Single Speed (please specify chainring tooth count) </md-radio-button>
@@ -319,9 +319,9 @@
                 </div>
                 <div layout-gt-sm="row">
                   <!-- 2 or 3 -->
-                  <md-radio-button value="2Or3ByX" ng-model="drivetrain" name="drivetrainStyle" ng-click="updateHideSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour"> 2 or 3 by "X" </md-radio-button>
+                  <md-radio-button value="2Or3ByX" name="drivetrainStyle" ng-click="updateHideSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour"> 2 or 3 by "X" </md-radio-button>
                   <!-- 1 -->
-                  <md-radio-button value="1ByX" ng-model="drivetrain" name="drivetrainStyle"  ng-click="updateHideSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour">1 by "X" (no cable stops for front deraileur) </md-radio-button>
+                  <md-radio-button value="1ByX" name="drivetrainStyle"  ng-click="updateHideSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour">1 by "X" (no cable stops for front deraileur) </md-radio-button>
                 </div>
               </md-radio-group>
                 <!-- IF single speed -->

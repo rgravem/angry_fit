@@ -169,13 +169,11 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.forkBrand = formFour[0].forktype[0];
     $scope.customOrStandardFork = formFour[0].customorstandardfork;
     $scope.forkModel = formFour[0].forktype[1];
-      //need to adjust so yes and no are in DB
-      // $scope.seatDropper = formFour[0].seatdropperbrand + " " + formFour[0].seatdroppermodel;
     $scope.seatDropper = formFour[0].seatdropper;
     $scope.seatDropperBrand = formFour[0].seatdropperbrand;
     $scope.seatDropperModel = formFour[0].seatdroppermodel;
-      //investigate options
-      // drivetrain:  $scope.drivetrain,
+      //STILL NEED SEATDROPPER CHECK BOXES TO WORK
+    $scope.drivetrain = formFour[0].drivetrain;
     $scope.paintColor = formFour[0].paintcolor;
     $scope.fullCoverageFenders = formFour[0].fullcoveragefenders;
     $scope.fendersPainted = formFour[0].fenderspainted;

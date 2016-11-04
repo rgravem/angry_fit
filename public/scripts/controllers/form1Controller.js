@@ -230,7 +230,7 @@ myApp.controller("form1Controller", ['$scope', '$http', function($scope, $http){
             table: {
                 body:[
                     ['Injuries', 'Complaints', 'Surgeries', 'Average Ride', 'Goals', 'Current Bike Brand','Saddle Height', 'Saddle Height Over Bars', 'Saddle Angle', 'Saddle Setback'],
-                    ['' + $scope.injuryInfo, '' + $scope.complaints, '' + $scope.surgeryInfo, ''+ $scope.averageRideLength, '' + $scope.upcomingRaces, '' + $scope.currentBikeBrand, '' + $scope.saddleHeight, '' + $scope.saddleHeightOverBars, '' + $scope.saddleAngle, '' + $scope.saddleSetback],
+                    ['' + $scope.injuryInfo, '' + $scope.complaints, '' + $scope.surgeryInfo, ''+ $scope.averageRideLength, '' + $scope.goalsInfo, '' + $scope.currentBikeBrand, '' + $scope.saddleHeight, '' + $scope.saddleHeightOverBars, '' + $scope.saddleAngle, '' + $scope.saddleSetback],
                   ]
                 }
               },

@@ -233,3 +233,17 @@ border-bottom: 3px solid #e54735;
 .newBikeIn{
   margin-top: 15%;
 }
+/* fill color while checked*/
+md-radio-button.md-default-theme .md-on,
+md-radio-button .md-on {
+  background-color: #e54735;
+
+}
+/* border while checked*/
+md-radio-button.md-default-theme.md-checked .md-off,
+md-radio-button.md-checked .md-off {
+  border-color: #e54735;
+}
+md-checkbox.md-checked.angry .md-icon {
+ background-color: #e54735;
+}

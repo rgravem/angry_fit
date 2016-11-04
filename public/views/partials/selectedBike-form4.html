@@ -145,33 +145,33 @@
             </div>
             <div layout-gt-sm="row">
               <!-- 3rd bottle -->
-              <md-checkbox value="3rdBottleMount" ng-model="thirdBottle" ng-disabled="submittedFour"> 3rd Bottle Mount</md-checkbox>
+              <md-checkbox class="angry" value="3rdBottleMount" ng-model="thirdBottle" ng-disabled="submittedFour"> 3rd Bottle Mount</md-checkbox>
               <!-- Rack Mounts -->
-              <md-checkbox value="rackMounts" ng-model="rackMounts" ng-disabled="submittedFour"> Rack Mounts</md-checkbox>
+              <md-checkbox class="angry" value="rackMounts" ng-model="rackMounts" ng-disabled="submittedFour"> Rack Mounts</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Full Coverage Fenders -->
-              <md-checkbox value="fullCoverFenders" ng-model="fullCoverageFenders" ng-disabled="submittedFour">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
+              <md-checkbox class="angry" value="fullCoverFenders" ng-model="fullCoverageFenders" ng-disabled="submittedFour">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
               <!-- Internal Brake Cable-->
-              <md-checkbox value="internalBrakeCable" ng-model="internalBrakeCable" ng-disabled="submittedFour"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
+              <md-checkbox class="angry" value="internalBrakeCable" ng-model="internalBrakeCable" ng-disabled="submittedFour"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Rocking/Sliding Dropouts-->
-              <md-checkbox value="paragonRockingSlidingDropouts" ng-click="updateShowDropoutSpecs()" ng-model="rockingSlidingDropouts" ng-disabled="submittedFour"> Paragon Rocking/Sliding Dropouts</md-checkbox>
+              <md-checkbox class="angry" value="paragonRockingSlidingDropouts" ng-click="updateShowDropoutSpecs()" ng-model="rockingSlidingDropouts" ng-disabled="submittedFour"> Paragon Rocking/Sliding Dropouts</md-checkbox>
               <!-- Thru-axle -->
-              <md-checkbox value="thruAxleDropouts" ng-click="updateShowThruAxle()" ng-model="thruAxleRear" ng-disabled="submittedFour"> Thru-axle Rear Dropouts</md-checkbox>
+              <md-checkbox class="angry" value="thruAxleDropouts" ng-click="updateShowThruAxle()" ng-model="thruAxleRear" ng-disabled="submittedFour"> Thru-axle Rear Dropouts</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Di2 Routing -->
-              <md-checkbox value="di2Routing" ng-model="di2Routing" ng-disabled="submittedFour"> Di2 Routing</md-checkbox>
+              <md-checkbox class="angry" value="di2Routing" ng-model="di2Routing" ng-disabled="submittedFour"> Di2 Routing</md-checkbox>
               <!-- eTap Routing -->
-              <md-checkbox value="eTapRouting" ng-model="eTapRouting" ng-disabled="submittedFour">E Tap Routing (no routing)</md-checkbox>
+              <md-checkbox  class="angry" value="eTapRouting" ng-model="eTapRouting" ng-disabled="submittedFour">E Tap Routing (no routing)</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Custom Rear Rack -->
-              <md-checkbox value="rearRack" ng-model="customRearRack" ng-disabled="submittedFour"> Custom Rear Rack (specify style in notes)</md-checkbox>
+              <md-checkbox  class="angry" value="rearRack" ng-model="customRearRack" ng-disabled="submittedFour"> Custom Rear Rack (specify style in notes)</md-checkbox>
               <!-- Frame Pump Peg -->
-              <md-checkbox value="FramePump" ng-model="framePump" ng-disabled="submittedFour">Frame Pump Peg</md-checkbox>
+              <md-checkbox class="angry" value="FramePump" ng-model="framePump" ng-disabled="submittedFour">Frame Pump Peg</md-checkbox>
             </div>
             <!-- Dropout Specs -->
             <div layout-gt-sm="row" ng-show="showDropoutSpecs">
@@ -261,21 +261,21 @@
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Thru Axle -->
-                  <md-checkbox value="thruAxle" ng-model="thruAxle" ng-disabled="submittedFour"> Thru Axle </md-checkbox>
+                  <md-checkbox class="angry" value="thruAxle" ng-model="thruAxle" ng-disabled="submittedFour"> Thru Axle </md-checkbox>
                   <!-- Front Mid Rack Mounts -->
-                  <md-checkbox value="frontMidRackMounts" ng-model="frontRackMounts" ng-disabled="submittedFour">Front Mid Rack Mounts</md-checkbox>
+                  <md-checkbox class="angry" value="frontMidRackMounts" ng-model="frontRackMounts" ng-disabled="submittedFour">Front Mid Rack Mounts</md-checkbox>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Fender Mounts -->
-                  <md-checkbox value="fenderMounts" ng-model="fenderMounts" ng-disabled="submittedFour"> Fender Mounts</md-checkbox>
+                  <md-checkbox class="angry" value="fenderMounts" ng-model="fenderMounts" ng-disabled="submittedFour"> Fender Mounts</md-checkbox>
                   <!-- Internal Routing -->
-                  <md-checkbox value="internalRouting" ng-model="internalRouting" ng-disabled="submittedFour"> Internal Routing for Hub Dyno Wire </md-checkbox>
+                  <md-checkbox class="angry" value="internalRouting" ng-model="internalRouting" ng-disabled="submittedFour"> Internal Routing for Hub Dyno Wire </md-checkbox>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Integrated Fork Contact -->
-                  <md-checkbox value="integratedForkContact" ng-model="integratedForkContact" ng-disabled="submittedFour"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
+                  <md-checkbox class="angry" value="integratedForkContact" ng-model="integratedForkContact" ng-disabled="submittedFour"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
                   <!-- Custom Front Rack -->
-                  <md-checkbox  value="frontRack" ng-model="customFrontRack" ng-disabled="submittedFour">Custom Front Rack(specify style in frame options notes) </md-checkbox>
+                  <md-checkbox class="angry"  value="frontRack" ng-model="customFrontRack" ng-disabled="submittedFour">Custom Front Rack(specify style in frame options notes) </md-checkbox>
                 </div>
               </div>
             </div>

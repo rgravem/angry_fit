@@ -174,6 +174,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.seatDropperModel = formFour[0].seatdroppermodel;
       //STILL NEED SEATDROPPER CHECK BOXES TO WORK
     $scope.drivetrain = formFour[0].drivetrain;
+    $scope.drivetrainFillIn = formFour[0].drivetrainfillin;
+    $scope.drivetrainFillIn2 = formFour[0].drivetrainfillin2;
     $scope.paintColor = formFour[0].paintcolor;
     $scope.fullCoverageFenders = formFour[0].fullcoveragefenders;
     $scope.fendersPainted = formFour[0].fenderspainted;
@@ -221,6 +223,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       seatDropperBrand: $scope.seatDropperBrand,
       seatDropperModel: $scope.seatDropperModel,
       drivetrain:  $scope.drivetrain,
+      drivetrainFillIn: $scope.drivetrainFillIn,
+      drivetrainFillIn2: $scope.drivetrainFillIn2,
       paintColor: $scope.paintColor,
       fullCoverageFenders: $scope.fullCoverageFenders,
       fendersPainted: $scope.fendersPainted,
@@ -288,6 +292,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       seatDropperBrand: $scope.seatDropperBrand,
       seatDropperModel: $scope.seatDropperModel,
       drivetrain:  $scope.drivetrain,
+      drivetrainFillIn: $scope.drivetrainFillIn,
+      drivetrainFillIn2: $scope.drivetrainFillIn2,
       paintColor: $scope.paintColor,
       fullCoverageFenders: $scope.fullCoverageFenders,
       fendersPainted: $scope.fendersPainted,

@@ -152,9 +152,9 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   $scope.submitButton();
 
   $scope.formFourLoad = function(){
-    if (formFour === undefined){
+    if (formFour == undefined){
       console.log('starting new bike');
-    }else if (formFour[0] === undefined){
+    }else if (formFour[0] == undefined){
       alert('Custom Frame Details has no data');
     } else {
     console.log("form 4 session:", formFour[0]);
@@ -281,6 +281,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       wheelSize: $scope.wheelSize,
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
+      customOrStandardFork: $scope.customOrStandardFork,
       forkType: $scope.fork,
       seatDropper: $scope.seatDropperBrand + " " + $scope.seatDropperModel,
       drivetrain:  $scope.drivetrain,
@@ -290,7 +291,6 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       frameNotes: $scope.frameNotes,
       frameOptions: $scope.frameOptions,
       paintNotes: $scope.paintNotes,
-      // form4Id: $scope.obj.customerid
     };
 
     console.log(editFormFourObject);

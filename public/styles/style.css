@@ -274,3 +274,26 @@ md-radio-button.md-checked .md-off {
 md-checkbox.md-checked.angry .md-icon {
  background-color: #e54735;
 }
+.md-datepicker-calendar-icon{
+  color: #361d10;
+}
+.md-datepicker-open .md-datepicker-calendar-icon{
+  color:#e54735;
+}
+.md-default-theme .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-default-theme .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator {
+  background: #e54735;
+}
+.md-calendar-day-header {
+  color:#faf6ee;
+  background-color: #361d10;
+}
+.md-calendar{
+    color:#361d10;
+    background-color:#faf6ee;
+}
+.md-default-theme .md-datepicker-focused .md-datepicker-calendar-icon, .md-datepicker-focused .md-datepicker-calendar-icon {
+    fill: #e54735;
+}
+.md-datepicker-calendar-icon{
+  fill: #e54735;
+}

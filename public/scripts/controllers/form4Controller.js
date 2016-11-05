@@ -8,6 +8,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
 
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
+  console.log('employee', employee);
+
 
   $scope.date= new Date();
   // set form to edit and submit status
@@ -163,6 +165,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.brakeCompatability = formFour[0].brakecompatability;
     $scope.brakeMount = formFour[0].brakemount;
     $scope.wheelSize = formFour[0].wheelsize;
+    scope.thirdBottle = formFour[0].thirdbottle;
       //special frame options is checkboxes
       // specialFrameOptions = $scope.specialframeoptions;
     $scope.headtube = formFour[0].headtubesize;
@@ -215,6 +218,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       brakeCompatability: $scope.brakeCompatability,
       brakeMount:$scope.brakeMount,
       wheelSize: $scope.wheelSize,
+      thirdBottle: $scope.thirdBottle,
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,
@@ -284,6 +288,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       brakeCompatability: $scope.brakeCompatability,
       brakeMount:$scope.brakeMount,
       wheelSize: $scope.wheelSize,
+      thirdBottle: $scope.thirdBottle,
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,

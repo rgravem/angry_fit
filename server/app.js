@@ -311,6 +311,7 @@ app.post('/addFormFour', function (req, res){
   var brakeCompatability= req.body.brakeCompatability;
   var brakeMount = req.body.brakeMount;
   var wheelSize = req.body.wheelSize;
+  var thirdBottle = req.body.thirdBottle;
   var specialFrameOptions = req.body.specialFrameOptions;
   var headTubeSize = req.body.headTubeSize;
   var customOrStandardFork = req.body.customOrStandardFork;
@@ -339,7 +340,7 @@ app.post('/addFormFour', function (req, res){
     var frameDetails = [];
     //send update to DB
     //query uses the customer id number in the DB to determine which customer info should be edited
-    client.query('INSERT INTO  form4_customFrameDetails (date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24);', [date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes]);
+    client.query('INSERT INTO  form4_customFrameDetails (date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25);', [date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes]);
     //Query the DB
     var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY form4id DESC LIMIT 1;');
     //run for each row in the query
@@ -597,6 +598,7 @@ app.put( '/editFormFour', function( req, res ){
   var brakeCompatability= req.body.brakeCompatability;
   var brakeMount = req.body.brakeMount;
   var wheelSize = req.body.wheelSize;
+  var thirdBottle = req.body.thirdBottle;
   var specialFrameOptions = req.body.specialFrameOptions;
   var headTubeSize = req.body.headTubeSize;
   var customOrStandardFork = req.body.customOrStandardFork;
@@ -627,7 +629,7 @@ app.put( '/editFormFour', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form4_customFrameDetails SET employeeUpdated = ($1), date = ($2), bikeType = ($3), bottomBracketShell = ($4), brakeCompatability = ($5), brakeMount = ($6), wheelSize = ($7), specialFrameOptions = ($8), headTubeSize = ($9), customOrStandardFork = ($10), forkType = ($11), seatDropper = ($12), seatDropperBrand = ($13), seatDropperModel = ($14), drivetrain = ($15), drivetrainFillIn = ($16), drivetrainFillIn2 = ($17), paintColor = ($18), fullCoverageFenders = ($19), fendersPainted = ($20), frameNotes = ($21), frameOptions = ($22), paintNotes = ($23)  WHERE bikeId = ($24)', [employeeUpdated, date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes, bikeId]);
+      client.query('UPDATE form4_customFrameDetails SET employeeUpdated = ($1), date = ($2), bikeType = ($3), bottomBracketShell = ($4), brakeCompatability = ($5), brakeMount = ($6), wheelSize = ($7), thirdBottle = ($8), specialFrameOptions = ($9), headTubeSize = ($10), customOrStandardFork = ($11), forkType = ($12), seatDropper = ($13), seatDropperBrand = ($14), seatDropperModel = ($15), drivetrain = ($16), drivetrainFillIn = ($17), drivetrainFillIn2 = ($18), paintColor = ($19), fullCoverageFenders = ($20), fendersPainted = ($21), frameNotes = ($22), frameOptions = ($23), paintNotes = ($24)  WHERE bikeId = ($24)', [employeeUpdated, date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form4_customFrameDetails WHERE bikeId = '+"'"+bikeId+"'"+' ');

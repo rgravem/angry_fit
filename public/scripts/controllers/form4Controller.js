@@ -1,4 +1,4 @@
-myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
+myApp.controller("form4Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In form4Controller');
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
@@ -13,6 +13,14 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
   $scope.submittedFour=false;
   // hide Save
   $scope.showSaveFour = false;
+
+  // $scope.verifyEmployee = function(){
+  //   console.log("hit verify employee");
+  //   if (sessionStorage.employee == undefined){
+  //     alert("You must have a valid login");
+  //     $location.path('/login');
+  //   }
+  // };
 
   // show bottom bracket other
   $scope.showBottomBracketOther = false;

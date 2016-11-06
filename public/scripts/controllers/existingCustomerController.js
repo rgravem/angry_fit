@@ -1,7 +1,14 @@
 myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArray', '$firebaseAuth', '$location', function($scope, $http, $firebaseArray, $firebaseAuth, $location){
   console.log('In existingCustomerController');
 
-
+  $scope.verifyEmployee = function(){
+    console.log("hit verify employee");
+    if (sessionStorage.employee == undefined){
+      alert("You must have a valid login");
+      $location.path('/login');
+    }
+  };
+  
   $scope.cardClicked = function(user){
     console.log('card clicked', user);
     sessionStorage.setItem('customer', JSON.stringify(user));

@@ -31,6 +31,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
   //keep all input fields active
   $scope.submittedOne = false;
 
+
   $scope.formOneLoad = function(){
     if (formOne == undefined){
       console.log('starting new bike');
@@ -156,6 +157,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
     $scope.showSave = false;
     // lock form
     $scope.submittedOne=true;
+
 
     var editFormOneObject = {
       employeeCreated: employee,

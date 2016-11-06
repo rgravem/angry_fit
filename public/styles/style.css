@@ -1,9 +1,23 @@
+  @font-face {
+    font-family: GothamLightRegular;
+    src: url("../assets/fonts/GothamLightRegular.otf") format("opentype");
+  }
+    @font-face {
+      font-family: GothamMedium;
+      src: url("../assets/fonts/GothamMedium.otf") format("opentype");
+    }
+  @font-face {
+    font-family: ArcherSemibold;
+    src: url("../assets/fonts/ArcherSemibold.otf") format("opentype");
+  }
 body{
   background-color: #faf6ee;
   color:#361d10;
+
 }
 h4{
   color: #361d10;
+
 }
 h3{
   font-weight:400;
@@ -16,9 +30,12 @@ md-radio-button{
 md-content{
   overflow-x: hidden;
 }
-.material-icons.md-48 {
+.material-icons.md-28 {
   font-size: 28px;
-
+}
+.material-icons.md-22{
+  margin-top:-2%;
+  font-size:22px;
 }
 .cream-background{
   background-color: #faf6ee;
@@ -42,8 +59,29 @@ md-radio-button:focus {
     outline: none;
     border: 0;
  }
+md-input-container .md-input[disabled]{
+  color:#361d10;
+  }
+md-input-container:not(.md-input-invalid).md-input-has-value label{
+  color: #361d10;
+  }
+
+  md-input-container .md-input[disabled]{
+    background-image: linear-gradient(to right,
+       rgba(54,29,16,0.75) 0%, rgba(54,29,16,0.75) 33%, transparent 0%);
+  }
+
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
     border-color: #e54735;
+}
+md-input-container .md-input {
+border-color: #361d10;
+}
+md-input-container label{
+  color:#361d10;
+}
+md-input-container .md-placeholder{
+  color:#361d10;
 }
 md-input-container:not(.md-input-invalid).md-input-focused label {
     color: #e54735;
@@ -54,6 +92,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   font-size: 24px;
   margin-top: -0.5%;
   color: #361d10;
+  font-family: GothamMedium;
 
 }
 .customerInformationHeading{
@@ -61,24 +100,27 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   margin-top: 1%;
   font-size: 24px;
   color: #361d10;
-
+  font-family: GothamMedium;
 }
 .loginHeading{
   text-align:center;
   margin-top: 5%;
   font-size: 24px;
   color: #361d10;
+  font-family: GothamMedium;
 }
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
   padding-right: 15px;
+  font-family: ArcherSemibold;
 }
 .updateCustomerForm{
   margin-left: auto;
   margin-right: auto;
   border-right: 1px solid #361d10;
   padding-right: 15px;
+  font-family: ArcherSemibold;
 }
 .customerSelectHeading, .existingCustomerHeading{
 
@@ -91,6 +133,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   overflow-y: scroll;
   height: 400px;
   overflow-x: hidden;
+  font-family: ArcherSemibold;
 }
 .customersDisplay{
     overflow-y: scroll;
@@ -113,15 +156,17 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     width: 170px !important;
   }
 }
-
-.md-toolbar-tools{
+md-toolbar:not(.md-menu-toolbar){
   background-color: #e54735;
+  height: 12%;
   border-bottom: 5px solid #361d10;
 }
+
 /*Nav text*/
 ._md-nav-button-text{
   color: #e54735;
   font-size:16px;
+  font-family: GothamMedium !important;
 }
 
 .angry-button {
@@ -137,6 +182,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   color: #faf6ee;
   background-color: #002f54;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  font-family: GothamMedium;
 }
 .angry-button:not([disabled]):hover{
   padding: 0 6px 0 6px;
@@ -150,12 +196,19 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   color: #002f54 ;
   background-color:  #faf6ee;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  font-family: GothamMedium;
 }
 .search{
   display:block;
   margin-top:1%;
   margin-left:auto;
   margin-right:auto;
+}
+.md-fab:not([disabled]):hover{
+  background-color:  #faf6ee !important;
+}
+.search-button :not([disabled]):hover{
+  color: #002f54 !important;
 }
 /* nested nav underline*/
 md-nav-bar md-nav-ink-bar {
@@ -196,6 +249,7 @@ form{
 .formTwoNotes,.formThreeNotes,.formOneNotes, .formFourNotes{
   margin-left: 5%;
   margin-right: 7%;
+  font-family: ArcherSemibold;
 }
 .customerSearch{
   margin-left: 2%;
@@ -246,4 +300,54 @@ md-radio-button.md-checked .md-off {
 }
 md-checkbox.md-checked.angry .md-icon {
  background-color: #e54735;
+}
+.md-datepicker-calendar-icon{
+  color: #361d10;
+}
+.md-datepicker-open .md-datepicker-calendar-icon{
+  color:#e54735;
+}
+.md-default-theme .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-default-theme .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator, .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator {
+  background: #e54735;
+}
+.md-calendar-day-header {
+  color:#faf6ee;
+  background-color: #361d10;
+}
+.md-calendar{
+    color:#361d10;
+    background-color:#faf6ee;
+}
+.md-default-theme .md-datepicker-focused .md-datepicker-calendar-icon, .md-datepicker-focused .md-datepicker-calendar-icon {
+    fill: #e54735;
+}
+.md-datepicker-calendar-icon{
+  fill: #e54735;
+}
+.headerLogo{
+  margin-top: 1%;
+  width: 20%;
+  margin-left:30%;
+}
+@media screen and (max-width: 1024px) and (min-width: 768px){
+  .headerLogo{
+    display: block;
+    margin-top:2%;
+    margin-left:27%;
+    width:25%;
+  }
+}
+.loginLogo{
+  display: block;
+  width:75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-top: -2%;
+}
+.loginButton{
+  width: 55%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:-8%;
 }

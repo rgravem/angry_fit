@@ -4,6 +4,8 @@ myApp.controller("selectedBikeController", ['$scope', '$http', function($scope, 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   console.log('json obj bike:', bike);
 
+  console.log($scope.completedCheckNew);
+
   // var obj = JSON.parse(sessionStorage.getItem('customer'));
   // console.log('customer info from other page:', obj);
 

@@ -1,5 +1,13 @@
-myApp.controller("selectedBikeController", ['$scope', '$http', function($scope, $http){
+myApp.controller("selectedBikeController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In selectedBikeController');
+
+  $scope.verifyEmployee = function(){
+    console.log("hit verify employee");
+    if (sessionStorage.employee == undefined){
+      alert("You must have a valid login");
+      $location.path('/login');
+    }
+  };
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   console.log('json obj bike:', bike);
@@ -8,6 +16,11 @@ myApp.controller("selectedBikeController", ['$scope', '$http', function($scope, 
   // console.log('customer info from other page:', obj);
 
   $scope.customerInfo = function(){
+    if (sessionStorage.employee == undefined){
+      alert("You must have a valid login");
+      $location.path('/login');
+      return;
+    }
     var obj = JSON.parse(sessionStorage.getItem('customer'));
     console.log('customer info from other page:', obj);
     var customer = angular.element(document.querySelector( '#custInfo' ) );

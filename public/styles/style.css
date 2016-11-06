@@ -1,9 +1,23 @@
+  @font-face {
+    font-family: GothamLightRegular;
+    src: url("../assets/fonts/GothamLightRegular.otf") format("opentype");
+  }
+    @font-face {
+      font-family: GothamMedium;
+      src: url("../assets/fonts/GothamMedium.otf") format("opentype");
+    }
+  @font-face {
+    font-family: ArcherSemibold;
+    src: url("../assets/fonts/ArcherSemibold.otf") format("opentype");
+  }
 body{
   background-color: #faf6ee;
   color:#361d10;
+
 }
 h4{
   color: #361d10;
+
 }
 h3{
   font-weight:400;
@@ -78,6 +92,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   font-size: 24px;
   margin-top: -0.5%;
   color: #361d10;
+  font-family: GothamMedium;
 
 }
 .customerInformationHeading{
@@ -85,24 +100,27 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   margin-top: 1%;
   font-size: 24px;
   color: #361d10;
-
+  font-family: GothamMedium;
 }
 .loginHeading{
   text-align:center;
   margin-top: 5%;
   font-size: 24px;
   color: #361d10;
+  font-family: GothamMedium;
 }
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
   padding-right: 15px;
+  font-family: ArcherSemibold;
 }
 .updateCustomerForm{
   margin-left: auto;
   margin-right: auto;
   border-right: 1px solid #361d10;
   padding-right: 15px;
+  font-family: ArcherSemibold;
 }
 .customerSelectHeading, .existingCustomerHeading{
 
@@ -115,6 +133,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
   overflow-y: scroll;
   height: 400px;
   overflow-x: hidden;
+  font-family: ArcherSemibold;
 }
 .customersDisplay{
     overflow-y: scroll;
@@ -147,6 +166,7 @@ md-toolbar:not(.md-menu-toolbar){
 ._md-nav-button-text{
   color: #e54735;
   font-size:16px;
+  font-family: GothamMedium !important;
 }
 
 .angry-button {
@@ -162,6 +182,7 @@ md-toolbar:not(.md-menu-toolbar){
   color: #faf6ee;
   background-color: #002f54;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  font-family: GothamMedium;
 }
 .angry-button:not([disabled]):hover{
   padding: 0 6px 0 6px;
@@ -175,6 +196,7 @@ md-toolbar:not(.md-menu-toolbar){
   color: #002f54 ;
   background-color:  #faf6ee;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  font-family: GothamMedium;
 }
 .search{
   display:block;
@@ -227,6 +249,7 @@ form{
 .formTwoNotes,.formThreeNotes,.formOneNotes, .formFourNotes{
   margin-left: 5%;
   margin-right: 7%;
+  font-family: ArcherSemibold;
 }
 .customerSearch{
   margin-left: 2%;
@@ -313,4 +336,18 @@ md-checkbox.md-checked.angry .md-icon {
     margin-left:27%;
     width:25%;
   }
+}
+.loginLogo{
+  display: block;
+  width:75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-top: -2%;
+}
+.loginButton{
+  width: 55%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:-8%;
 }

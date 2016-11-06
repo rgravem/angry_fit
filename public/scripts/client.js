@@ -90,6 +90,6 @@ myApp.controller("navController", ['$scope', '$http', '$firebaseArray', '$fireba
     sessionStorage.removeItem('formThree');
     sessionStorage.removeItem('formTwo');
     sessionStorage.removeItem('selectedBike');
-
   };
+
   }]);

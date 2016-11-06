@@ -165,7 +165,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.brakeCompatability = formFour[0].brakecompatability;
     $scope.brakeMount = formFour[0].brakemount;
     $scope.wheelSize = formFour[0].wheelsize;
-    scope.thirdBottle = formFour[0].thirdbottle;
+    $scope.thirdBottle = formFour[0].thirdbottle;
       //special frame options is checkboxes
       // specialFrameOptions = $scope.specialframeoptions;
     $scope.headtube = formFour[0].headtubesize;

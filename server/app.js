@@ -773,6 +773,26 @@ app.get('/getBikeFormFour', function(req, res){
   });
 });
 
+app.get('/checkEmployee', function(req, res){
+  console.log('employee from query', req.query.q);
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    } else {
+      console.log('in db from check employee');
+      var employee = [];
+      var queryResults = client.query("SELECT * FROM employees WHERE email='" + req.query.q + "'");
+      queryResults.on('row', function(row){
+        employee.push(row);
+      });
+      queryResults.on('end', function(){
+        done();
+        return res.json(employee);
+      });
+    }
+  });
+});
+
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";

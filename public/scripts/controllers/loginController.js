@@ -6,6 +6,26 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
   $scope.logIn = function login(){
     auth.$signInWithPopup("google").then(function(firebaseUser) {
       console.log("Signed in as:", firebaseUser.user.displayName);
+      sessionStorage.setItem('employee', JSON.stringify(firebaseUser.user.email));
+      var employee = JSON.parse(sessionStorage.getItem('employee'));
+      $http({
+        method: 'GET',
+        url: '/checkEmployee?q=' + employee,
+      }).then(function success(employeeStatus){
+        console.log('employee check result:', employeeStatus.data);
+        if (employeeStatus.data[0] === undefined){
+          console.log('hit if statement');
+            auth.$signOut().then(function(){
+              console.log('Logging the user out!');
+              sessionStorage.clear();
+              window.location.href = "https://accounts.google.com/logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:3000/#/login";
+              $location.path('/login');
+              alert('You must use a valid login');
+            });
+        } else {
+          console.log('it worked');
+        }
+      });
     }).catch(function(error) {
       console.log("Authentication failed: ", error);
     });
@@ -37,15 +57,6 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
     }
 
   });
-  $scope.googleOut = function(){
-    console.log("hit google logout");
-    window.location.href = "https://accounts.google.com/logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:3000/#/login";
-  };
-  // This code runs when the user logs out
-  $scope.logOut = function(){
-    auth.$signOut().then(function(){
-      console.log('Logging the user out!');
-    });
-  };
+
 
 }]);//end loginController

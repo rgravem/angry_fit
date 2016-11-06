@@ -210,7 +210,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     forkType();
 
     var formFourObject = {
-      employeeCreated: employee.employeeid,
+      employeeCreated: employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
@@ -280,7 +280,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     forkType();
 
     var editFormFourObject ={
-      employeeUpdated: employee.employeeid,
+      employeeUpdated: employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,

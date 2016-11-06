@@ -167,8 +167,8 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     forkType();
 
     var formFourObject = {
-      // employeeCreated: employee.employeeid,
-      // bikeId: bike.bikeid,
+      employeeCreated: employee,
+      bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
@@ -231,7 +231,7 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     forkType();
 
     var editFormFourObject ={
-      employeeUpdated: employee.employeeid,
+      employeeUpdated: employee,
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
@@ -250,7 +250,6 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       frameNotes: $scope.frameNotes,
       frameOptions: $scope.frameOptions,
       paintNotes: $scope.paintNotes,
-      // form4Id: $scope.obj.customerid
     };
 
     console.log(editFormFourObject);

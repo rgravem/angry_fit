@@ -66,7 +66,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   $scope.loadBikes();
 
 ///////////////////////////////Edit customer Info///////////////////////////////////////
-  $scope.editCustomerInfo = function () {
+  $scope.saveExistingCustomer = function () {
     console.log("in editCustomerInfo");
     //show update
     $scope.hideUpdate = false;
@@ -116,14 +116,14 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     // unlock
     $scope.submittedSelectedCustomer = false;
   };
-  $scope.saveExistingCustomer = function(){
-      //show update
-      $scope.showHideUpdateCustomer = false;
-      //hide save
-      $scope.showSave = false;
-      // lock form
-      $scope.submittedSelectedCustomer = true;
-  };
+  // $scope.saveExistingCustomer = function(){
+  //     //show update
+  //     $scope.showHideUpdateCustomer = false;
+  //     //hide save
+  //     $scope.showSave = false;
+  //     // lock form
+  //     $scope.submittedSelectedCustomer = true;
+  // };
 
 
   ///////////////////////////////Start New Bike///////////////////////////////////////

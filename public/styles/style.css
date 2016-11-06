@@ -10,6 +10,7 @@
     font-family: ArcherSemibold;
     src: url("../assets/fonts/ArcherSemibold.otf") format("opentype");
   }
+
 body{
   background-color: #faf6ee;
   color:#361d10;
@@ -29,6 +30,10 @@ md-radio-button{
 }
 md-content{
   overflow-x: hidden;
+}
+.md-input{
+  font-family: GothamMedium;
+  color:#361d10;
 }
 .material-icons.md-28 {
   font-size: 28px;

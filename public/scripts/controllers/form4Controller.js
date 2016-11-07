@@ -166,8 +166,19 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.brakeMount = formFour[0].brakemount;
     $scope.wheelSize = formFour[0].wheelsize;
     $scope.thirdBottle = formFour[0].thirdbottle;
-      //special frame options is checkboxes
-      // specialFrameOptions = $scope.specialframeoptions;
+    $scope.rackMounts = formFour[0].rackmounts;
+    $scope.fullCoverageFendersOption = formFour[0].fullcoveragefendersoption;
+    $scope.internalBrakeCable = formFour[0].internalbrakecable;
+    $scope.rockingSlidingDropouts = formFour[0].rockingslidingdropouts;
+    $scope.thruAxleRear = formFour[0].thruaxlerear;
+    $scope.di2Routing = formFour[0].di2routing;
+    $scope.eTapRouting = formFour[0].etaprouting;
+    $scope.customRearRack = formFour[0].customrearrack;
+    $scope.dropoutSpecsIn = formFour[0].dropoutspecsin;
+    $scope.dropoutSpacingIn = formFour[0].dropoutspacingin;
+    $scope.specialFrameOptions = formFour[0].specialframeoptions;
+    $scope.framePump = formFour[0].framepump;
+    $scope.specialFrameOptions = formFour[0].specialframeoptions;
     $scope.headtube = formFour[0].headtubesize;
     $scope.forkBrand = formFour[0].forktype[0];
     $scope.customOrStandardFork = formFour[0].customorstandardfork;
@@ -175,7 +186,6 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
     $scope.seatDropper = formFour[0].seatdropper;
     $scope.seatDropperBrand = formFour[0].seatdropperbrand;
     $scope.seatDropperModel = formFour[0].seatdroppermodel;
-      //STILL NEED SEATDROPPER CHECK BOXES TO WORK
     $scope.drivetrain = formFour[0].drivetrain;
     $scope.drivetrainFillIn = formFour[0].drivetrainfillin;
     $scope.drivetrainFillIn2 = formFour[0].drivetrainfillin2;
@@ -219,6 +229,18 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       brakeMount:$scope.brakeMount,
       wheelSize: $scope.wheelSize,
       thirdBottle: $scope.thirdBottle,
+      rackMounts: $scope.rackMounts,
+      fullCoverageFendersOption: $scope.fullCoverageFendersOption,
+      internalBrakeCable: $scope.internalBrakeCable,
+      rockingSlidingDropouts: $scope.rockingSlidingDropouts,
+      thruAxleRear: $scope.thruAxleRear,
+      di2Routing: $scope.di2Routing,
+      eTapRouting: $scope.eTapRouting,
+      customRearRack: $scope.customRearRack,
+      framePump: $scope.framePump,
+      dropoutSpecsIn: $scope.dropoutSpecsIn,
+      dropoutSpacingIn: $scope.dropoutSpacingIn,
+      dropoutSpacingCustom: $scope.dropoutSpacingCustom,
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,
@@ -289,6 +311,18 @@ myApp.controller("form4Controller", ['$scope', '$http',function($scope, $http){
       brakeMount:$scope.brakeMount,
       wheelSize: $scope.wheelSize,
       thirdBottle: $scope.thirdBottle,
+      rackMounts: $scope.rackMounts,
+      fullCoverageFendersOption: $scope.fullCoverageFendersOption,
+      internalBrakeCable: $scope.internalBrakeCable,
+      rockingSlidingDropouts: $scope.rockingSlidingDropouts,
+      thruAxleRear: $scope.thruAxleRear,
+      di2Routing: $scope.di2Routing,
+      eTapRouting: $scope.eTapRouting,
+      customRearRack: $scope.customRearRack,
+      framePump: $scope.framePump,
+      dropoutSpecsIn: $scope.dropoutSpecsIn,
+      dropoutSpacingIn: $scope.dropoutSpacingIn,
+      dropoutSpacingCustom: $scope.dropoutSpacingCustom,
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,

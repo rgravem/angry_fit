@@ -312,6 +312,18 @@ app.post('/addFormFour', function (req, res){
   var brakeMount = req.body.brakeMount;
   var wheelSize = req.body.wheelSize;
   var thirdBottle = req.body.thirdBottle;
+  var rackMounts = req.body.rackMounts;
+  var fullCoverageFendersOption = req.body.fullCoverageFendersOption;
+  var internalBrakeCable = req.body.internalBrakeCable;
+  var rockingSlidingDropouts = req.body.rockingSlidingDropouts;
+  var thruAxleRear = req.body.thruAxleRear;
+  var di2Routing = req.body.di2Routing;
+  var eTapRouting = req.body.eTapRouting;
+  var customRearRack = req.body.customRearRack;
+  var framePump = req.body.framePump;
+  var dropoutSpecsIn = req.body.dropoutSpecsIn;
+  var dropoutSpacingIn = req.body.dropoutSpacingIn;
+  var dropoutSpacingCustom = req.body.dropoutSpacingCustom;
   var specialFrameOptions = req.body.specialFrameOptions;
   var headTubeSize = req.body.headTubeSize;
   var customOrStandardFork = req.body.customOrStandardFork;
@@ -340,7 +352,7 @@ app.post('/addFormFour', function (req, res){
     var frameDetails = [];
     //send update to DB
     //query uses the customer id number in the DB to determine which customer info should be edited
-    client.query('INSERT INTO  form4_customFrameDetails (date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25);', [date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes]);
+    client.query('INSERT INTO  form4_customFrameDetails (date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, rackMounts, fullCoverageFendersOption, internalBrakeCable, rockingSlidingDropouts, thruAxleRear, di2Routing, eTapRouting, customRearRack, framePump, dropoutSpecsIn, dropoutSpacingIn, dropoutSpacingCustom, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37);', [date, employeeCreated, bikeId, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, rackMounts, fullCoverageFendersOption, internalBrakeCable, rockingSlidingDropouts, thruAxleRear, di2Routing, eTapRouting, customRearRack, framePump, dropoutSpecsIn, dropoutSpacingIn, dropoutSpacingCustom, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes]);
     //Query the DB
     var queryResults = client.query('SELECT * FROM  form4_customFrameDetails ORDER BY form4id DESC LIMIT 1;');
     //run for each row in the query
@@ -599,6 +611,18 @@ app.put( '/editFormFour', function( req, res ){
   var brakeMount = req.body.brakeMount;
   var wheelSize = req.body.wheelSize;
   var thirdBottle = req.body.thirdBottle;
+  var rackMounts = req.body.rackMounts;
+  var fullCoverageFendersOption = req.body.fullCoverageFendersOption;
+  var internalBrakeCable = req.body.internalBrakeCable;
+  var rockingSlidingDropouts = req.body.rockingSlidingDropouts;
+  var thruAxleRear = req.body.thruAxleRear;
+  var di2Routing = req.body.di2Routing;
+  var eTapRouting = req.body.eTapRouting;
+  var customRearRack = req.body.customRearRack;
+  var framePump = req.body.framePump;
+  var dropoutSpecsIn = req.body.dropoutSpecsIn;
+  var dropoutSpacingIn = req.body.dropoutSpacingIn;
+  var dropoutSpacingCustom = req.body.dropoutSpacingCustom;
   var specialFrameOptions = req.body.specialFrameOptions;
   var headTubeSize = req.body.headTubeSize;
   var customOrStandardFork = req.body.customOrStandardFork;
@@ -629,7 +653,7 @@ app.put( '/editFormFour', function( req, res ){
       //send update to DB
 
       //query uses the customer id number in the DB to determine which fields should be updated
-      client.query('UPDATE form4_customFrameDetails SET employeeUpdated = ($1), date = ($2), bikeType = ($3), bottomBracketShell = ($4), brakeCompatability = ($5), brakeMount = ($6), wheelSize = ($7), thirdBottle = ($8), specialFrameOptions = ($9), headTubeSize = ($10), customOrStandardFork = ($11), forkType = ($12), seatDropper = ($13), seatDropperBrand = ($14), seatDropperModel = ($15), drivetrain = ($16), drivetrainFillIn = ($17), drivetrainFillIn2 = ($18), paintColor = ($19), fullCoverageFenders = ($20), fendersPainted = ($21), frameNotes = ($22), frameOptions = ($23), paintNotes = ($24)  WHERE bikeId = ($25)', [employeeUpdated, date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes, bikeId]);
+      client.query('UPDATE form4_customFrameDetails SET employeeUpdated = ($1), date = ($2), bikeType = ($3), bottomBracketShell = ($4), brakeCompatability = ($5), brakeMount = ($6), wheelSize = ($7), thirdBottle = ($8), rackMounts = ($9), fullCoverageFendersOption = ($10), internalBrakeCable = ($11), rockingSlidingDropouts = ($12), thruAxleRear = ($13), di2Routing = ($14), eTapRouting = ($15), customRearRack = ($16), framePump = ($17), dropoutSpecsIn = ($18), dropoutSpacingIn = ($19), dropoutSpacingCustom = ($20), specialFrameOptions = ($21), headTubeSize = ($22), customOrStandardFork = ($23), forkType = ($24), seatDropper = ($25), seatDropperBrand = ($26), seatDropperModel = ($27), drivetrain = ($28), drivetrainFillIn = ($29), drivetrainFillIn2 = ($30), paintColor = ($31), fullCoverageFenders = ($32), fendersPainted = ($33), frameNotes = ($34), frameOptions = ($35), paintNotes = ($36)  WHERE bikeId = ($37)', [employeeUpdated, date, bikeType, bottomBracketShell, brakeCompatability, brakeMount, wheelSize, thirdBottle, rackMounts, fullCoverageFendersOption, internalBrakeCable, rockingSlidingDropouts, thruAxleRear, di2Routing, eTapRouting, customRearRack, framePump, dropoutSpecsIn, dropoutSpacingIn, dropoutSpacingCustom, specialFrameOptions, headTubeSize, customOrStandardFork, forkType, seatDropper, seatDropperBrand, seatDropperModel, drivetrain, drivetrainFillIn, drivetrainFillIn2, paintColor, fullCoverageFenders, fendersPainted, frameNotes, frameOptions, paintNotes, bikeId]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM form4_customFrameDetails WHERE bikeId = '+"'"+bikeId+"'"+' ');

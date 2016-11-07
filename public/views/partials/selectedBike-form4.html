@@ -145,34 +145,36 @@
             </div>
             <div layout-gt-sm="row">
               <!-- 3rd bottle -->
-              <md-checkbox class="angry" value="3rdBottleMount" ng-true-value="'true'" ng-model="thirdBottle" ng-disabled="submittedFour"> 3rd Bottle Mount</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-model="thirdBottle" ng-disabled="submittedFour"> 3rd Bottle Mount</md-checkbox>
               <!-- Rack Mounts -->
-              <md-checkbox class="angry" value="rackMounts" ng-model="rackMounts" ng-disabled="submittedFour"> Rack Mounts</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-model="rackMounts" ng-disabled="submittedFour"> Rack Mounts</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Full Coverage Fenders -->
-              <md-checkbox class="angry" value="fullCoverFenders" ng-model="fullCoverageFenders" ng-disabled="submittedFour">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-model="fullCoverageFendersOption" ng-disabled="submittedFour">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
               <!-- Internal Brake Cable-->
-              <md-checkbox class="angry" value="internalBrakeCable" ng-model="internalBrakeCable" ng-disabled="submittedFour"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-model="internalBrakeCable" ng-disabled="submittedFour"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Rocking/Sliding Dropouts-->
-              <md-checkbox class="angry" value="paragonRockingSlidingDropouts" ng-click="updateShowDropoutSpecs()" ng-model="rockingSlidingDropouts" ng-disabled="submittedFour"> Paragon Rocking/Sliding Dropouts</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-click="updateShowDropoutSpecs()" ng-model="rockingSlidingDropouts" ng-disabled="submittedFour"> Paragon Rocking/Sliding Dropouts</md-checkbox>
               <!-- Thru-axle -->
-              <md-checkbox class="angry" value="thruAxleDropouts" ng-click="updateShowThruAxle()" ng-model="thruAxleRear" ng-disabled="submittedFour"> Thru-axle Rear Dropouts</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-click="updateShowThruAxle()" ng-model="thruAxleRear" ng-disabled="submittedFour"> Thru-axle Rear Dropouts</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Di2 Routing -->
-              <md-checkbox class="angry" value="di2Routing" ng-model="di2Routing" ng-disabled="submittedFour"> Di2 Routing</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-model="di2Routing" ng-disabled="submittedFour"> Di2 Routing</md-checkbox>
               <!-- eTap Routing -->
-              <md-checkbox  class="angry" value="eTapRouting" ng-model="eTapRouting" ng-disabled="submittedFour">E Tap Routing (no routing)</md-checkbox>
+              <md-checkbox  class="angry" ng-true-value="'true'" ng-model="eTapRouting" ng-disabled="submittedFour">E Tap Routing (no routing)</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Custom Rear Rack -->
-              <md-checkbox  class="angry" value="rearRack" ng-model="customRearRack" ng-disabled="submittedFour"> Custom Rear Rack (specify style in notes)</md-checkbox>
+              <md-checkbox  class="angry" ng-true-value="'true'" ng-model="customRearRack" ng-disabled="submittedFour"> Custom Rear Rack (specify style in notes)</md-checkbox>
               <!-- Frame Pump Peg -->
-              <md-checkbox class="angry" value="FramePump" ng-model="framePump" ng-disabled="submittedFour">Frame Pump Peg</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-model="framePump" ng-disabled="submittedFour">Frame Pump Peg</md-checkbox>
             </div>
+
+
             <!-- Dropout Specs -->
             <div layout-gt-sm="row" ng-show="showDropoutSpecs">
               <md-input-container class="md-block" flex-gt-sm="">
@@ -185,20 +187,19 @@
               <div layout-gt-sm="row">
                 <p> If you are doing thru-axle rear dropout which spacing would you prefer?(choose one)</p>
               </div>
-              <md-radio-group >
+              <md-radio-group ng-model="dropoutSpacingIn" >
                 <div layout-gt-sm="row">
                   <!-- 142mm -->
-                  <md-radio-button value="142mm" ng-model="dropoutSpacingIn" name="dropoutSpacing" ng-click="updateHideCustomDropoutSpacing()" ng-disabled="submittedFour">142mm</md-radio-button>
-
+                  <md-radio-button value="142mm" name="dropoutSpacing" ng-click="updateHideCustomDropoutSpacing()" ng-disabled="submittedFour">142mm</md-radio-button>
                   <!-- 148mm Boost -->
-                  <md-radio-button value="148mm Boost" ng-model="dropoutSpacingIn" name="dropoutSpacing" ng-click="updateHideCustomDropoutSpacing()" ng-disabled="submittedFour">148mm Boost</md-radio-button>
+                  <md-radio-button value="148mm Boost" name="dropoutSpacing" ng-click="updateHideCustomDropoutSpacing()" ng-disabled="submittedFour">148mm Boost</md-radio-button>
                   <!-- Other -->
-                  <md-radio-button value="" name="dropoutSpacing" ng-click="updateCustomDropoutSpacing()" ng-disabled="submittedFour">Other</md-radio-button>
+                  <md-radio-button value="Other" name="dropoutSpacing" ng-click="updateCustomDropoutSpacing()" ng-disabled="submittedFour">Other</md-radio-button>
                 </div>
               </md-radio-group>
               <div layout-gt-sm="row" ng-show="customDropoutSpacing">
                 <md-input-container class="md-block" flex-gt-sm="">
-                  <input type="text" value="" name="dropoutSpacing" placeholder="Custom Dropout Spacing Specifictaions" ng-model="dropoutSpacingIn" ng-disabled="submittedFour">
+                  <input type="text" name="dropoutSpacing" placeholder="Custom Dropout Spacing Specifictaions" ng-model="dropoutSpacingCustom" ng-disabled="submittedFour">
                 </md-input-container>
               </div>
             </div>

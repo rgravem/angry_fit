@@ -220,6 +220,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
         content: [
 
           {text: 'Fit done by:' + ' ' + employee, alignment: 'right'},
+          {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'right'},
 
 
                             {
@@ -241,9 +242,8 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
           {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
           {text: ' ' + obj.phonenumber,  alignment: 'center'},
           {text: ' ' + obj.email,  alignment: 'center'},
-          {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
-          {text: ' ' + obj.unitnumber,  alignment: 'center'},
-          {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
+          {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
+          {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
 
             {

@@ -161,6 +161,8 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
   };
   $scope.submitButton();
 
+  // $scope.frameOptions = [];
+
   $scope.formFourLoad = function(){
     if (formFour == undefined){
       console.log('starting new bike');
@@ -211,7 +213,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     $scope.paintColorOther = formFour[0].paintcolorother;
     $scope.fullCoverageFenders = formFour[0].fullcoveragefenders;
     $scope.fendersPainted = formFour[0].fenderspainted;
-    $scope.frameOptions = $scope.frameoptions;
+    $scope.frameOptions = formFour[0].frameoptions;
     $scope.frameNotes = formFour[0].framenotes;
     $scope.paintNotes = formFour[0].paintnotes;
   }
@@ -233,6 +235,13 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       //give value if none
       $scope.brakeMount = "N/A";
     }
+
+    //if specialFrameOptions is blank, give it NA
+    if($scope.specialFrameOptions === undefined || null){
+      //give value if none
+      $scope.specialFrameOptions = "N/A";
+    }
+
     //generate frame options array
     createFrameOptions();
     //generate fork type
@@ -325,6 +334,13 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       //give value if none
       $scope.brakeMount = "N/A";
     }
+
+    //if specialFrameOptions is blank, give it NA
+    if($scope.specialFrameOptions === undefined || null){
+      //give value if none
+      $scope.specialFrameOptions = "N/A";
+    }
+
     //generate frame options array
     createFrameOptions();
     //generate fork type
@@ -414,6 +430,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       content: [
 
             {text: 'Fit done by:' + ' ' + employee, alignment: 'right'},
+            {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'right'},
 
             {
 
@@ -434,9 +451,8 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
         {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
         {text: ' ' + obj.phonenumber,  alignment: 'center'},
         {text: ' ' + obj.email,  alignment: 'center'},
-        {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
-        {text: ' ' + obj.unitnumber,  alignment: 'center'},
-        {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
+        {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
+        {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
         {
           style: 'tableExample',
@@ -444,7 +460,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
           table: {
             body:[
               ['Bike Type', 'Bottom Bracket Shell', 'Brake Compatability', 'Brake Mount', 'Wheel Size', 'Special Frame Options', 'Head Tube Size', 'Fork Options', 'Seat Dropper Brand', 'Seat Dropper Model'],
-              ['' + $scope.bikeType, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube, '' + $scope.forkOptions, '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
+              ['' + $scope.bikeType, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube, '' + "N/A", '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
             ]
           }
         },

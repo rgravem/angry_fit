@@ -169,43 +169,43 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
     	forkOffset: $scope.forkOffset,
       notes: $scope.notes
     };
-    if (objectToSend.inseam == undefined) {
-        alert("Please indicate inseam measure - all fields are required");
-    } else if (objectToSend.torso == undefined) {
-      alert("Please indicate torso measure - all fields are required");
-    } else if (objectToSend.arm == undefined) {
-      alert("Please indicate arm measure - all fields are required");
-    } else if (objectToSend.footLength == undefined) {
-      alert("Please indicate foot length - all fields are required");
-    } else if (objectToSend.effectiveTopTube == undefined) {
-      alert("Please indicate effective top tube - all fields are required");
-    } else if (objectToSend.standover == undefined) {
-      alert("Please indicate standover - all fields are required");
-    } else if (objectToSend.seatTubeLength == undefined) {
-      alert("Please indicate seat tube length - all fields are required");
-    } else if (objectToSend.seatTubeAngle == undefined) {
-      alert("Please indicate seat tube angle - all fields are required");
-    } else if (objectToSend.headTubeLength == undefined) {
-      alert("Please indicate head tube length - all fields are required");
-    } else if (objectToSend.headTubeAngle == undefined) {
-      alert("Please indicate head tube angle - all fields are required");
-    } else if (objectToSend.stack == undefined) {
-      alert("Please indicate stack measure - all fields are required");
-    } else if (objectToSend.reach == undefined) {
-      alert("Please indicate reach measure - all fields are required");
-    } else if (objectToSend.wheelBase == undefined) {
-      alert("Please indicate wheel base measure - all fields are required");
-    } else if (objectToSend.chainstayLength == undefined) {
-      alert("Please indicate chainstay length - all fields are required");
-    } else if (objectToSend.bbDrop == undefined) {
-      alert("Please indicate BB Drop - all fields are required");
-    } else if (objectToSend.axleToCrown == undefined) {
-      alert("Please indicate axle to crown measure - all fields are required");
-    } else if (objectToSend.mechanicalTrail == undefined) {
-      alert("Please indicate mechanical trail measure - all fields are required");
-    } else if (objectToSend.forkOffset == undefined) {
-      alert("Please indicate fork offset - all fields are required");
-    } else {
+    // if (objectToSend.inseam == undefined) {
+    //     alert("Please indicate inseam measure - all fields are required");
+    // } else if (objectToSend.torso == undefined) {
+    //   alert("Please indicate torso measure - all fields are required");
+    // } else if (objectToSend.arm == undefined) {
+    //   alert("Please indicate arm measure - all fields are required");
+    // } else if (objectToSend.footLength == undefined) {
+    //   alert("Please indicate foot length - all fields are required");
+    // } else if (objectToSend.effectiveTopTube == undefined) {
+    //   alert("Please indicate effective top tube - all fields are required");
+    // } else if (objectToSend.standover == undefined) {
+    //   alert("Please indicate standover - all fields are required");
+    // } else if (objectToSend.seatTubeLength == undefined) {
+    //   alert("Please indicate seat tube length - all fields are required");
+    // } else if (objectToSend.seatTubeAngle == undefined) {
+    //   alert("Please indicate seat tube angle - all fields are required");
+    // } else if (objectToSend.headTubeLength == undefined) {
+    //   alert("Please indicate head tube length - all fields are required");
+    // } else if (objectToSend.headTubeAngle == undefined) {
+    //   alert("Please indicate head tube angle - all fields are required");
+    // } else if (objectToSend.stack == undefined) {
+    //   alert("Please indicate stack measure - all fields are required");
+    // } else if (objectToSend.reach == undefined) {
+    //   alert("Please indicate reach measure - all fields are required");
+    // } else if (objectToSend.wheelBase == undefined) {
+    //   alert("Please indicate wheel base measure - all fields are required");
+    // } else if (objectToSend.chainstayLength == undefined) {
+    //   alert("Please indicate chainstay length - all fields are required");
+    // } else if (objectToSend.bbDrop == undefined) {
+    //   alert("Please indicate BB Drop - all fields are required");
+    // } else if (objectToSend.axleToCrown == undefined) {
+    //   alert("Please indicate axle to crown measure - all fields are required");
+    // } else if (objectToSend.mechanicalTrail == undefined) {
+    //   alert("Please indicate mechanical trail measure - all fields are required");
+    // } else if (objectToSend.forkOffset == undefined) {
+    //   alert("Please indicate fork offset - all fields are required");
+    // } else {
     console.log('object to send:', objectToSend);
     //hide submit, show update and pdf
     $scope.showHideSubmitFormThree = false;
@@ -222,7 +222,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
       }, function errorCallback(response) {
         console.log('err');
     });// end http call
-  }
+  // }
   }; // end addform3
 
   ////////////////FORM 3 PUT(Update) Route to DB///////////////////////////////////////
@@ -309,6 +309,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
       content: [
 
             {text: 'Fit done by:' + ' ' + employee, alignment: 'right'},
+            {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'right'},
 
             {
 
@@ -329,9 +330,8 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
         {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
         {text: ' ' + obj.phonenumber,  alignment: 'center'},
         {text: ' ' + obj.email,  alignment: 'center'},
-        {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
-        {text: ' ' + obj.unitnumber,  alignment: 'center'},
-        {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
+        {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
+        {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
         {
           style: 'tableExample',

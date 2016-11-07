@@ -187,13 +187,20 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     $scope.customRearRack = formFour[0].customrearrack;
     $scope.dropoutSpecsIn = formFour[0].dropoutspecsin;
     $scope.dropoutSpacingIn = formFour[0].dropoutspacingin;
+    $scope.dropoutSpacingCustom = formFour[0].dropoutspacingcustom;
     $scope.specialFrameOptions = formFour[0].specialframeoptions;
     $scope.framePump = formFour[0].framepump;
     $scope.specialFrameOptions = formFour[0].specialframeoptions;
     $scope.headtube = formFour[0].headtubesize;
-    $scope.forkBrand = formFour[0].forktype[0];
     $scope.customOrStandardFork = formFour[0].customorstandardfork;
+    $scope.forkBrand = formFour[0].forktype[0];
     $scope.forkModel = formFour[0].forktype[1];
+    $scope.thruAxle = formFour[0].thruaxle;
+    $scope.frontRackMounts = formFour[0].frontrackmounts;
+    $scope.fenderMounts = formFour[0].fendermounts;
+    $scope.internalRouting = formFour[0].internalrouting;
+    $scope.integratedForkContact = formFour[0].integratedforkcontact;
+    $scope.customFrontRack = formFour[0].customfrontrack;
     $scope.seatDropper = formFour[0].seatdropper;
     $scope.seatDropperBrand = formFour[0].seatdropperbrand;
     $scope.seatDropperModel = formFour[0].seatdroppermodel;
@@ -260,6 +267,12 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,
       forkType: $scope.fork,
+      thruAxle: $scope.thruAxle,
+      frontRackMounts: $scope.frontRackMounts,
+      fenderMounts: $scope.fenderMounts,
+      internalRouting: $scope.internalRouting,
+      integratedForkContact: $scope.integratedForkContact,
+      customFrontRack: $scope.customFrontRack,
       seatDropper: $scope.seatDropper,
       seatDropperBrand: $scope.seatDropperBrand,
       seatDropperModel: $scope.seatDropperModel,
@@ -346,6 +359,12 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,
       forkType: $scope.fork,
+      thruAxle: $scope.thruAxle,
+      frontRackMounts: $scope.frontRackMounts,
+      fenderMounts: $scope.fenderMounts,
+      internalRouting: $scope.internalRouting,
+      integratedForkContact: $scope.integratedForkContact,
+      customFrontRack: $scope.customFrontRack,
       seatDropper: $scope.seatDropper,
       seatDropperBrand: $scope.seatDropperBrand,
       seatDropperModel: $scope.seatDropperModel,

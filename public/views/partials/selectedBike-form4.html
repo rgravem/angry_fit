@@ -199,7 +199,7 @@
               </md-radio-group>
               <div layout-gt-sm="row" ng-show="customDropoutSpacing">
                 <md-input-container class="md-block" flex-gt-sm="">
-                  <input type="text" name="dropoutSpacing" placeholder="Custom Dropout Spacing Specifictaions" ng-model="dropoutSpacingCustom" ng-disabled="submittedFour">
+                  <input type="text" name="dropoutSpacing" placeholder="Custom Dropout Spacing Specifications" ng-model="dropoutSpacingCustom" ng-disabled="submittedFour">
                 </md-input-container>
               </div>
             </div>
@@ -262,21 +262,21 @@
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Thru Axle -->
-                  <md-checkbox class="angry" value="thruAxle" ng-model="thruAxle" ng-disabled="submittedFour"> Thru Axle </md-checkbox>
+                  <md-checkbox class="angry" value="thruAxle" ng-true-value="'true'" ng-model="thruAxle" ng-disabled="submittedFour"> Thru Axle </md-checkbox>
                   <!-- Front Mid Rack Mounts -->
-                  <md-checkbox class="angry" value="frontMidRackMounts" ng-model="frontRackMounts" ng-disabled="submittedFour">Front Mid Rack Mounts</md-checkbox>
+                  <md-checkbox class="angry" value="frontMidRackMounts" ng-true-value="'true'" ng-model="frontRackMounts" ng-disabled="submittedFour">Front Mid Rack Mounts</md-checkbox>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Fender Mounts -->
-                  <md-checkbox class="angry" value="fenderMounts" ng-model="fenderMounts" ng-disabled="submittedFour"> Fender Mounts</md-checkbox>
+                  <md-checkbox class="angry" value="fenderMounts" ng-true-value="'true'" ng-model="fenderMounts" ng-disabled="submittedFour"> Fender Mounts</md-checkbox>
                   <!-- Internal Routing -->
-                  <md-checkbox class="angry" value="internalRouting" ng-model="internalRouting" ng-disabled="submittedFour"> Internal Routing for Hub Dyno Wire </md-checkbox>
+                  <md-checkbox class="angry" value="internalRouting" ng-true-value="'true'" ng-model="internalRouting" ng-disabled="submittedFour"> Internal Routing for Hub Dyno Wire </md-checkbox>
                 </div>
                 <div layout-gt-sm="row">
                   <!-- Integrated Fork Contact -->
-                  <md-checkbox class="angry" value="integratedForkContact" ng-model="integratedForkContact" ng-disabled="submittedFour"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
+                  <md-checkbox class="angry" value="integratedForkContact" ng-true-value="'true'" ng-model="integratedForkContact" ng-disabled="submittedFour"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
                   <!-- Custom Front Rack -->
-                  <md-checkbox class="angry"  value="frontRack" ng-model="customFrontRack" ng-disabled="submittedFour">Custom Front Rack(specify style in frame options notes) </md-checkbox>
+                  <md-checkbox class="angry"  value="frontRack" ng-true-value="'true'" ng-model="customFrontRack" ng-disabled="submittedFour">Custom Front Rack(specify style in frame options notes) </md-checkbox>
                 </div>
               </div>
             </div>

@@ -1,0 +1,24 @@
+<md-content class="md-padding cream-background" ng-init="verifyEmployee()">
+  <h2 class="newCustomerHeading">Add New Employee</h2>
+
+  <form class="newCustomerForm cream-background" action="" method="post" layout-gt-sm="column" flex="50" max-height="100%">
+
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder=" First Name" ng-model="firstName">
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Last Name" ng-model="lastName">
+      </md-input-container>
+
+    <div layout-gt-sm ="row">
+      <md-input-container class="md-block" flex-gt-sm="">
+        <input type="text" placeholder="Email Address" ng-model="email">
+      </md-input-container>
+    </div>
+    <!-- <md-input-container flex-gt-sm=""> -->
+      <md-button class="angry-button" placeholder="Submit" ng-click="addNewEmployee()">Submit</md-button>
+    <!-- </md-input-container> -->
+
+  </form>
+</md-content>

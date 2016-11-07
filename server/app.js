@@ -840,8 +840,8 @@ app.get('/checkEmployee', function(req, res){
 app.post( '/addNewEmployee', function( req, res ){
   console.log( 'in addNewEmployee', req.body );
 
-  var firstname = req.body.firstname;
-  var lastname = req.body.lastname;
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
   var email = req.body.email;
 
   pg.connect(connectionString, function(err, client, done){
@@ -853,7 +853,7 @@ app.post( '/addNewEmployee', function( req, res ){
 
       var newEmployeeToSend = [];
 
-      client.query('INSERT INTO employees (firstname, lastname, email) VALUES ($1, $2, $3);', [firstname, lastname, email]);
+      client.query('INSERT INTO employees (firstName, lastName, email) VALUES ($1, $2, $3);', [firstName, lastName, email]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM employees ORDER BY employeeid DESC LIMIT 1');
@@ -862,7 +862,6 @@ app.post( '/addNewEmployee', function( req, res ){
         newEmployeeToSend.push(row);
       }); //end of row
       queryResults.on('end', function(){
-        //we're done
         done();
         //return result as JSON version of array
         return res.json(newEmployeeToSend);

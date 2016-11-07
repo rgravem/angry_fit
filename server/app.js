@@ -837,6 +837,40 @@ app.get('/checkEmployee', function(req, res){
   });
 });
 
+app.post( '/addNewEmployee', function( req, res ){
+  console.log( 'in addNewEmployee', req.body );
+
+  var firstname = req.body.firstname;
+  var lastname = req.body.lastname;
+  var email = req.body.email;
+
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      console.log(err);
+    }//end error check
+    else{
+      console.log("connected to DB");
+
+      var newEmployeeToSend = [];
+
+      client.query('INSERT INTO employees (firstname, lastname, email) VALUES ($1, $2, $3);', [firstname, lastname, email]);
+
+      //Query the DB
+      var queryResults = client.query('SELECT * FROM employees ORDER BY employeeid DESC LIMIT 1');
+      //run for each row in the query
+      queryResults.on("row", function(row){
+        newEmployeeToSend.push(row);
+      }); //end of row
+      queryResults.on('end', function(){
+        //we're done
+        done();
+        //return result as JSON version of array
+        return res.json(newEmployeeToSend);
+      });//end of end
+    }// end of else
+  });// end pg connect
+});//end of post
+
 //////////////////////////////generic app.get///////////////////////////////////
 app.get("/*", function(req,res){
     var file = req.params[0] || "/views/index.html";

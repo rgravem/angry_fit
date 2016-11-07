@@ -1,4 +1,4 @@
-myApp.controller("form3Controller", ['$scope', '$http', function($scope, $http){
+myApp.controller("form3Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In form3Controller');
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));

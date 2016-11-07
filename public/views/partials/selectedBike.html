@@ -1,13 +1,14 @@
 
-<md-content class="md-padding cream-background">
-  
+<md-content class="md-padding cream-background" ng-init="verifyEmployee()">
+
+
 
   </div>
    <md-nav-bar  md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-     <md-nav-item class="nav-color" md-nav-sref="selectedBike.form1" name="form1">Existing Fit</md-nav-item>
-     <md-nav-item md-nav-sref="selectedBike.form2" name="form2">New Fit</md-nav-item>
-     <md-nav-item md-nav-sref="selectedBike.form3" name="form3">Custom Frame geometry</md-nav-item>
-     <md-nav-item md-nav-sref="selectedBike.form4" name="form4"> Custom Frame details</md-nav-item>
+     <md-nav-item class="nav-color" md-nav-sref="selectedBike.form1" name="form1">Existing Fit<md-icon id="existingIcon" class="material-icons md-22" style="color: #002f54;"> done</md-icon></md-nav-item>
+     <md-nav-item md-nav-sref="selectedBike.form2" name="form2">New Fit<md-icon id="newFitIcon" class="material-icons md-22" style="color: #002f54;"> done</md-icon></md-nav-item>
+     <md-nav-item md-nav-sref="selectedBike.form3" name="form3">Custom Frame geometry<md-icon  class="material-icons md-22" style="color: #002f54;"> done</md-icon></md-nav-item>
+     <md-nav-item md-nav-sref="selectedBike.form4" name="form4"> Custom Frame details<md-icon  class="material-icons md-22" style="color: #002f54;"> done</md-icon></md-nav-item>
    </md-nav-bar>
  </md-content></div>
 <div ui-view></div>

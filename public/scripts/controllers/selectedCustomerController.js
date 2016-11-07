@@ -1,5 +1,11 @@
 myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In selectedCustomerController');
+
+
+  if (sessionStorage.employee == undefined){
+    alert("You must have a valid login");
+    $location.path('/login');
+  }
   // set form to edit and submit status
   //show submit button, hide update and pdf
   $scope.showHideSelectedCustomer = true;
@@ -10,8 +16,6 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
 
   // show bike fits
   $scope.hideBikes= true;
-
-
 
   var obj = JSON.parse(sessionStorage.getItem('customer'));
   var bikeList = JSON.parse(sessionStorage.getItem('customerBikes'));
@@ -56,9 +60,9 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   };
 
   $scope.customerInfo = function(){
-    console.log('customer info from other page:', obj);
     var customer = angular.element(document.querySelector( '#custInfo' ) );
     customer.append(obj.firstname + " " + obj.lastname + '</br>' + obj.email + '</br>' + obj.phonenumber + '</br>' + obj.streetaddress + ", " + obj.city + ", " + obj.state + " " + obj.zip );
+
   };
 
 

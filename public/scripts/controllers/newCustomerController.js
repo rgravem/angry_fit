@@ -1,6 +1,14 @@
 myApp.controller("newCustomerController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In newCustomerController');
 
+  $scope.verifyEmployee = function(){
+    console.log("hit verify employee");
+    if (sessionStorage.employee == undefined){
+      alert("You must have a valid login");
+      $location.path('/login');
+    }
+  };
+
   $scope.addNewCustomer = function () {
     var newCustomerObject = {
       firstName: $scope.firstName,

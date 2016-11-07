@@ -1,4 +1,4 @@
-myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
+myApp.controller("form2Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In form2Controller');
     // set form to edit and submit status
     //show submit button, hide update and pdf
@@ -6,6 +6,14 @@ myApp.controller("form2Controller", ['$scope', '$http', function($scope, $http){
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formTwo = JSON.parse(sessionStorage.getItem('formTwo'));
   var obj = JSON.parse(sessionStorage.getItem('customer'));
+
+  // $scope.verifyEmployee = function(){
+  //   console.log("hit verify employee");
+  //   if (sessionStorage.employee == undefined){
+  //     alert("You must have a valid login");
+  //     $location.path('/login');
+  //   }
+  // };
 
   $scope.date= new Date();
   $scope.showHideSubmitFormTwo = true;

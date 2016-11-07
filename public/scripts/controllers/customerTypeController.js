@@ -3,6 +3,14 @@ myApp.controller("customerTypeController", ['$scope', '$location', '$http', '$fi
 
 var auth = $firebaseAuth();
 
+$scope.verifyEmployee = function(){
+  console.log("hit verify employee");
+  if (sessionStorage.employee == undefined){
+    alert("You must have a valid login");
+    $location.path('/login');
+  }
+};
+
 $scope.newCustomer = function(){
   console.log('new customer hit');
   $location.path('/newCustomer');

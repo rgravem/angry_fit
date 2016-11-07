@@ -47,7 +47,7 @@
               <div layout-gt-sm="row" ng-show="showBottomBracketOther">
                 <!-- IF Other-  Input Field  -->
                 <md-input-container class="md-block" flex-gt-sm="">
-                  <input type="text" id="bbOtherIn" value="" placeholder="Bottom Bracket Specifications" ng-model="bottomBracketShell" ng-disabled="submittedFour">
+                  <input type="text" id="bbOtherIn" placeholder="Bottom Bracket Specifications" ng-model="bottomBracketShellOther" ng-disabled="submittedFour">
                 </md-input-container>
               </div>
 
@@ -69,13 +69,13 @@
                 <!-- Cantilever Brake-->
                 <md-radio-button value="Cantilever Brake" name="brakeStyle" ng-click="updateHideBrakes(); updateHideBrakeMount()" ng-disabled="submittedFour"> Cantilever Brake </md-radio-button>
                 <!-- Other -->
-                <md-radio-button value="" name="brakeStyle" ng-click="updateShowBrakes();updateHideBrakeMount()" ng-disabled="submittedFour"> Other </md-radio-button>
+                <md-radio-button value="Other" name="brakeStyle" ng-click="updateShowBrakes();updateHideBrakeMount()" ng-disabled="submittedFour"> Other </md-radio-button>
               </div>
             </md-radio-group>
             <div layout-gt-sm="row" ng-show="showBrakeOther">
               <md-input-container class="md-block" flex-gt-sm="" >
                 <!--Other Input Field  -->
-                <input type="text input" id="brakeOtherIn" value="" placeholder="Brake Specifications" ng-model="brakeCompatability" ng-disabled="submittedFour">
+                <input type="text input" id="brakeOtherIn" placeholder="Brake Specifications" ng-model="brakeCompatabilityOther" ng-disabled="submittedFour">
               </md-input-container>
             </div>
 
@@ -128,13 +128,13 @@
                 <!--650bx3-->
                 <md-radio-button value="650bx3" name="wheelStyle" ng-click="updateHideWheels()" ng-disabled="submittedFour"> 650bx3 (Requires Paragon Yoke)</md-radio-button>
                 <!-- Other -->
-                <md-radio-button value="" name="wheelStyle" ng-click="updateShowWheels()" ng-disabled="submittedFour"> Other</md-radio-button>
+                <md-radio-button value="Other" name="wheelStyle" ng-click="updateShowWheels()" ng-disabled="submittedFour"> Other</md-radio-button>
               </div>
             <md-radio-group>
             <div layout-gt-sm="row" ng-show="showWheelsOther">
               <md-input-container class="md-block" flex-gt-sm="">
               <!--Other Input Field  -->
-                <input type="text input" id="wheelOtherIn" value="" placeholder="Wheel Specifications" ng-model="wheelSize" ng-disabled="submittedFour">
+                <input type="text input" id="wheelOtherIn" placeholder="Wheel Specifications" ng-model="wheelSizeOther" ng-disabled="submittedFour">
               </md-input-container>
             </div>
           </div>
@@ -208,7 +208,7 @@
             <div id="specialFrameOptions">
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm="">
-                  <textarea rows="3" placeholder="Any other special frame options you would like to see included?" ng-model="specialFrameOptions" ng-disabled="submittedFour"></textarea>
+                  <textarea rows="1" placeholder="Any other special frame options you would like to see included?" ng-model="specialFrameOptions" ng-disabled="submittedFour"></textarea>
                 </md-input-container>
               </div>
             </div>
@@ -361,14 +361,14 @@
                   <!-- Color Option 5 -->
                   <md-radio-button value="color Option Five" name="colorOptions" ng-click="updateHideCustomPaint()" ng-disabled="submittedFour"> Option Five </md-radio-button>
                   <!-- Color Option 6 -->
-                  <md-radio-button value="" name="colorOptions" ng-click="updateShowCustomPaint()" ng-disabled="submittedFour"> Option Six </md-radio-button>
+                  <md-radio-button value="Other" name="colorOptions" ng-click="updateShowCustomPaint()" ng-disabled="submittedFour"> Option Six </md-radio-button>
                 </div>
               </md-radio-group>
                 <!-- IF six -->
                 <div id="optionSixIn" ng-show="showCustomPaint">
                   <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm="">
-                      <input type="text" id="customColor" value="" placeholder="Please Specify a Color" ng-model="paintColor" ng-disabled="submittedFour">
+                      <input type="text" id="customColor" placeholder="Please Specify a Color" ng-model="paintColorOther" ng-disabled="submittedFour">
                     </md-input-container>
                   </div>
                 </div>

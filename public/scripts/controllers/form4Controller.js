@@ -170,9 +170,12 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     console.log("form 4 session:", formFour[0]);
     $scope.bikeType = formFour[0].biketype;
     $scope.bottomBracketShell = formFour[0].bottombracketshell;
+    $scope.bottomBracketShellOther = formFour[0].bottombracketshellother;
     $scope.brakeCompatability = formFour[0].brakecompatability;
+    $scope.brakeCompatabilityOther = formFour[0].brakecompatabilityother;
     $scope.brakeMount = formFour[0].brakemount;
     $scope.wheelSize = formFour[0].wheelsize;
+    $scope.wheelSizeOther = formFour[0].wheelsizeother;
     $scope.thirdBottle = formFour[0].thirdbottle;
     $scope.rackMounts = formFour[0].rackmounts;
     $scope.fullCoverageFendersOption = formFour[0].fullcoveragefendersoption;
@@ -198,6 +201,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     $scope.drivetrainFillIn = formFour[0].drivetrainfillin;
     $scope.drivetrainFillIn2 = formFour[0].drivetrainfillin2;
     $scope.paintColor = formFour[0].paintcolor;
+    $scope.paintColorOther = formFour[0].paintcolorother;
     $scope.fullCoverageFenders = formFour[0].fullcoveragefenders;
     $scope.fendersPainted = formFour[0].fenderspainted;
     $scope.frameOptions = $scope.frameoptions;
@@ -233,9 +237,12 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
+      bottomBracketShellOther: $scope.bottomBracketShellOther,
       brakeCompatability: $scope.brakeCompatability,
+      brakeCompatabilityOther: $scope.brakeCompatabilityOther,
       brakeMount:$scope.brakeMount,
       wheelSize: $scope.wheelSize,
+      wheelSizeOther: $scope.wheelSizeOther,
       thirdBottle: $scope.thirdBottle,
       rackMounts: $scope.rackMounts,
       fullCoverageFendersOption: $scope.fullCoverageFendersOption,
@@ -260,6 +267,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       drivetrainFillIn: $scope.drivetrainFillIn,
       drivetrainFillIn2: $scope.drivetrainFillIn2,
       paintColor: $scope.paintColor,
+      paintColorOther: $scope.paintColorOther,
       fullCoverageFenders: $scope.fullCoverageFenders,
       fendersPainted: $scope.fendersPainted,
       frameNotes: $scope.frameNotes,
@@ -314,10 +322,13 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
-      bottomBracketShell:$scope.bottomBracketShell,
+      bottomBracketShell: $scope.bottomBracketShell,
+      bottomBracketShellOther: $scope.bottomBracketShellOther,
       brakeCompatability: $scope.brakeCompatability,
+      brakeCompatabilityOther: $scope.brakeCompatabilityOther,
       brakeMount:$scope.brakeMount,
       wheelSize: $scope.wheelSize,
+      wheelSizeOther: $scope.wheelSizeOther,
       thirdBottle: $scope.thirdBottle,
       rackMounts: $scope.rackMounts,
       fullCoverageFendersOption: $scope.fullCoverageFendersOption,
@@ -342,6 +353,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       drivetrainFillIn: $scope.drivetrainFillIn,
       drivetrainFillIn2: $scope.drivetrainFillIn2,
       paintColor: $scope.paintColor,
+      paintColorOther: $scope.paintColorOther,
       fullCoverageFenders: $scope.fullCoverageFenders,
       fendersPainted: $scope.fendersPainted,
       frameNotes: $scope.frameNotes,

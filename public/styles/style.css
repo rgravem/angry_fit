@@ -10,6 +10,7 @@
     font-family: ArcherSemibold;
     src: url("../assets/fonts/ArcherSemibold.otf") format("opentype");
   }
+
 body{
   background-color: #faf6ee;
   color:#361d10;
@@ -30,6 +31,11 @@ md-radio-button{
 md-content{
   overflow-x: hidden;
 }
+.md-input{
+  font-family: GothamMedium;
+  color:#361d10;
+}
+
 .material-icons.md-28 {
   font-size: 28px;
 }
@@ -128,6 +134,7 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
 }
 .customerTypes{
   margin-top: 5%;
+  margin-left:12%;
 }
 .formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
@@ -343,11 +350,29 @@ md-checkbox.md-checked.angry .md-icon {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
-  margin-top: -2%;
+  margin-top:5%;
 }
 .loginButton{
   width: 55%;
+  height:90px;
   margin-left:auto;
   margin-right:auto;
   margin-top:-8%;
 }
+.customerSelect{
+  width: 75%;
+}
+
+.newCustLabel{
+  font-family: GothamLightRegular;
+  font-size:28px;
+  margin-left: 16%;
+  color: #e54735;
+
+}
+.existingCustLabel{
+  font-family: GothamLightRegular;
+  font-size:28px;
+  margin-left: 10%;
+  color: #e54735;
+  }

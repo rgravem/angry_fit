@@ -165,7 +165,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     if (formFour == undefined){
       console.log('starting new bike');
     }else if (formFour[0] == undefined){
-      alert('Custom Frame Details has no data');
+      console.log('Custom Frame Details has no data');
     } else {
     console.log("form 4 session:", formFour[0]);
     $scope.bikeType = formFour[0].biketype;

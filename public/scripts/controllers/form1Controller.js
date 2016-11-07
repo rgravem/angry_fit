@@ -36,7 +36,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
     if (formOne == undefined){
       console.log('starting new bike');
     }else if (formOne[0] == undefined){
-      alert('Existing Fit has no data');
+      console.log('Existing Fit has no data');
     } else {
     console.log("form 1 session:", formOne[0]);
     $scope.injuryInfo = formOne[0].injuries;

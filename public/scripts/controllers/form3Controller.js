@@ -10,7 +10,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
 
   // set form to edit and submit status
   //show submit button, hide update and pdf
-
+  console.log(formThree);
   $scope.showHideSubmitFormThree = true;
   //keep all input fields active
   $scope.submittedThree=false;
@@ -115,7 +115,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
      console.log('starting new bike');
    }else if (formThree[0] == undefined){
 
-     alert('Existing Fit has no data');
+     console.log('Custom Frame Geometry has no data');
 
    } else {
    console.log("form 3 session:", formThree[0]);

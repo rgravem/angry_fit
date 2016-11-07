@@ -3,7 +3,13 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formFour = JSON.parse(sessionStorage.getItem('formFour'));
+
+  // console.log(formFour[0].bottombracketshell);
+
   var obj = JSON.parse(sessionStorage.getItem('customer'));
+
+  console.log('employee', employee);
+
 
   $scope.date= new Date();
   // set form to edit and submit status
@@ -155,6 +161,64 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
   };
   $scope.submitButton();
 
+  $scope.formFourLoad = function(){
+    if (formFour == undefined){
+      console.log('starting new bike');
+    }else if (formFour[0] == undefined){
+      console.log('Custom Frame Details has no data');
+    } else {
+    console.log("form 4 session:", formFour[0]);
+    $scope.bikeType = formFour[0].biketype;
+    $scope.bottomBracketShell = formFour[0].bottombracketshell;
+    $scope.bottomBracketShellOther = formFour[0].bottombracketshellother;
+    $scope.brakeCompatability = formFour[0].brakecompatability;
+    $scope.brakeCompatabilityOther = formFour[0].brakecompatabilityother;
+    $scope.brakeMount = formFour[0].brakemount;
+    $scope.wheelSize = formFour[0].wheelsize;
+    $scope.wheelSizeOther = formFour[0].wheelsizeother;
+    $scope.thirdBottle = formFour[0].thirdbottle;
+    $scope.rackMounts = formFour[0].rackmounts;
+    $scope.fullCoverageFendersOption = formFour[0].fullcoveragefendersoption;
+    $scope.internalBrakeCable = formFour[0].internalbrakecable;
+    $scope.rockingSlidingDropouts = formFour[0].rockingslidingdropouts;
+    $scope.thruAxleRear = formFour[0].thruaxlerear;
+    $scope.di2Routing = formFour[0].di2routing;
+    $scope.eTapRouting = formFour[0].etaprouting;
+    $scope.customRearRack = formFour[0].customrearrack;
+    $scope.dropoutSpecsIn = formFour[0].dropoutspecsin;
+    $scope.dropoutSpacingIn = formFour[0].dropoutspacingin;
+    $scope.dropoutSpacingCustom = formFour[0].dropoutspacingcustom;
+    $scope.specialFrameOptions = formFour[0].specialframeoptions;
+    $scope.framePump = formFour[0].framepump;
+    $scope.specialFrameOptions = formFour[0].specialframeoptions;
+    $scope.headtube = formFour[0].headtubesize;
+    $scope.customOrStandardFork = formFour[0].customorstandardfork;
+    $scope.forkBrand = formFour[0].forktype[0];
+    $scope.forkModel = formFour[0].forktype[1];
+    $scope.thruAxle = formFour[0].thruaxle;
+    $scope.frontRackMounts = formFour[0].frontrackmounts;
+    $scope.fenderMounts = formFour[0].fendermounts;
+    $scope.internalRouting = formFour[0].internalrouting;
+    $scope.integratedForkContact = formFour[0].integratedforkcontact;
+    $scope.customFrontRack = formFour[0].customfrontrack;
+    $scope.seatDropper = formFour[0].seatdropper;
+    $scope.seatDropperBrand = formFour[0].seatdropperbrand;
+    $scope.seatDropperModel = formFour[0].seatdroppermodel;
+    $scope.drivetrain = formFour[0].drivetrain;
+    $scope.drivetrainFillIn = formFour[0].drivetrainfillin;
+    $scope.drivetrainFillIn2 = formFour[0].drivetrainfillin2;
+    $scope.paintColor = formFour[0].paintcolor;
+    $scope.paintColorOther = formFour[0].paintcolorother;
+    $scope.fullCoverageFenders = formFour[0].fullcoveragefenders;
+    $scope.fendersPainted = formFour[0].fenderspainted;
+    $scope.frameOptions = $scope.frameoptions;
+    $scope.frameNotes = formFour[0].framenotes;
+    $scope.paintNotes = formFour[0].paintnotes;
+  }
+};
+  $scope.formFourLoad();
+
+
   ////////////////FORM 4 POST Route to DB///////////////////////////////////////
   $scope.submitFormFour = function(){
     console.log("In Submit Form Four");
@@ -180,15 +244,43 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
       bottomBracketShell:$scope.bottomBracketShell,
+      bottomBracketShellOther: $scope.bottomBracketShellOther,
       brakeCompatability: $scope.brakeCompatability,
+      brakeCompatabilityOther: $scope.brakeCompatabilityOther,
       brakeMount:$scope.brakeMount,
       wheelSize: $scope.wheelSize,
+      wheelSizeOther: $scope.wheelSizeOther,
+      thirdBottle: $scope.thirdBottle,
+      rackMounts: $scope.rackMounts,
+      fullCoverageFendersOption: $scope.fullCoverageFendersOption,
+      internalBrakeCable: $scope.internalBrakeCable,
+      rockingSlidingDropouts: $scope.rockingSlidingDropouts,
+      thruAxleRear: $scope.thruAxleRear,
+      di2Routing: $scope.di2Routing,
+      eTapRouting: $scope.eTapRouting,
+      customRearRack: $scope.customRearRack,
+      framePump: $scope.framePump,
+      dropoutSpecsIn: $scope.dropoutSpecsIn,
+      dropoutSpacingIn: $scope.dropoutSpacingIn,
+      dropoutSpacingCustom: $scope.dropoutSpacingCustom,
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
+      customOrStandardFork: $scope.customOrStandardFork,
       forkType: $scope.fork,
-      seatDropper: $scope.seatDropperBrand + " " + $scope.seatDropperModel,
+      thruAxle: $scope.thruAxle,
+      frontRackMounts: $scope.frontRackMounts,
+      fenderMounts: $scope.fenderMounts,
+      internalRouting: $scope.internalRouting,
+      integratedForkContact: $scope.integratedForkContact,
+      customFrontRack: $scope.customFrontRack,
+      seatDropper: $scope.seatDropper,
+      seatDropperBrand: $scope.seatDropperBrand,
+      seatDropperModel: $scope.seatDropperModel,
       drivetrain:  $scope.drivetrain,
+      drivetrainFillIn: $scope.drivetrainFillIn,
+      drivetrainFillIn2: $scope.drivetrainFillIn2,
       paintColor: $scope.paintColor,
+      paintColorOther: $scope.paintColorOther,
       fullCoverageFenders: $scope.fullCoverageFenders,
       fendersPainted: $scope.fendersPainted,
       frameNotes: $scope.frameNotes,
@@ -243,16 +335,44 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       bikeId: bike.bikeid,
       date: $scope.date.toString().substring(0,15),
       bikeType: $scope.bikeType,
-      bottomBracketShell:$scope.bottomBracketShell,
+      bottomBracketShell: $scope.bottomBracketShell,
+      bottomBracketShellOther: $scope.bottomBracketShellOther,
       brakeCompatability: $scope.brakeCompatability,
+      brakeCompatabilityOther: $scope.brakeCompatabilityOther,
       brakeMount:$scope.brakeMount,
       wheelSize: $scope.wheelSize,
+      wheelSizeOther: $scope.wheelSizeOther,
+      thirdBottle: $scope.thirdBottle,
+      rackMounts: $scope.rackMounts,
+      fullCoverageFendersOption: $scope.fullCoverageFendersOption,
+      internalBrakeCable: $scope.internalBrakeCable,
+      rockingSlidingDropouts: $scope.rockingSlidingDropouts,
+      thruAxleRear: $scope.thruAxleRear,
+      di2Routing: $scope.di2Routing,
+      eTapRouting: $scope.eTapRouting,
+      customRearRack: $scope.customRearRack,
+      framePump: $scope.framePump,
+      dropoutSpecsIn: $scope.dropoutSpecsIn,
+      dropoutSpacingIn: $scope.dropoutSpacingIn,
+      dropoutSpacingCustom: $scope.dropoutSpacingCustom,
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
+      customOrStandardFork: $scope.customOrStandardFork,
       forkType: $scope.fork,
-      seatDropper: $scope.seatDropperBrand + " " + $scope.seatDropperModel,
+      thruAxle: $scope.thruAxle,
+      frontRackMounts: $scope.frontRackMounts,
+      fenderMounts: $scope.fenderMounts,
+      internalRouting: $scope.internalRouting,
+      integratedForkContact: $scope.integratedForkContact,
+      customFrontRack: $scope.customFrontRack,
+      seatDropper: $scope.seatDropper,
+      seatDropperBrand: $scope.seatDropperBrand,
+      seatDropperModel: $scope.seatDropperModel,
       drivetrain:  $scope.drivetrain,
+      drivetrainFillIn: $scope.drivetrainFillIn,
+      drivetrainFillIn2: $scope.drivetrainFillIn2,
       paintColor: $scope.paintColor,
+      paintColorOther: $scope.paintColorOther,
       fullCoverageFenders: $scope.fullCoverageFenders,
       fendersPainted: $scope.fendersPainted,
       frameNotes: $scope.frameNotes,
@@ -323,8 +443,8 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
           margin: [0, 10, 0, 0],
           table: {
             body:[
-              ['Bike Style', 'Bottom Bracket Shell', 'Brake Compatability', 'Brake Mount', 'Wheel Size', 'Special Frame Options', 'Head Tube Size', 'Fork Type', 'Seat Dropper Brand', 'Seat Dropper Model'],
-              ['' + $scope.bikeStyle, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube, '' + $scope.fork, '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
+              ['Bike Type', 'Bottom Bracket Shell', 'Brake Compatability', 'Brake Mount', 'Wheel Size', 'Special Frame Options', 'Head Tube Size', 'Fork Options', 'Seat Dropper Brand', 'Seat Dropper Model'],
+              ['' + $scope.bikeType, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube, '' + $scope.forkOptions, '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
             ]
           }
         },
@@ -343,16 +463,6 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     pdfMake.createPdf(docDefinition).download('customFrameDetails.pdf');
   };
 
-  //   // save form on click
-  // $scope.saveFormFour= function(){
-  //   //show update
-  //   $scope.hideUpdateFour = true;
-  //   //hide save
-  //   $scope.showSaveFour = false;
-  //   // lock form
-  //   $scope.submittedFour=true;
-  //
-  //   };
 
   var createFrameOptions = function(){
     // third water bottle option is true

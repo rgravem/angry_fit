@@ -116,14 +116,14 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     // unlock
     $scope.submittedSelectedCustomer = false;
   };
-  // $scope.saveExistingCustomer = function(){
-  //     //show update
-  //     $scope.showHideUpdateCustomer = false;
-  //     //hide save
-  //     $scope.showSave = false;
-  //     // lock form
-  //     $scope.submittedSelectedCustomer = true;
-  // };
+  $scope.saveExistingCustomer = function(){
+      //show update
+      $scope.showHideUpdateCustomer = false;
+      //hide save
+      $scope.showSave = false;
+      // lock form
+      $scope.submittedSelectedCustomer = true;
+  };
 
 
   ///////////////////////////////Start New Bike///////////////////////////////////////

@@ -62,6 +62,11 @@ myApp.config(function($stateProvider,$urlRouterProvider){
         templateUrl: "./views/partials/selectedBike-form4.html",
         controller: "form4Controller"
       })
+      .state('addEmployee',{
+        url:'/addEmployee',
+        templateUrl: "./views/partials/addEmployee.html",
+        controller: "addEmployeeController"
+      })
 
     .state('newCustomer',{
       url:'/newCustomer',

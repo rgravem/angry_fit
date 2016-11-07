@@ -42,6 +42,17 @@
         <input type="text" placeholder="Zip" ng-model="zip">
       </md-input-container>
     </div>
+    <p class="profileIconHeading"> Select Profile Icon</p>
+
+      <md-radio-group ng-model="customerIcon">
+        <div class="profileIconsDiv"layout-gt-sm ="row">
+          <md-radio-button value="./assets/angry_Icons/angry_mountain.png" name="customerIcons"><img  style="width: 50%;"src="./assets/angry_Icons/angry_mountain.png" alt=" mountain icon"/></md-radio-button>
+          <md-radio-button value="./assets/angry_Icons/angry_road.png" name="customerIcons"> <img  style="width: 50%;"src="./assets/angry_Icons/angry_road.png" alt=" road icon"/></md-radio-button>
+          <md-radio-button value="./assets/angry_Icons/angry_TT.png" name="customerIcons"> <img  style="width: 50%;"src="./assets/angry_Icons/angry_TT.png" alt=" track icon"/></md-radio-button>
+          <md-radio-button value="./assets/angry_Icons/acf_logo.png" name="customerIcons"><img  style="width: 60%;"src="./assets/angry_Icons/acf_logo.png" alt=" catfish icon"/></md-radio-button>
+        </div>
+      </md-radio-group>
+
     <!-- <md-input-container flex-gt-sm=""> -->
       <md-button class="angry-button" placeholder="Submit" ng-click="addNewCustomer()">Submit</md-button>
     <!-- </md-input-container> -->

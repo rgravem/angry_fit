@@ -105,6 +105,7 @@ app.post( '/addNewCustomer', function( req, res ){
   var city = newCustomerInfo.city;
   var state = newCustomerInfo.state;
   var zip = newCustomerInfo.zip;
+  var icon = newCustomerInfo.icon;
 
   pg.connect(connectionString, function(err, client, done){
     if(err){
@@ -115,7 +116,7 @@ app.post( '/addNewCustomer', function( req, res ){
 
       var newCustomerToSend = [];
 
-      client.query('INSERT INTO customers (firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip]);
+      client.query('INSERT INTO customers (firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, icon) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);', [firstName, lastName, email, phoneNumber, streetAddress, unitNumber, city, state, zip, icon]);
 
       //Query the DB
       var queryResults = client.query('SELECT * FROM customers ORDER BY customerid DESC LIMIT 1');

@@ -443,8 +443,8 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
           margin: [0, 10, 0, 0],
           table: {
             body:[
-              ['Bike Style', 'Bottom Bracket Shell', 'Brake Compatability', 'Brake Mount', 'Wheel Size', 'Special Frame Options', 'Head Tube Size', 'Fork Type', 'Seat Dropper Brand', 'Seat Dropper Model'],
-              ['' + $scope.bikeStyle, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube, '' + $scope.fork, '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
+              ['Bike Type', 'Bottom Bracket Shell', 'Brake Compatability', 'Brake Mount', 'Wheel Size', 'Special Frame Options', 'Head Tube Size', 'Fork Options', 'Seat Dropper Brand', 'Seat Dropper Model'],
+              ['' + $scope.bikeType, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube, '' + $scope.forkOptions, '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
             ]
           }
         },

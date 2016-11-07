@@ -92,7 +92,12 @@ md-input-container .md-placeholder{
 md-input-container:not(.md-input-invalid).md-input-focused label {
     color: #e54735;
 }
-
+md-checkbox[disabled] .md-label{
+  color:#361d10;
+}
+md-radio-button[disabled]{
+  color:#361d10;
+}
 .newCustomerHeading, .existingFitFormHeading, .newFitFormHeading, .customFrameGeometryHeading, .customFrameDetailsHeading, .customerSelectHeading, .existingCustomerHeading{
   text-align:center;
   font-size: 24px;

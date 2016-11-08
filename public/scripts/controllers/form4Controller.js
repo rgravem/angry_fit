@@ -1,4 +1,5 @@
-myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkService', function($scope, $http, $location, checkmarkService){
+
+myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','$animate', 'checkmarkService' function($scope, $http, $location, $mdToast, $animate, checkmarkService){
   console.log('In form4Controller');
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
@@ -9,7 +10,37 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkS
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
   console.log('employee', employee);
+  // toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
 
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Custom Frame Details form saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showUpdateToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Custom Frame Details form updated.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
   $scope.date= new Date();
   // set form to edit and submit status
@@ -161,6 +192,8 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkS
   };
   $scope.submitButton();
 
+  // $scope.frameOptions = [];
+
   $scope.formFourLoad = function(){
     if (formFour == undefined){
       console.log('starting new bike');
@@ -211,28 +244,122 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkS
     $scope.paintColorOther = formFour[0].paintcolorother;
     $scope.fullCoverageFenders = formFour[0].fullcoveragefenders;
     $scope.fendersPainted = formFour[0].fenderspainted;
-    $scope.frameOptions = $scope.frameoptions;
+    $scope.frameOptions = formFour[0].frameoptions;
     $scope.frameNotes = formFour[0].framenotes;
     $scope.paintNotes = formFour[0].paintnotes;
   }
 };
   $scope.formFourLoad();
 
-
   ////////////////FORM 4 POST Route to DB///////////////////////////////////////
   $scope.submitFormFour = function(){
     console.log("In Submit Form Four");
     console.log($scope.customOrStandardFork);
+    $scope.showSimpleToast();
     //initialize frame options array
     $scope.frameOptions=[];
     // initialize fork varaiable
     $scope.fork =[];
 
     //brake mounting if
-    if($scope.brakeMount=== undefined){
+    if($scope.bikeType=== undefined){
+      //give value if none
+      $scope.bikeType = "N/A";
+    }
+    //if bottomBracketShell is blank, give it NA
+    if($scope.bottomBracketShell === undefined || $scope.bottomBracketShell === null){
+      //give value if none
+      $scope.bottomBracketShell = "N/A";
+    }
+    //if brakeCompatability is blank, give it NA
+    if($scope.brakeCompatability === undefined || $scope.brakeCompatability === null){
+      //give value if none
+      $scope.brakeCompatability = "N/A";
+    }
+    //if brakeMount is blank, give it NA
+    if($scope.brakeMount === undefined || $scope.brakeMount === null){
       //give value if none
       $scope.brakeMount = "N/A";
     }
+    //if wheelSize is blank, give it NA
+    if($scope.wheelSize === undefined || $scope.wheelSize === null){
+      //give value if none
+      $scope.wheelSize = "N/A";
+    }
+    //if specialFrameOptions is blank, give it NA
+    if($scope.specialFrameOptions === undefined || $scope.specialFrameOptions === null){
+      //give value if none
+      $scope.specialFrameOptions = "N/A";
+    }
+    //if wheelSize is blank, give it NA
+    if($scope.wheelSize === undefined || $scope.wheelSize === null){
+      //give value if none
+      $scope.wheelSize = "N/A";
+    }
+    //if headtube  is blank, give it NA
+    if($scope.headtube === undefined || $scope.headtube === null){
+      //give value if none
+      $scope.headtube = "N/A";
+    }
+    // if forkOptions is blank git it NA
+    if($scope.forkOptions === undefined || $scope.forkOptions === null){
+      // give value if none
+      $scope.forkOptions = "N/A";
+    }
+    //if seatDropperBrand is blank, give it NA
+    if($scope.seatDropperBrand === undefined || $scope.seatDropperBrand === null){
+      //give value if none
+      $scope.seatDropperBrand = "N/A";
+    }
+    //if seatDropperModel is blank, give it NA
+    if($scope.seatDropperModel === undefined || $scope.seatDropperModel === null){
+      //give value if none
+      $scope.seatDropperModel = "N/A";
+    }
+    //if drivetrain is blank, give it NA
+    if($scope.drivetrain === undefined || $scope.drivetrain === null){
+      //give value if none
+      $scope.drivetrain = "N/A";
+    }
+    //if paintColor is blank, give it NA
+    if($scope.paintColor === undefined || $scope.paintColor === null){
+      //give value if none
+      $scope.paintColor = "N/A";
+    }
+    //if fullCoverageFenders is blank, give it NA
+    if($scope.fullCoverageFenders === undefined || $scope.fullCoverageFenders === null){
+      //give value if none
+      $scope.fullCoverageFenders = "N/A";
+    }
+    //if fendersPaint is blank, give it NA
+    if($scope.fendersPaint === undefined || $scope.fendersPaint === null){
+      //give value if none
+      $scope.fendersPaint = "N/A";
+    }
+    //if frameNotes is blank, give it NA
+    if($scope.frameNotes === undefined || $scope.frameNotes === null){
+      //give value if none
+      $scope.frameNotes = "N/A";
+    }
+    //if frameOptions is blank, give it NA
+    if($scope.frameOptions === undefined || $scope.frameOptions === null){
+      //give value if none
+      $scope.frameOptions = "N/A";
+    }
+    //if paintNotes is blank, give it NA
+    if($scope.paintNotes === undefined || $scope.paintNotes === null){
+      //give value if none
+      $scope.paintNotes = "N/A";
+    }
+    //if optionsNotes is blank, give it NA
+    if($scope.optionsNotes === undefined || $scope.optionsNotes === null){
+      //give value if none
+      $scope.optionsNotes= "N/A";
+    }
+    if(obj.unitnumber === undefined || obj.unitnumber === null){
+      obj.unitnumber = "N/A";
+    }
+
     //generate frame options array
     createFrameOptions();
     //generate fork type
@@ -308,6 +435,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkS
   $scope.saveFormFour = function(){
     console.log("In Update Form Four");
     console.log($scope.customOrStandardFork);
+    $scope.showUpdateToast();
     //show update
     $scope.hideUpdateFour = true;
     //hide save
@@ -320,11 +448,106 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkS
     // initialize fork varaiable
     $scope.fork =[];
 
+
     //brake mounting if
-    if($scope.brakeMount=== undefined){
+    if($scope.bikeType=== undefined){
+      //give value if none
+      $scope.bikeType = "N/A";
+    }
+    //if bottomBracketShell is blank, give it NA
+    if($scope.bottomBracketShell === undefined || $scope.bottomBracketShell === null){
+      //give value if none
+      $scope.bottomBracketShell = "N/A";
+    }
+    //if brakeCompatability is blank, give it NA
+    if($scope.brakeCompatability === undefined || $scope.brakeCompatability === null){
+      //give value if none
+      $scope.brakeCompatability = "N/A";
+    }
+    //if brakeMount is blank, give it NA
+    if($scope.brakeMount === undefined || $scope.brakeMount === null){
       //give value if none
       $scope.brakeMount = "N/A";
     }
+    //if wheelSize is blank, give it NA
+    if($scope.wheelSize === undefined || $scope.wheelSize === null){
+      //give value if none
+      $scope.wheelSize = "N/A";
+    }
+    //if specialFrameOptions is blank, give it NA
+    if($scope.specialFrameOptions === undefined || $scope.specialFrameOptions === null){
+      //give value if none
+      $scope.specialFrameOptions = "N/A";
+    }
+    //if wheelSize is blank, give it NA
+    if($scope.wheelSize === undefined || $scope.wheelSize === null){
+      //give value if none
+      $scope.wheelSize = "N/A";
+    }
+    //if headtube  is blank, give it NA
+    if($scope.headtube === undefined || $scope.headtube === null){
+      //give value if none
+      $scope.headtube = "N/A";
+    }
+    // if forkOptions is blank git it NA
+    if($scope.forkOptions === undefined || $scope.forkOptions === null){
+      // give value if none
+      $scope.forkOptions = "N/A";
+    }
+    //if seatDropperBrand is blank, give it NA
+    if($scope.seatDropperBrand === undefined || $scope.seatDropperBrand === null){
+      //give value if none
+      $scope.seatDropperBrand = "N/A";
+    }
+    //if seatDropperModel is blank, give it NA
+    if($scope.seatDropperModel === undefined || $scope.seatDropperModel === null){
+      //give value if none
+      $scope.seatDropperModel = "N/A";
+    }
+    //if drivetrain is blank, give it NA
+    if($scope.drivetrain === undefined || $scope.drivetrain === null){
+      //give value if none
+      $scope.drivetrain = "N/A";
+    }
+    //if paintColor is blank, give it NA
+    if($scope.paintColor === undefined || $scope.paintColor === null){
+      //give value if none
+      $scope.paintColor = "N/A";
+    }
+    //if fullCoverageFenders is blank, give it NA
+    if($scope.fullCoverageFenders === undefined || $scope.fullCoverageFenders === null){
+      //give value if none
+      $scope.fullCoverageFenders = "N/A";
+    }
+    //if fendersPaint is blank, give it NA
+    if($scope.fendersPaint === undefined || $scope.fendersPaint === null){
+      //give value if none
+      $scope.fendersPaint = "N/A";
+    }
+    //if frameNotes is blank, give it NA
+    if($scope.frameNotes === undefined || $scope.frameNotes === null){
+      //give value if none
+      $scope.frameNotes = "N/A";
+    }
+    //if frameOptions is blank, give it NA
+    if($scope.frameOptions === undefined || $scope.frameOptions === null){
+      //give value if none
+      $scope.frameOptions = "N/A";
+    }
+    //if paintNotes is blank, give it NA
+    if($scope.paintNotes === undefined || $scope.paintNotes === null){
+      //give value if none
+      $scope.paintNotes = "N/A";
+    }
+    //if optionsNotes is blank, give it NA
+    if($scope.optionsNotes === undefined || $scope.optionsNotes === null){
+      //give value if none
+      $scope.optionsNotes= "N/A";
+    }
+    if(obj.unitnumber === undefined || obj.unitnumber === null){
+      obj.unitnumber = "N/A";
+    }
+
     //generate frame options array
     createFrameOptions();
     //generate fork type
@@ -414,6 +637,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkS
       content: [
 
             {text: 'Fit done by:' + ' ' + employee, alignment: 'right'},
+            {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'right'},
 
             {
 
@@ -434,9 +658,9 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkS
         {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
         {text: ' ' + obj.phonenumber,  alignment: 'center'},
         {text: ' ' + obj.email,  alignment: 'center'},
-        {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
-        {text: ' ' + obj.unitnumber,  alignment: 'center'},
-        {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
+        {text: ' ' + obj.streetaddress, alignment: 'center'},
+        {text: ' ' + "Unit Number:" + ' ' + obj.unitnumber, alignment: 'center'},
+        {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
         {
           style: 'tableExample',
@@ -454,7 +678,17 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', 'checkmarkS
           table: {
             body:[
               ['Drive Train', 'Paint Color', 'Full Coverage Fenders', 'Fenders Painted', 'Frame Notes', 'Frame Options', 'Paint Notes'],
-              ['' + $scope.drivetrain, '' + $scope.paintColor, '' + $scope.fullCoverageFenders, '' + $scope.fendersPainted, '' + $scope.frameNotes, '' + $scope.frameOptions, '' + $scope.paintNotes],
+              ['' + $scope.drivetrain, '' + $scope.paintColor, '' + $scope.fullCoverageFenders, '' + $scope.fendersPaint, '' + $scope.frameNotes, '' + $scope.frameOptions, '' + $scope.paintNotes],
+            ]
+          }
+        },
+        {
+          style: 'tableExample',
+          margin: [0, 10, 0, 0],
+          table: {
+            body:[
+              ['optionsNotes'],
+              ['' + $scope.optionsNotes],
             ]
           }
         },

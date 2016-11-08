@@ -1,4 +1,5 @@
-myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkService', function($scope, $http, $location, checkmarkService){
+
+myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', '$animate', 'checkmarkService', function($scope, $http, $location, $mdToast, $animate, checkmarkService){
   console.log('In form2Controller');
     // set form to edit and submit status
     //show submit button, hide update and pdf
@@ -9,6 +10,38 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkS
 
 
 
+  //toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("New Fit form saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showUpdateToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("New Fit form updated.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
   $scope.date= new Date();
   $scope.showHideSubmitFormTwo = true;
     //keep all input fields active
@@ -16,7 +49,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkS
 
     // focus / blur properties for inputs
    $scope.saddleHeightFocus = function(){
-     document.getElementById("saddleHeightMeasure").className.baseVal = "showMeasurement";
+     document.getElementById("saddleHeightMeasure").className.baseVal = "showMeasurement fadeIn";
    };
    $scope.saddleHeightBlur= function(){
      document.getElementById("saddleHeightMeasure").className.baseVal = "hideMeasurement";
@@ -145,6 +178,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkS
   $scope.submitButton();
 
   $scope.addForm2NewFit = function () {
+    $scope.showSimpleToast();
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {
       employeeCreated: employee,
@@ -168,6 +202,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkS
       stack:$scope.stack,
       notes: $scope.notes
     };
+<<<<<<< HEAD
     checkmarkService.newFitSubmitted();
     if (addForm2NewFitObject.saddleHeight == undefined) {
         alert("Please indicate saddle height - all fields are required");
@@ -197,6 +232,36 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkS
       alert("Please indicate stack - all fields are required");
     } else {
         console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
+=======
+    // if (addForm2NewFitObject.saddleHeight == undefined) {
+    //     alert("Please indicate saddle height - all fields are required");
+    // } else if (addForm2NewFitObject.saddleHeightOverBars == undefined) {
+    //   alert("Please indicate saddle height over bars - all fields are required");
+    // } else if (addForm2NewFitObject.saddleToHandlebarReach == undefined) {
+    //   alert("Please indicate saddle to handlebar reach - all fields are required");
+    // } else if (addForm2NewFitObject.saddleAngle == undefined) {
+    //   alert("Please indicate saddle angle - all fields are required");
+    // } else if (addForm2NewFitObject.saddleForeAft == undefined) {
+    //   alert("Please indicate saddle fore-aft - all fields are required");
+    // } else if (addForm2NewFitObject.saddleBrandAndWidth == undefined) {
+    //   alert("Please indicate saddle brand and width - all fields are required");
+    // } else if (addForm2NewFitObject.stemLength == undefined) {
+    //   alert("Please indicate stem length - all fields are required");
+    // } else if (addForm2NewFitObject.handleBarWidth == undefined) {
+    //   alert("Please indicate handle bar width - all fields are required");
+    // } else if (addForm2NewFitObject.handleBarBrandAndModel == undefined){
+    //   alert("Please indicate handle bar brand and model - all fields are required");
+    // } else if (addForm2NewFitObject.brakeLevelPosition == undefined){
+    //   alert("Please indicate brake level position - all fields are required");
+    // } else if (addForm2NewFitObject.crankLength == undefined){
+    //   alert("Please indicate crank length - all fields are required");
+    // } else if (addForm2NewFitObject.standover == undefined){
+    //   alert("Please indicate standover - all fields are required");
+    // } else if (addForm2NewFitObject.stack == undefined){
+    //   alert("Please indicate stack - all fields are required");
+    // } else {
+    //     console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
+>>>>>>> master
       //hide submit, show update and pdf
       $scope.showHideSubmitFormTwo = false;
         //disable input fields
@@ -209,12 +274,13 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkS
       console.log('success from server', form2Response);
       sessionStorage.setItem('formTwo', JSON.stringify(form2Response.data));
     });
-  }
+  // }
   };
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormTwo = function(){
     console.log('complete clicked');
+    $scope.showUpdateToast();
     //show update
     $scope.hideUpdate = true;
     //hide save
@@ -296,6 +362,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkS
       content: [
 
                    {text: 'Fit done by:' + ' ' + employee, alignment: 'right'},
+                   {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'right'},
 
 
                   {
@@ -312,12 +379,12 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkS
           margin: [ 1, 2, 5, 5 ],
           alignment: 'center'
         },
+
         {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
         {text: ' ' + obj.phonenumber,  alignment: 'center'},
         {text: ' ' + obj.email,  alignment: 'center'},
-        {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
-        {text: ' ' + obj.unitnumber,  alignment: 'center'},
-        {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
+        {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
+        {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
         {
           style: 'tableExample',

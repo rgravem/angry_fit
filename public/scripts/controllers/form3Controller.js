@@ -1,4 +1,5 @@
-myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkService', function($scope, $http, $location, checkmarkService){
+
+myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', '$animate', 'checkmarkService' function($scope, $http, $location,$mdToast,$animate, checkmarkService){
   console.log('In form3Controller');
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
@@ -7,6 +8,38 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkS
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
   $scope.date= new Date();
+
+  //toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Custom Frame Geometry form saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showUpdateToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Custom Frame Geometry form updated.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
   // set form to edit and submit status
   //show submit button, hide update and pdf
@@ -144,6 +177,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkS
 
 
   $scope.submitFrameGeometry = function(){
+    $scope.showSimpleToast();
     console.log('complete clicked');
     var objectToSend = {
       employeeCreated: employee,
@@ -169,6 +203,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkS
     	forkOffset: $scope.forkOffset,
       notes: $scope.notes
     };
+<<<<<<< HEAD
     checkmarkService.customFrameGeometrySubmitted();
     if (objectToSend.inseam == undefined) {
         alert("Please indicate inseam measure - all fields are required");
@@ -207,6 +242,45 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkS
     } else if (objectToSend.forkOffset == undefined) {
       alert("Please indicate fork offset - all fields are required");
     } else {
+=======
+    // if (objectToSend.inseam == undefined) {
+    //     alert("Please indicate inseam measure - all fields are required");
+    // } else if (objectToSend.torso == undefined) {
+    //   alert("Please indicate torso measure - all fields are required");
+    // } else if (objectToSend.arm == undefined) {
+    //   alert("Please indicate arm measure - all fields are required");
+    // } else if (objectToSend.footLength == undefined) {
+    //   alert("Please indicate foot length - all fields are required");
+    // } else if (objectToSend.effectiveTopTube == undefined) {
+    //   alert("Please indicate effective top tube - all fields are required");
+    // } else if (objectToSend.standover == undefined) {
+    //   alert("Please indicate standover - all fields are required");
+    // } else if (objectToSend.seatTubeLength == undefined) {
+    //   alert("Please indicate seat tube length - all fields are required");
+    // } else if (objectToSend.seatTubeAngle == undefined) {
+    //   alert("Please indicate seat tube angle - all fields are required");
+    // } else if (objectToSend.headTubeLength == undefined) {
+    //   alert("Please indicate head tube length - all fields are required");
+    // } else if (objectToSend.headTubeAngle == undefined) {
+    //   alert("Please indicate head tube angle - all fields are required");
+    // } else if (objectToSend.stack == undefined) {
+    //   alert("Please indicate stack measure - all fields are required");
+    // } else if (objectToSend.reach == undefined) {
+    //   alert("Please indicate reach measure - all fields are required");
+    // } else if (objectToSend.wheelBase == undefined) {
+    //   alert("Please indicate wheel base measure - all fields are required");
+    // } else if (objectToSend.chainstayLength == undefined) {
+    //   alert("Please indicate chainstay length - all fields are required");
+    // } else if (objectToSend.bbDrop == undefined) {
+    //   alert("Please indicate BB Drop - all fields are required");
+    // } else if (objectToSend.axleToCrown == undefined) {
+    //   alert("Please indicate axle to crown measure - all fields are required");
+    // } else if (objectToSend.mechanicalTrail == undefined) {
+    //   alert("Please indicate mechanical trail measure - all fields are required");
+    // } else if (objectToSend.forkOffset == undefined) {
+    //   alert("Please indicate fork offset - all fields are required");
+    // } else {
+>>>>>>> master
     console.log('object to send:', objectToSend);
     //hide submit, show update and pdf
     $scope.showHideSubmitFormThree = false;
@@ -223,12 +297,13 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkS
       }, function errorCallback(response) {
         console.log('err');
     });// end http call
-  }
+  // }
   }; // end addform3
 
   ////////////////FORM 3 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormThree = function(){
     console.log('complete clicked');
+    $scope.showUpdateToast();
     //show update
     $scope.hideUpdate = true;
     //hide save
@@ -310,6 +385,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkS
       content: [
 
             {text: 'Fit done by:' + ' ' + employee, alignment: 'right'},
+            {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'right'},
 
             {
 
@@ -330,9 +406,8 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkS
         {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
         {text: ' ' + obj.phonenumber,  alignment: 'center'},
         {text: ' ' + obj.email,  alignment: 'center'},
-        {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
-        {text: ' ' + obj.unitnumber,  alignment: 'center'},
-        {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
+        {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
+        {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
         {
           style: 'tableExample',

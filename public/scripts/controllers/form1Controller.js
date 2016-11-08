@@ -1,10 +1,51 @@
-myApp.controller("form1Controller", ['$scope', '$http', '$location', 'checkmarkService', function($scope, $http, $location, checkmarkService){
+
+myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast', '$animate', 'checkmarkService', function($scope, $http, $location, $mdToast, $animate, checkmarkService){
   console.log('In form1Controller');
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
   var obj = JSON.parse(sessionStorage.getItem('customer'));
+
+  // $scope.verifyEmployee = function(){
+  //   console.log("hit verify employee");
+  //   if (sessionStorage.employee == undefined){
+  //     alert("You must have a valid login");
+  //     $location.path('/login');
+  //   }
+  // };
+
+  //toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Existing Fit form saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showUpdateToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Existing Fit form updated.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
   $scope.date= new Date();
   $scope.submitButton = function(){
@@ -58,6 +99,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', 'checkmarkS
 
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
+    $scope.showSimpleToast();
     var formOneObject = {
       employeeCreated: employee,
       bikeId: bike.bikeid,
@@ -83,6 +125,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', 'checkmarkS
       crankLength:$scope.crankLength,
       notes:$scope.notes
     };
+<<<<<<< HEAD
     checkmarkService.existingFitSubmitted();
     if (formOneObject.injuries == undefined) {
       alert("Please indicate any injuries - all fields are required");
@@ -123,6 +166,47 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', 'checkmarkS
     } else if(formOneObject.crankLength == undefined){
       alert("Please indicate crank length - all fields are required");
     } else {
+=======
+    // if (formOneObject.injuries == undefined) {
+    //   alert("Please indicate any injuries - all fields are required");
+    // } else if (formOneObject.complaints == undefined){
+    //   alert("Please indicate any complaints - all fields are required");
+    // } else if( formOneObject.surgeries == undefined){
+    //   alert("Please indicate any surgeries - all fields are required");
+    // } else if( formOneObject.averageRideLength == undefined){
+    //   alert("Please indicate average ride length - all fields are required");
+    // } else if(formOneObject.upcomingRaces == undefined){
+    //   alert("Please indicate any upcoming races - all fields are required");
+    // } else if(formOneObject.currentBikeBrand == undefined){
+    //   alert("Please indicate current bike brand - all fields are required");
+    // } else if(formOneObject.saddleHeight == undefined){
+    //   alert("Please indicate saddle height - all fields are required");
+    // } else if(formOneObject.saddleHeightOverBars == undefined){
+    //   alert("Please indicate saddle height over bars - all fields are required");
+    // } else if(formOneObject.saddleAngle == undefined){
+    //   alert("Please indicate saddle angle - all fields are required");
+    // } else if(formOneObject.saddleSetback == undefined){
+    //   alert("Please indicate saddle set back - all fields are required");
+    // } else if(formOneObject.SaddlehandlebarReach == undefined){
+    //   alert("Please indicate saddle to handlebar reach - all fields are required");
+    // } else if(formOneObject.stemLength == undefined){
+    //   alert("Please indicate stem length - all fields are required");
+    // } else if(formOneObject.stemAngle == undefined){
+    //   alert("Please indicate stem angle - all fields are required");
+    // } else if(formOneObject.handlebarWidth == undefined){
+    //   alert("Please indicate handle bar width - all fields are required");
+    // } else if(formOneObject.handlebarBrand == undefined){
+    //   alert("Please indicate handlebarBrand - all fields are required");
+    // } else if(formOneObject.pedalBrandModel == undefined){
+    //   alert("Please indicate pedal brand model - all fields are required");
+    // } else if(formOneObject.shoeBrand == undefined){
+    //   alert("Please indicate shoe brand - all fields are required");
+    // } else if(formOneObject.brakeLevel == undefined){
+    //   alert("Please indicate brake level position - all fields are required");
+    // } else if(formOneObject.crankLength == undefined){
+    //   alert("Please indicate crank length - all fields are required");
+    // } else {
+>>>>>>> master
 
     console.log('formOneObject to send to DB:', formOneObject);
     //hide submit, show update and pdf
@@ -138,11 +222,12 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', 'checkmarkS
       sessionStorage.setItem('formOne', JSON.stringify(formOneObject.data));
       console.log('success from server', formOneObject);
     });
-  }
+  // }
   }; // end addFormOne
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormOne = function(){
+    $scope.showUpdateToast();
     console.log('in saveFormOne');
     //show update
     $scope.hideUpdate = true;
@@ -213,6 +298,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', 'checkmarkS
         content: [
 
           {text: 'Fit done by:' + ' ' + employee, alignment: 'right'},
+          {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'right'},
 
 
                             {
@@ -234,9 +320,8 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', 'checkmarkS
           {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
           {text: ' ' + obj.phonenumber,  alignment: 'center'},
           {text: ' ' + obj.email,  alignment: 'center'},
-          {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
-          {text: ' ' + obj.unitnumber,  alignment: 'center'},
-          {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
+          {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
+          {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
 
             {

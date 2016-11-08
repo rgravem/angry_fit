@@ -433,6 +433,13 @@ md-toast .md-toast-content, md-toast.md-default-theme .md-toast-content, md-toas
 .newCust{
   cursor: pointer;
 }
+.newCust:focus {
+    outline: none;
+}
+
 .existingCust{
   cursor: pointer;
+}
+.existingCust:focus{
+  outline: none;
 }

@@ -290,6 +290,7 @@ md-card{
   background-color: #002f54;
   color:#faf6ee;
   box-shadow: 0 1px 3px #361d10;
+  cursor: pointer;
 
 }
 .md-card-image{
@@ -428,4 +429,10 @@ md-toast .md-toast-content, md-toast.md-default-theme .md-toast-content, md-toas
 .catfishCustomerIcon{
   margin-top:-5%;
 
+}
+.newCust{
+  cursor: pointer;
+}
+.existingCust{
+  cursor: pointer;
 }

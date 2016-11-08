@@ -9,61 +9,61 @@ myApp.controller("selectedBikeController", ['$scope', '$http', '$location', 'che
   var formThree = JSON.parse(sessionStorage.getItem('formThree'));
   var formFour = JSON.parse(sessionStorage.getItem('formFour'));
 
-  $scope.check1 = function(){
-    if (formOne == undefined){
-      $scope.checkOne = false;
-      console.log('starting new bike checkmark');
-    }else if (formOne[0] == undefined){
-      $scope.checkOne = false;
-      console.log('Existing Fit has no data checkmark');
-    } else {
-      console.log("checkmark hit");
-      $scope.checkOne = true;
-    }
-  };
-  $scope.check1();
-
-  $scope.check2 = function(){
-    if (formTwo == undefined){
-      $scope.checkTwo = false;
-      console.log('starting new bike checkmark');
-    }else if (formTwo[0] == undefined){
-      $scope.checkTwo = false;
-      console.log('Form 2 has no data checkmark');
-    } else {
-      console.log("checkmark hit");
-      $scope.checkTwo = true;
-    }
-  };
-  $scope.check2();
-
-  $scope.check3 = function(){
-    if (formThree == undefined){
-      $scope.checkThree = false;
-      console.log('starting new bike checkmark');
-    }else if (formThree[0] == undefined){
-      $scope.checkThree = false;
-      console.log('Form 3 has no data checkmark');
-    } else {
-      console.log("checkmark hit");
-      $scope.checkThree = true;
-    }
-  };
-  $scope.check3();
-
-  $scope.check4 = function(){
-    if (formFour == undefined){
-      $scope.checkFour = false;
-      console.log('starting new bike checkmark');
-    }else if (formFour[0] == undefined){
-      $scope.checkFour = false;
-      console.log('Form 4 has no data checkmark');
-    } else {
-      console.log("checkmark hit");
-      $scope.checkFour = true;
-    }
-  };
-  $scope.check4();
+  // $scope.check1 = function(){
+  //   if (formOne == undefined){
+  //     $scope.checkOne = false;
+  //     console.log('starting new bike checkmark');
+  //   }else if (formOne[0] == undefined){
+  //     $scope.checkOne = false;
+  //     console.log('Existing Fit has no data checkmark');
+  //   } else {
+  //     console.log("checkmark hit");
+  //     $scope.checkOne = true;
+  //   }
+  // };
+  // $scope.check1();
+  //
+  // $scope.check2 = function(){
+  //   if (formTwo == undefined){
+  //     $scope.checkTwo = false;
+  //     console.log('starting new bike checkmark');
+  //   }else if (formTwo[0] == undefined){
+  //     $scope.checkTwo = false;
+  //     console.log('Form 2 has no data checkmark');
+  //   } else {
+  //     console.log("checkmark hit");
+  //     $scope.checkTwo = true;
+  //   }
+  // };
+  // $scope.check2();
+  //
+  // $scope.check3 = function(){
+  //   if (formThree == undefined){
+  //     $scope.checkThree = false;
+  //     console.log('starting new bike checkmark');
+  //   }else if (formThree[0] == undefined){
+  //     $scope.checkThree = false;
+  //     console.log('Form 3 has no data checkmark');
+  //   } else {
+  //     console.log("checkmark hit");
+  //     $scope.checkThree = true;
+  //   }
+  // };
+  // $scope.check3();
+  //
+  // $scope.check4 = function(){
+  //   if (formFour == undefined){
+  //     $scope.checkFour = false;
+  //     console.log('starting new bike checkmark');
+  //   }else if (formFour[0] == undefined){
+  //     $scope.checkFour = false;
+  //     console.log('Form 4 has no data checkmark');
+  //   } else {
+  //     console.log("checkmark hit");
+  //     $scope.checkFour = true;
+  //   }
+  // };
+  // $scope.check4();
 
 
 
@@ -86,9 +86,6 @@ myApp.controller("selectedBikeController", ['$scope', '$http', '$location', 'che
   $scope.customerInfo();
 
   $scope.verifyEmployee = function(){
-    $scope.check4();
-    $scope.check3();
-    $scope.check2();
     console.log("hit verify employee");
     if (localStorage.employee == undefined){
       alert("You must have a valid login");

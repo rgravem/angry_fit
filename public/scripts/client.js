@@ -84,6 +84,7 @@ myApp.controller("navController", ['$scope', '$http', '$firebaseArray', '$fireba
     auth.$signOut().then(function(){
       console.log('Logging the user out!');
       sessionStorage.clear();
+      localStorage.clear();
       window.location.href = "https://accounts.google.com/logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:3000/#/login";
       $location.path('/login');
     });

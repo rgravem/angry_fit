@@ -1,4 +1,5 @@
-myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','$animate', function($scope, $http, $location, $mdToast, $animate){
+
+myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','$animate', 'checkmarkService', function($scope, $http, $location, $mdToast, $animate, checkmarkService){
   console.log('In form4Controller');
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
@@ -419,7 +420,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
       frameOptions: $scope.frameOptions,
       paintNotes: $scope.paintNotes
     };
-
+    checkmarkService.customFrameDetailsSubmitted();
     console.log(formFourObject);
     //hide submit, show update and pdf
     $scope.showHideSubmitFormFour = false;

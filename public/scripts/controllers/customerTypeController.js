@@ -5,7 +5,7 @@ var auth = $firebaseAuth();
 
 $scope.verifyEmployee = function(){
   console.log("hit verify employee");
-  if (sessionStorage.employee == undefined){
+  if (localStorage.employee == undefined){
     alert("You must have a valid login");
     $location.path('/login');
   }

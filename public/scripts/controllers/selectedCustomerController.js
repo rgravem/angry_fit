@@ -19,7 +19,6 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     $mdToast.show(
       $mdToast.simple()
       .content("Updates have been saved.")
-      .theme("success-toast")
       .position($scope.getToastPosition())
       .hideDelay(2500)
     );
@@ -146,7 +145,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     // unlock
     $scope.submittedSelectedCustomer = false;
   };
-  
+
 
 
   ///////////////////////////////Start New Bike///////////////////////////////////////

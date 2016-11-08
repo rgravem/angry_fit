@@ -19,7 +19,6 @@ myApp.controller("newCustomerController", ['$scope', '$http', '$location','$mdTo
     $mdToast.show(
       $mdToast.simple()
       .content($scope.firstName + " " + $scope.lastName + " has been added!")
-      .theme("success-toast")
       .position($scope.getToastPosition())
       .hideDelay(2500)
     );

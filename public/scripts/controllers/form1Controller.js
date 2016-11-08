@@ -1,4 +1,4 @@
-myApp.controller("form1Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast', '$animate', function($scope, $http, $location, $mdToast, $animate){
   console.log('In form1Controller');
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
@@ -13,6 +13,38 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
   //     $location.path('/login');
   //   }
   // };
+
+  //toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Existing Fit form saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showUpdateToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Existing Fit form updated.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
   $scope.date= new Date();
   $scope.submitButton = function(){
@@ -66,6 +98,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
 
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
+    $scope.showSimpleToast();
     var formOneObject = {
       employeeCreated: employee,
       bikeId: bike.bikeid,
@@ -150,6 +183,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormOne = function(){
+    $scope.showUpdateToast();
     console.log('in saveFormOne');
     //show update
     $scope.hideUpdate = true;

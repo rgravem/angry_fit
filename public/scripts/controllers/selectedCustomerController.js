@@ -1,5 +1,28 @@
-myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', '$mdToast', '$animate', function($scope, $http, $location, $mdToast, $animate){
   console.log('In selectedCustomerController');
+
+  //toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Updates have been saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
 
   if (sessionStorage.employee == undefined){
@@ -72,12 +95,14 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
 ///////////////////////////////Edit customer Info///////////////////////////////////////
   $scope.saveExistingCustomer = function () {
     console.log("in editCustomerInfo");
+    $scope.showSimpleToast();
     //show update
-    $scope.hideUpdate = false;
+    //show update
+    $scope.showHideUpdateCustomer = false;
     //hide save
     $scope.showSave = false;
     // lock form
-    $scope.submittedOne=true;
+    $scope.submittedSelectedCustomer = true;
 
     var editCustomerObject = {
       firstName: $scope.firstName,
@@ -120,14 +145,7 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     // unlock
     $scope.submittedSelectedCustomer = false;
   };
-  $scope.saveExistingCustomer = function(){
-      //show update
-      $scope.showHideUpdateCustomer = false;
-      //hide save
-      $scope.showSave = false;
-      // lock form
-      $scope.submittedSelectedCustomer = true;
-  };
+
 
 
   ///////////////////////////////Start New Bike///////////////////////////////////////

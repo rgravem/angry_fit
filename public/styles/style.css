@@ -401,3 +401,12 @@ md-checkbox.md-checked.angry .md-icon {
 .profileIconsDiv{
   margin-bottom: -2%;
 }
+md-toast{
+  margin-top:10%;
+}
+md-toast .md-toast-content  {
+  background: #002f54;
+  color:#faf6ee;
+  font-size: 14px;
+  font-family: GothamLightRegular;
+}

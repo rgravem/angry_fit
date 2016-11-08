@@ -22,7 +22,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', function($s
 
     // focus / blur properties for inputs
    $scope.saddleHeightFocus = function(){
-     document.getElementById("saddleHeightMeasure").className.baseVal = "showMeasurement";
+     document.getElementById("saddleHeightMeasure").className.baseVal = "showMeasurement fadeIn";
    };
    $scope.saddleHeightBlur= function(){
      document.getElementById("saddleHeightMeasure").className.baseVal = "hideMeasurement";

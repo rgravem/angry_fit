@@ -25,7 +25,8 @@ CREATE TABLE customers (
 	unitNumber VARCHAR(10),
 	city VARCHAR(100),
 	state VARCHAR(100),
-	zip VARCHAR(10)
+	zip VARCHAR(10),
+	icon VARCHAR(100)
 );
 
 

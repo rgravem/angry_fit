@@ -132,11 +132,14 @@ md-radio-button[disabled]{
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
-  margin-top:0;
+  margin-top:-2%;
   padding-right: 15px;
   height: 530px;
   font-family: ArcherSemibold;
+  height: 550px;
 }
+
+
 .updateCustomerForm{
   margin-left: auto;
   margin-right: auto;
@@ -149,8 +152,14 @@ md-radio-button[disabled]{
   margin-top: 5%;
 }
 .customerTypes{
+<<<<<<< HEAD
   margin-top: 2%;
   margin-left:8%;
+=======
+  margin-top: 3%;
+  margin-left:12%;
+
+>>>>>>> master
 }
 .formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
@@ -412,6 +421,7 @@ md-checkbox.md-checked.angry .md-icon {
 .profileIconsDiv{
   margin-bottom: -2%;
 }
+<<<<<<< HEAD
 md-toast{
   margin-top:10%;
 }
@@ -420,4 +430,8 @@ md-toast .md-toast-content, md-toast.md-default-theme .md-toast-content, md-toas
   color:#faf6ee;
   font-size: 14px;
   font-family: GothamLightRegular;
+=======
+.catfishCustomerIcon{
+  margin-top:-5%;
+>>>>>>> master
 }

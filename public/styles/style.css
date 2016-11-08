@@ -161,9 +161,12 @@ md-radio-button[disabled]{
 .hideMeasurement{
   display: none;
 }
+
 .showMeasurement{
   display: block;
 }
+
+
 @media screen and (max-width: 1024px) and (min-width: 768px){
   .customerBike{
     width: 170px !important;

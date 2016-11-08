@@ -229,103 +229,103 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     // initialize fork varaiable
     $scope.fork =[];
 
-
-
-
     //brake mounting if
     if($scope.bikeType=== undefined){
       //give value if none
       $scope.bikeType = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.bottomBracketShell === undefined || null){
+    //if bottomBracketShell is blank, give it NA
+    if($scope.bottomBracketShell === undefined || $scope.bottomBracketShell === null){
       //give value if none
       $scope.bottomBracketShell = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.brakeCompatability === undefined || null){
+    //if brakeCompatability is blank, give it NA
+    if($scope.brakeCompatability === undefined || $scope.brakeCompatability === null){
       //give value if none
       $scope.brakeCompatability = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.brakeMount === undefined || null){
+    //if brakeMount is blank, give it NA
+    if($scope.brakeMount === undefined || $scope.brakeMount === null){
       //give value if none
       $scope.brakeMount = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.wheelSize === undefined || null){
+    //if wheelSize is blank, give it NA
+    if($scope.wheelSize === undefined || $scope.wheelSize === null){
       //give value if none
       $scope.wheelSize = "N/A";
     }
     //if specialFrameOptions is blank, give it NA
-    if($scope.specialFrameOptions === undefined || null){
+    if($scope.specialFrameOptions === undefined || $scope.specialFrameOptions === null){
       //give value if none
       $scope.specialFrameOptions = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.wheelSize === undefined || null){
+    //if wheelSize is blank, give it NA
+    if($scope.wheelSize === undefined || $scope.wheelSize === null){
       //give value if none
       $scope.wheelSize = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.headtube === undefined || null){
+    //if headtube  is blank, give it NA
+    if($scope.headtube === undefined || $scope.headtube === null){
       //give value if none
       $scope.headtube = "N/A";
     }
     // if forkOptions is blank git it NA
-    if($scope.forkOptions === undefined || null){
+    if($scope.forkOptions === undefined || $scope.forkOptions === null){
       // give value if none
       $scope.forkOptions = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.seatDropperBrand === undefined || null){
+    //if seatDropperBrand is blank, give it NA
+    if($scope.seatDropperBrand === undefined || $scope.seatDropperBrand === null){
       //give value if none
       $scope.seatDropperBrand = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.seatDropperModel === undefined || null){
+    //if seatDropperModel is blank, give it NA
+    if($scope.seatDropperModel === undefined || $scope.seatDropperModel === null){
       //give value if none
       $scope.seatDropperModel = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.drivetrain === undefined || null){
+    //if drivetrain is blank, give it NA
+    if($scope.drivetrain === undefined || $scope.drivetrain === null){
       //give value if none
       $scope.drivetrain = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.paintColor === undefined || null){
+    //if paintColor is blank, give it NA
+    if($scope.paintColor === undefined || $scope.paintColor === null){
       //give value if none
       $scope.paintColor = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.fullCoverageFenders === undefined || null){
+    //if fullCoverageFenders is blank, give it NA
+    if($scope.fullCoverageFenders === undefined || $scope.fullCoverageFenders === null){
       //give value if none
       $scope.fullCoverageFenders = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.fendersPaint === undefined || null){
+    //if fendersPaint is blank, give it NA
+    if($scope.fendersPaint === undefined || $scope.fendersPaint === null){
       //give value if none
       $scope.fendersPaint = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.frameNotes === undefined || null){
+    //if frameNotes is blank, give it NA
+    if($scope.frameNotes === undefined || $scope.frameNotes === null){
       //give value if none
       $scope.frameNotes = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.frameOptions === undefined || null){
+    //if frameOptions is blank, give it NA
+    if($scope.frameOptions === undefined || $scope.frameOptions === null){
       //give value if none
       $scope.frameOptions = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.paintNotes === undefined || null){
+    //if paintNotes is blank, give it NA
+    if($scope.paintNotes === undefined || $scope.paintNotes === null){
       //give value if none
       $scope.paintNotes = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.optionsNotes === undefined || null){
+    //if optionsNotes is blank, give it NA
+    if($scope.optionsNotes === undefined || $scope.optionsNotes === null){
       //give value if none
       $scope.optionsNotes= "N/A";
+    }
+    if(obj.unitnumber === undefined || obj.unitnumber === null){
+      obj.unitnumber = "N/A";
     }
 
     //generate frame options array
@@ -421,100 +421,98 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       //give value if none
       $scope.bikeType = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.bottomBracketShell === undefined || null){
+    //if bottomBracketShell is blank, give it NA
+    if($scope.bottomBracketShell === undefined || $scope.bottomBracketShell === null){
       //give value if none
       $scope.bottomBracketShell = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.brakeCompatability === undefined || null){
+    //if brakeCompatability is blank, give it NA
+    if($scope.brakeCompatability === undefined || $scope.brakeCompatability === null){
       //give value if none
       $scope.brakeCompatability = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.brakeMount === undefined || null){
+    //if brakeMount is blank, give it NA
+    if($scope.brakeMount === undefined || $scope.brakeMount === null){
       //give value if none
       $scope.brakeMount = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.wheelSize === undefined || null){
+    //if wheelSize is blank, give it NA
+    if($scope.wheelSize === undefined || $scope.wheelSize === null){
       //give value if none
       $scope.wheelSize = "N/A";
     }
     //if specialFrameOptions is blank, give it NA
-    if($scope.specialFrameOptions === undefined || null){
+    if($scope.specialFrameOptions === undefined || $scope.specialFrameOptions === null){
       //give value if none
       $scope.specialFrameOptions = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.wheelSize === undefined || null){
+    //if wheelSize is blank, give it NA
+    if($scope.wheelSize === undefined || $scope.wheelSize === null){
       //give value if none
       $scope.wheelSize = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.headtube === undefined || null){
+    //if headtube  is blank, give it NA
+    if($scope.headtube === undefined || $scope.headtube === null){
       //give value if none
       $scope.headtube = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.forkOptions === undefined || null){
-      //give value if none
-      $scope.forkOptions = "N/A";
-    }
     // if forkOptions is blank git it NA
-    if($scope.forkOptions === undefined || null){
+    if($scope.forkOptions === undefined || $scope.forkOptions === null){
       // give value if none
       $scope.forkOptions = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.seatDropperBrand === undefined || null){
+    //if seatDropperBrand is blank, give it NA
+    if($scope.seatDropperBrand === undefined || $scope.seatDropperBrand === null){
       //give value if none
       $scope.seatDropperBrand = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.seatDropperModel === undefined || null){
+    //if seatDropperModel is blank, give it NA
+    if($scope.seatDropperModel === undefined || $scope.seatDropperModel === null){
       //give value if none
       $scope.seatDropperModel = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.drivetrain === undefined || null){
+    //if drivetrain is blank, give it NA
+    if($scope.drivetrain === undefined || $scope.drivetrain === null){
       //give value if none
       $scope.drivetrain = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.paintColor === undefined || null){
+    //if paintColor is blank, give it NA
+    if($scope.paintColor === undefined || $scope.paintColor === null){
       //give value if none
       $scope.paintColor = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.fullCoverageFenders === undefined || null){
+    //if fullCoverageFenders is blank, give it NA
+    if($scope.fullCoverageFenders === undefined || $scope.fullCoverageFenders === null){
       //give value if none
       $scope.fullCoverageFenders = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.fendersPaint === undefined || null){
+    //if fendersPaint is blank, give it NA
+    if($scope.fendersPaint === undefined || $scope.fendersPaint === null){
       //give value if none
       $scope.fendersPaint = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.frameNotes === undefined || null){
+    //if frameNotes is blank, give it NA
+    if($scope.frameNotes === undefined || $scope.frameNotes === null){
       //give value if none
       $scope.frameNotes = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.frameOptions === undefined || null){
+    //if frameOptions is blank, give it NA
+    if($scope.frameOptions === undefined || $scope.frameOptions === null){
       //give value if none
       $scope.frameOptions = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.paintNotes === undefined || null){
+    //if paintNotes is blank, give it NA
+    if($scope.paintNotes === undefined || $scope.paintNotes === null){
       //give value if none
       $scope.paintNotes = "N/A";
     }
-    //if specialFrameOptions is blank, give it NA
-    if($scope.optionsNotes === undefined || null){
+    //if optionsNotes is blank, give it NA
+    if($scope.optionsNotes === undefined || $scope.optionsNotes === null){
       //give value if none
       $scope.optionsNotes= "N/A";
+    }
+    if(obj.unitnumber === undefined || obj.unitnumber === null){
+      obj.unitnumber = "N/A";
     }
 
     //generate frame options array
@@ -627,7 +625,8 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
         {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
         {text: ' ' + obj.phonenumber,  alignment: 'center'},
         {text: ' ' + obj.email,  alignment: 'center'},
-        {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
+        {text: ' ' + obj.streetaddress, alignment: 'center'},
+        {text: ' ' + "Unit Number:" + ' ' + obj.unitnumber, alignment: 'center'},
         {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
         {

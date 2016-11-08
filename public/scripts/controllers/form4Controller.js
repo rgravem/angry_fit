@@ -1,4 +1,4 @@
-myApp.controller("form4Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','$animate', function($scope, $http, $location, $mdToast, $animate){
   console.log('In form4Controller');
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
@@ -9,7 +9,37 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
   console.log('employee', employee);
+  // toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
 
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Custom Frame Details form saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showUpdateToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Custom Frame Details form updated.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
   $scope.date= new Date();
   // set form to edit and submit status
@@ -229,6 +259,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
   $scope.submitFormFour = function(){
     console.log("In Submit Form Four");
     console.log($scope.customOrStandardFork);
+    $scope.showSimpleToast();
     //initialize frame options array
     $scope.frameOptions=[];
     // initialize fork varaiable
@@ -410,6 +441,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
   $scope.saveFormFour = function(){
     console.log("In Update Form Four");
     console.log($scope.customOrStandardFork);
+    $scope.showUpdateToast();
     //show update
     $scope.hideUpdateFour = true;
     //hide save

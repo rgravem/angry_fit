@@ -120,24 +120,25 @@ md-radio-button[disabled]{
   color: #361d10;
   font-family: GothamMedium;
 }
+@media screen and (max-width: 1024px) and (min-width: 768px){
+  .newCustomerForm{
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    height: 590px;
+    font-family: ArcherSemibold;
+  }
+}
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
   margin-top:-2%;
   padding-right: 15px;
+  height: 530px;
   font-family: ArcherSemibold;
   height: 550px;
 }
-@media screen and (max-width: 1024px) and (min-width: 768px){
-  .newCustomerForm{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:0;
-    padding-right: 15px;
-    font-family: ArcherSemibold;
-    height: 580px;
-  }
-}
+
 
 .updateCustomerForm{
   margin-left: auto;
@@ -153,7 +154,6 @@ md-radio-button[disabled]{
 .customerTypes{
   margin-top: 3%;
   margin-left:12%;
-
 }
 .formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
@@ -290,6 +290,7 @@ md-card{
   background-color: #002f54;
   color:#faf6ee;
   box-shadow: 0 1px 3px #361d10;
+  cursor: pointer;
 
 }
 .md-card-image{
@@ -415,6 +416,30 @@ md-checkbox.md-checked.angry .md-icon {
 .profileIconsDiv{
   margin-bottom: -2%;
 }
+
+md-toast{
+  margin-top:10%;
+}
+md-toast .md-toast-content, md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content  {
+  background: #002f54;
+  color:#faf6ee;
+  font-size: 14px;
+  font-family: GothamLightRegular;
+}
 .catfishCustomerIcon{
   margin-top:-5%;
+
+}
+.newCust{
+  cursor: pointer;
+}
+.newCust:focus {
+    outline: none;
+}
+
+.existingCust{
+  cursor: pointer;
+}
+.existingCust:focus{
+  outline: none;
 }

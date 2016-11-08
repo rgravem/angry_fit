@@ -1,4 +1,4 @@
-myApp.controller("form3Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', '$animate', function($scope, $http, $location,$mdToast,$animate){
   console.log('In form3Controller');
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
@@ -7,6 +7,38 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
   $scope.date= new Date();
+
+  //toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Custom Frame Geometry form saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showUpdateToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("Custom Frame Geometry form updated.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
   // set form to edit and submit status
   //show submit button, hide update and pdf
@@ -144,6 +176,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
 
 
   $scope.submitFrameGeometry = function(){
+    $scope.showSimpleToast();
     console.log('complete clicked');
     var objectToSend = {
       employeeCreated: employee,
@@ -228,6 +261,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
   ////////////////FORM 3 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormThree = function(){
     console.log('complete clicked');
+    $scope.showUpdateToast();
     //show update
     $scope.hideUpdate = true;
     //hide save

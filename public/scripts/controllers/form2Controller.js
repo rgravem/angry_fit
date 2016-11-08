@@ -1,4 +1,4 @@
-myApp.controller("form2Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', '$animate', function($scope, $http, $location, $mdToast, $animate){
   console.log('In form2Controller');
     // set form to edit and submit status
     //show submit button, hide update and pdf
@@ -14,6 +14,38 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', function($s
   //     $location.path('/login');
   //   }
   // };
+
+  //toast set Up
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSimpleToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("New Fit form saved.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showUpdateToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content("New Fit form updated.")
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
   $scope.date= new Date();
   $scope.showHideSubmitFormTwo = true;
@@ -151,6 +183,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', function($s
   $scope.submitButton();
 
   $scope.addForm2NewFit = function () {
+    $scope.showSimpleToast();
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {
       employeeCreated: employee,
@@ -220,6 +253,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', function($s
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormTwo = function(){
     console.log('complete clicked');
+    $scope.showUpdateToast();
     //show update
     $scope.hideUpdate = true;
     //hide save

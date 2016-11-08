@@ -196,8 +196,10 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     $scope.headtube = formFour[0].headtubesize;
     //fork options
     $scope.customOrStandardFork = formFour[0].customorstandardfork;
-    $scope.forkBrand = formFour[0].forktype[0];
-    $scope.forkModel = formFour[0].forktype[1];
+    ///////THESE ARE NOT CORRECT
+    $scope.forkBrand = formFour[0].forkBrand;
+    $scope.forkModel = formFour[0].forkModel;
+    $scope.fork = formFour[0].forktype;
     $scope.thruAxle = formFour[0].thruaxle;
     $scope.frontRackMounts = formFour[0].frontrackmounts;
     $scope.fenderMounts = formFour[0].fendermounts;
@@ -235,7 +237,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     $scope.fork =[];
 
     //brake mounting if
-    if(isUndefined($scope.brakeMount)=== undefined){
+    if($scope.brakeMount === undefined){
       //givvalue if none
       $scope.brakeMount = "N/A";
     }
@@ -279,7 +281,9 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,
-      forkType: $scope.forkBrand + " " + $scope.forkModel,
+      forkType: $scope.fork,
+      forkBrand: $scope.forkBrand,
+      forkModel: $scope.forkModel,
       thruAxle: $scope.thruAxle,
       frontRackMounts: $scope.frontRackMounts,
       fenderMounts: $scope.fenderMounts,
@@ -379,7 +383,9 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       specialFrameOptions: $scope.specialFrameOptions,
       headTubeSize: $scope.headtube,
       customOrStandardFork: $scope.customOrStandardFork,
-      // forkType: stringify($scope.forkBrand + " " + $scope.forkModel),
+      forkType: $scope.fork,
+      forkBrand: $scope.forkBrand,
+      forkModel: $scope.forkModel,
       thruAxle: $scope.thruAxle,
       frontRackMounts: $scope.frontRackMounts,
       fenderMounts: $scope.fenderMounts,
@@ -460,13 +466,13 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
 
         {
           style: 'tableExample',
-          margin: [0, 10, 0, 0],
+          margin: [0, 10, 0, 10],
           table: {
-            widths: '*',
+            widths: ['*', '*', '*', '*', '*', '*', '*', 'auto', '*', '*'],
 
             body:[
               ['Bike Type', 'Bottom Bracket Shell', 'Brake Compatability', 'Brake Mount', 'Wheel Size', 'Special Frame Options', 'Head Tube Size', 'Fork Options', 'Seat Dropper Brand', 'Seat Dropper Model'],
-              ['' + $scope.bikeType, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube, 'Model: ' + $scope.forkBrand + ', Brand: ' + $scope.forkModel, '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
+              ['' + $scope.bikeType, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube,  '' + $scope.fork , '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
             ]
           }
         },
@@ -533,7 +539,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
   };
 
   var forkType = function(){
-    if($scope.customOrStandardFork == "standard"){
+    if($scope.customOrStandardFork === "standard"){
       $scope.fork.push($scope.forkBrand);
       $scope.fork.push($scope.forkModel);
       console.log($scope.fork);
@@ -541,6 +547,9 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     else if($scope.customOrStandardFork == "custom"){
       //make fork an array
       $scope.fork = [];
+      $scope.forkBrand = "";
+      $scope.forkModel = "";
+
       // thru axle true
       if($scope.thruAxle){
         $scope.fork.push("Thru Axle");

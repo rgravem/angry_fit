@@ -160,6 +160,8 @@ CREATE TABLE form4_customFrameDetails(
 	headTubeSize VARCHAR(50),
 	customOrStandardFork VARCHAR(50),
 	forkType TEXT[],
+	forkBrand VARCHAR(50),
+	forkModel VARCHAR(50),
 	thruAxle VARCHAR(50),
 	frontRackMounts VARCHAR(50),
 	fenderMounts VARCHAR(50),

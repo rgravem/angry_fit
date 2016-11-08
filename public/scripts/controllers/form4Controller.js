@@ -1,5 +1,5 @@
 
-myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','$animate', 'checkmarkService' function($scope, $http, $location, $mdToast, $animate, checkmarkService){
+myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','$animate', 'checkmarkService', function($scope, $http, $location, $mdToast, $animate, checkmarkService){
   console.log('In form4Controller');
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));

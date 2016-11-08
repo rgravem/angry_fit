@@ -202,7 +202,6 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
       stack:$scope.stack,
       notes: $scope.notes
     };
-<<<<<<< HEAD
     checkmarkService.newFitSubmitted();
     if (addForm2NewFitObject.saddleHeight == undefined) {
         alert("Please indicate saddle height - all fields are required");
@@ -232,36 +231,6 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
       alert("Please indicate stack - all fields are required");
     } else {
         console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
-=======
-    // if (addForm2NewFitObject.saddleHeight == undefined) {
-    //     alert("Please indicate saddle height - all fields are required");
-    // } else if (addForm2NewFitObject.saddleHeightOverBars == undefined) {
-    //   alert("Please indicate saddle height over bars - all fields are required");
-    // } else if (addForm2NewFitObject.saddleToHandlebarReach == undefined) {
-    //   alert("Please indicate saddle to handlebar reach - all fields are required");
-    // } else if (addForm2NewFitObject.saddleAngle == undefined) {
-    //   alert("Please indicate saddle angle - all fields are required");
-    // } else if (addForm2NewFitObject.saddleForeAft == undefined) {
-    //   alert("Please indicate saddle fore-aft - all fields are required");
-    // } else if (addForm2NewFitObject.saddleBrandAndWidth == undefined) {
-    //   alert("Please indicate saddle brand and width - all fields are required");
-    // } else if (addForm2NewFitObject.stemLength == undefined) {
-    //   alert("Please indicate stem length - all fields are required");
-    // } else if (addForm2NewFitObject.handleBarWidth == undefined) {
-    //   alert("Please indicate handle bar width - all fields are required");
-    // } else if (addForm2NewFitObject.handleBarBrandAndModel == undefined){
-    //   alert("Please indicate handle bar brand and model - all fields are required");
-    // } else if (addForm2NewFitObject.brakeLevelPosition == undefined){
-    //   alert("Please indicate brake level position - all fields are required");
-    // } else if (addForm2NewFitObject.crankLength == undefined){
-    //   alert("Please indicate crank length - all fields are required");
-    // } else if (addForm2NewFitObject.standover == undefined){
-    //   alert("Please indicate standover - all fields are required");
-    // } else if (addForm2NewFitObject.stack == undefined){
-    //   alert("Please indicate stack - all fields are required");
-    // } else {
-    //     console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
->>>>>>> master
       //hide submit, show update and pdf
       $scope.showHideSubmitFormTwo = false;
         //disable input fields
@@ -274,7 +243,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
       console.log('success from server', form2Response);
       sessionStorage.setItem('formTwo', JSON.stringify(form2Response.data));
     });
-  // }
+  }
   };
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////

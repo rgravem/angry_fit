@@ -196,9 +196,8 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
     $scope.headtube = formFour[0].headtubesize;
     //fork options
     $scope.customOrStandardFork = formFour[0].customorstandardfork;
-    ///////THESE ARE NOT CORRECT
-    $scope.forkBrand = formFour[0].forkBrand;
-    $scope.forkModel = formFour[0].forkModel;
+    $scope.forkBrand = formFour[0].forkbrand;
+    $scope.forkModel = formFour[0].forkmodel;
     $scope.fork = formFour[0].forktype;
     $scope.thruAxle = formFour[0].thruaxle;
     $scope.frontRackMounts = formFour[0].frontrackmounts;
@@ -305,9 +304,9 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       $scope.fullCoverageFenders = "N/A";
     }
     //if fendersPaint is blank, give it NA
-    if($scope.fendersPaint === undefined || $scope.fendersPaint === null){
+    if($scope.fenderspainted === undefined || $scope.fendersPainted === null){
       //give value if none
-      $scope.fendersPaint = "N/A";
+      $scope.fendersPainted = "N/A";
     }
     //if frameNotes is blank, give it NA
     if($scope.frameNotes === undefined || $scope.frameNotes === null){
@@ -425,7 +424,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
 
 
     //brake mounting if
-    if($scope.bikeType=== undefined){
+    if($scope.bikeType=== undefined || $scope.bikeType === null){
       //give value if none
       $scope.bikeType = "N/A";
     }
@@ -495,9 +494,9 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
       $scope.fullCoverageFenders = "N/A";
     }
     //if fendersPaint is blank, give it NA
-    if($scope.fendersPaint === undefined || $scope.fendersPaint === null){
+    if($scope.fendersPainted === undefined || $scope.fendersPainted === null){
       //give value if none
-      $scope.fendersPaint = "N/A";
+      $scope.fendersPainted = "N/A";
     }
     //if frameNotes is blank, give it NA
     if($scope.frameNotes === undefined || $scope.frameNotes === null){
@@ -632,31 +631,20 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
         },
 
         {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
-<<<<<<< HEAD
         {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
-=======
-        {text: ' ' + obj.phonenumber,  alignment: 'center'},
-        {text: ' ' + obj.email,  alignment: 'center'},
-        {text: ' ' + obj.streetaddress, alignment: 'center'},
-        {text: ' ' + "Unit Number:" + ' ' + obj.unitnumber, alignment: 'center'},
->>>>>>> master
         {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
         {text: ' ' + obj.phonenumber,  alignment: 'center'},
         {text: ' ' + obj.email,  alignment: 'center'},
 
         {
           style: 'tableExample',
-          margin: [0, 10, 0, 10],
+          margin: [0, 10, 0, 0],
           table: {
             widths: ['*', '*', '*', '*', '*', '*', '*', 'auto', '*', '*'],
 
             body:[
               ['Bike Type', 'Bottom Bracket Shell', 'Brake Compatability', 'Brake Mount', 'Wheel Size', 'Special Frame Options', 'Head Tube Size', 'Fork Options', 'Seat Dropper Brand', 'Seat Dropper Model'],
-<<<<<<< HEAD
               ['' + $scope.bikeType, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube,  '' + $scope.fork , '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
-=======
-              ['' + $scope.bikeType, '' + $scope.bottomBracketShell, '' + $scope.brakeCompatability, '' + $scope.brakeMount, '' + $scope.wheelSize, '' + $scope.specialFrameOptions, '' + $scope.headtube, '' + $scope.forkOptions, '' + $scope.seatDropperBrand, '' + $scope.seatDropperModel],
->>>>>>> master
             ]
           }
         },
@@ -665,18 +653,8 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location', function($s
           margin: [0, 10, 0, 0],
           table: {
             body:[
-              ['Drive Train', 'Paint Color', 'Full Coverage Fenders', 'Fenders Painted', 'Frame Notes', 'Frame Options', 'Paint Notes'],
-              ['' + $scope.drivetrain, '' + $scope.paintColor, '' + $scope.fullCoverageFenders, '' + $scope.fendersPaint, '' + $scope.frameNotes, '' + $scope.frameOptions, '' + $scope.paintNotes],
-            ]
-          }
-        },
-        {
-          style: 'tableExample',
-          margin: [0, 10, 0, 0],
-          table: {
-            body:[
-              ['optionsNotes'],
-              ['' + $scope.optionsNotes],
+              ['Drive Train', 'Paint Color', 'Full Coverage Fenders', 'Fender Paint', 'Frame Options', 'Paint Notes', 'Frame Notes'],
+              ['' + $scope.drivetrain, '' + $scope.paintColor, '' + $scope.fullCoverageFenders, '' + $scope.fendersPainted, '' + $scope.frameOptions, '' + $scope.paintNotes, '' + $scope.frameNotes],
             ]
           }
         },

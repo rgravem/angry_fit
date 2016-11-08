@@ -48,7 +48,10 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
           }
         }).then(function(response){
           $scope.secretData = response.data;
-          $location.path('/customerType');
+          var employee = JSON.parse(sessionStorage.getItem('employee'));
+          if (employee !== undefined) {
+            $location.path('/customerType');
+          }
         });
       });
     }else{

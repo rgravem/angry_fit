@@ -36,7 +36,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
     if (formOne == undefined){
       console.log('starting new bike');
     }else if (formOne[0] == undefined){
-      alert('Existing Fit has no data');
+      console.log('Existing Fit has no data');
     } else {
     console.log("form 1 session:", formOne[0]);
     $scope.injuryInfo = formOne[0].injuries;
@@ -91,45 +91,45 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
       crankLength:$scope.crankLength,
       notes:$scope.notes
     };
-    if (formOneObject.injuries == undefined) {
-      alert("Please indicate any injuries - all fields are required");
-    } else if (formOneObject.complaints == undefined){
-      alert("Please indicate any complaints - all fields are required");
-    } else if( formOneObject.surgeries == undefined){
-      alert("Please indicate any surgeries - all fields are required");
-    } else if( formOneObject.averageRideLength == undefined){
-      alert("Please indicate average ride length - all fields are required");
-    } else if(formOneObject.upcomingRaces == undefined){
-      alert("Please indicate any upcoming races - all fields are required");
-    } else if(formOneObject.currentBikeBrand == undefined){
-      alert("Please indicate current bike brand - all fields are required");
-    } else if(formOneObject.saddleHeight == undefined){
-      alert("Please indicate saddle height - all fields are required");
-    } else if(formOneObject.saddleHeightOverBars == undefined){
-      alert("Please indicate saddle height over bars - all fields are required");
-    } else if(formOneObject.saddleAngle == undefined){
-      alert("Please indicate saddle angle - all fields are required");
-    } else if(formOneObject.saddleSetback == undefined){
-      alert("Please indicate saddle set back - all fields are required");
-    } else if(formOneObject.SaddlehandlebarReach == undefined){
-      alert("Please indicate saddle to handlebar reach - all fields are required");
-    } else if(formOneObject.stemLength == undefined){
-      alert("Please indicate stem length - all fields are required");
-    } else if(formOneObject.stemAngle == undefined){
-      alert("Please indicate stem angle - all fields are required");
-    } else if(formOneObject.handlebarWidth == undefined){
-      alert("Please indicate handle bar width - all fields are required");
-    } else if(formOneObject.handlebarBrand == undefined){
-      alert("Please indicate handlebarBrand - all fields are required");
-    } else if(formOneObject.pedalBrandModel == undefined){
-      alert("Please indicate pedal brand model - all fields are required");
-    } else if(formOneObject.shoeBrand == undefined){
-      alert("Please indicate shoe brand - all fields are required");
-    } else if(formOneObject.brakeLevel == undefined){
-      alert("Please indicate brake level position - all fields are required");
-    } else if(formOneObject.crankLength == undefined){
-      alert("Please indicate crank length - all fields are required");
-    } else {
+    // if (formOneObject.injuries == undefined) {
+    //   alert("Please indicate any injuries - all fields are required");
+    // } else if (formOneObject.complaints == undefined){
+    //   alert("Please indicate any complaints - all fields are required");
+    // } else if( formOneObject.surgeries == undefined){
+    //   alert("Please indicate any surgeries - all fields are required");
+    // } else if( formOneObject.averageRideLength == undefined){
+    //   alert("Please indicate average ride length - all fields are required");
+    // } else if(formOneObject.upcomingRaces == undefined){
+    //   alert("Please indicate any upcoming races - all fields are required");
+    // } else if(formOneObject.currentBikeBrand == undefined){
+    //   alert("Please indicate current bike brand - all fields are required");
+    // } else if(formOneObject.saddleHeight == undefined){
+    //   alert("Please indicate saddle height - all fields are required");
+    // } else if(formOneObject.saddleHeightOverBars == undefined){
+    //   alert("Please indicate saddle height over bars - all fields are required");
+    // } else if(formOneObject.saddleAngle == undefined){
+    //   alert("Please indicate saddle angle - all fields are required");
+    // } else if(formOneObject.saddleSetback == undefined){
+    //   alert("Please indicate saddle set back - all fields are required");
+    // } else if(formOneObject.SaddlehandlebarReach == undefined){
+    //   alert("Please indicate saddle to handlebar reach - all fields are required");
+    // } else if(formOneObject.stemLength == undefined){
+    //   alert("Please indicate stem length - all fields are required");
+    // } else if(formOneObject.stemAngle == undefined){
+    //   alert("Please indicate stem angle - all fields are required");
+    // } else if(formOneObject.handlebarWidth == undefined){
+    //   alert("Please indicate handle bar width - all fields are required");
+    // } else if(formOneObject.handlebarBrand == undefined){
+    //   alert("Please indicate handlebarBrand - all fields are required");
+    // } else if(formOneObject.pedalBrandModel == undefined){
+    //   alert("Please indicate pedal brand model - all fields are required");
+    // } else if(formOneObject.shoeBrand == undefined){
+    //   alert("Please indicate shoe brand - all fields are required");
+    // } else if(formOneObject.brakeLevel == undefined){
+    //   alert("Please indicate brake level position - all fields are required");
+    // } else if(formOneObject.crankLength == undefined){
+    //   alert("Please indicate crank length - all fields are required");
+    // } else {
 
     console.log('formOneObject to send to DB:', formOneObject);
     //hide submit, show update and pdf
@@ -145,7 +145,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
       sessionStorage.setItem('formOne', JSON.stringify(formOneObject.data));
       console.log('success from server', formOneObject);
     });
-  }
+  // }
   }; // end addFormOne
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
@@ -220,6 +220,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
         content: [
 
           {text: 'Fit done by:' + ' ' + employee, alignment: 'right'},
+          {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'right'},
 
 
                             {
@@ -241,9 +242,8 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
           {text: ' ' + obj.firstname + ' ' + obj.lastname, alignment: 'center'},
           {text: ' ' + obj.phonenumber,  alignment: 'center'},
           {text: ' ' + obj.email,  alignment: 'center'},
-          {text: ' ' + obj.streetaddress + ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip, alignment: 'center'},
-          {text: ' ' + obj.unitnumber,  alignment: 'center'},
-          {text: ' ' + $scope.date.toString().substring(0,15), alignment: 'center'},
+          {text: ' ' + obj.streetaddress + ' ' + obj.unitnumber, alignment: 'center'},
+          {text: ' ' + obj.city + ' , ' + obj.state + ' ' + obj.zip,  alignment: 'center'},
 
 
             {

@@ -14,7 +14,7 @@
 
   <div class='md-padding customersDisplay' layout="row" layout-wrap>
         <md-card style="width: 200px;" ng-repeat="user in existingCustomers" ng-click="cardClicked(user)">
-          <img src="assets/angry_icons/acf_logo.png" class="md-card-image" alt="user avatar">
+          <img ng-src="{{user.icon}}" class="md-card-image" alt="user avatar">
           <md-card-content>
             <h3>{{user.firstname}} {{user.lastname}}</h3>
 

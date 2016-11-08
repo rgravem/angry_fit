@@ -123,9 +123,22 @@ md-radio-button[disabled]{
 .newCustomerForm{
   margin-left: auto;
   margin-right: auto;
+  margin-top:-2%;
   padding-right: 15px;
   font-family: ArcherSemibold;
+  height: 550px;
 }
+@media screen and (max-width: 1024px) and (min-width: 768px){
+  .newCustomerForm{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:0;
+    padding-right: 15px;
+    font-family: ArcherSemibold;
+    height: 580px;
+  }
+}
+
 .updateCustomerForm{
   margin-left: auto;
   margin-right: auto;
@@ -138,8 +151,9 @@ md-radio-button[disabled]{
   margin-top: 5%;
 }
 .customerTypes{
-  margin-top: 5%;
+  margin-top: 3%;
   margin-left:12%;
+
 }
 .formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
@@ -161,9 +175,12 @@ md-radio-button[disabled]{
 .hideMeasurement{
   display: none;
 }
+
 .showMeasurement{
   display: block;
 }
+
+
 @media screen and (max-width: 1024px) and (min-width: 768px){
   .customerBike{
     width: 170px !important;
@@ -276,6 +293,7 @@ md-card{
 
 }
 .md-card-image{
+width:100%;
 background-color: #faf6ee;
 border-bottom: 3px solid #e54735;
 }
@@ -391,3 +409,12 @@ md-checkbox.md-checked.angry .md-icon {
   margin-left: 10%;
   color: #e54735;
   }
+.profileIconHeading{
+  margin-top: -2%;
+}
+.profileIconsDiv{
+  margin-bottom: -2%;
+}
+.catfishCustomerIcon{
+  margin-top:-5%;
+}

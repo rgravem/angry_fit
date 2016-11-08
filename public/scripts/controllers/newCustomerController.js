@@ -19,7 +19,8 @@ myApp.controller("newCustomerController", ['$scope', '$http', '$location', funct
       unitNumber:$scope.unitNumber,
       city:$scope.city,
       state:$scope.state,
-      zip:$scope.zip
+      zip:$scope.zip,
+      icon:$scope.customerIcon
     };
 
     $http({

@@ -655,7 +655,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
           },
 
         {
-          text: 'Custom Frame Details',
+          text: 'Angry Catfish: Custom Frame Details',
           style: 'header',
           bold: true,
           margin: [ 1, 2, 5, 5 ],
@@ -670,7 +670,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
 
         {
           style: 'tableExample',
-          margin: [0, 10, 0, 0],
+          margin: [0, 10, 0, 50],
           table: {
             widths: ['*', '*', '*', '*', '*', '*', '*', 'auto', '*', '*'],
 

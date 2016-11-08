@@ -279,6 +279,7 @@ md-card{
 
 }
 .md-card-image{
+width:100%;
 background-color: #faf6ee;
 border-bottom: 3px solid #e54735;
 }
@@ -394,3 +395,9 @@ md-checkbox.md-checked.angry .md-icon {
   margin-left: 10%;
   color: #e54735;
   }
+.profileIconHeading{
+  margin-top: -2%;
+}
+.profileIconsDiv{
+  margin-bottom: -2%;
+}

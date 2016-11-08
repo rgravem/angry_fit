@@ -1,4 +1,4 @@
-myApp.controller("form2Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller("form2Controller", ['$scope', '$http', '$location', 'checkmarkService', function($scope, $http, $location, checkmarkService){
   console.log('In form2Controller');
     // set form to edit and submit status
     //show submit button, hide update and pdf
@@ -7,13 +7,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', function($s
   var formTwo = JSON.parse(sessionStorage.getItem('formTwo'));
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
-  // $scope.verifyEmployee = function(){
-  //   console.log("hit verify employee");
-  //   if (sessionStorage.employee == undefined){
-  //     alert("You must have a valid login");
-  //     $location.path('/login');
-  //   }
-  // };
+
 
   $scope.date= new Date();
   $scope.showHideSubmitFormTwo = true;
@@ -174,6 +168,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location', function($s
       stack:$scope.stack,
       notes: $scope.notes
     };
+    checkmarkService.newFitSubmitted();
     if (addForm2NewFitObject.saddleHeight == undefined) {
         alert("Please indicate saddle height - all fields are required");
     } else if (addForm2NewFitObject.saddleHeightOverBars == undefined) {

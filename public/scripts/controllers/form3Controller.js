@@ -1,4 +1,4 @@
-myApp.controller("form3Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller("form3Controller", ['$scope', '$http', '$location', 'checkmarkService', function($scope, $http, $location, checkmarkService){
   console.log('In form3Controller');
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
@@ -169,6 +169,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location', function($s
     	forkOffset: $scope.forkOffset,
       notes: $scope.notes
     };
+    checkmarkService.customFrameGeometrySubmitted();
     if (objectToSend.inseam == undefined) {
         alert("Please indicate inseam measure - all fields are required");
     } else if (objectToSend.torso == undefined) {

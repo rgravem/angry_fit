@@ -1,18 +1,10 @@
-myApp.controller("form1Controller", ['$scope', '$http', '$location', function($scope, $http, $location){
+myApp.controller("form1Controller", ['$scope', '$http', '$location', 'checkmarkService', function($scope, $http, $location, checkmarkService){
   console.log('In form1Controller');
 
   var bike = JSON.parse(sessionStorage.getItem('selectedBike'));
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
   var obj = JSON.parse(sessionStorage.getItem('customer'));
-
-  // $scope.verifyEmployee = function(){
-  //   console.log("hit verify employee");
-  //   if (sessionStorage.employee == undefined){
-  //     alert("You must have a valid login");
-  //     $location.path('/login');
-  //   }
-  // };
 
   $scope.date= new Date();
   $scope.submitButton = function(){
@@ -91,6 +83,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', function($s
       crankLength:$scope.crankLength,
       notes:$scope.notes
     };
+    checkmarkService.existingFitSubmitted();
     if (formOneObject.injuries == undefined) {
       alert("Please indicate any injuries - all fields are required");
     } else if (formOneObject.complaints == undefined){

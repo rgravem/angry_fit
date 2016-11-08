@@ -6,6 +6,7 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
   $scope.logIn = function login(){
     auth.$signInWithPopup("google").then(function(firebaseUser) {
       console.log("Signed in as:", firebaseUser.user.displayName);
+      localStorage.setItem('employee', JSON.stringify(firebaseUser.user.email));
       sessionStorage.setItem('employee', JSON.stringify(firebaseUser.user.email));
       var employee = JSON.parse(sessionStorage.getItem('employee'));
       $http({
@@ -18,6 +19,7 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
             auth.$signOut().then(function(){
               console.log('Logging the user out!');
               sessionStorage.clear();
+              localStorage.clear();
               window.location.href = "https://accounts.google.com/logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:3000/#/login";
               $location.path('/login');
               alert('You must use a valid login');
@@ -48,7 +50,7 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
           }
         }).then(function(response){
           $scope.secretData = response.data;
-          var employee = JSON.parse(sessionStorage.getItem('employee'));
+          var employee = JSON.parse(localStorage.getItem('employee'));
           if (employee !== undefined) {
             $location.path('/customerType');
           }
@@ -61,5 +63,9 @@ myApp.controller("loginController", ['$scope', '$http', '$firebaseArray', '$fire
 
   });
 
+  $scope.clearAll = function(){
+    sessionStorage.clear();
+    console.log("cleared everything for login");
+  };
 
 }]);//end loginController

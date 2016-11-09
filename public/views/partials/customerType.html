@@ -1,13 +1,13 @@
 <md-content class="md-padding cream-background" ng-init="verifyEmployee()">
 <h2 class=" customerSelectHeading cream-background">Select Customer Type</h2>
-  <div layout="row" class="cream-background customerTypes" layout-align="center center">
-    <div class="newCust" ng-click="newCustomer()">
-      <image src="./assets/newCustomer_icon.png" class="customerSelect" id="customerTypeButtons"/>
-      <p class="newCustLabel">New Customer</p>
-    </div>
-    <div class="existingCust" ng-click="existingCustomer()">
-    <image src="./assets/existing_icon.png" class="customerSelect" id="customerTypeButtons"  />
-    <p class="existingCustLabel">Exisiting Customer</p>
-    </div>
+  <div layout="row" class="cream-background customerTypes" layout-align="center center" >
+      <div class="newCust" ng-click="newCustomer()" layout-align="center center">
+        <image src="./assets/newCustomer_icon.png" class="customerSelect" id="customerTypeButtons"/>
+        <!-- <p class="newCustLabel">New Customer</p> -->
+      </div>
+      <div class="existingCust" ng-click="existingCustomer()" layout-align="center center">
+        <image src="./assets/existing_icon.png" class="customerSelect" id="customerTypeButtons"  />
+        <!-- <p class="existingCustLabel">Exisiting Customer</p> -->
+      </div>
   </div>
 </md-content>

@@ -153,7 +153,7 @@ md-radio-button[disabled]{
 }
 .customerTypes{
   margin-top: 3%;
-  margin-left:12%;
+  margin-left: 7%;
 }
 .formOneInputs, .formTwoInputs, .formThreeInputs, .formFourInputs{
   overflow-y: scroll;
@@ -394,13 +394,17 @@ md-checkbox.md-checked.angry .md-icon {
   margin-top:-8%;
 }
 .customerSelect{
-  width: 75%;
+  width: 85%;
 }
 
 .newCustLabel{
+  display:block;
+  margin-left: 10%;
+  text-align: center;
   font-family: GothamLightRegular;
   font-size:28px;
-  margin-left: 16%;
+  width:280px;
+  margin-top:0;
   color: #e54735;
 
 }
@@ -408,6 +412,7 @@ md-checkbox.md-checked.angry .md-icon {
   font-family: GothamLightRegular;
   font-size:28px;
   margin-left: 10%;
+  margin-top:0;
   color: #e54735;
   }
 .profileIconHeading{
@@ -442,4 +447,7 @@ md-toast .md-toast-content, md-toast.md-default-theme .md-toast-content, md-toas
 }
 .existingCust:focus{
   outline: none;
+}
+.formFourSmallerText{
+  font-size: 12px;
 }

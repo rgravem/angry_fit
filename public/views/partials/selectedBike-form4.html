@@ -23,7 +23,7 @@
 
             <!-- Type of Bottom Bracket Shell -->
             <div layout-gt-sm="row">
-              <p id="bottomBracketStyle"> Bottom Bracket Shell (choose one)</p>
+              <p id="bottomBracketStyle"> Bottom Bracket Shell <span class="formFourSmallerText">(choose one)</span> </p>
               <!-- Bottom Brackets -->
             </div>
               <md-radio-group ng-model="bottomBracketShell">
@@ -49,7 +49,7 @@
               </div>
 
             <div layout-gt-sm="row">
-              <p id="brakeCompatability"> Brake Compatability (choose one)</p>
+              <p id="brakeCompatability"> Brake Compatability <span class="formFourSmallerText">(choose one)</span></p>
             </div>
             <md-radio-group ng-model="brakeCompatability">
                 <!-- ISO Disk Brake-->
@@ -75,7 +75,7 @@
               <!--If ISO Disk Brake  -->
             <div ng-show="showBrakeMount">
               <div layout-gt-sm="row">
-                <p> Where do you prefer the caliper be mounted (If ISO Disk brake)</p>
+                <p> Where do you prefer the caliper be mounted <span class="formFourSmallerText">(If ISO Disk brake)</span></p>
               </div>
 
               <md-radio-group ng-model="brakeMount">
@@ -90,7 +90,7 @@
 
 
             <div layout-gt-sm="row">
-              <p> Wheel/Tire Size (choose one)</p>
+              <p> Wheel/Tire Size <span class="formFourSmallerText">(choose one)</span></p>
             </div>
             <md-radio-group ng-model="wheelSize">
                 <!-- 700x28-35-->
@@ -104,13 +104,13 @@
                 <!-- 29x2-2.35-->
                 <md-radio-button value="29x2-2.35" name="wheelStyle" ng-click="updateHideWheels()" ng-disabled="submittedFour"> 29x2-2.35 </md-radio-button>
                 <!-- 29x3-->
-                <md-radio-button value="29x3" name="wheelStyle" ng-click="updateHideWheels()" ng-disabled="submittedFour"> 29x3(Requires Paragon Yoke)</md-radio-button>
+                <md-radio-button value="29x3" name="wheelStyle" ng-click="updateHideWheels()" ng-disabled="submittedFour"> 29x3 <span class="formFourSmallerText">(Requires Paragon Yoke)</span></md-radio-button>
                 <!--650bx35-42-->
                 <md-radio-button value="650bx35-42" name="wheelStyle" ng-click="updateHideWheels()" ng-disabled="submittedFour"> 650bx35-42</md-radio-button>
                 <!--650bx2-2.35-->
                 <md-radio-button value="650bx2-2.35" name="wheelStyle" ng-click="updateHideWheels()" ng-disabled="submittedFour">650bx2-2.35</md-radio-button>
                 <!--650bx3-->
-                <md-radio-button value="650bx3" name="wheelStyle" ng-click="updateHideWheels()" ng-disabled="submittedFour"> 650bx3 (Requires Paragon Yoke)</md-radio-button>
+                <md-radio-button value="650bx3" name="wheelStyle" ng-click="updateHideWheels()" ng-disabled="submittedFour"> 650bx3 <span class="formFourSmallerText">(Requires Paragon Yoke)</span></md-radio-button>
                 <!-- Other -->
                 <md-radio-button value="Other" name="wheelStyle" ng-click="updateShowWheels()" ng-disabled="submittedFour"> Other</md-radio-button>
             <md-radio-group>
@@ -124,33 +124,45 @@
 
           <div id="frameOptions">
             <div layout-gt-sm="row">
-              <p> Frame options (choose multiple) </p>
+              <p> Frame Options <span class="formFourSmallerText">(choose multiple) </span></p>
             </div>
             <div layout-gt-sm="row">
               <!-- 3rd bottle -->
               <md-checkbox class="angry" ng-true-value="'true'" ng-model="thirdBottle" ng-disabled="submittedFour"> 3rd Bottle Mount</md-checkbox>
+            </div>
+            <div layout-gt-sm="row">
               <!-- Rack Mounts -->
               <md-checkbox class="angry" ng-true-value="'true'" ng-model="rackMounts" ng-disabled="submittedFour"> Rack Mounts</md-checkbox>
             </div>
+            <div layout-gt-sm="row">
               <!-- Full Coverage Fenders -->
-              <md-checkbox class="angry" ng-true-value="'true'" ng-model="fullCoverageFendersOption" ng-disabled="submittedFour">Full Coverage Fender Mounts (restrictions appy)</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-model="fullCoverageFendersOption" ng-disabled="submittedFour">Full Coverage Fender Mounts <span class="formFourSmallerText">(restrictions apply)</span></md-checkbox>
+            </div>
+            <div layout-gt-sm="row">
               <!-- Internal Brake Cable-->
-              <md-checkbox class="angry" ng-true-value="'true'" ng-model="internalBrakeCable" ng-disabled="submittedFour"> Internal Brake Cable Routing(restrictions apply)</md-checkbox>
+              <md-checkbox class="angry" ng-true-value="'true'" ng-model="internalBrakeCable" ng-disabled="submittedFour"> Internal Brake Cable Routing <span class="formFourSmallerText">(restrictions apply)</span></md-checkbox>
+            </div>
             <div layout-gt-sm="row">
               <!-- Rocking/Sliding Dropouts-->
               <md-checkbox class="angry" ng-true-value="'true'" ng-click="updateShowDropoutSpecs()" ng-model="rockingSlidingDropouts" ng-disabled="submittedFour"> Paragon Rocking/Sliding Dropouts</md-checkbox>
+            </div>
+            <div layout-gt-sm="row">
               <!-- Thru-axle -->
               <md-checkbox class="angry" ng-true-value="'true'" ng-click="updateShowThruAxle()" ng-model="thruAxleRear" ng-disabled="submittedFour"> Thru-axle Rear Dropouts</md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Di2 Routing -->
               <md-checkbox class="angry" ng-true-value="'true'" ng-model="di2Routing" ng-disabled="submittedFour"> Di2 Routing</md-checkbox>
+            </div>
+            <div layout-gt-sm="row">
               <!-- eTap Routing -->
-              <md-checkbox  class="angry" ng-true-value="'true'" ng-model="eTapRouting" ng-disabled="submittedFour">E Tap Routing (no routing)</md-checkbox>
+              <md-checkbox  class="angry" ng-true-value="'true'" ng-model="eTapRouting" ng-disabled="submittedFour">E Tap Routing <span class="formFourSmallerText">(no routing)</span></md-checkbox>
             </div>
             <div layout-gt-sm="row">
               <!-- Custom Rear Rack -->
-              <md-checkbox  class="angry" ng-true-value="'true'" ng-model="customRearRack" ng-disabled="submittedFour"> Custom Rear Rack (specify style in notes)</md-checkbox>
+              <md-checkbox  class="angry" ng-true-value="'true'" ng-model="customRearRack" ng-disabled="submittedFour"> Custom Rear Rack <span class="formFourSmallerText">(specify style in notes)</span></md-checkbox>
+            </div>
+            <div layout-gt-sm="row">
               <!-- Frame Pump Peg -->
               <md-checkbox class="angry" ng-true-value="'true'" ng-model="framePump" ng-disabled="submittedFour">Frame Pump Peg</md-checkbox>
             </div>
@@ -166,7 +178,7 @@
             <!-- IF Thru Axle dropouts -->
             <div id="thruAxleSpacing" ng-show="showThruAxle">
               <div layout-gt-sm="row">
-                <p> If you are doing thru-axle rear dropout which spacing would you prefer?(choose one)</p>
+                <p> If you are doing thru-axle rear dropout which spacing would you prefer?<div layout-gt-sm="row">(choose one) </div></p>
               </div>
               <md-radio-group ng-model="dropoutSpacingIn" >
                 <div layout-gt-sm="row">
@@ -189,7 +201,7 @@
             <div id="specialFrameOptions">
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm="">
-                  <textarea rows="1" placeholder="Any other special frame options you would like to see included?" ng-model="specialFrameOptions" ng-disabled="submittedFour"></textarea>
+                  <textarea rows="1" placeholder="Any other frame options you would like included?" ng-model="specialFrameOptions" ng-disabled="submittedFour"></textarea>
                 </md-input-container>
               </div>
             </div>
@@ -197,15 +209,15 @@
 
             <div id="headtubeDiv">
               <div layout-gt-sm="row">
-                <p>What style headtube do you prefer? (choose one)</p>
+                <p>What style headtube do you prefer? <span class="formFourSmallerText">(choose one)</span></p>
               </div>
             <md-radio-group ng-model="headtube">
                 <!-- 44mm  -->
-                <md-radio-button value="44mm" name="headtubeStyle" ng-disabled="submittedFour">44mm (for forks with tapered steer tubes)</md-radio-button>
+                <md-radio-button value="44mm" name="headtubeStyle" ng-disabled="submittedFour">44mm <span class="formFourSmallerText">(For forks with tapered steer tubes.)</span></md-radio-button>
                 <!-- 1-1/8"  -->
                 <md-radio-button value="1 1/8 inch" name="headtubeStyle" ng-disabled="submittedFour">1-1/8 inch</md-radio-button>
                 <!-- 1"  -->
-                <md-radio-button value="1 inch" name="headtubeStyle" ng-disabled="submittedFour">1 inch(this is possible, but we will talk you out of it)</md-radio-button>
+                <md-radio-button value="1 inch" name="headtubeStyle" ng-disabled="submittedFour">1 inch <span class="formFourSmallerText">(This is possible, but we will talk you out of it.)</span></md-radio-button>
             </md-radio-group>
             </div>
 
@@ -250,7 +262,7 @@
                   <!-- Integrated Fork Contact -->
                   <md-checkbox class="angry" value="integratedForkContact" ng-true-value="'true'" ng-model="integratedForkContact" ng-disabled="submittedFour"> Integrated Fork Contact for Schmidt Son Sl Hub </md-checkbox>
                   <!-- Custom Front Rack -->
-                  <md-checkbox class="angry"  value="frontRack" ng-true-value="'true'" ng-model="customFrontRack" ng-disabled="submittedFour">Custom Front Rack(specify style in frame options notes) </md-checkbox>
+                  <md-checkbox class="angry"  value="frontRack" ng-true-value="'true'" ng-model="customFrontRack" ng-disabled="submittedFour">Custom Front Rack <span class="formFourSmallerText">(specify style in frame options notes)</span> </md-checkbox>
               </div>
             </div>
 
@@ -282,17 +294,17 @@
 
             <div id="drivetrainType">
               <div layout-gt-sm="row">
-                <p> What Type of Drivetrain will you be using?(choose one)</p>
+                <p> What Type of Drivetrain will you be using?<span class="formFourSmallerText">(choose one)</span></p>
               </div>
               <md-radio-group ng-model="drivetrain">
                   <!-- Single Speed  -->
-                  <md-radio-button value="Single Speed" name="drivetrainStyle" ng-click="updateShowSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour"> Single Speed (please specify chainring tooth count) </md-radio-button>
+                  <md-radio-button value="Single Speed" name="drivetrainStyle" ng-click="updateShowSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour"> Single Speed <span class="formFourSmallerText">(Please specify chainring tooth count.)</span> </md-radio-button>
                   <!-- Internally geared hub -->
-                  <md-radio-button value="Geared Hub" name="drivetrainStyle" ng-click="updateShowGearedHub(); updateHideSingleSpeed()" ng-disabled="submittedFour"> Internally Geared Hub (please specify) </md-radio-button>
+                  <md-radio-button value="Geared Hub" name="drivetrainStyle" ng-click="updateShowGearedHub(); updateHideSingleSpeed()" ng-disabled="submittedFour"> Internally Geared Hub <span class="formFourSmallerText">(please specify)</span> </md-radio-button>
                   <!-- 2 or 3 -->
                   <md-radio-button value="2Or3ByX" name="drivetrainStyle" ng-click="updateHideSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour"> 2 or 3 by "X" </md-radio-button>
                   <!-- 1 -->
-                  <md-radio-button value="1ByX" name="drivetrainStyle"  ng-click="updateHideSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour">1 by "X" (no cable stops for front deraileur) </md-radio-button>
+                  <md-radio-button value="1ByX" name="drivetrainStyle"  ng-click="updateHideSingleSpeed(); updateHideGearedHub()" ng-disabled="submittedFour">1 by "X" <span class="formFourSmallerText">(No cable stops for front deraileur.)</span> </md-radio-button>
               </md-radio-group>
                 <!-- IF single speed -->
                 <div id="singleSpeedIn" ng-show="showSingleSpeed">
@@ -313,7 +325,7 @@
               </div>
             <div id="paintOptions">
               <div layout-gt-sm="row">
-                <p>What color would you like your Northern Painted</p>
+                <p>What color would you like your bike painted?</p>
               </div>
               <md-radio-group ng-model="paintColor">
                 <div layout-gt-sm="row">

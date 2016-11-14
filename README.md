@@ -4,7 +4,7 @@ Full stack application to manage customer information and help with day to day f
 
 Technologies used:
 * AngularJS
-* Angular Maaterial
+* Angular Material
 * Postgresql
 * Nodejs
 * Express

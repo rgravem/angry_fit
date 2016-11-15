@@ -47,6 +47,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
       .content(errorMessage)
       .position($scope.getToastPosition())
       .hideDelay(2500)
+      .toastClass("error")
     );
   };
 

@@ -5,7 +5,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
   var employee = JSON.parse(sessionStorage.getItem('employee'));
   var formFour = JSON.parse(sessionStorage.getItem('formFour'));
 
-  // console.log(formFour[0].bottombracketshell);
+
 
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 

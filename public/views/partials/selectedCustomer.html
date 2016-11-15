@@ -66,13 +66,13 @@
   <!-- Bike Fits  -->
   <div class='md-padding' ng-show="hideBikes" layout="row" layout-wrap>
         <md-card class="customerBike" style="width: 200px;" ng-click="newBikeStart()">
-          <img src="assets/angry_icons/add_icon.svg" class="md-card-image" alt="user avatar">
+          <img src="./assets/angry_Icons/add_icon.svg" class="md-card-image" alt="user avatar">
           <md-card-content>
             <h3> Start New Fit </h3>
           </md-card-content>
         </md-card>
         <md-card class="customerBike" style="width: 200px;" ng-repeat="bike in customerBikes" ng-click="cardClicked(bike)">
-          <img ng-src="./assets/angry_icons/angry_mountain.png" class="md-card-image" alt="user avatar">
+          <img src="./assets/angry_Icons/angry_mountain.png" class="md-card-image" alt="user avatar">
           <md-card-content>
             <h3>{{bike.bikename}}</h3>
             <h3>{{bike.biketype}}</h3>

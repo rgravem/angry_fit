@@ -272,7 +272,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormTwo = function(){
     console.log('complete clicked');
-    $scope.showUpdateToast();
+
     //show update
     $scope.hideUpdate = true;
     //hide save
@@ -316,6 +316,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
     }).then(function(editForm2Response){
       console.log('success from server', editForm2Response);
       sessionStorage.setItem('formTwo', JSON.stringify(editForm2Response.data));
+      $scope.showUpdateToast();
     });
   }; //End saveFormTwo
 

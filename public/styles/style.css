@@ -427,6 +427,9 @@ md-toast{
 }
 .error .md-toast-content, .error.md-default-theme .md-toast-content, .error .md-toast-content{
   background-color: #e54735;
+  color:#faf6ee;
+  font-size: 14px;
+  font-family: GothamLightRegular;
 }
 
 md-toast .md-toast-content, md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content  {

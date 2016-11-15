@@ -10,6 +10,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
   $scope.date= new Date();
 
   //toast set Up
+  var errorMessage;
   $scope.toastPosition = {
     bottom: false,
     top: true,
@@ -38,6 +39,15 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
       .content("Custom Frame Geometry form updated.")
       .position($scope.getToastPosition())
       .hideDelay(2500)
+    );
+  };
+  $scope.showErrorToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content(errorMessage)
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+      .toastClass("error")
     );
   };
 
@@ -177,7 +187,6 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
 
 
   $scope.submitFrameGeometry = function(){
-    $scope.showSimpleToast();
     console.log('complete clicked');
     var objectToSend = {
       employeeCreated: employee,
@@ -205,41 +214,59 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
     };
     checkmarkService.customFrameGeometrySubmitted();
     if (objectToSend.inseam == undefined) {
-        alert("Please indicate inseam measure - all fields are required");
+        errorMessage = "Please indicate inseam measure - all fields are required";
+        $scope.showErrorToast();
     } else if (objectToSend.torso == undefined) {
-      alert("Please indicate torso measure - all fields are required");
+      errorMessage = "Please indicate torso measure - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.arm == undefined) {
-      alert("Please indicate arm measure - all fields are required");
+      errorMessage = "Please indicate arm measure - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.footLength == undefined) {
-      alert("Please indicate foot length - all fields are required");
+      errorMessage = "Please indicate foot length - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.effectiveTopTube == undefined) {
-      alert("Please indicate effective top tube - all fields are required");
+      errorMessage = "Please indicate effective top tube - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.standover == undefined) {
-      alert("Please indicate standover - all fields are required");
+      errorMessage = "Please indicate standover - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.seatTubeLength == undefined) {
-      alert("Please indicate seat tube length - all fields are required");
+      errorMessage = "Please indicate seat tube length - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.seatTubeAngle == undefined) {
-      alert("Please indicate seat tube angle - all fields are required");
+      errorMessage = "Please indicate seat tube angle - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.headTubeLength == undefined) {
-      alert("Please indicate head tube length - all fields are required");
+      errorMessage = "Please indicate head tube length - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.headTubeAngle == undefined) {
-      alert("Please indicate head tube angle - all fields are required");
+      errorMessage = "Please indicate head tube angle - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.stack == undefined) {
-      alert("Please indicate stack measure - all fields are required");
+      errorMessage = "Please indicate stack measure - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.reach == undefined) {
-      alert("Please indicate reach measure - all fields are required");
+      errorMessage = "Please indicate reach measure - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.wheelBase == undefined) {
-      alert("Please indicate wheel base measure - all fields are required");
+      errorMessage = "Please indicate wheel base measure - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.chainstayLength == undefined) {
-      alert("Please indicate chainstay length - all fields are required");
+      errorMessage = "Please indicate chainstay length - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.bbDrop == undefined) {
-      alert("Please indicate BB Drop - all fields are required");
+      errorMessage = "Please indicate BB Drop - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.axleToCrown == undefined) {
-      alert("Please indicate axle to crown measure - all fields are required");
+      errorMessage = "Please indicate axle to crown measure - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.mechanicalTrail == undefined) {
-      alert("Please indicate mechanical trail measure - all fields are required");
+      errorMessage = "Please indicate mechanical trail measure - all fields are required";
+      $scope.showErrorToast();
     } else if (objectToSend.forkOffset == undefined) {
-      alert("Please indicate fork offset - all fields are required");
+      errorMessage = "Please indicate fork offset - all fields are required";
+      $scope.showErrorToast();
     } else {
     console.log('object to send:', objectToSend);
     //hide submit, show update and pdf
@@ -254,6 +281,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
       }).then(function successCallback(response){
         console.log('back from server with:', response.data);
         sessionStorage.setItem('formThree', JSON.stringify(response.data));
+        $scope.showSimpleToast();
       }, function errorCallback(response) {
         console.log('err');
     });// end http call
@@ -263,7 +291,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
   ////////////////FORM 3 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormThree = function(){
     console.log('complete clicked');
-    $scope.showUpdateToast();
+
     //show update
     $scope.hideUpdate = true;
     //hide save
@@ -309,6 +337,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
     }).then(function(editForm3Response){
       console.log('success from server', editForm3Response);
       sessionStorage.setItem('formThree', JSON.stringify(editForm3Response.data));
+      $scope.showUpdateToast();
     });
   }; //End saveFormThree
 

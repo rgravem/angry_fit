@@ -16,6 +16,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast',
   // };
 
   //toast set Up
+  var errorMessage;
   $scope.toastPosition = {
     bottom: false,
     top: true,
@@ -44,6 +45,16 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast',
       .content("Existing Fit form updated.")
       .position($scope.getToastPosition())
       .hideDelay(2500)
+    );
+  };
+
+  $scope.showErrorToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content(errorMessage)
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+      .toastClass("error")
     );
   };
 
@@ -99,7 +110,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast',
 
   $scope.addFormOne = function () {
     console.log('in AddFormOne button click');
-    $scope.showSimpleToast();
+
     var formOneObject = {
       employeeCreated: employee,
       bikeId: bike.bikeid,
@@ -127,43 +138,62 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast',
     };
     checkmarkService.existingFitSubmitted();
     if (formOneObject.injuries == undefined) {
-      alert("Please indicate any injuries - all fields are required");
+      errorMessage = "Please indicate any injuries - all fields are required";
+      $scope.showErrorToast();
     } else if (formOneObject.complaints == undefined){
-      alert("Please indicate any complaints - all fields are required");
+      errorMessage = "Please indicate any complaints - all fields are required";
+      $scope.showErrorToast();
     } else if( formOneObject.surgeries == undefined){
-      alert("Please indicate any surgeries - all fields are required");
+      errorMessage = "Please indicate any surgeries - all fields are required";
+      $scope.showErrorToast();
     } else if( formOneObject.averageRideLength == undefined){
-      alert("Please indicate average ride length - all fields are required");
+      errorMessage = "Please indicate average ride length - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.upcomingRaces == undefined){
-      alert("Please indicate any upcoming races - all fields are required");
+      errorMessage = "Please indicate any upcoming races - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.currentBikeBrand == undefined){
-      alert("Please indicate current bike brand - all fields are required");
+      errorMessage = "Please indicate current bike brand - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.saddleHeight == undefined){
-      alert("Please indicate saddle height - all fields are required");
+      errorMessage = "Please indicate saddle height - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.saddleHeightOverBars == undefined){
-      alert("Please indicate saddle height over bars - all fields are required");
+      errorMessage = "Please indicate saddle height over bars - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.saddleAngle == undefined){
-      alert("Please indicate saddle angle - all fields are required");
+      errorMessage = "Please indicate saddle angle - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.saddleSetback == undefined){
-      alert("Please indicate saddle set back - all fields are required");
+      errorMessage = "Please indicate saddle set back - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.SaddlehandlebarReach == undefined){
-      alert("Please indicate saddle to handlebar reach - all fields are required");
+      errorMessage = "Please indicate saddle to handlebar reach - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.stemLength == undefined){
-      alert("Please indicate stem length - all fields are required");
+      errorMessage = "Please indicate stem length - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.stemAngle == undefined){
-      alert("Please indicate stem angle - all fields are required");
+      errorMessage = "Please indicate stem angle - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.handlebarWidth == undefined){
-      alert("Please indicate handle bar width - all fields are required");
+      errorMessage = "Please indicate handle bar width - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.handlebarBrand == undefined){
-      alert("Please indicate handlebarBrand - all fields are required");
+      errorMessage = "Please indicate handlebarBrand - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.pedalBrandModel == undefined){
-      alert("Please indicate pedal brand model - all fields are required");
+      errorMessage = "Please indicate pedal brand model - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.shoeBrand == undefined){
-      alert("Please indicate shoe brand - all fields are required");
+      errorMessage = "Please indicate shoe brand - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.brakeLevel == undefined){
-      alert("Please indicate brake level position - all fields are required");
+      errorMessage = "Please indicate brake level position - all fields are required";
+      $scope.showErrorToast();
     } else if(formOneObject.crankLength == undefined){
-      alert("Please indicate crank length - all fields are required");
+      errorMessage = "Please indicate crank length - all fields are required";
+      $scope.showErrorToast();
     } else {
     console.log('formOneObject to send to DB:', formOneObject);
     //hide submit, show update and pdf
@@ -178,13 +208,14 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast',
     }).then(function(formOneObject){
       sessionStorage.setItem('formOne', JSON.stringify(formOneObject.data));
       console.log('success from server', formOneObject);
+      $scope.showSimpleToast();
     });
   }
   }; // end addFormOne
 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormOne = function(){
-    $scope.showUpdateToast();
+
     console.log('in saveFormOne');
     //show update
     $scope.hideUpdate = true;
@@ -233,7 +264,7 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast',
     }).then(function(editForm1Response){
       sessionStorage.setItem('formOne', JSON.stringify(editForm1Response.data));
       console.log('success from server', editForm1Response);
-
+      $scope.showUpdateToast();
     });
   }; //End saveFormOne
 

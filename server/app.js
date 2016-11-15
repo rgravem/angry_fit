@@ -7,7 +7,16 @@ var bpJason = bodyParser.json();
 var path = require('path');
 var port = process.env.PORT || 3000;
 var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/angryFit';
+var connectionString = '';
+
+if(process.env.DATABASE_URL !== undefined) {
+    console.log('env connection string');
+    connectionString = process.env.DATABASE_URL;
+    pg.defaults.ssl = true;
+} else {
+    connectionString = 'postgres://localhost:5432/angryFit';
+}
+
 
 app.use( express.static( 'public' ) );
 app.use(bpJason);

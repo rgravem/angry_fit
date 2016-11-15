@@ -11,6 +11,8 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
 
 
   //toast set Up
+  var errorMessage;
+
   $scope.toastPosition = {
     bottom: false,
     top: true,
@@ -41,6 +43,14 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
       .hideDelay(2500)
     );
   };
+  $scope.showErrorToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content(errorMessage)
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
 
   $scope.date= new Date();
   $scope.showHideSubmitFormTwo = true;
@@ -49,7 +59,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
 
     // focus / blur properties for inputs
    $scope.saddleHeightFocus = function(){
-     document.getElementById("saddleHeightMeasure").className.baseVal = "showMeasurement fadeIn";
+     document.getElementById("saddleHeightMeasure").className.baseVal = "showMeasurement";
    };
    $scope.saddleHeightBlur= function(){
      document.getElementById("saddleHeightMeasure").className.baseVal = "hideMeasurement";
@@ -178,7 +188,6 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
   $scope.submitButton();
 
   $scope.addForm2NewFit = function () {
-    $scope.showSimpleToast();
     console.log('in addForm2NewFit');
     var addForm2NewFitObject = {
       employeeCreated: employee,
@@ -204,31 +213,44 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
     };
     checkmarkService.newFitSubmitted();
     if (addForm2NewFitObject.saddleHeight == undefined) {
-        alert("Please indicate saddle height - all fields are required");
+        errorMessage = "Please indicate saddle height - all fields are required";
+          $scope.showErrorToast();
     } else if (addForm2NewFitObject.saddleHeightOverBars == undefined) {
-      alert("Please indicate saddle height over bars - all fields are required");
+      errorMessage = "Please indicate saddle height over bars - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.saddleToHandlebarReach == undefined) {
-      alert("Please indicate saddle to handlebar reach - all fields are required");
+      errorMessage = "Please indicate saddle to handlebar reach - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.saddleAngle == undefined) {
-      alert("Please indicate saddle angle - all fields are required");
+      errorMessage = "Please indicate saddle angle - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.saddleForeAft == undefined) {
-      alert("Please indicate saddle fore-aft - all fields are required");
+      errorMessage = "Please indicate saddle fore-aft - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.saddleBrandAndWidth == undefined) {
-      alert("Please indicate saddle brand and width - all fields are required");
+      errorMessage = "Please indicate saddle brand and width - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.stemLength == undefined) {
-      alert("Please indicate stem length - all fields are required");
+      errorMessage = "Please indicate stem length - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.handleBarWidth == undefined) {
-      alert("Please indicate handle bar width - all fields are required");
+      errorMessage = "Please indicate handle bar width - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.handleBarBrandAndModel == undefined){
-      alert("Please indicate handle bar brand and model - all fields are required");
+      errorMessage = "Please indicate handle bar brand and model - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.brakeLevelPosition == undefined){
-      alert("Please indicate brake level position - all fields are required");
+      errorMessage = "Please indicate brake level position - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.crankLength == undefined){
-      alert("Please indicate crank length - all fields are required");
+      errorMessage = "Please indicate crank length - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.standover == undefined){
-      alert("Please indicate standover - all fields are required");
+      errorMessage = "Please indicate standover - all fields are required";
+      $scope.showErrorToast();
     } else if (addForm2NewFitObject.stack == undefined){
-      alert("Please indicate stack - all fields are required");
+      errorMessage = "Please indicate stack - all fields are required";
+      $scope.showErrorToast();
     } else {
         console.log('addForm2NewFitObject to send to DB:', addForm2NewFitObject);
       //hide submit, show update and pdf
@@ -242,6 +264,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
     }).then(function(form2Response){
       console.log('success from server', form2Response);
       sessionStorage.setItem('formTwo', JSON.stringify(form2Response.data));
+      $scope.showSimpleToast();
     });
   }
   };
@@ -249,7 +272,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
   ////////////////FORM 2 PUT(Update) Route to DB///////////////////////////////////////
   $scope.saveFormTwo = function(){
     console.log('complete clicked');
-    $scope.showUpdateToast();
+
     //show update
     $scope.hideUpdate = true;
     //hide save
@@ -293,6 +316,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
     }).then(function(editForm2Response){
       console.log('success from server', editForm2Response);
       sessionStorage.setItem('formTwo', JSON.stringify(editForm2Response.data));
+      $scope.showUpdateToast();
     });
   }; //End saveFormTwo
 

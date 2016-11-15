@@ -260,7 +260,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
   $scope.submitFormFour = function(){
     console.log("In Submit Form Four");
     console.log($scope.customOrStandardFork);
-    $scope.showSimpleToast();
+
     //initialize frame options array
     $scope.frameOptions=[];
     // initialize fork varaiable
@@ -434,6 +434,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
     }).then(function(form4Response){
       console.log('success from server', form4Response);
       sessionStorage.setItem('formFour', JSON.stringify(form4Response.data));
+      $scope.showSimpleToast();
     });
   }; //End submitFormFour
 
@@ -442,7 +443,6 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
   $scope.saveFormFour = function(){
     console.log("In Update Form Four");
     console.log($scope.customOrStandardFork);
-    $scope.showUpdateToast();
     //show update
     $scope.hideUpdateFour = true;
     //hide save
@@ -625,6 +625,7 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
     }).then(function(editForm4Response){
       console.log('success from server', editForm4Response);
       sessionStorage.setItem('formFour', JSON.stringify(editForm4Response.data));
+      $scope.showUpdateToast();
     });
   }; //End saveFormFour
 

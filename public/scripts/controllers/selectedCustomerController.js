@@ -1,6 +1,6 @@
 myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', '$mdToast', '$animate', function($scope, $http, $location, $mdToast, $animate){
   console.log('In selectedCustomerController');
-
+  var bikeIcon;
   //toast set Up
   $scope.toastPosition = {
     bottom: false,
@@ -153,11 +153,26 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
     if ($scope.newBikeName == undefined) {
       alert('Please name the new bike!');
     } else {
+      console.log("this is bike style:", $scope.newBikeStyle);
+      if($scope.newBikeStyle == "Tri/TT"){
+        bikeIcon = "./assets/angry_Icons/angry_TT.png";
+      }
+      else if($scope.newBikeStyle == "Flat Bar"){
+        bikeIcon = "./assets/angry_Icons/angry_mountain.png";
+      }
+      else if($scope.newBikeStyle == "Drop Bar"){
+        bikeIcon = "./assets/angry_Icons/angry_road.png";
+      }
+      else{
+        bikeIcon = "./assets/angry_Icons/acf_logo.png";
+      }
+
 
     var newBike = {
       bikeName: $scope.newBikeName,
       bikeStyle: $scope.newBikeStyle,
       customerID: obj.customerid,
+      bikeIcon: bikeIcon
     };
     $http({
       method: 'POST',

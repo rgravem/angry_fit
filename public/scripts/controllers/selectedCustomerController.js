@@ -18,12 +18,21 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
   $scope.showSimpleToast = function(){
     $mdToast.show(
       $mdToast.simple()
-      .content("Updates have been saved.")
+      .content("Updates have been saved!")
       .position($scope.getToastPosition())
       .hideDelay(2500)
     );
   };
 
+  $scope.showErrorToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content(errorMessage)
+      .position($scope.getToastPosition())
+      .hideDelay(5000)
+      .toastClass("error")
+    );
+  };
 
   if (localStorage.employee == undefined){
     alert("You must have a valid login");
@@ -94,15 +103,9 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
 
 ///////////////////////////////Edit customer Info///////////////////////////////////////
   $scope.saveExistingCustomer = function () {
+    var string = $scope.lastName;
+    var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
     console.log("in editCustomerInfo");
-    $scope.showSimpleToast();
-    //show update
-    //show update
-    $scope.showHideUpdateCustomer = false;
-    //hide save
-    $scope.showSave = false;
-    // lock form
-    $scope.submittedSelectedCustomer = true;
 
     var editCustomerObject = {
       firstName: $scope.firstName,
@@ -119,21 +122,56 @@ myApp.controller("selectedCustomerController", ['$scope', '$http', '$location', 
 
     console.log("editCustomerObject", editCustomerObject);
 
-    $http({
-      method: 'PUT',
-      url: '/editExistingCustomer',
-      data: editCustomerObject
-    }).then(function(editCustomerResponse){
-      console.log('success from DB', editCustomerResponse);
-      console.log('customer info from other page:', obj);
-      //write over the #custInfo dom element to properly display the edited customer
-      var customer = angular.element(document.querySelector( '#custInfo' ) );
-      customer.html(editCustomerResponse.data[0].firstname + " " + editCustomerResponse.data[0].lastname + '</br>' + editCustomerResponse.data[0].email + '</br>' + editCustomerResponse.data[0].phonenumber + '</br>' + editCustomerResponse.data[0].streetaddress + ", " + editCustomerResponse.data[0].zip );
-      //set session data to equal the edited customer's new info
-      sessionStorage.setItem('customer', JSON.stringify(editCustomerResponse.data[0]));
-      obj = JSON.parse(sessionStorage.getItem('customer'));
-      console.log(obj);
-    });
+    var editExistingCustomerCall = function(){
+      $http({
+        method: 'PUT',
+        url: '/editExistingCustomer',
+        data: editCustomerObject
+      }).then(function(editCustomerResponse){
+        $scope.showSimpleToast();
+        console.log('success from DB', editCustomerResponse);
+        console.log('customer info from other page:', obj);
+        //write over the #custInfo dom element to properly display the edited customer
+        var customer = angular.element(document.querySelector( '#custInfo' ) );
+        customer.html(editCustomerResponse.data[0].firstname + " " + editCustomerResponse.data[0].lastname + '</br>' + editCustomerResponse.data[0].email + '</br>' + editCustomerResponse.data[0].phonenumber + '</br>' + editCustomerResponse.data[0].streetaddress + ", " + editCustomerResponse.data[0].zip );
+        //set session data to equal the edited customer's new info
+        sessionStorage.setItem('customer', JSON.stringify(editCustomerResponse.data[0]));
+        obj = JSON.parse(sessionStorage.getItem('customer'));
+        console.log(obj);
+      });
+    };
+
+    var checkForSpecialChar = function(string){
+      console.log('string,', string);
+     for(i = 0; i < specialChars.length;i++){
+       if(string.indexOf(specialChars[i]) > -1){
+          console.log("true");
+          return true;
+        }
+     }
+     console.log("false");
+     return false;
+    };
+
+    //if there is no special character, you are good to run the HTTP Post Route
+    if(checkForSpecialChar(string) == false){
+      //show update
+      //show update
+      $scope.showHideUpdateCustomer = false;
+      //hide save
+      $scope.showSave = false;
+      // lock form
+      $scope.submittedSelectedCustomer = true;
+      editExistingCustomerCall();
+      //if there is a special character issue
+      } else {
+        // alert("Searches only accept a-z, A-Z, or 0-9");
+        errorMessage = "Last Name Only Accepts a-z, A-Z, or 0-9";
+        $scope.showErrorToast();
+      }
+
+    checkForSpecialChar(string);
+
   };
 
   ///////////////////////////////Update Form///////////////////////////////////////

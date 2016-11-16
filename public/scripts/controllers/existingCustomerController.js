@@ -1,5 +1,40 @@
-myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArray', '$firebaseAuth', '$location', function($scope, $http, $firebaseArray, $firebaseAuth, $location){
+myApp.controller("existingCustomerController", ['$scope', '$http', '$mdToast', '$firebaseArray', '$firebaseAuth', '$location', function($scope, $http, $mdToast, $firebaseArray, $firebaseAuth, $location){
   console.log('In existingCustomerController');
+
+
+  //toast set Up
+  var errorMessage;
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function(){
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos){return $scope.toastPosition[pos];})
+      .join(' ');
+  };
+
+  $scope.showSuccessToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content(errorMessage)
+      .position($scope.getToastPosition())
+      .hideDelay(2500)
+    );
+  };
+
+  $scope.showErrorToast = function(){
+    $mdToast.show(
+      $mdToast.simple()
+      .content(errorMessage)
+      .position($scope.getToastPosition())
+      .hideDelay(5000)
+      .toastClass("error")
+    );
+  };
 
   $scope.verifyEmployee = function(){
     console.log("hit verify employee");
@@ -46,17 +81,48 @@ myApp.controller("existingCustomerController", ['$scope', '$http', '$firebaseArr
 
   $scope.getExistingCustomers();
 
-  $scope.searchCustomer = function(){
-    console.log('search button clicked sent:', $scope.customer);
-    $http({
-      method: 'GET',
-      url: '/customer?q=' + $scope.customer,
-    }).then(function successCallback(response){
-      console.log('back with:', response.data);
-      $scope.existingCustomers = response.data;
-    }, function errorCallback(response){
-      console.log(response);
-    }); // end query call
-  }; // end search
 
+/////////////////////Search for Customer//////////////////////////////////
+  $scope.searchCustomer = function(){
+    var string = $scope.customer;
+    var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
+
+    console.log('search button clicked sent:', $scope.customer);
+    var searchCustomerCall = function(){
+      $http({
+        method: 'GET',
+        url: '/customer?q=' + $scope.customer,
+      }).then(function successCallback(response){
+        console.log('back with:', response.data);
+        $scope.existingCustomers = response.data;
+      }, function errorCallback(response){
+        console.log(response);
+      }); // end query call
+    };
+
+    var checkForSpecialChar = function(string){
+      console.log('string,', string);
+     for(i = 0; i < specialChars.length;i++){
+       if(string.indexOf(specialChars[i]) > -1){
+          console.log("true");
+          return true;
+        }
+     }
+     console.log("false");
+     return false;
+    };
+
+    if(checkForSpecialChar(string) == false){
+      errorMessage = "Searching for " +  '"' + string + '"';
+      $scope.showSuccessToast();
+      searchCustomerCall();
+      } else {
+        // alert("Searches only accept a-z, A-Z, or 0-9");
+        errorMessage = "Searches only accept a-z, A-Z, or 0-9";
+        $scope.showErrorToast();
+      }
+
+    checkForSpecialChar(string);
+
+  }; // end search
 }]);//end existingCustomerController

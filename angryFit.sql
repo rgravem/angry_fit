@@ -35,7 +35,8 @@ CREATE TABLE bikes (
 	bikeID SERIAL PRIMARY KEY NOT NULL,
 	customerID INT REFERENCES customers(customerID),
 	bikeName VARCHAR(100),
-	bikeType VARCHAR (50)
+	bikeType VARCHAR (50),
+	bikeIcon VARCHAR (50)
 	);
 
 

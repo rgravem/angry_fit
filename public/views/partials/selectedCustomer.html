@@ -72,7 +72,7 @@
           </md-card-content>
         </md-card>
         <md-card class="customerBike" style="width: 200px;" ng-repeat="bike in customerBikes" ng-click="cardClicked(bike)">
-          <img src="./assets/angry_Icons/angry_mountain.png" class="md-card-image" alt="user avatar">
+          <img ng-src="{{bike.bikeicon}}" class="md-card-image" alt="user avatar">
           <md-card-content>
             <h3>{{bike.bikename}}</h3>
             <h3>{{bike.biketype}}</h3>
@@ -98,7 +98,7 @@
     <md-radio-group ng-model="newBikeStyle">
       <div layout-gt-sm="row">
         <md-radio-button value="Flat Bar" name="bikeType" ng-click="bikeStyleSelected()">Flat bar</md-radio-button>
-        <md-radio-button value="Drop bar" name="bikeType" ng-click="bikeStyleSelected()">Drop bar</md-radio-button>
+        <md-radio-button value="Drop Bar" name="bikeType" ng-click="bikeStyleSelected()">Drop bar</md-radio-button>
         <md-radio-button value="Tri/TT" name="bikeType" ng-click="bikeStyleSelected()">Tri/TT</md-radio-button>
         <md-radio-button value="" name="bikeType" ng-click="otherSelected()">Other</md-radio-button>
       </div>

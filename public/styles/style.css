@@ -31,6 +31,11 @@ md-radio-button{
 md-content{
   overflow-x: hidden;
 }
+svg{
+  margin-left:5%;
+  width: 90%;
+  height:auto;
+}
 .md-input{
   font-family: GothamMedium;
   color:#361d10;
@@ -245,17 +250,6 @@ md-nav-bar md-nav-ink-bar {
   background: #e54735;
 }
 
-.formTwoBikeImage{
-  margin-top: -5%;
-  margin-left: -2%;
-  margin-bottom: 5%;
-
-}
-.formThreeBikeImage{
-  margin-top: -5%;
-  margin-left: -9%;
-  margin-bottom: 5%;
-}
 
 #formOneIcon{
 display: block;

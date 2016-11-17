@@ -715,7 +715,7 @@ app.post('/addBike', function(req, res){
     } else {
       console.log('in db from addBike');
       var newBikeIn = [];
-      client.query('INSERT INTO bikes (customerID, bikeName, bikeType) VALUES ($1, $2, $3);', [req.body.customerID, req.body.bikeName, req.body.bikeStyle]);
+      client.query('INSERT INTO bikes (customerID, bikeName, bikeType, bikeIcon) VALUES ($1, $2, $3, $4);', [req.body.customerID, req.body.bikeName, req.body.bikeStyle, req.body.bikeIcon]);
       var queryResults = client.query('SELECT * FROM bikes ORDER BY bikeid DESC LIMIT 1');
       queryResults.on("row", function(row){
         newBikeIn.push(row);

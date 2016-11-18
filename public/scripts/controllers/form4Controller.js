@@ -51,13 +51,6 @@ myApp.controller("form4Controller", ['$scope', '$http', '$location','$mdToast','
   // hide Save
   $scope.showSaveFour = false;
 
-  // $scope.verifyEmployee = function(){
-  //   console.log("hit verify employee");
-  //   if (sessionStorage.employee == undefined){
-  //     alert("You must have a valid login");
-  //     $location.path('/login');
-  //   }
-  // };
 
   // show bottom bracket other
   $scope.showBottomBracketOther = false;

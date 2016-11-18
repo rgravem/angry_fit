@@ -82,15 +82,18 @@ myApp.controller("navController", ['$scope', '$http', '$firebaseArray', '$fireba
   $scope.logOut = function(){
     auth.$signOut().then(function(){
       console.log('Logging the user out!');
+      // clear all storage when logs out to ensure no carry over data
       sessionStorage.clear();
       localStorage.clear();
-      window.location.href = "https://accounts.google.com/logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:3000/#/login";
+      // reroute location needs to be changed after "continue" to the permanent web address
+      window.location.href = "https://accounts.google.com/logout?continue=https://appengine.google.com/_ah/logout?continue=https://angry-fit.herokuapp.com/#/login";
       $location.path('/login');
     });
   };
 
 
   $scope.startOver = function(){
+    // clears only current customer information from session storage, keeps employee data
     $location.path('/customerType');
     sessionStorage.removeItem('customer');
     sessionStorage.removeItem('customerBikes');

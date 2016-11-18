@@ -1,5 +1,5 @@
 myApp.service('checkmarkService', function(){
-
+// appends checkmarks next to form names on existing bike view
   var existingFitSubmitted= function(){
     document.getElementById("checkmark1").innerHTML = '<md-icon class="material-icons md-22" style="color: #002f54;"> done </md-icon>';
     return;

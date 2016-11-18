@@ -1,14 +1,6 @@
 myApp.controller("addEmployeeController", ['$scope', '$http', '$location', function($scope, $http, $location){
   console.log('In addEmployeeController');
-
-  // $scope.verifyEmployee = function(){
-  //   console.log("hit verify employee");
-  //   if (localStorage.employee == undefined){
-  //     alert("You must have a valid login");
-  //     $location.path('/login');
-  //   }
-  // };
-
+// hidden view to add employees
   $scope.addNewEmployee = function () {
     var newEmployeeObject = {
       firstName: $scope.firstName,

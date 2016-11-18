@@ -332,22 +332,7 @@ myApp.controller("form2Controller", ['$scope', '$http', '$location','$mdToast', 
     $scope.submittedTwo=false;
   };
 
-  // // save form 2 on click
-  // $scope.saveFormTwo= function(){
-  //     //show update
-  //     $scope.hideUpdate = true;
-  //     //hide save
-  //     $scope.showSaveTwo = false;
-  //     // lock form
-  //     $scope.submittedTwo=true;
-  // };
 
-  //
-  // $scope.updateFormTwo = function(){
-  //   //reset form to submit staus
-  //   $scope.submittedTwo = false;
-  //   $scope.showHideSubmitFormTwo = true;
-  // };
 
   $scope.downloadFormTwoPdf = function(){
     console.log("In the PDF click");

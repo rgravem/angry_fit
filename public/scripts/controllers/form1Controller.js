@@ -7,13 +7,6 @@ myApp.controller("form1Controller", ['$scope', '$http', '$location', '$mdToast',
   var formOne = JSON.parse(sessionStorage.getItem('formOne'));
   var obj = JSON.parse(sessionStorage.getItem('customer'));
 
-  // $scope.verifyEmployee = function(){
-  //   console.log("hit verify employee");
-  //   if (sessionStorage.employee == undefined){
-  //     alert("You must have a valid login");
-  //     $location.path('/login');
-  //   }
-  // };
 
   //toast set Up
   var errorMessage;

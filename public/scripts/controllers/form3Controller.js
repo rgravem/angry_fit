@@ -352,21 +352,7 @@ myApp.controller("form3Controller", ['$scope', '$http', '$location','$mdToast', 
     $scope.submittedThree=false;
   };
 
-  // // save form 3 on click
-  // $scope.saveFormThree= function(){
-  //     //show update
-  //     $scope.hideUpdate = true;
-  //     //hide save
-  //     $scope.showSaveThree = false;
-  //     // lock form
-  //     $scope.submittedThree=true;
-  // };
 
-  // $scope.updateFormThree = function(){
-  //   //reset form to submit staus
-  //   $scope.submittedThree = false;
-  //   $scope.showHideSubmitFormThree = true;
-  // };
   $scope.downloadFormThreePdf = function(){
     console.log("In the PDF click");
     var docDefinition =

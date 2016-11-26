@@ -10,3 +10,9 @@ Technologies used:
 * Express
 * Firebase
 * SVG images
+
+ Features
+ ========
+ * Authentication through google
+ * Customer database with bike fit data associated with specific customers
+ * ....
